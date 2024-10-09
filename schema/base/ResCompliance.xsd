@@ -506,6 +506,15 @@
          <xsd:enumeration value="ReqYes"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="AirsideOperationGuideline36GoalsOPR">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>OPR Airside HVAC Guideline 36 Goals</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="AllExtraPowerAllowedForArea">
       <xsd:annotation>
          <xsd:documentation>  Units: W</xsd:documentation>
@@ -20766,6 +20775,15 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>OPR Water Heating System Uses Goals</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WatersideOperationGuideline36GoalsOPR">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>OPR Waterside HVAC Guideline 36 Goals</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:token">
