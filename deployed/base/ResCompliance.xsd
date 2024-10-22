@@ -3910,31 +3910,23 @@ Document Data</dtyp:displayterm>
    <xsd:simpleType name="CompliantLightSource">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="CFL_NoMedScrewSockets">Compact fluorescent  w/o med. screw based sockets</dtyp:displayterm>
-            <dtyp:displayterm value="FluorescentWithGTE80CRI_OrGTE20kHzBallast">Fluorescent + CRI 
-               <d:gte/> 80 OR Elec ballast output freq. 
-               <d:gte/> 20kHz</dtyp:displayterm>
-            <dtyp:displayterm value="HighPressureSodium">High Pressure Sodium Lamps</dtyp:displayterm>
             <dtyp:displayterm value="LED_PowerSupplyGTE80percentEfficient">LED + pwr supply 80%+ eff.</dtyp:displayterm>
-            <dtyp:displayterm value="MetalHalideBallastGTE80PercentEfficient">Metal halide (pulse start that are 320 watts or smaller, are not 250 watt or 175 watt lamps) + ballast  80%+ eff.</dtyp:displayterm>
-            <dtyp:displayterm value="MetalHalideBallastGTE88PercentEfficient">Metal halide lamps (pulse start or ceramic) + ballast  88%+ eff.</dtyp:displayterm>
             <dtyp:displayterm value="NeonOrColdCathodeWithPowerGTE68PercentEfficient">Neon/cold cathode + trans./pwr (of supply output current 
                <d:gte/>50mA) 68%+ eff.</dtyp:displayterm>
             <dtyp:displayterm value="NeonOrColdCathodeWithPowerGTE75PercentEfficient">Neon/cold cathode + trans./pwr (of supply output current 
                <d:lt/>50mA) 75%+ eff.</dtyp:displayterm>
             <dtyp:displayterm value="T20CompliantSingleVoltageExternalPower">NA: Title 20 compliant single voltage extrnl pwr supply</dtyp:displayterm>
+            <dtyp:displayterm value="T20CompliantTrafficSigns">NA: Traffics signs that are Title 20 compliant</dtyp:displayterm>
+            <dtyp:displayterm value="T20CompliantExitSigns">NA: Exit signs that are Title 20 compliant</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="CFL_NoMedScrewSockets"/>
-         <xsd:enumeration value="FluorescentWithGTE80CRI_OrGTE20kHzBallast"/>
-         <xsd:enumeration value="HighPressureSodium"/>
          <xsd:enumeration value="LED_PowerSupplyGTE80percentEfficient"/>
-         <xsd:enumeration value="MetalHalideBallastGTE80PercentEfficient"/>
-         <xsd:enumeration value="MetalHalideBallastGTE88PercentEfficient"/>
          <xsd:enumeration value="NeonOrColdCathodeWithPowerGTE68PercentEfficient"/>
          <xsd:enumeration value="NeonOrColdCathodeWithPowerGTE75PercentEfficient"/>
          <xsd:enumeration value="T20CompliantSingleVoltageExternalPower"/>
+         <xsd:enumeration value="T20CompliantTrafficSigns"/>
+         <xsd:enumeration value="T20CompliantExitSigns"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="CompliantSectionF">
@@ -7750,14 +7742,12 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="ControlNoteMissingInF">Table F. indicates a control requiring a note describing the compliance approach, but no notes have been entered.</dtyp:displayterm>
             <dtyp:displayterm value="ControlNoteMissingInG">Table G. indicates a control requiring a note describing the compliance approach, but no notes have been entered.</dtyp:displayterm>
-            <dtyp:displayterm value="ControlNoteMissingInH">Table H. indicates a control requiring a note describing the compliance approach, but no notes have been entered.</dtyp:displayterm>
             <dtyp:displayterm value="UserChangedSelectionInCI">Selections made in Certificates of Installation Table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="ControlNoteMissingInF"/>
          <xsd:enumeration value="ControlNoteMissingInG"/>
-         <xsd:enumeration value="ControlNoteMissingInH"/>
          <xsd:enumeration value="UserChangedSelectionInCI"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -11793,6 +11783,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="SignageNA">NA: Signage</dtyp:displayterm>
             <dtyp:displayterm value="StructuresNA">NA: Facade, monument, statue, bridge, public art</dtyp:displayterm>
             <dtyp:displayterm value="TempLightNA">NA: Temporary Lighting</dtyp:displayterm>
+            <dtyp:displayterm value="CalGreenNA">NA: Luminaire exempt from CalGreen 5.106.8 and 140.7(a)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -11808,6 +11799,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="SignageNA"/>
          <xsd:enumeration value="StructuresNA"/>
          <xsd:enumeration value="TempLightNA"/>
+         <xsd:enumeration value="CalGreenNA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LuminaireSpecSource">
@@ -12352,8 +12344,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AthleticNA">NA: Athletic Fields/Playgrounds Lighting</dtyp:displayterm>
-            <dtyp:displayterm value="FacadeLTE24Ft">NA: Facade, etc. 
-               <d:lt/>24 ft</dtyp:displayterm>
+            <dtyp:displayterm value="FacadeNA">NA: Facade</dtyp:displayterm>
             <dtyp:displayterm value="GTE24Ft">NA: 
                <d:gte/>24 ft</dtyp:displayterm>
             <dtyp:displayterm value="HistoricBuildingNA">NA: Historical Building Lighting</dtyp:displayterm>
@@ -12377,11 +12368,13 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="ThemeParkNA">NA: Theme Park Special Effect Lighting</dtyp:displayterm>
             <dtyp:displayterm value="TimeOutNA">H&amp;amp;LS: time-out period longer than 15 minutes/ dimming level above 50 percent</dtyp:displayterm>
             <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
+            <dtyp:displayterm value="OrnamentalNA">NA: Ornamental</dtyp:displayterm>
+            <dtyp:displayterm value="OutdoorDiningNA">NA: Outdoor Dining</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AthleticNA"/>
-         <xsd:enumeration value="FacadeLTE24Ft"/>
+         <xsd:enumeration value="FacadeNA"/>
          <xsd:enumeration value="GTE24Ft"/>
          <xsd:enumeration value="HistoricBuildingNA"/>
          <xsd:enumeration value="IndustrialNA"/>
@@ -12401,6 +12394,8 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="ThemeParkNA"/>
          <xsd:enumeration value="TimeOutNA"/>
          <xsd:enumeration value="TunnelsNA"/>
+         <xsd:enumeration value="OrnamentalNA"/>
+         <xsd:enumeration value="OutdoorDiningNA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="MountingHeightRangeBUG">
@@ -17990,6 +17985,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="2016">2016</dtyp:displayterm>
             <dtyp:displayterm value="2019">2019</dtyp:displayterm>
             <dtyp:displayterm value="2022">2022</dtyp:displayterm>
+            <dtyp:displayterm value="2025">2025</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationYear">
@@ -17997,6 +17993,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:enumeration value="2016"/>
          <xsd:enumeration value="2019"/>
          <xsd:enumeration value="2022"/>
+         <xsd:enumeration value="2025"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TDV_Electricity">
@@ -18426,6 +18423,7 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
             <dtyp:displayterm value="Compliance2017">Compliance 2017</dtyp:displayterm>
             <dtyp:displayterm value="Compliance2019">Compliance 2019</dtyp:displayterm>
             <dtyp:displayterm value="Compliance2022">Compliance 2022</dtyp:displayterm>
+            <dtyp:displayterm value="Compliance2025">Compliance 2025</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -18436,6 +18434,7 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
          <xsd:enumeration value="Compliance2017"/>
          <xsd:enumeration value="Compliance2019"/>
          <xsd:enumeration value="Compliance2022"/>
+         <xsd:enumeration value="Compliance2025"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TotalContinuousAirflow">
@@ -19091,7 +19090,7 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
    <xsd:simpleType name="UseOrLoseApplicationType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="ATM">ATM Machine</dtyp:displayterm>
+            <dtyp:displayterm value="ATM">ATM</dtyp:displayterm>
             <dtyp:displayterm value="DriveupWindow">Drive up Window</dtyp:displayterm>
             <dtyp:displayterm value="EntranceExit">Building Entrance/Exit</dtyp:displayterm>
             <dtyp:displayterm value="FuelDispenser">Uncovered Fuel Dispenser</dtyp:displayterm>

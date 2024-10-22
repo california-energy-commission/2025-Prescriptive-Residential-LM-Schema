@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.000">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -198,7 +198,7 @@ End if</xsd:documentation>
             <xsd:element name="Report" type="xsd:base64Binary"/>
             <xsd:element name="ReportMMB" type="xsd:base64Binary" minOccurs="0"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220101"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="LMCCLTS01E"/>
       </xsd:complexType>
    </xsd:element>
@@ -390,12 +390,6 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]1[/d:sup]FOOTNOTE: Sign alterations that increase the connected lighting load, replace and rewire more that 50% of the ballasts, or relocate the sign to a different location must comply with  [d:t24refnolink/]140.8/ [d:t24refnolink/]170.2(e).  See [d:t24refnolink/] 141.0(b)2M/ [d:t24refnolink/]180.2(b)4Bvi for more details.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="BEndNote2" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]2[/d:sup]The ENERGY VERIFIED Label compliance method is only applicable if the sign has a permanent, factory-installed, ENERGY VERIFIED label certified by UL or comparable, confirming the sign complies with  [d:t24refnolink/]140.8/ [d:t24refnolink/]170.2(e).    Note that using an ENERGY VERIFIED label is an optional compliance path, not a mandatory requirement.  See the tooltips for this table for more details.[/d:i]</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
@@ -409,7 +403,7 @@ End If</xsd:documentation>
                   <xsd:element name="C_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i]Results in this table are automatically calculated from data input and calculations in Tables B through H.  Note: If any cell on this table says "COMPLIES with Exceptional Conditions"  refer to Table D. Exceptional Conditions for guidance or see applicable Table referenced below.[/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]Results in this table are automatically calculated from data input and calculations in Tables B through G.  Note: If any cell on this table says "COMPLIES with Exceptional Conditions"  refer to Table D. Exceptional Conditions for guidance or see applicable Table referenced below.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableComplianceResults" >
@@ -544,43 +538,11 @@ End if</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">OR</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C06_IsMethodEnergyVerifiedLabel" type="comp:IsMethodEnergyVerifiedLabel" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">ENERGY VERIFIED Label [d:line1/] (See Table H)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">For sign defined in C01_LightedSignName: 
-If B05 LightedSignPrescriptiveMethod == EnergyVerifiedLabel 
-result = true and display term is Yes; 
-
-Else If B05 LightedSignPrescriptiveMethod != EnergyVerifiedLabel,  
-result = BlankGrayedOut stored in C06_NotApplicableMessage and the cell is grayed out.
-End If</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="C06_NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">ENERGY VERIFIED Label [d:line1/] (See Table H)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">For sign defined in C01_LightedSignName: 
-If B05 LightedSignPrescriptiveMethod == EnergyVerifiedLabel 
-result = true and display term is Yes; 
-
-Else If B05 LightedSignPrescriptiveMethod != EnergyVerifiedLabel,  
-result = BlankGrayedOut stored in C06_NotApplicableMessage and the cell is grayed out.
-End If</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:NotApplicableMessage">
-                                                <xsd:enumeration value="BlankGrayedOut"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                    </xsd:choice>
                                     <xsd:element name="C07_DoesLightedSignComply" type="comp:DoesLightedSignComply" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">[d:b]Compliance Results[/d:b]</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If C03_LightedSignAllowedPower GTE  C04_LightedSignDesignedPower 
 Or If C05_IsAlternateLightSourceMethodCompliant == true 
-Or If C06 IsMethodEnergyVerifiedLabel == true then 
 result = true and display term is COMPLIES, 
 
 Else result = false and display term is DOES NOT COMPLY
@@ -589,7 +551,7 @@ End if</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="C07Controls_LightedSignControlsCompliance" type="comp:LightedSignControlsCompliance" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">[d:b]Controls Compliance (See Table F/G/H for Details)[/d:b]</xsd:documentation>
+                                          <xsd:documentation source="FieldText">[d:b]Controls Compliance (See Table F/G for Details)[/d:b]</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Section F controls:  
 If B05_LightedSignPrescriptiveMethod == MaximumAllowedPower  then 
 If any required F08a_SignShutOffControls Or F08b_SignDimmingControls Or F08c_SignDemandResponseControls  IsNull 
@@ -658,7 +620,7 @@ Display terms: If result == Compliant display term is COMPLIES; Else If result =
                                     <xsd:element name="D01_SectionTitle" type="comp:SectionTitle" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"></xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto-filled with the section title string + Permit Applicant Notes. For section F result = F. Maximum Allowed Lighting Power and Controls Permit Applicant Notes.  For section G result = G. Light Sources and Controls Permit Applicant Notes For section H result = H. Energy Verified Labeled Signs and Controls Permit Applicant Notes</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled with the section title string + Permit Applicant Notes. For section F result = F. Maximum Allowed Lighting Power and Controls Permit Applicant Notes.  For section G result = G. Light Sources and Controls Permit Applicant Notes</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D02_SectionExceptionalConditionNotes" type="comp:SectionExceptionalConditionNotes"  maxOccurs="unbounded">
@@ -1034,7 +996,7 @@ result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out;</
                                     <xsd:element name="G03_CompliantLightSource" type="comp:CompliantLightSource"  minOccurs="1" maxOccurs="unbounded">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compliant Light Sources[d:sup]1,2[/d:sup]</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects one or more light sources from a list of 9 light sources.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects one or more light sources</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="G04_Header" minOccurs="0">
