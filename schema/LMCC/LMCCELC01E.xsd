@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.000">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2025.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -34,7 +34,7 @@
             <xsd:element name="DocumentData">
                <xsd:complexType>
                   <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderHERSCC" />
+                     <xsd:element name="Header" type="comp:HeaderHERSCC"/>
                      <xsd:element ref="lMCCELC01E" />
                      <xsd:element name="Section_MandatoryMeasureBlock" minOccurs="0">
 								<xsd:annotation>
@@ -324,7 +324,7 @@ End If</xsd:documentation>
             <xsd:element name="Report" type="xsd:base64Binary"/>
             <xsd:element name="ReportMMB" type="xsd:base64Binary" minOccurs="0"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220101"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="LMCCELC01E"/>
       </xsd:complexType>
    </xsd:element>
@@ -754,18 +754,23 @@ End If</xsd:documentation>
                      <xsd:element name="C05_DoesElectricReadyMFComply" type="comp:DoesElectricReadyMFComply" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Electric Ready [d:t24refnolink/]160.9 [d:line1/] (See Table J)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If J01e_NotApplicableMessage == NotApplicableRequirement
-result = true
-Else
-J01a_SingleUnitFurnace == true And J02_Ready240V  And J03_Future240V ==false
+                           <xsd:documentation source="CalculationsAndRules">
+If J01g_NotApplicableMessage == NotApplicableRequirement
+   result = true
+Else If J01a_SingleUnitFurnace == true And (J02_Ready240V  Or J03_Future240V == false)
 Or
-J01b_SingleUnitCooktop == true  And J04_Ready240V  And J05_Future240V == false
+J01b_SingleUnitCooktop == true  And (J04_Ready240V  Or J05_Future240V == false)
 Or
-J01c_SingleUnitDryer == true And J06_Ready240V  And J07_Future240V == false
+J01c_SingleUnitDryer == true And (J06_Ready240V  Or J07_Future240V == false)
 Or
 J01d_CommonAreaDryer == true And J08_Future240V == false
-result = false
-Else result = true
+Or
+J01e_WaterHeaterIndividualDwellingUnit == true And (J09_Ready125V  Or J10_CondensateDrain Or J11_HeatPumpWHReady Or J12_WaterHeaterVentilation == false)
+Or
+J01f_WaterHeaterMultipleDwellingUnit == true And (J13_HeatPumpWHReady Or J14_WaterHeaterTankReady Or J15_WaterHeaterVentilation Or J16_CondensateDrain Or J17_HeatPumpWHReady == false)
+   result = false
+Else 
+   result = true
 End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -1384,11 +1389,12 @@ Multi-field triggers: See A02_WholeBuildingOccupancy for trigger values from thi
                                        <xsd:element name="I02_ControlledReceptacleComplianceType" type="comp:ControlledReceptacleComplianceType" maxOccurs="unbounded">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles[d:sup]1[/d:sup]</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction != AllOthers
-User selects all that apply from dropdown list: which includes ControlledReceptacleComplianceType  values :  ControlledWithin6ftOfUncontrolledReceptacle display term Within 6ft of uncontrolled receptacle, SplitWiredReceptacle display term Split-wired receptacle, ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle display term Within 6ft of uncontrolled AND Split-wired receptacle, ControlledReceptacle50PercentHotelMotel display term 50 % are controlled receptacle (hotel/motel room), 
-And includes ControlledReceptacleNA values
-
-Else BlankGrayedOutStored in I02_NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If I02a_SpaceFunction != AllOthers
+   User selects all that apply from dropdown list
+Else 
+   BlankGrayedOutStored in I02_NotApplicableMessage
+                                             </xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="I02_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" maxOccurs="unbounded">
@@ -1476,7 +1482,7 @@ result = BlankGrayedOut</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="I04_AreControlledReceptaclesPermanentlyMarked" type="comp:AreControlledReceptaclesPermanentlyMarked" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Permanent Durable Marking Will be Used</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Permanent Marking Will be Used</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">UIf I02a_SpaceFunction != AllOthers
 User input. 
 If checked result = true Else result = false
@@ -1486,7 +1492,7 @@ Else result = BlankGrayedOut stored in I04_NotApplicableMessage</xsd:documentati
                                        </xsd:element>
                                        <xsd:element name="I04_NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Permanent Durable Marking Will be Used</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Permanent Marking Will be Used</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction == AllOthers 
 result = BlankGrayedOut</xsd:documentation>
                                           </xsd:annotation>
@@ -1568,6 +1574,12 @@ result = BlankGrayedOut</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]1[/d:sup] FOOTNOTES: Receptacles dedicated to refrigerators and water dispensers in kitchens, located a minimum of 6ft above the floor specifically for clocks, network copiers, fax machines, A/V and data equipment other than personal computers in copy rooms, circuits rated more than 20 Amps, or connected to a UPS that are intended to be in continuous use and are marked to differentiate them from other receptacles or circuits are excepted from the requirements. . [/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="IEndNote2" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]1[/d:sup] Plug-in strips and other plug-in devices shall not be used to comply with the requirements of section [d:t24refnolink/]130.5(d) [/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
@@ -1614,7 +1626,19 @@ result = BlankGrayedOut</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If checked result = true else result = false</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="J01e_NotApplicableMessage" >
+                  <xsd:element name="J01e_WaterHeaterIndividualDwellingUnit" type="comp:WaterHeaterIndividualDwellingUnit" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Gas/propane water heater serving individual dwelling units</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If checked result = true else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J01f_WaterHeaterMultipleDwellingUnit" type="comp:WaterHeaterMultipleDwellingUnit" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Gas/propane water heater serving multiple dwelling units</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If checked result = true else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J01g_NotApplicableMessage" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">None of these</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If J01a_SingleUnitFurnace == false  And J01b_SingleUnitCooktop == false And J01c_SingleUnitDryer == false And J01d_CommonAreaDryer == false
@@ -1726,7 +1750,92 @@ If J01d_CommonAreaDryer == true</xsd:documentation>
                            <xsd:element name="J08_Future240V" type="comp:Future240V" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Conductors or raceway shall be installed with termination points at the main electrical panel, via subpanels panels if applicable, to a location no more than 3 feet from each gas outlet or a designated location of future electric replacement equipment. Both ends of the conductors or raceway shall be labelled "Future 240V Use."  The conductors or raceway and any intervening subpanels, panelboards, switchboards, and busbars shall be sized to meet the future electric power requirements, at the service voltage to the point at which the conductors serving the building connect to the utility distribution system, as specified below. The capacity requirements may be adjusted for demand factors in accordance with the California Electric Code. Gas flow rates shall be determined in accordance with the California Plumbing Code. Capacity shall be one of the following: [d:line1/][d:tab1/]- 24 amps at 208/240 volts per clothes dryer; [d:line1/][d:tab1/]- 2.6 kVA for each 10,000 Btu per hour of rated gas input or gas pipe capacity; or [d:line1/][d:tab1/]- The electrical power required to provide equivalent functionality of the gas-powered equipment as calculated by the responsible person</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Conductors or raceway shall be installed with termination points at the main electrical panel, via subpanels panels if applicable, to a location no more than 3 feet from each gas outlet or a designated location of future electric replacement equipment. Both ends of the conductors or raceway shall be labelled "Future 240V Use." Gas flow rates shall be determined in accordance with the California Plumbing Code. Capacity shall be one of the following: [d:line1/][d:tab1/]- 24 amps at 208/240 volts per clothes dryer; [d:line1/][d:tab1/]- 2.6 kVA for each 10,000 Btu per hour of rated gas input or gas pipe capacity; or [d:line1/][d:tab1/]- The electrical power required to provide equivalent functionality of the gas-powered equipment as calculated by the responsible person</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="WaterHeaterIndividualDwellingUnitReqs" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Gas/Propane Water Heaters Serving Individual Dwelling Units </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This section is required and displayed 
+If J01e_WaterHeaterIndividualDwellingUnit == true</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="J09_Ready125V" type="comp:Ready125V">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">A dedicated 125 volt, 20 amp electrical receptacle that is connected to the electric panel with a 120/240 volt 3 conductor branch circuit rated to 30 amps minimum, within 3 feet from the water heater and accessible to the water heater with no obstructions. In addition, all the following:[d:line1/][d:tab1/]- Both ends of the unused conductor shall be labeled with the word “spare” and be electrically isolated; and[d:line1/][d:tab1/]- A reserved single pole circuit breaker space in the electrical panel adjacent to the circuit breaker for the branch circuit in A above and labeled with the words “Future 240V Use”</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="J10_CondensateDrain" type="comp:CondensateDrain">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">A condensate drain that is no more than 2 inches higher than the base of the installed water heater, and allows natural draining without pump assistance</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="J11_HeatPumpWHReady" type="comp:HeatPumpWHReady">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">The construction drawings shall designate a space at least 39 inches by 39 inches and 96 inches tall for the future location of heat pump water heater</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="J12_WaterHeaterVentilation" type="comp:WaterHeaterVentilation" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">A ventilation method meeting one of the following:[d:line1/][d:tab1/] - The designated space for the future heat pump water heater shall have a minimum volume of 700 cubic feet; or[d:line1/][d:tab1/] - The designated space for the future heat pump water heater shall vent to a communicating space in the same pressure boundary via permanent openings with a minimum total NFA of 250 square inches., so that the total combined volume connected via permanent openings is 700 cubic feet or larger. The permanent openings shall be:[d:line1/][d:tab1/] - Fully louvered doors with fixed louvers; or[d:line1/][d:tab1/] - Two permanent fixed openings located within 12 inches from the enclosure top and bottom;[d:line1/][d:tab1/] - The designated space for the future heat pump water heater shall include two 8 inches capped ducts, venting to the building exterior:[d:line1/][d:tab1/] - All ducts, connections, and building penetrations shall be sealed.[d:line1/][d:tab1/] - Exhaust air ducts and all ducts which cross pressure boundaries shall be insulated to a minimum insulation level of R-6.[d:line1/][d:tab1/] - Airflow from termination points shall be diverted away from each other.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="WaterHeaterMultipleDwellingUnitReqs" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Gas/Propane Water Heaters Serving Multiple Dwelling Units </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This section is required and displayed 
+If J01f_WaterHeaterMultipleDwellingUnit == true</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="J13_HeatPumpWHReady" type="comp:HeatPumpWHReady">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Space shall be reserved for a Heat Pump. The minimum space reserved shall include space for service clearances and air flow clearances and shall meet one of the following:[d:line1/][d:tab1/] - The space reserved shall be the space required for a heat pump water heater system that meets the total building hot water demand as calculated and documented by the responsible person associated with the project; or [d:line1/][d:tab1/] - The space reserved shall meet the requirements specified in Joint Appendix JA15.2.1.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="J14_WaterHeaterTankReady" type="comp:WaterHeaterTankReady">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Space shall be reserved for Tanks.The minimum space reserved shall include space for service clearances and shall meet one of the following:[d:line1/][d:tab1/] - The space reserved shall be the space required for a heat pump water heater system that meets the total building hot water demand as calculated and documented by the responsible person associated with the project; or [d:line1/][d:tab1/] - The space reserved shall meet the requirements specified in Joint Appendix JA15.2.2.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="J15_WaterHeaterVentilation" type="comp:WaterHeaterVentilation">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Ventilation shall be provided by meeting one of the following: [d:line1/][d:tab1/] - Physical space reserved for the heat pump shall be located outside; or[d:line1/][d:tab1/]- A pathway shall be reserved for future routing of supply and exhaust air via ductwork from the reserved heat pump location to a suitable outdoor location. Penetrations through the building envelope for louvers and ducts shall be planned and identified for future use. The reserved pathway and penetrations through the building envelope shall be sized to meet one of the following:[d:line1/][d:tab1/] - The reserved pathway and penetrations shall be sized to serve a heat pump water heater system that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.[d:line1/][d:tab1/] - The reserved pathway and penetrations shall be sized to meet the requirements specified in Joint Appendix JA15.2.3.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="J16_CondensateDrain" type="comp:CondensateDrain" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Condensate drainage piping. An approved receptacle that is sized per the California Plumbing Code for condensate drainage shall be installed within 3 feet of the reserved heat pump location, or piping shall be installed from within 3 feet of the reserved heat pump location to an approved discharge location that is sized in accordance with the California Plumbing Code, and meet one of the following:[d:line1/][d:tab1/] - Condensate drainage shall be sized to serve a heat pump water heater system that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.[d:line1/][d:tab1/] - Condensate drainage piping shall be sized to meet the requirements specified in Joint Appendix JA15.2.4.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="J17_HeatPumpWHReady" type="comp:HeatPumpWHReady" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Physical space shall be reserved on the bus system of the main switchboard or on the bus system of a distribution board to serve the future heat pump water heater system including the heat pump and temperature maintenance tanks. In addition, the physical space reserved shall be capable of providing adequate power to the future heat pump water heater in accordance with the following:[d:line1/][d:tab1/] - Heat Pump. Meet one of the following:[d:line1/][d:tab1/][d:tab1/]- The electrical power required to power a heat pump water heater system heat pump that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.[d:line1/][d:tab1/][d:tab1/] - The electrical power required that meets the requirements specified for the heat pump in Joint Appendix JA15.2.5.[d:line1/][d:tab1/]- Temperature Maintenance Tank. Meet one of the following: [d:line1/][d:tab1/][d:tab1/] - The electrical power required to power a heat pump water heater system temperature maintenance tank that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.[d:line1/][d:tab1/][d:tab1/] - The electrical power required that meets the requirements specified for the temperature maintenance tank in Joint Appendix JA15.2.5.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
