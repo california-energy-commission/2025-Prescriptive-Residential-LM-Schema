@@ -1369,14 +1369,6 @@ If H01_MandatoryLightingDemandResponseNR IsPresent
 result = H01_MandatoryLightingDemandResponseNR
 Else result = SeePlans
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="displayterm">
-                                                                  <dtyp:displayterm value="RequiredGT10000SF">Provided</dtyp:displayterm>
-                                                                  <dtyp:displayterm value="NotRequiredLTE10000SF">NA: Building 
-                                                                     <d:lt/>10,000SF</dtyp:displayterm>
-                                                                  <dtyp:displayterm value="NotRequiredLTE0_5WperSF">NA: Space 
-                                                                     <d:lte/>0.5W/SF</dtyp:displayterm>
-                                                                  <dtyp:displayterm value="NotRequiredInstallingAsPAF">Installing As PAF</dtyp:displayterm>
-                                                               </xsd:appinfo>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTI01E" usage="copy">H01_MandatoryLightingDemandResponseNR</dtyp:srcSchema>
                                                                </xsd:appinfo>
@@ -1495,7 +1487,7 @@ User selects from dropdown list for MandatoryAreaControlsRequired
 End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
-                                                            <xsd:union memberTypes="comp:AreaControlsCompliance comp:MandatoryAreaControlsRequired comp:NotApplicableMessage"/>
+                                                            <xsd:union memberTypes="comp:AreaControlsCompliance comp:MandatoryAreaControlsRequired comp:SeePlansMessage"/>
                                                          </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:choice maxOccurs="1">

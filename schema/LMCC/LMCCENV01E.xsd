@@ -20586,7 +20586,7 @@ Else use input
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Lmcv03a_VerifedByInspector" type="comp:VerifedByInspector" >
+                  <xsd:element name="Lmcv03a_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
@@ -20601,7 +20601,7 @@ Else use input
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Lmcv04a_VerifedByInspector" type="comp:VerifedByInspector" >
+                  <xsd:element name="Lmcv04a_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
