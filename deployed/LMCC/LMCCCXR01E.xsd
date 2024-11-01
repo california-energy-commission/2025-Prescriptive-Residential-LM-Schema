@@ -1622,43 +1622,43 @@ End If</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G25_AirsideOperationGuideline36GoalsOPR" type="comp:AirsideOperationGuideline36GoalsOPR">
+                           <xsd:element name="G25a_AirsideOperationGuideline36GoalsOPR" type="comp:AirsideOperationGuideline36GoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Will the airside system sequences of operation be specified as ASHRAE Guideline 36?</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G26_WatersideOperationGuideline36GoalsOPR" type="comp:WatersideOperationGuideline36GoalsOPR">
+                           <xsd:element name="G25b_WatersideOperationGuideline36GoalsOPR" type="comp:WatersideOperationGuideline36GoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Will the waterside system sequences of operation be specified as ASHRAE Guideline 36?</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G27_TempHumidityDraftControlGoalsOPR" type="comp:TempHumidityDraftControlGoalsOPR">
+                           <xsd:element name="G25_TempHumidityDraftControlGoalsOPR" type="comp:TempHumidityDraftControlGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Explain the requirements of the HVAC system in regards to temperature, humidity and draft control.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G28_IndoorAirQualityGoalsOPR" type="comp:IndoorAirQualityGoalsOPR">
+                           <xsd:element name="G26_IndoorAirQualityGoalsOPR" type="comp:IndoorAirQualityGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Explain the requirements of the facility in regards to indoor air quality</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G29_HvacAcousticGoalsOPR" type="comp:HvacAcousticGoalsOPR">
+                           <xsd:element name="G27_HvacAcousticGoalsOPR" type="comp:HvacAcousticGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">What are the acoustic requirements of the HVAC system within the various spaces of the facility?</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G30_HvacOperationsMaintenanceGoalsOPR" type="comp:HvacOperationsMaintenanceGoalsOPR">
+                           <xsd:element name="G28_HvacOperationsMaintenanceGoalsOPR" type="comp:HvacOperationsMaintenanceGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Describe the maintenance plan and how the HVAC design needs to address operation and maintenance issues.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G31_HvacNotesGoalsOPR" type="comp:HvacNotesGoalsOPR" minOccurs="0">
+                           <xsd:element name="G29_HvacNotesGoalsOPR" type="comp:HvacNotesGoalsOPR" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Additional notes regarding HVAC system efficiency</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If there are any additional notes regarding HVAC OPR goals the user enters them here, Else this field is not required</xsd:documentation>
@@ -1672,49 +1672,49 @@ End If</xsd:documentation>
                                  </xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G32_IndoorLightingQualityGoalsOPR" type="comp:IndoorLightingQualityGoalsOPR">
+                           <xsd:element name="G30_IndoorLightingQualityGoalsOPR" type="comp:IndoorLightingQualityGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Describe specific lighting requirements including quality and glare.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G33_IndoorLightingComponentGoalsOPR" type="comp:IndoorLightingComponentGoalsOPR">
+                           <xsd:element name="G31_IndoorLightingComponentGoalsOPR" type="comp:IndoorLightingComponentGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">List the desired types of lighting (if any) and ones that are not to be considered. (example: fluorescent in 2x2 grid, accent lighting, particular lamps)</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G34_TaskLightingGoalsOPR" type="comp:TaskLightingGoalsOPR">
+                           <xsd:element name="G32_TaskLightingGoalsOPR" type="comp:TaskLightingGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Describe (if any) task lighting requirements.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G35_IndoorLightingControlSystemGoalsOPR" type="comp:IndoorLightingControlSystemGoalsOPR">
+                           <xsd:element name="G33_IndoorLightingControlSystemGoalsOPR" type="comp:IndoorLightingControlSystemGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Describe any desired features of the lighting control system including occupancy, daylighting, and demand response if applicable.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G36_IndoorLightingScheduleGoalsOPR" type="comp:IndoorLightingScheduleGoalsOPR">
+                           <xsd:element name="G34_IndoorLightingScheduleGoalsOPR" type="comp:IndoorLightingScheduleGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">What is the expected occupancy schedule? Will the occupants be allowed to override the lighting system controls during "unoccupied hours"?</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G37_LightingOccupancyControlWithDCV_GoalsOPR" type="comp:LightingOccupancyControlWithDCV_GoalsOPR">
+                           <xsd:element name="G35_LightingOccupancyControlWithDCV_GoalsOPR" type="comp:LightingOccupancyControlWithDCV_GoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Does occupancy-based control need to be coordinated with mechanical demand control ventilation?</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G38_IndoorLightingOccupantControlGoalsOPR" type="comp:IndoorLightingOccupantControlGoalsOPR">
+                           <xsd:element name="G36_IndoorLightingOccupantControlGoalsOPR" type="comp:IndoorLightingOccupantControlGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Describe how occupants will interact with the lighting control system (overrides etc)</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G39_IndoorLightingNotesGoalsOPR" type="comp:IndoorLightingNotesGoalsOPR" minOccurs="0">
+                           <xsd:element name="G37_IndoorLightingNotesGoalsOPR" type="comp:IndoorLightingNotesGoalsOPR" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Additional notes regarding Indoor Lighting system efficiency</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If there are any additional indoor lighting OPR goals the user enters them here, Else this field is not required</xsd:documentation>
@@ -1728,31 +1728,31 @@ End If</xsd:documentation>
                                  </xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G40_OutdoorLightingGoalsOPR" type="comp:OutdoorLightingGoalsOPR">
+                           <xsd:element name="G38_OutdoorLightingGoalsOPR" type="comp:OutdoorLightingGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Describe specific outdoor lighting requirements.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G41_OutdoorLightingTypesGoalsOPR" type="comp:OutdoorLightingTypesGoalsOPR">
+                           <xsd:element name="G39_OutdoorLightingTypesGoalsOPR" type="comp:OutdoorLightingTypesGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">List the desired types of outdoor lighting, including lighting for building facade, landscape, walkways, roof-top, etc. if applicable.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G42_OutdoorLightingControlsGoalsOPR" type="comp:OutdoorLightingControlsGoalsOPR">
+                           <xsd:element name="G40_OutdoorLightingControlsGoalsOPR" type="comp:OutdoorLightingControlsGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Describe any features of the outdoor lighting control system, including motion sensors, photocontrol, time-switch and automatic scheduling.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G43_OutdoorLightingOccupantControlGoalsOPR" type="comp:OutdoorLightingOccupantControlGoalsOPR">
+                           <xsd:element name="G41_OutdoorLightingOccupantControlGoalsOPR" type="comp:OutdoorLightingOccupantControlGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Describe how occupants will interact with the lighting control system (overrides etc)</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G44_OutdoorLightingNotesGoalsOPR" type="comp:OutdoorLightingNotesGoalsOPR" minOccurs="0">
+                           <xsd:element name="G42_OutdoorLightingNotesGoalsOPR" type="comp:OutdoorLightingNotesGoalsOPR" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Additional notes regarding Outdoor lighting system efficiency</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If there are any additional outdoor lighting OPR goals the user enters them here, Else this field is not required</xsd:documentation>
@@ -1766,31 +1766,31 @@ End If</xsd:documentation>
                                  </xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G45_WaterHeatingUsesGoalsOPR" type="comp:WaterHeatingUsesGoalsOPR">
+                           <xsd:element name="G43_WaterHeatingUsesGoalsOPR" type="comp:WaterHeatingUsesGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Describe what the water heating system will be used for and expected demand?</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G46_WaterHeatingComponentsGoalsOPR" type="comp:WaterHeatingComponentsGoalsOPR">
+                           <xsd:element name="G44_WaterHeatingComponentsGoalsOPR" type="comp:WaterHeatingComponentsGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Describe the desired type (if any) of water heating system and those that should not be considered, (example: instantaneous, heatpump, manufacturer, etc.)</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G47_WaterHeatingAutomationControlsGoalsOPR" type="comp:WaterHeatingAutomationControlsGoalsOPR">
+                           <xsd:element name="G45_WaterHeatingAutomationControlsGoalsOPR" type="comp:WaterHeatingAutomationControlsGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">What are the desired automation features and controls for the water heating system.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G48_WaterHeatingEfficiencyGoalsOPR" type="comp:WaterHeatingEfficiencyGoalsOPR">
+                           <xsd:element name="G46_WaterHeatingEfficiencyGoalsOPR" type="comp:WaterHeatingEfficiencyGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">What are the efficiency requirements of the water heating system?</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G49_WaterHeatingNotesGoalsOPR" type="comp:WaterHeatingNotesGoalsOPR" minOccurs="0">
+                           <xsd:element name="G47_WaterHeatingNotesGoalsOPR" type="comp:WaterHeatingNotesGoalsOPR" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Additional notes regarding Water Heating system efficiency.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If there are any additional water heating OPR goals the user enters them here, Else this field is not required</xsd:documentation>
@@ -1805,25 +1805,25 @@ End If</xsd:documentation>
                                  </xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G50_BuildingLifespanGoalsOPR" type="comp:BuildingLifespanGoalsOPR">
+                           <xsd:element name="G48_BuildingLifespanGoalsOPR" type="comp:BuildingLifespanGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Desired building life span</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G51_EquipmentLifeCycleGoalsOPR" type="comp:EquipmentLifeCycleGoalsOPR">
+                           <xsd:element name="G49_EquipmentLifeCycleGoalsOPR" type="comp:EquipmentLifeCycleGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">What are the broad goals relative to life cycle of the equipment?</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G52_OccupantTrainingGoalsOPR" type="comp:OccupantTrainingGoalsOPR">
+                           <xsd:element name="G50_OccupantTrainingGoalsOPR" type="comp:OccupantTrainingGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">What is the desired level of training and orientation for building occupants to understand and use the building systems?</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G53_BuildingStaffTrainingGoalsOPR" type="comp:BuildingStaffTrainingGoalsOPR">
+                           <xsd:element name="G51_BuildingStaffTrainingGoalsOPR" type="comp:BuildingStaffTrainingGoalsOPR">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">What is the desired level of training and orientation for O&amp;amp;M staff to understand and maintain the building systems?</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
