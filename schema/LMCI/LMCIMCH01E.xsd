@@ -4090,6 +4090,7 @@ End If</xsd:documentation>
                                                                   <xsd:enumeration value="COP_IPLV"/>
                                                                   <xsd:enumeration value="EER_IPLV"/>
                                                                   <xsd:enumeration value="KWperTon_IPLV"/>
+                                                                  <xsd:enumeration value="COP"/>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>
@@ -4134,6 +4135,7 @@ End If</xsd:documentation>
                                                                   <xsd:enumeration value="COP_IPLV"/>
                                                                   <xsd:enumeration value="EER_IPLV"/>
                                                                   <xsd:enumeration value="KWperTon_IPLV"/>
+                                                                  <xsd:enumeration value="COP"/>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>

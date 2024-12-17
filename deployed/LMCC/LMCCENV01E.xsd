@@ -17977,7 +17977,7 @@ End If</xsd:documentation>
 Or
 If Kvertperf06_TopLevelOccupancy == AlteredOccupancy Or
 If Kvertperf06_FenestrationModification == AddLTE50ft2 Or
-If Kvertperf06_FenestrationModification == ReplaceLTE150ft2 and Kvertperf06_TopLevelOccupancy != HighRiseResidentail
+If Kvertperf06_FenestrationModification == ReplaceLTE150ft2 and Kvertperf06_TopLevelOccupancy != HighRiseResidential
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
@@ -18431,8 +18431,10 @@ End If</xsd:documentation>
 Or
 If Kvertperf06_FenestrationModification == ReplaceLTE150ft2 Or AddLTE50ft2  
 Or
-If Kvertperf06_TopLevelOccupancy == LowRiseResidential And Kvertperf06_FenestrationModification == AllNew And If A03_ClimateZoneNumber == 1 Or 3 Or 5 Or 16
- 
+If Kvertperf06_TopLevelOccupancy == LowRiseResidential And Kvertperf06_FenestrationModification == AllNew or AddGT50ft2 And If A03_ClimateZoneNumber == 1 Or 3 Or 5 Or 16
+Or
+If Kvertperf05_FenestrationProductType == FixedWindow or OperableWindow And Kvertperf07_ComplianceMethodSHGC_VT == Table170_2A And A03_ClimateZoneNumber == 1 Or 3 Or 5 Or 16
+
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
@@ -18488,7 +18490,7 @@ End If</xsd:documentation>
                                                          Or Kvertperf06_TopLevelOccupancy = RelocableSchoolBuildingAllZones
                                                          Or Kvertperf06_FenestrationModification = AddLTE50ft2 or ReplaceLTE150ft2
                                                          Or Kvertperf07_ComplianceMethodSHGC_VT = Table170_2A
-                                                         Or Kvertperf05_FenestrationProductType = FixedWindow or OperableWindow And Kvertperf08_ComplianceMethodSHGC_VT = Table180_2B
+                                                         Or Kvertperf05_FenestrationProductType = FixedWindow or OperableWindow or GlazedDoor And Kvertperf08_ComplianceMethodSHGC_VT = Table180_2B
                                                          Or Kvertperf08_ComplianceMethodSHGC_VT = NA_SkylitOverlap
                                                          result = BlankGrayedOut
                                                          End If</xsd:documentation>
@@ -18551,7 +18553,7 @@ Else result =  Kvertperf25b_SHGC_110Default except under these conditions when u
 Or
 If Kvertperf06_FenestrationModification == ReplaceLTE150ft2 Or AddLTE50ft2  
 Or
-If Kvertperf06_TopLevelOccupancy == LowRiseResidential And Kvertperf06_FenestrationModification == AllNew And If A03_ClimateZoneNumber == 1 Or 3 Or 5 Or 16
+If Kvertperf06_TopLevelOccupancy == LowRiseResidential And Kvertperf06_FenestrationModification == AllNew or AddGT50ft2 And If A03_ClimateZoneNumber == 1 Or 3 Or 5 Or 16
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
@@ -18579,6 +18581,8 @@ End If</xsd:documentation>
                                                          Or Kvertperf06_TopLevelOccupancy = RelocableSchoolBuildingAllZones
                                                          Or Kvertperf06_FenestrationModification = AddLTE50ft2 or ReplaceLTE150ft2
                                                          Or Kvertperf07_ComplianceMethodSHGC_VT = Table170_2A
+                                                         Or Kvertperf05_FenestrationProductType = FixedWindow or OperableWindow or GlazedDoor And Kvertperf08_ComplianceMethodSHGC_VT = Table180_2B
+                                                         Or Kvertperf08_ComplianceMethodSHGC_VT = NA_SkylitOverlap
                                                          result = BlankGrayedOut
                                                          End If</xsd:documentation>
                                                    </xsd:annotation>
