@@ -3686,8 +3686,10 @@ Not Shared</dtyp:displayterm>
             <dtyp:displayterm value="R11">R-11</dtyp:displayterm>
             <dtyp:displayterm value="R13">R-13</dtyp:displayterm>
             <dtyp:displayterm value="R14">R-14</dtyp:displayterm>
+            <dtyp:displayterm value="R15">R-15</dtyp:displayterm>
             <dtyp:displayterm value="R17">R-17</dtyp:displayterm>
             <dtyp:displayterm value="R19">R-19</dtyp:displayterm>
+            <dtyp:displayterm value="R21">R-21</dtyp:displayterm>
             <dtyp:displayterm value="R23">R-23</dtyp:displayterm>
             <dtyp:displayterm value="R4">R-4</dtyp:displayterm>
             <dtyp:displayterm value="R6">R-6</dtyp:displayterm>
@@ -3698,8 +3700,10 @@ Not Shared</dtyp:displayterm>
          <xsd:enumeration value="R11"/>
          <xsd:enumeration value="R13"/>
          <xsd:enumeration value="R14"/>
+         <xsd:enumeration value="R15"/>
          <xsd:enumeration value="R17"/>
          <xsd:enumeration value="R19"/>
+         <xsd:enumeration value="R21"/>
          <xsd:enumeration value="R23"/>
          <xsd:enumeration value="R4"/>
          <xsd:enumeration value="R6"/>
@@ -5014,6 +5018,19 @@ For selection of NA-6 properties</xsd:documentation>
          <xsd:enumeration value="UnheatedSlabOnGrade"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="SlabInsulationUFactorRequired">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Required Slab Insulation R Value</dtyp:displayterm>
+         </xsd:appinfo>       
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="0_58">0.58</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="0_58"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="SolarReflectance">
       <xsd:annotation>
          <xsd:documentation>From E+ Input/Output Ref:The diffuse solar reflectance of the unglazed part of the shading  surface (default = 0.2). This reflectance is assumed to be the same for   beam-to-diffuse and diffuse-to-diffuse reflection. Beam-to-diffuse reflection  is assumed to be independent of angle of incidence of beam radiation.  Diffuse-to-diffuse reflection is assumed to be independent of angular distribution of the incident of diffuse radiation. The outgoing diffuse radiation is assumed to be isotropic (hemispherically uniform). The sum of this reflectance and the shading surface transmittance should be less than or equal to 1.0.  Units: none</xsd:documentation>
@@ -5546,6 +5563,9 @@ of exposed exterior glazing at the jamb of a window to the outward edge of a fin
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="VestibuleName">
+      <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
    <xsd:simpleType name="VT_110Default">
       <xsd:restriction base="dtyp:Decimal4PlacesNonnegative">

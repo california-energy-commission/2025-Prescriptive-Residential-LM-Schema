@@ -3568,8 +3568,10 @@ Not Shared</dtyp:displayterm>
             <dtyp:displayterm value="R11">R-11</dtyp:displayterm>
             <dtyp:displayterm value="R13">R-13</dtyp:displayterm>
             <dtyp:displayterm value="R14">R-14</dtyp:displayterm>
+            <dtyp:displayterm value="R15">R-15</dtyp:displayterm>
             <dtyp:displayterm value="R17">R-17</dtyp:displayterm>
             <dtyp:displayterm value="R19">R-19</dtyp:displayterm>
+            <dtyp:displayterm value="R21">R-21</dtyp:displayterm>
             <dtyp:displayterm value="R23">R-23</dtyp:displayterm>
             <dtyp:displayterm value="R4">R-4</dtyp:displayterm>
             <dtyp:displayterm value="R6">R-6</dtyp:displayterm>
@@ -3580,8 +3582,10 @@ Not Shared</dtyp:displayterm>
          <xsd:enumeration value="R11"/>
          <xsd:enumeration value="R13"/>
          <xsd:enumeration value="R14"/>
+         <xsd:enumeration value="R15"/>
          <xsd:enumeration value="R17"/>
          <xsd:enumeration value="R19"/>
+         <xsd:enumeration value="R21"/>
          <xsd:enumeration value="R23"/>
          <xsd:enumeration value="R4"/>
          <xsd:enumeration value="R6"/>
@@ -4812,6 +4816,25 @@ For selection of NA-6 properties</xsd:documentation>
          <xsd:enumeration value="0.269"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="SlabInsulationUFactorRequired">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Required Slab Insulation U-factor</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="0.058">0.058</dtyp:displayterm>
+            <dtyp:displayterm value="0.092">0.092</dtyp:displayterm>
+            <dtyp:displayterm value="0.138">0.138</dtyp:displayterm>
+            <dtyp:displayterm value="0.269">0.269</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationDecimalNonNegative">
+         <xsd:enumeration value="0.058"/>
+         <xsd:enumeration value="0.092"/>
+         <xsd:enumeration value="0.138"/>
+         <xsd:enumeration value="0.269"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="SlabPerimeter">
       <xsd:annotation>
          <xsd:documentation>Units: ft</xsd:documentation>
@@ -5326,6 +5349,9 @@ For selection of NA-6 properties</xsd:documentation>
 of exposed exterior glazing at the jamb of a window to the outward edge of a fin.  Units: ft2</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="VestibuleName">
+      <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
    <xsd:simpleType name="ViewFactorToGround">
       <xsd:annotation>

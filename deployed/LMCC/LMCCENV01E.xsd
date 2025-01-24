@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/LMCCENV01E" version="2022.0.000" xmlns="http://www.lmonte.com/besm/LMCCENV01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/LMCCENV01E" version="2025.0.000" xmlns="http://www.lmonte.com/besm/LMCCENV01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -44,7 +44,7 @@ End If</xsd:documentation>
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">
                                        <d:b>
-                                          <d:i>2022 Nonresidential Energy Standards Compliance (Title 24, Part 6)</d:i>
+                                          <d:i>2025 Nonresidential Energy Standards Compliance (Title 24, Part 6)</d:i>
                                        </d:b>
                                     </xsd:documentation>
                                  </xsd:annotation>
@@ -575,7 +575,7 @@ End If</xsd:documentation>
             <xsd:element name="Report" type="xsd:base64Binary"/>
             <xsd:element name="ReportMMB" type="xsd:base64Binary" minOccurs="0"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220101"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="LMCCENV01E"/>
       </xsd:complexType>
    </xsd:element>
@@ -1212,7 +1212,9 @@ If F01Framed_RoofTypeApplies == true,
 If fields beginning with Fframed02, Fframed03, Fframed04, Fframed05, Fframed06, Fframed08, Fframed09, Fframed10, Fframed11, Fframed12, Fframed13, Fframed14, Fframed15 and Fframed16 == BlankGrayedOut or have another value And If Fframed07_RoofAssemblyName has a value result = true; Else result = false. 
 End If 
 If result == true continue evaluation:  
- 
+If Fframed05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue And ((Fframed12_ContinuousInsulationNR ==  R0ci Or R2ci Or R4ci Or R6ci Or R7ci Or R8ci) Or (Fframed12_ContinuousInsulationOther lt 10) 
+   result = false
+End If
 If Fframed01_UseInAreaWeightedAveUfactor == false  Then 
 If Fframed13_ConstructionSpecificationMethod has value 
 If Fframed13_ConstructionSpecificationMethod == RValue 
@@ -1769,14 +1771,20 @@ End If</xsd:documentation>
                      <xsd:element name="C05_CompliantSectionJ" type="comp:CompliantSectionJ">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"/>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: Result true display term Yes, or false display term No.  
-If J01_DoorName, J02_DoorDescription, J03_TopLevelOccupancy, J04_DoorOperation, J05_DoorConstructionType, J06_UFactorLimit, And J07_UfactorJA451 have values And J07_UfactorJA451 LTE J06_UFactorLimit result = true; Else result = false</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B02NewVestibule_ComponentApplies == True And J01_VestibuleName Or J02_VestibuleExemptions Or J03_VestibuleShutOffControl Or J04_VestibuleThermostat Or J05_VestibuleSelfClosingDevice are present but have no value
+Or B02NewDoor_ComponentApplies or B02AddDoor_ComponentApplies == True And J01_DoorName, J02_DoorDescription, J03_TopLevelOccupancy, J04_DoorOperation, J05_DoorConstructionType, J06_UFactorLimit, And J07_UfactorJA451 Are present but have no value
+Or B02NewDoor_ComponentApplies Or B02AddDoor_ComponentApplies == True And J07_UfactorJA451 GT J06_UFactorLimit 
+   result = false
+Else 
+   result = true</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C05_NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"/>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If B02AddDoor_ComponentApplies And B02NewDoor_ComponentApplies == false result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B02AddDoor_ComponentApplies And B02NewDoor_ComponentApplies == false 
+And B02NewVestibule_ComponentApplies == False
+   result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out</xsd:documentation>
                         </xsd:annotation>
                         <xsd:simpleType>
                            <xsd:restriction base="comp:NotApplicableMessage">
@@ -2502,16 +2510,16 @@ End If</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design<d:sup>2</d:sup>
                                                       </xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fframed08_UfactorSpecSource == JA4Tables, this row is grayed out; 
- 
-Else If Fframed08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters R-value number</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Fframed08_UfactorSpecSource == JA4Other Or ApprovedSoftware 
+Or Fframed05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
+user enters R-value number</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                                 <xsd:element name="Fframed12_NotApplicableMessage">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design<d:sup>2</d:sup>
                                                       </xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fframed04_Status == ExistingAlteration And  Fframed05_RoofInsulationException  != NoExceptionApplies result = BlankGrayedOut</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Fframed04_Status == ExistingAlteration And  Fframed05_RoofInsulationException  != NoExceptionApplies Or MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue result = BlankGrayedOut</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="comp:NotApplicableMessage">
@@ -2555,8 +2563,8 @@ Else result = UFactor and cannot be changed by user</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Fframed04_Status == New 
 Switch (Fframed06_TopLevelOccupancy) 
 case  Nonresidential: 
-If A03_ClimateZoneNumber InRange (1, 5) Or InRange(9,16) result = 0.034; 
-Else If A03_ClimateZoneNumber InRange (6, 8) ) result = 0.049; 
+If A03_ClimateZoneNumber InRange (1, 5) Or InRange(9,16) result = 0.028; 
+Else If A03_ClimateZoneNumber InRange (6, 8) result = 0.047; 
 End if
  
 case HotelMotel: 
@@ -3394,6 +3402,12 @@ Or If Fframed01_UseInAreaWeightedAveUfactor == false result = BlankGrayedOut sto
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="Fframed17_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="FframedFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
@@ -3732,9 +3746,9 @@ R8ci display term R-8</xsd:documentation>
                                                 <xsd:element name="FSIPS12_ContinuousInsulationOther" type="com:ContinuousInsulationOther">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If FSIPS08_UfactorSpecSource == JA4Tables, this row is grayed out; 
-Else If FSIPS08_UfactorSpecSource == JA4Other Or ApprovedSoftware 
+                                                      <xsd:documentation source="CalculationsAndRules">If FSIPS08_UfactorSpecSource == JA4Other Or ApprovedSoftware 
 Or If FSIPS13_ConstructionSpecificationMethod == RValue
+Or FSIPS05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
 User enters text
 End if</xsd:documentation>
                                                    </xsd:annotation>
@@ -3742,7 +3756,10 @@ End if</xsd:documentation>
                                                 <xsd:element name="FSIPS12_NotApplicableMessage">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If FSIPS04_Status == ExistingAlteration And  FSIPS05_RoofInsulationException  != NoExceptionApplies result = BlankGrayedOut stored in NotApplicableMessage</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If FSIPS04_Status == ExistingAlteration And  FSIPS05_RoofInsulationException  != NoExceptionApplies 
+Or FSIPS05_RoofInsulationException !=  MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue 
+   result = BlankGrayedOut stored in NotApplicableMessage
+End if</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="comp:NotApplicableMessage">
@@ -3786,8 +3803,8 @@ Else result = UFactor and cannot be changed by user</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If FSIPS04_Status == New 
 Switch (FSIPS06_TopLevelOccupancy) 
 case  Nonresidential: 
-If A03_ClimateZoneNumber InRange (1, 5) Or InRange(9,16) result = 0.034; 
-Else If A03_ClimateZoneNumber InRange (6, 8) ) result = 0.049; 
+If A03_ClimateZoneNumber InRange (1, 5) Or InRange(9,16) result = 0.028; 
+Else If A03_ClimateZoneNumber InRange (6, 8) result = 0.047; 
 End if
  
 case HotelMotel: 
@@ -4282,6 +4299,12 @@ End If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="FSIPS17_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="FSIPSFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
@@ -4588,15 +4611,17 @@ End If</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design<d:sup>2</d:sup>
                                                       </xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fspan08_UfactorSpecSource == JA4Tables, this row is grayed out; 
- 
-Else If Fspan08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters text</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Fspan08_UfactorSpecSource == JA4Other Or ApprovedSoftware
+Or Fspan05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
+user enters text</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                                 <xsd:element name="Fspan11_NotApplicableMessage">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText"/>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fspan04_Status == ExistingAlteration And  Fspan05_RoofInsulationException  != NoExceptionApplies result = BlankGrayedOut</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Fspan04_Status == ExistingAlteration And  Fspan05_RoofInsulationException  != NoExceptionApplies
+Or Fspan05_RoofInsulationException != MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
+result = BlankGrayedOut</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="comp:NotApplicableMessage">
@@ -4641,8 +4666,8 @@ Else result = UFactor and cannot be changed by user</xsd:documentation>
  
 Switch (Fspan06_TopLevelOccupancy) 
 case  Nonresidential: 
-If A03_ClimateZoneNumber InRange (1, 5) Or InRange(9,16) result = 0.034; 
-Else If A03_ClimateZoneNumber InRange (6, 8) ) result = 0.049; 
+If A03_ClimateZoneNumber InRange (1, 5) Or InRange(9,16) result = 0.028; 
+Else If A03_ClimateZoneNumber InRange (6, 8) ) result = 0.047; 
 End If 
  
 case HotelMotel: 
@@ -4917,6 +4942,12 @@ End If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="Fspan16_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="FspanFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
@@ -5171,8 +5202,8 @@ Else If  Fmetalp08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters
  
 Switch (Fmetalp06_TopLevelOccupancy) 
 case  Nonresidential: 
-If A03_ClimateZoneNumber InRange (1, 5) Or InRange(9,16) result = 0.034; 
-Else If A03_ClimateZoneNumber InRange (6, 8) ) result = 0.049; 
+If A03_ClimateZoneNumber InRange (1, 5) Or InRange(9,16) result = 0.028; 
+Else If A03_ClimateZoneNumber InRange (6, 8) result = 0.047;
  
 case HotelMotel: 
 If A03_ClimateZoneNumber == 1, 2, 4 Or  InRange (8, 16) result = 0.028; 
@@ -5280,6 +5311,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="Fmetalp14_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="FmetalpFootnote1" minOccurs="0">
                               <xsd:annotation>
@@ -5625,14 +5662,19 @@ R38ci display term R-38,</xsd:documentation>
                                                       </xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Fmetalb08_UfactorSpecSource == JA4Tables, this row is grayed out; 
  
-Else If Fmetalb08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters text</xsd:documentation>
+Else If Fmetalb08_UfactorSpecSource == JA4Other Or ApprovedSoftware 
+Or Fmetalb05_RoofInsulationException == MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
+user enters text</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                                 <xsd:element name="Fmetalb11_NotApplicableMessage">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design<d:sup>2</d:sup>
                                                       </xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fmetalb04_Status == ExistingAlteration And  Fmetalb05_RoofInsulationException  != NoExceptionApplies result = BlankGrayedOut</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Fmetalb04_Status == ExistingAlteration And  Fmetalb05_RoofInsulationException  != NoExceptionApplies 
+Or Fmetalb05_RoofInsulationException != RecoverAboveDeckRvalue Or MechanicalEquipmentOnRoof                               
+   result = BlankGrayedOut
+End If</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="comp:NotApplicableMessage">
@@ -5673,7 +5715,7 @@ Else result = UFactor and cannot be changed by user</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Thermal Performance<d:sup>3</d:sup>
                                                       </xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fmetalb04_Status == New result = 0.041;  
+                                                      <xsd:documentation source="CalculationsAndRules">If Fmetalb04_Status == New result = 0.038; 
  
 Else If Fmetalb04_Status == ExistingAlteration And Fmetalb12_ConstructionSpecificationMethod == UFactor 
  
@@ -6136,6 +6178,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="Fmetalb16_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="FmetalbFootnote1" minOccurs="0">
                               <xsd:annotation>
@@ -6631,9 +6679,9 @@ End If</xsd:documentation>
                                                 <xsd:element name="FframedMF13_ContinuousInsulationOther" type="com:ContinuousInsulationOther">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If  FframedMF09_UfactorSpecSource == JA4Tables, this row is grayed out; 
- 
-Else If  FframedMF09_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters R-value number</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If  FframedMF09_UfactorSpecSource == JA4Other Or ApprovedSoftware 
+Or FframedMF06_RoofInsulationException != MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
+user enters R-value number</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                              </xsd:choice>
@@ -8113,17 +8161,13 @@ End If</xsd:documentation>
                                     <xsd:element name="G04_TopLevelOccupancy">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Occupancy Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: 
-Nonresidential display term Nonresidential/ Relocatable 1 CZ, 
-HotelMotel display erm Hotel/Motel,    
-RelocableSchoolBuildingAllZones display term Relocatable all CZ
-ResidentialMF display term Multifamily - Attic Roof
-OtherOccupancy display term Multifamily - Non-attic Roof</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list:</xsd:documentation>
                                           <xsd:appinfo source="displayterm">
                                              <dtyp:displayterm value="Nonresidential">Nonresidential/ Relocatable 1 CZ</dtyp:displayterm>
                                              <dtyp:displayterm value="RelocableSchoolBuildingAllZones">Relocatable all CZ</dtyp:displayterm>
-                                             <dtyp:displayterm value="ResidentialMF">Multifamily - Attic Roof</dtyp:displayterm>
-                                             <dtyp:displayterm value="OtherOccupancy">Multifamily - Non-attic Roof</dtyp:displayterm>
+                                             <dtyp:displayterm value="ResidentialMF">Multifamily - Attic Roof (Option B)</dtyp:displayterm>
+                                             <dtyp:displayterm value="ResidentialNR">Multifamily - Attic Roof (Option C)</dtyp:displayterm>
+                                             <dtyp:displayterm value="OtherOccupancy">Multifamily - Non-attic Roof (Option D)</dtyp:displayterm>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -8133,6 +8177,7 @@ OtherOccupancy display term Multifamily - Non-attic Roof</xsd:documentation>
                                              <xsd:enumeration value="OtherOccupancy"/>
                                              <xsd:enumeration value="RelocableSchoolBuildingAllZones"/>
                                              <xsd:enumeration value="ResidentialMF"/>
+                                             <xsd:enumeration value="ResidentialNR"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -8356,7 +8401,23 @@ case RelocableSchoolBuildingAllZones:
 Else If G05_RoofSlope == SteepSlope result = 0.25; 
 End If
  
-case ResidentialMF  (display term Multifamily Attic Roof)
+case ResidentialMF:  (Option B)
+   If G05_RoofSlope == LowSlope 
+      If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15 
+         result = 0.63
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
+         result = 0.63
+      End If
+   Else If G05_RoofSlope == SteepSlope
+      If G03_Status == New And A03_ClimateZoneNumber == 10 Or 11 Or 13 Or 15 
+         result - 0.25
+      If G03_Status == New And A03_ClimateZoneNumber == 12 Or 14
+         result = 0.20
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
+         result = 0.20
+      End If
+   End If 
+case ResidentialNR: (Option C)
 If G05_RoofSlope == LowSlope 
 If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15
 result = 0.63
@@ -8371,9 +8432,9 @@ result = 0.20
 End If
 End If
  
-case OtherOccupancy  (display term Multifamily Non-Attic Roof)
-If G05_RoofSlope == LowSlope 
-If G03_Status == New And A03_ClimateZoneNumber == 9 Or 10 Or 11 Or 13 Or 14 Or 15
+case OtherOccupancy  (Option D)
+   If G05_RoofSlope == LowSlope 
+      If G03_Status == New And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
 result = 0.63
 Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
 result = 0.63
@@ -8455,7 +8516,7 @@ End If
  
 case OtherOccupancy  (display term Multifamily Non-Attic Roof)
 If G05_RoofSlope == LowSlope 
-If G03_Status == New And A03_ClimateZoneNumber == InRange (1, 8) Or 12 Or 16
+If G03_Status == New And A03_ClimateZoneNumber == InRange 1 Or 3 Or 5 Or 16
 result = BlankGrayedOut 
 Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 1, 3, 5 Or 16
 result = BlankGrayedOut
@@ -9080,6 +9141,7 @@ MM120_7b1to6 = true and is displayedEnd If</xsd:documentation>
                                                       <dtyp:displayterm value="RelocableSchoolBuildingAllZones">Relocatable all CZ: New</dtyp:displayterm>
                                                       <dtyp:displayterm value="ResidentialMF">Multifamily: New</dtyp:displayterm>
                                                       <dtyp:displayterm value="AlteredOccupancy">Any occupancy: Altered</dtyp:displayterm>
+                                                      <dtyp:displayterm value="ResidentialNR">Multifamily: Extension</dtyp:displayterm>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
@@ -9089,15 +9151,17 @@ MM120_7b1to6 = true and is displayedEnd If</xsd:documentation>
                                                       <xsd:enumeration value="Nonresidential"/>
                                                       <xsd:enumeration value="RelocableSchoolBuildingAllZones"/>
                                                       <xsd:enumeration value="ResidentialMF"/>
+                                                      <xsd:enumeration value="ResidentialNR"/>
                                                    </xsd:restriction>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:element name="Hframed04b_Status">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">Calculatedf field: If Hframed04a_TopLevelOccupancy == AlteredOccupancy  result = ExistingAlteration; 
-Else result = New
-End If</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If Hframed04a_TopLevelOccupancy == AlteredOccupancy or ResidentialNR
+   result = ExistingAlteration; 
+Else 
+   result = New</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="com:Status">
@@ -9135,9 +9199,9 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="FieldText">Location/ Fire Rating</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User selects from list customized as follows: 
 If Hframed04a_TopLevelOccupancy != ResidentialMF 
-User selects from list: ExteriorWall, DemisingWall 
+User selects from list: ExteriorWall, DemisingWall, WallTypeOther 
 Else If Hframed04a_TopLevelOccupancy == ResidentialMF 
-User selects from list: ExteriorWallMFLTE, ExteriorWallMFGT, DemisingWall
+User selects from list: ExteriorWallMFLTE, ExteriorWallMFGT, DemisingWall, WallTypeOther
 End If
  
 Mandatory Measure Triggers:
@@ -9170,6 +9234,9 @@ Else If HFramed07_FramingSize == 2x6 Or 2x8
 MM120_7b7A3_MeasureApplies = true and is displayed
 End If
 End If</xsd:documentation>
+                                                   <xsd:appinfo source="displayterm">
+                                                      <dtyp:displayterm value="WallTypeOther">Demising - Non-framed</dtyp:displayterm>
+                                                   </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="env:WallType">
@@ -9195,72 +9262,90 @@ End If
 End If</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:element name="Hframed07Frame">
-                                                <xsd:annotation>
-                                                   <xsd:documentation source="FieldText">Frame Material, Spacing  &amp;amp; Depth</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">Dropdown list for 07 concatenates in this order the display terms from  Hframed07_PartitionFramingMaterial + Hframed07_FramingSpacing + Hframed07_FramingSize  e.g. Metal 16" OC 2x4, to list 18 combinations of these three properties</xsd:documentation>
-                                                </xsd:annotation>
-                                                <xsd:complexType>
-                                                   <xsd:sequence>
-                                                      <xsd:element name="Hframed07_PartitionFramingMaterial">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText"/>
-                                                            <xsd:documentation source="CalculationsAndRules">User selects from list: Metal display term Metal, WoodFraming display term Wood 1/2" gyp, Wood0_625Gypsum display term Wood 5/8" gyp that has the correct spacing and depth
+                                             <xsd:choice maxOccurs="1">
+                                                <xsd:element name="Hframed07Frame">
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Frame Material, Spacing  &amp;amp; Depth</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Hframed06_WallType == WallTypeOther
+   result = BlankGrayedOut stored in Hframed07Frame_NotApplicableMessage
+Else
+   Dropdown list for 07 concatenates in this order the display terms from  Hframed07_PartitionFramingMaterial + Hframed07_FramingSpacing + Hframed07_FramingSize  e.g. Metal 16" OC 2x4, to list 18 combinations of these three properties</xsd:documentation>
+                                                   </xsd:annotation>
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="Hframed07_PartitionFramingMaterial">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText"/>
+                                                               <xsd:documentation source="CalculationsAndRules">User selects from list: Metal display term Metal, WoodFraming display term Wood 1/2" gyp, Wood0_625Gypsum display term Wood 5/8" gyp that has the correct spacing and depth
  
 Mandatory Measure Triggers:  
 Multi-field triggers: See HFramed06_WallType  CalculationsAndRules for trigger values from this field</xsd:documentation>
-                                                            <xsd:appinfo source="displayterm">
-                                                               <dtyp:displayterm value="Metal">Metal</dtyp:displayterm>
-                                                               <dtyp:displayterm value="WoodFraming">Wood 1/2" gyp</dtyp:displayterm>
-                                                               <dtyp:displayterm value="Wood0_625Gypsum">Wood 5/8" gyp</dtyp:displayterm>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                         <xsd:simpleType>
-                                                            <xsd:restriction base="env:PartitionFramingMaterial">
-                                                               <xsd:enumeration value="Metal"/>
-                                                               <xsd:enumeration value="Wood0_625Gypsum"/>
-                                                               <xsd:enumeration value="WoodFraming"/>
-                                                            </xsd:restriction>
-                                                         </xsd:simpleType>
-                                                      </xsd:element>
-                                                      <xsd:element name="Hframed07_FramingSpacing">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText"/>
-                                                            <xsd:documentation source="CalculationsAndRules">User selects from list: 16InchOC display term 16" OC, 24InchOC display term 24" OC that has the correct material and depth
+                                                               <xsd:appinfo source="displayterm">
+                                                                  <dtyp:displayterm value="Metal">Metal</dtyp:displayterm>
+                                                                  <dtyp:displayterm value="WoodFraming">Wood 1/2" gyp</dtyp:displayterm>
+                                                                  <dtyp:displayterm value="Wood0_625Gypsum">Wood 5/8" gyp</dtyp:displayterm>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="env:PartitionFramingMaterial">
+                                                                  <xsd:enumeration value="Metal"/>
+                                                                  <xsd:enumeration value="Wood0_625Gypsum"/>
+                                                                  <xsd:enumeration value="WoodFraming"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                         <xsd:element name="Hframed07_FramingSpacing">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText"/>
+                                                               <xsd:documentation source="CalculationsAndRules">User selects from list: 16InchOC display term 16" OC, 24InchOC display term 24" OC that has the correct material and depth
  
 Mandatory Measure Triggers:  
 Multi-field triggers:  See HFramed06_WallType CalculationsAndRules for trigger values from this field</xsd:documentation>
-                                                            <xsd:appinfo source="displayterm">
-                                                               <dtyp:displayterm value="16InchOC">16" OC</dtyp:displayterm>
-                                                               <dtyp:displayterm value="24InchOC">24" OC</dtyp:displayterm>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                         <xsd:simpleType>
-                                                            <xsd:restriction base="env:FramingSpacing">
-                                                               <xsd:enumeration value="16InchOC"/>
-                                                               <xsd:enumeration value="24InchOC"/>
-                                                            </xsd:restriction>
-                                                         </xsd:simpleType>
-                                                      </xsd:element>
-                                                      <xsd:element name="Hframed07_FramingSize">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText"/>
-                                                            <xsd:documentation source="CalculationsAndRules">User selects from list:  2x4, 2x6, 2x8 that has the correct material and spacing
+                                                               <xsd:appinfo source="displayterm">
+                                                                  <dtyp:displayterm value="16InchOC">16" OC</dtyp:displayterm>
+                                                                  <dtyp:displayterm value="24InchOC">24" OC</dtyp:displayterm>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="env:FramingSpacing">
+                                                                  <xsd:enumeration value="16InchOC"/>
+                                                                  <xsd:enumeration value="24InchOC"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                         <xsd:element name="Hframed07_FramingSize">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText"/>
+                                                               <xsd:documentation source="CalculationsAndRules">User selects from list:  2x4, 2x6, 2x8 that has the correct material and spacing
  
 Mandatory Measure Triggers:  
 Multi-field triggers: See HFramed06_WallType CalculationsAndRules for trigger values from this field</xsd:documentation>
-                                                         </xsd:annotation>
-                                                         <xsd:simpleType>
-                                                            <xsd:restriction base="env:FramingSize">
-                                                               <xsd:enumeration value="2x4"/>
-                                                               <xsd:enumeration value="2x6"/>
-                                                               <xsd:enumeration value="2x8"/>
-                                                            </xsd:restriction>
-                                                         </xsd:simpleType>
-                                                      </xsd:element>
-                                                   </xsd:sequence>
-                                                </xsd:complexType>
-                                             </xsd:element>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="env:FramingSize">
+                                                                  <xsd:enumeration value="2x4"/>
+                                                                  <xsd:enumeration value="2x6"/>
+                                                                  <xsd:enumeration value="2x8"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element name="Hframed07Frame_NotApplicableMessage">
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Frame Material, Spacing  &amp;amp; Depth</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Hframed06_WallType == WallTypeOther
+   result = BlankGrayedOut stored in Hframed07Frame_NotApplicableMessage
+End If</xsd:documentation>
+                                                   </xsd:annotation>
+                                                   <xsd:simpleType>
+                                                      <xsd:restriction base="comp:NotApplicableMessage">
+                                                         <xsd:enumeration value="BlankGrayedOut"/>
+                                                      </xsd:restriction>
+                                                   </xsd:simpleType>
+                                                </xsd:element>
+                                             </xsd:choice>
                                              <xsd:choice maxOccurs="1">
                                                 <xsd:element name="Hframed08_CavityInsulationNR">
                                                    <xsd:annotation>
@@ -9371,8 +9456,12 @@ End If</xsd:documentation>
                                              <xsd:element name="Hframed10_ConstructionSpecificationMethod">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Thermal Performance Unit</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">If Hframed04b_Status == ExistingAlteration  And Hframed01_UseInAreaWeightedAveUfactor  == false And Hframed02_UseInAreaWeightedAveUfactor  == false list RValue, UFactor ; 
-Else result = UFactor and cannot be changed by user
+                                                   <xsd:documentation source="CalculationsAndRules">If Hframed04b_Status == ExistingAlteration  And Hframed01_UseInAreaWeightedAveUfactor  == false And Hframed02_UseInAreaWeightedAveUfactor  == false 
+   list RValue, UFactor 
+Else If Hframed04a_TopLevelOccupancy == ResidentialNR
+   result = RValue and cannot be changed by user
+Else 
+   result = UFactor and cannot be changed by user
 End If</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
@@ -9387,80 +9476,110 @@ End If</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Thermal Performance</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Hframed04b_Status == ExistingAlteration And Hframed10_ConstructionSpecificationMethod == UFactor 
- If Hframed04a_TopLevelOccupancy == AlteredOccupancy Then 
- If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum result = 0.110; 
- Else If Hframed07_PartitionFramingMaterial == Metal result = 0.217; 
-End If 
-End If
+   If Hframed04a_TopLevelOccupancy == AlteredOccupancy 
+      If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum 
+         result = 0.110; 
+      Else If Hframed07_PartitionFramingMaterial == Metal 
+         result = 0.217; 
+      End If 
+   End If 
  
-Else If Hframed04b_Status == New Then 
-If Hframed06_WallType == DemisingWall 
-If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum result = 0.099; 
-Else If Hframed07_PartitionFramingMaterial == Metal result = 0.151;
-End if  
+Else If Hframed04b_Status == New  
+   If Hframed06_WallType == DemisingWall 
+      If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum 
+         result = 0.099; 
+      Else If Hframed07_PartitionFramingMaterial == Metal 
+         result = 0.151;
+      End if  
  
-Else If Hframed06_WallType == ExteriorWall 
-Switch (Hframed04a_TopLevelOccupancy) 
-case  Nonresidential: 
-If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum 
-If A03_ClimateZoneNumber == 1 result = 0.095; 
-Else  If A03_ClimateZoneNumber == 2, 4, 9, 10, 12, 13, 14, Or 16 result = 0.059; 
-Else If A03_ClimateZoneNumber == 3, 6, Or 7 result = 0.110; 
-Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.102; 
-Else If A03_ClimateZoneNumber == 11 result = 0.045;
-Else If A03_ClimateZoneNumber == 15 result = 0.042; 
-End If       
-Else If Hframed07_PartitionFramingMaterial == Metal  
-If A03_ClimateZoneNumber == 1, 6 Or 7 result = 0.060; 
-Else If A03_ClimateZoneNumber == 2, 4, 5, Or  InRange(8, 16) result = 0.055; 
-Else If A03_ClimateZoneNumber == 3 result = 0.071; 
-End If
-End If  
- 
-case HotelMotel:
-If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum 
-If A03_ClimateZoneNumber == InRange(1,10) Or 12 Or 13  result = 0.059
-Else If A03_ClimateZoneNumber == 11 Or 14 Or 15 Or 16  result = 0.042
-End If
-Else If Hframed07_PartitionFramingMaterial == Metal  
-If A03_ClimateZoneNumber == InRange(1,6) Or InRange(8,14) Or 16  result = 0.069
-Else If A03_ClimateZoneNumber == 7  result = 0.105
-Else If A03_ClimateZoneNumber == 15  result = 0.048
-End If
-End If
- 
-case RelocableSchoolBuildingAllZones:
-If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum 
-result = 0.042
-Else If Hframed07_PartitionFramingMaterial == Metal 
-result = 0.057
-End If
-End If
+   Else If Hframed06_WallType == ExteriorWall
+      Switch (Hframed04a_TopLevelOccupancy)
+      case Nonresidential:
+         If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum
+            If A03_ClimateZoneNumber == 1 
+               result = 0.078;
+            Else If A03_ClimateZoneNumber == 2, 4, 9, 10, 12, 13, 14, Or 16 
+               result = 0.053;
+            Else If A03_ClimateZoneNumber == 3, 6, Or 7 
+               result = 0.102;
+            Else If A03_ClimateZoneNumber == 5 Or 8 
+               result = 0.95;
+            Else If A03_ClimateZoneNumber == 11 
+               result = 0.042;
+            Else If A03_ClimateZoneNumber == 15 
+               result = 0.038;
+            End If
+         Else If Hframed07_PartitionFramingMaterial == Metal
+            If A03_ClimateZoneNumber == 1, 6 Or 7 
+               result = 0.060;
+            Else If A03_ClimateZoneNumber == 2, 4, 5, Or InRange(8, 16) 
+               result = 0.055;
+            Else If A03_ClimateZoneNumber == 3 
+               result = 0.071;
+            End If
+         End If
 
-case ResidentialMF:
-If Hframed06a_StructureFireRating == GT1hr
-If A03_ClimateZoneNumber == InRange(1,5) Or 8 Or 9 Or 10 Or 12 Or 13 result = 0.059
-Else If A03_ClimateZoneNumber == 11 Or 14 Or 15 Or 16 result = 0.051
-Else If A03_ClimateZoneNumber == 6 Or 7 result = 0.065
-End If
-Else If Hframed06a_StructureFireRating == LTE1hr
-If A03_ClimateZoneNumber == InRange(1,5) Or InRange(8,16) result = 0.051
-Else If A03_ClimateZoneNumber == 6 Or 7 result = 0.065
-End If
-End If
- 
-End Switch
- 
-Else if Hframed06a_StructureFireRating == GT1hr
-If A03_ClimateZoneNumber == InRange(1,5) Or 8 Or 9 Or 10 Or 12 Or 13 result = 0.059
-Else If A03_ClimateZoneNumber == 11 Or 14 Or 15 Or 16 result = 0.051
-Else If A03_ClimateZoneNumber == 6 Or 7 result = 0.065
-End If
-Else If Hframed06a_StructureFireRating == LTE1hr
-If A03_ClimateZoneNumber == InRange(1,5) Or InRange(8,16)  result = 0.051
-Else If A03_ClimateZoneNumber == 6 Or 7   result = 0.065
-End If
-End If
+      case HotelMotel:
+         If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum
+            If A03_ClimateZoneNumber == InRange(1,10) Or 12 Or 13 
+               result = 0.059
+            Else If A03_ClimateZoneNumber == 11 Or 14 Or 15 Or 16 
+               result = 0.042
+            End If
+         Else If Hframed07_PartitionFramingMaterial == Metal
+            If A03_ClimateZoneNumber == InRange(1,6) Or InRange(8,14) Or 16 
+               result = 0.069
+            Else If A03_ClimateZoneNumber == 7 
+               result = 0.105
+            Else If A03_ClimateZoneNumber == 15 
+               result = 0.048
+            End If
+         End If
+
+      case RelocableSchoolBuildingAllZones:
+         If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum
+            result = 0.042
+         Else If Hframed07_PartitionFramingMaterial == Metal
+            result = 0.057
+         End If
+
+      case ResidentialMF:
+         If Hframed06a_StructureFireRating == GT1hr
+            If A03_ClimateZoneNumber == InRange(1,5) Or 8 Or 9 Or 10 Or 12 Or 13 
+               result = 0.059
+            Else If A03_ClimateZoneNumber == 11 Or 14 Or 15 Or 16 
+               result = 0.051
+            Else If A03_ClimateZoneNumber == 6 Or 7 
+               result = 0.065
+            End If
+         Else If Hframed06a_StructureFireRating == LTE1hr
+            If A03_ClimateZoneNumber == InRange(1,5) Or InRange(8,16) 
+               result = 0.051
+            Else If A03_ClimateZoneNumber == 6 Or 7 
+               result = 0.065
+            End If
+         End If
+
+      End Switch
+
+   Else
+      If Hframed06a_StructureFireRating == GT1hr
+         If A03_ClimateZoneNumber == InRange(1,5) Or 8 Or 9 Or 10 Or 12 Or 13 
+            result = 0.059
+         Else If A03_ClimateZoneNumber == 11 Or 14 Or 15 Or 16 
+            result = 0.051
+         Else If A03_ClimateZoneNumber == 6 Or 7 
+            result = 0.065
+         End If
+
+      Else If Hframed06a_StructureFireRating == LTE1hr
+         If A03_ClimateZoneNumber == InRange(1,5) Or InRange(8,16) 
+            result = 0.051
+         Else If A03_ClimateZoneNumber == 6 Or 7 
+            result = 0.065
+         End If
+      End If
+   End If
 End If</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
@@ -9468,17 +9587,33 @@ End If</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Thermal Performance</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Hframed04b_Status == ExistingAlteration And Hframed10_ConstructionSpecificationMethod == RValue 
-If Hframed04a_TopLevelOccupancy == AlteredOccupancy  
-If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum result = R11; 
-Else result = R13;
+   If Hframed04a_TopLevelOccupancy == AlteredOccupancy  
+      If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum 
+         result = R11; 
+      Else 
+         result = R13;
+   Else if Hframed04a_TopLevelOccupancy == ResidentialNR
+      If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum
+         If Hframed07_FramingSize == 2x4
+            result = R15
+         Else If Hframed07_FramingSize == 2x6
+            result = R21
+
+   End If
 End If
-End If
-End If</xsd:documentation>
+
+
+ --- NEW ---
+      If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum
+         If Hframed07_FramingSize == 2x4
+            result =</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="env:InsulationRValueLimit">
                                                          <xsd:enumeration value="R11"/>
                                                          <xsd:enumeration value="R13"/>
+                                                         <xsd:enumeration value="R15"/>
+                                                         <xsd:enumeration value="R21"/>
                                                       </xsd:restriction>
                                                    </xsd:simpleType>
                                                 </xsd:element>
@@ -9852,6 +9987,12 @@ Else If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters 
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="Hframed14_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="HframedFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
@@ -10148,29 +10289,29 @@ End if</xsd:documentation>
 If Hmass03_TopLevelOccupancy == Nonresidential 
 Switch (Hmass10a_HeatCapacityRange) 
 case LT7: 
-If A03_ClimateZoneNumber == 1 result = 0.095; 
-Else If A03_ClimateZoneNumber == 2, 4, 9, 10, 12, 13, 14 Or 16 result = 0.059; 
-Else If A03_ClimateZoneNumber == 3, 6 Or 7 result = 0.110; 
-Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.102; 
-Else If A03_ClimateZoneNumber == 11 result = 0.045; 
-Else If A03_ClimateZoneNumber == 15 result = 0.042;  
+If A03_ClimateZoneNumber == 1 result = 0.078; 
+Else If A03_ClimateZoneNumber == 2, 4, 9, 10, 12, 13, 14 Or 16 result = 0.053; 
+Else If A03_ClimateZoneNumber == 3, 6 Or 7 result = 0.102; 
+Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.095; 
+Else If A03_ClimateZoneNumber == 11 result = 0.042; 
+Else If A03_ClimateZoneNumber == 15 result = 0.038;  
 End If
  
 case GTE7LT15: 
-If A03_ClimateZoneNumber == 1 result = 0.196; 
-Else If A03_ClimateZoneNumber == 2 Or InRange(10, 16) result = 0.170; 
-Else If A03_ClimateZoneNumber == 3 result = 0.278; 
-Else If A03_ClimateZoneNumber == 4 result = 0.227; 
-Else If A03_ClimateZoneNumber == InRange (5, 9) result = 0.440;  
+If A03_ClimateZoneNumber == 1 result = 0.170; 
+Else If A03_ClimateZoneNumber == 2 Or InRange(10, 16) result = 0.138; 
+Else If A03_ClimateZoneNumber == 3 result = 0.227; 
+Else If A03_ClimateZoneNumber == 4 result = 0.196; 
+Else If A03_ClimateZoneNumber == InRange (5, 9) result = 0.364;  
 End if
  
 case GTE15: 
-If A03_ClimateZoneNumber == 1 Or 12 result = 0.253; 
+If A03_ClimateZoneNumber == 1 Or 12 result = 0.211; 
 Else If A03_ClimateZoneNumber == InRange(2, 5) Or 10 result = 0.650; 
 Else If A03_ClimateZoneNumber == 6, 7, 8 Or 9 result = 0.690; 
-Else If A03_ClimateZoneNumber == 11, 14 Or 15 result = 0.184; 
-Else If A03_ClimateZoneNumber == 13 result = 0.211; 
-Else If A03_ClimateZoneNumber == 16 result = 0.160;  
+Else If A03_ClimateZoneNumber == 11, 14 Or 15 result = 0.160; 
+Else If A03_ClimateZoneNumber == 13 result = 0.284; 
+Else If A03_ClimateZoneNumber == 16 result = 0.153;  
 End If
 End Switch
  
@@ -10741,6 +10882,12 @@ End If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="Hmass13_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="HmassFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
@@ -11017,12 +11164,12 @@ End if</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">Calculated field: Values are for Mass Heavy because Hconcrete10a_HeatCapacityRange ==  GT15 for all cases in Table JA4.3.7  and therefore all assigned results are for  Mass Heavy
  
 If Hconcrete03_TopLevelOccupancy == Nonresidential 
-If A03_ClimateZoneNumber == 1 Or 12 result = 0.253; 
+If A03_ClimateZoneNumber == 1 Or 12 result = 0.211; 
 Else If A03_ClimateZoneNumber == InRange(2, 5) Or 10 result = 0.650; 
 Else If A03_ClimateZoneNumber == 6, 7, 8 Or 9 result = 0.690; 
-Else If A03_ClimateZoneNumber == 11, 14 Or 15 result = 0.184; 
-Else If A03_ClimateZoneNumber == 13 result = 0.211; 
-Else If A03_ClimateZoneNumber == 16 result = 0.160;  
+Else If A03_ClimateZoneNumber == 11, 14 Or 15 result = 0.160; 
+Else If A03_ClimateZoneNumber == 13 result = 0.284; 
+Else If A03_ClimateZoneNumber == 16 result = 0.153;  
 End If
  
 Else If Hconcrete03_TopLevelOccupancy == HotelMotel
@@ -11401,6 +11548,12 @@ End If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="Hconcrete13_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="HconcreteFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
@@ -11701,12 +11854,12 @@ End If</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If HSIPS03b_Status == New 
 Switch (HSIPS03a_TopLevelOccupancy) 
 case  Nonresidential:  
-If A03_ClimateZoneNumber == 1 result = 0.095; 
-Else  If A03_ClimateZoneNumber == 2, 4, 9, 10, 16 Or InRange (12, 14)  result = 0.059; 
-Else If A03_ClimateZoneNumber == 3, 6, Or 7  result = 0.110;  
-Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.102;  
-Else If A03_ClimateZoneNumber == 11 result = 0.045; 
-Else If A03_ClimateZoneNumber == 15 result = 0.042;  
+If A03_ClimateZoneNumber == 1 result = 0.078; 
+Else  If A03_ClimateZoneNumber == 2, 4, 9, 10, 16 Or InRange (12, 14)  result = 0.053; 
+Else If A03_ClimateZoneNumber == 3, 6, Or 7  result = 0.102;  
+Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.095;  
+Else If A03_ClimateZoneNumber == 11 result = 0.042; 
+Else If A03_ClimateZoneNumber == 15 result = 0.038;  
 End If
  
 case HotelMotel: 
@@ -12030,6 +12183,12 @@ End If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="HSIPS13_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="HSIPSFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
@@ -12296,12 +12455,12 @@ End If</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Hspandrel3b_Status == New 
 Switch (Hspandrel03a_TopLevelOccupancy) 
 case  Nonresidential: 
- If A03_ClimateZoneNumber == 1 result = 0.095; 
-Else  If A03_ClimateZoneNumber == 2, 4, 9, 10, 16 Or InRange (12, 14)  result = 0.059; 
-Else If A03_ClimateZoneNumber == 3, 6, Or 7  result = 0.110;  
-Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.102;  
-Else If A03_ClimateZoneNumber == 11 result = 0.045; 
-Else If A03_ClimateZoneNumber == 15 result = 0.042;  
+ If A03_ClimateZoneNumber == 1 result = 0.078; 
+Else  If A03_ClimateZoneNumber == 2, 4, 9, 10, 16 Or InRange (12, 14)  result = 0.053; 
+Else If A03_ClimateZoneNumber == 3, 6, Or 7  result = 0.102;  
+Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.095;  
+Else If A03_ClimateZoneNumber == 11 result = 0.042; 
+Else If A03_ClimateZoneNumber == 15 result = 0.038;  
 End If
  
 case HotelMotel: 
@@ -12540,6 +12699,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="Hspandrel12_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="HspandrelFootnote1" minOccurs="0">
                               <xsd:annotation>
@@ -12787,9 +12952,9 @@ End If</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Hmetalb03b_Status == New 
 Switch ( Hmetalb03a_TopLevelOccupancy) 
 case  Nonresidential:  
-If A03_ClimateZoneNumber == 1, 3, 6 Or 7 result = 0.113; 
-Else  If A03_ClimateZoneNumber == 2, 4, 5, 16 Or InRange(8,14)  result = 0.061; 
-Else If A03_ClimateZoneNumber == 15 result = 0.057; 
+If A03_ClimateZoneNumber == 1, 3, 6 Or 7 result = 0.098; 
+Else  If A03_ClimateZoneNumber == 2, 4, 5, 16 Or InRange(8,14)  result = 0.053; 
+Else If A03_ClimateZoneNumber == 15 result = 0.050; 
 End If
  
 case HotelMotel: 
@@ -12931,6 +13096,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="Hmetalb12_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="HmetalbFootnote1" minOccurs="0">
                               <xsd:annotation>
@@ -13083,11 +13254,11 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">Calculated field: using Wood-framed and Other values from140.3 Tables: 
 Switch ( Hmetalp04a_TopLevelOccupancy) 
 case Nonresidential:   
-If A03_ClimateZoneNumber == 1 result = 0.095; 
-Else If A03_ClimateZoneNumber == 2, 4, 9, 10, 12, 13, 14, Or 16 result = 0.059; 
-Else if A03_ClimateZoneNumber == 3, 6 Or 7 result = 0.110; 
-Else If A03_ClimateZoneNumber == 5 or 8 result = 0.102; 
-Else if A03_ClimateZoneNumber == 11 result = 0.045; 
+If A03_ClimateZoneNumber == 1 result = 0.078; 
+Else If A03_ClimateZoneNumber == 2, 4, 9, 10, 12, 13, 14, Or 16 result = 0.053; 
+Else if A03_ClimateZoneNumber == 3, 6 Or 7 result = 0.102; 
+Else If A03_ClimateZoneNumber == 5 or 8 result = 0.095; 
+Else if A03_ClimateZoneNumber == 11 result = 0.042;  
 Else result = 0.042.  
 End If
  
@@ -13172,6 +13343,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="Hmetalp10_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="HmetalpFootnote1" minOccurs="0">
                               <xsd:annotation>
@@ -13415,20 +13592,20 @@ End if</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">Calculated field using values from Tables 140.3: 
 If Hlog03_TopLevelOccupancy == Nonresidential 
 If Hlog05_LogDiameter  == 6Log, 8Log Or 10Log  (using Wood-framed and Other) 
-If A03_ClimateZoneNumber)  == 1  result = 0.095;
- Else If A03_ClimateZoneNumber ==  2, 4, 9, 10, 12, 13, 14 Or 16 result = 0.059; 
-Else If A03_ClimateZoneNumber == 3, 6 Or 7 result = 0.110; 
-Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.102; 
-Else If A03_ClimateZoneNumber == 11 result = 0.045; 
-Else If A03_ClimateZoneNumber == 15 result = 0.042; 
+If A03_ClimateZoneNumber  == 1  result = 0.078;
+ Else If A03_ClimateZoneNumber ==  2, 4, 9, 10, 12, 13, 14 Or 16 result = 0.053; 
+Else If A03_ClimateZoneNumber == 3, 6 Or 7 result = 0.102; 
+Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.53; 
+Else If A03_ClimateZoneNumber == 11 result = 0.042; 
+Else If A03_ClimateZoneNumber == 15 result = 0.038; 
 End If
  
 Else If Hlog05_LogDiameter  ==  12Log, 14Log Or 16Log (using Mass light)  
-If A03_ClimateZoneNumber == 1 result = 0.196; 
-Else If A03_ClimateZoneNumber == 2 Or InRange(10, 16) result = 0.170; 
-Else If A03_ClimateZoneNumber == 3 result = 0.278; 
-Else If A03_ClimateZoneNumber == 4 result = 0.227; 
-Else If A03_ClimateZoneNumber == InRange (5, 9) result = 0.440;  
+If A03_ClimateZoneNumber == 1 result = 0.170; 
+Else If A03_ClimateZoneNumber == 2 Or InRange(10, 16) result = 0.138; 
+Else If A03_ClimateZoneNumber == 3 result = 0.227; 
+Else If A03_ClimateZoneNumber == 4 result = 0.196; 
+Else If A03_ClimateZoneNumber == InRange (5, 9) result = 0.364;  
 End If
 End If
  
@@ -13678,6 +13855,12 @@ End If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="Hlog11_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="HlogFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
@@ -13840,12 +14023,12 @@ End If</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Hstraw04b_Status == New 
 Switch (Hstraw04a_TopLevelOccupancy) 
 case  Nonresidential:  
-If A03_ClimateZoneNumber == 1 result = 0.095; 
-Else  If A03_ClimateZoneNumber == 2, 4, 9, 10, 16 Or InRange (12 14)  result = 0.059; 
-Else If A03_ClimateZoneNumber == 3, 6, Or 7  result = 0.110;  
-Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.102;  
-Else If A03_ClimateZoneNumber == 11 result = 0.045; 
-Else If A03_ClimateZoneNumber == 15 result = 0.042;  
+If A03_ClimateZoneNumber == 1 result = 0.078; 
+Else  If A03_ClimateZoneNumber == 2, 4, 9, 10, 16 Or InRange (12 14)  result = 0.053; 
+Else If A03_ClimateZoneNumber == 3, 6, Or 7  result = 0.102;  
+Else If A03_ClimateZoneNumber == 5 Or 8 result = 0.095;  
+Else If A03_ClimateZoneNumber == 11 result = 0.042; 
+Else If A03_ClimateZoneNumber == 15 result = 0.038;  
 End If
  
 case HotelMotel: 
@@ -13937,6 +14120,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="Hstraw11_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="HstrawFootnote1" minOccurs="0">
                               <xsd:annotation>
@@ -14103,20 +14292,20 @@ End If</xsd:documentation>
 If HICF03_TopLevelOccupancy == Nonresidential 
 Switch (HICF09a_HeatCapacityRange) 
 case GTE7LT15: 
-If A03_ClimateZoneNumber == 1 result = 0.196; 
-Else If A03_ClimateZoneNumber == 2 Or InRange(10, 16) result = 0.170; 
-Else If A03_ClimateZoneNumber == 3 result = 0.278; 
-Else If A03_ClimateZoneNumber == 4 result = 0.227; 
-Else If A03_ClimateZoneNumber == InRange (5, 9) result = 0.440;  
+If A03_ClimateZoneNumber == 1 result =70; 
+Else If A03_ClimateZoneNumber == 2 Or InRange(10, 16) result = 0.138; 
+Else If A03_ClimateZoneNumber == 3 result = 0.227; 
+Else If A03_ClimateZoneNumber == 4 result = 0.196; 
+Else If A03_ClimateZoneNumber == InRange (5, 9) result = 0.364;  
 End If
  
 case GTE15: 
-If A03_ClimateZoneNumber == 1 Or 12 result = 0.253; 
+If A03_ClimateZoneNumber == 1 Or 12 result = 0.211; 
 Else If A03_ClimateZoneNumber == InRange(2, 5) Or 10 result = 0.650; 
 Else If A03_ClimateZoneNumber == 6, 7, 8 Or 9 result = 0.690; 
-Else If A03_ClimateZoneNumber == 11, 14 Or 15 result = 0.184; 
-Else If A03_ClimateZoneNumber == 13 result = 0.211; 
-Else If A03_ClimateZoneNumber == 16 result = 0.160;  
+Else If A03_ClimateZoneNumber == 11, 14 Or 15 result = 0.160; 
+Else If A03_ClimateZoneNumber == 13 result = 0.184; 
+Else If A03_ClimateZoneNumber == 16 result = 0.153;  
 End If
 End Switch
  
@@ -14392,6 +14581,12 @@ End If</xsd:documentation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="HICF12_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="HICFFootnote1" minOccurs="0">
                               <xsd:annotation>
@@ -15128,6 +15323,14 @@ MM120_7c3_MeasureApplies = true and is displayed
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="I01Unheated_FloorTypeApplies" type="comp:FloorTypeApplies">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Unheated Slab-on-grade</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If true And A03_ClimateZoneNumber != 16 Or A04_WholeBuildingOccupancy != HighRiseResidential
+   IFootnote2 is required
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="I01SlabMF_FloorTypeApplies" type="comp:FloorTypeApplies">
                         <xsd:annotation>
@@ -15155,6 +15358,14 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i><d:sup>1</d:sup> FOOTNOTES: Floor types indicated above as "(new only)" do not have Title 24, Part 6 requirements for alterations.  New construction and additions do have requirements and should be clicked above and compliance demonstrated within this table.  </d:i>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="IFootnote2" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:i><d:sup>2</d:sup> FOOTNOTES: There are no prescriptive requirements for unheated slab-on-grade floors for nonresidential buildings or for multifamily buildings located outside of climate zone 16, so you do not need to document them. </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -15987,6 +16198,12 @@ end If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="Iframed13_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="IframedFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
@@ -16430,6 +16647,12 @@ End If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="ISIPS13_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="ISIPSFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
@@ -16813,6 +17036,12 @@ End If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
+                           <xsd:element name="Imass12_BuildingPlanName" type="comp:BuildingPlanName">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Location in Construction Documents Showing Air Barrier</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="ImassFootnote1" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
@@ -16994,16 +17223,16 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="Islab" minOccurs="0">
+                  <xsd:element name="Iheatedmultifamily" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">
-                           <d:b>Low-rise Multifamily Slab-on-grade Floors (new floors in Climate Zone 16 only)</d:b>
+                           <d:b>Multifamily Slab-on-Grade Floors (new floors in Climate Zone 16 only)</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required If I01SlabMF_FloorTypeApplies == true whic only applies to lowrise Multifamily and climate zone 16</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If I01Unheated_FloorTypeApplies == true And A03_ClimateZoneNumber == 16 And A04_WholeBuildingOccupancy == HighRiseResidential</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="TableISlabMF">
+                           <xsd:element name="TableIheatedmultifamily">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
                               </xsd:annotation>
@@ -17012,33 +17241,28 @@ End If</xsd:documentation>
                                     <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                                        <xsd:complexType>
                                           <xsd:sequence>
-                                             <xsd:element name="Islab01_FloorAssemblyName" type="env:FloorAssemblyName">
+                                             <xsd:element name="Iheatedmultifamily01_FloorAssemblyName" type="env:FloorAssemblyName">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Tag/Plan Detail ID</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:element name="Islab02_FloorDescription" type="env:FloorDescription">
+                                             <xsd:element name="Iheatedmultifamily02_FloorDescription" type="env:FloorDescription">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Name/Description</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:element name="Islab03_InsulationPlacement">
+                                             <xsd:element name="Iheatedmultifamily03">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Insulation Location</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">result = SlabPerimeter</xsd:documentation>
+                                                   <xsd:documentation source="AdditionalRequirements">Slab floor perimeter</xsd:documentation>
                                                 </xsd:annotation>
-                                                <xsd:simpleType>
-                                                   <xsd:restriction base="env:InsulationPlacement">
-                                                      <xsd:enumeration value="SlabPerimeter"/>
-                                                   </xsd:restriction>
-                                                </xsd:simpleType>
                                              </xsd:element>
-                                             <xsd:element name="Islab04_ConstructionSpecificationMethod">
+                                             <xsd:element name="Iheatedmultifamily04_ConstructionSpecificationMethod">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Thermal Performance Unit</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">User selects from list RValue, UFactor ;</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User selects from the valid enumerations</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="env:ConstructionSpecificationMethod">
@@ -17048,23 +17272,22 @@ End If</xsd:documentation>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Islab05_InsulationUFactorLimit" type="env:InsulationUFactorLimit">
+                                                <xsd:element name="Iheatedmultifamily05_SlabInsulationUFactorRequired">
                                                    <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Required Thermal Performance<d:sup>2</d:sup>
-                                                      </xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">Calculated field: 
-If Islab04_ConstructionSpecificationMethod == UFactor 
-result = 0.58; 
-End If</xsd:documentation>
+                                                      <xsd:documentation source="FieldText">Required Thermal Performance</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Iheatedmultifamily04_ConstructionSpecificationMethod == UFactor
+      result = 0_58
+   Else 
+      value stored in Iheatedmultifamily04_SlabInsulationRValueRequired</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
-                                                <xsd:element name="Islab05_SlabInsulationRValueRequired">
+                                                <xsd:element name="Iheatedmultifamily05_SlabInsulationRValueRequired">
                                                    <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Required Thermal Performance<d:sup>2</d:sup>
-                                                      </xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Islab04_ConstructionSpecificationMethod == RValue 
-result = R7; 
-End If</xsd:documentation>
+                                                      <xsd:documentation source="FieldText">Required Thermal Performance</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Iheatedmultifamily04_ConstructionSpecificationMethod == RValue
+      result = 7
+   Else 
+      value stored in Iheatedmultifamily04_SlabInsulationUFactorRequired</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="env:SlabInsulationRValueRequired">
@@ -17074,30 +17297,36 @@ End If</xsd:documentation>
                                                 </xsd:element>
                                              </xsd:choice>
                                              <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Islab06_InsulationUFactor" type="env:InsulationUFactor">
+                                                <xsd:element name="Iheatedmultifamily06_UfactorMandatory">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Thermal Performance per Design</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">Use this choice If Islab04_ConstructionSpecificationMethod == UFactor</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Iheatedmultifamily04_ConstructionSpecificationMethod == Ufactor
+   user input
+Else 
+   value stored in Iheatedmultifamily06_InsulationRValue</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
-                                                <xsd:element name="Islab06_InsulationRValue" type="env:InsulationRValue">
+                                                <xsd:element name="Iheatedmultifamily06_InsulationRValue">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Thermal Performance per Design</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">Use this choice If Islab04_ConstructionSpecificationMethod == RValue</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Iheatedmultifamily04_ConstructionSpecificationMethod == RValue
+   user input
+Else 
+   value stored in Iheatedmultifamily06_UfactorMandatory</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                              </xsd:choice>
-                                             <xsd:element name="Islab07Label" minOccurs="0">
+                                             <xsd:element name="Iheatedmultifamily07Label" minOccurs="0">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Insulation Depth</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:element name="Islab07" minOccurs="0">
+                                             <xsd:element name="Iheatedmultifamily07" minOccurs="0">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">The minimum depth of concrete slab floor perimeter insulation shall be 16 inches or the depth of the footing of the building, whichever is less.</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:element name="Islab08_BuildingPlanName" type="comp:BuildingPlanName">
+                                             <xsd:element name="Iheatedmultifamily08_BuildingPlanName" type="comp:BuildingPlanName">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Location in Construction Documents</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
@@ -17323,7 +17552,10 @@ MM110_6a2to4_MeasureApplies = true and is displayed</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="TableJdoors">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="FieldText">
+                           <d:b>Exterior Opaque Doors</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If B02AddDoor_ComponentApplies  Or B02NewDoor_ComponentApplies == true Or B02AltDoor_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -17477,6 +17709,121 @@ If J04_DoorTypeMF==FireRated
 result = BlankGrayedOut
 End If
 End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="TableJVestibules">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                           <d:b>Vestibules</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If B02AddDoor_ComponentApplies  Or B02NewDoor_ComponentApplies == true Or B02AltDoor_ComponentApplies == true</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="JVestibules_BeginNote1" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"/>
+                                 <xsd:documentation source="AdditionalRequirements">
+                                    <d:i> Public entrances in newly constructed buildings of occupancy types A, B, E, I, and M shall include an enclosed vestibule meeting the requirements of 
+                                       <d:t24refnolink/>120.7(e)</d:i>
+                                 </xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="J01_VestibuleName" type="env:VestibuleName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/Plan Detail ID</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User enters text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="J02_VestibuleExemptions" type="comp:VestibuleExemptions">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exception to 
+                                             <d:t24refnolink/>120.7(e)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from the valid enumarations</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="J03_VestibuleShutOffControl" type="comp:VestibuleShutOffControl">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions == NoException
+   User selects from valid enumerations
+Else 
+   Value stored in J03_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="J03_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions != NoException
+   result = BlankGrayedOut
+Else 
+   Value stored in J03_VestibuleShutOffControl</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="J04_VestibuleThermostat" type="comp:VestibuleThermostat">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions == NoException
+   User selects from valid enumerations
+Else 
+   Value stored in J04_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="J04_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions != NoException
+   result = BlankGrayedOut
+Else 
+   Value stored in J04_VestibuleThermostat</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="J05_VestibuleSelfClosingDevice" type="comp:VestibuleSelfClosingDevice">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions == NoException
+   User selects from valid enumerations
+Else 
+   Value stored in J05_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="J05_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions != NoException
+   result = BlankGrayedOut
+Else 
+   Value stored in J05_VestibuleSelfClosingDevice</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="comp:NotApplicableMessage">
@@ -18190,7 +18537,12 @@ Else If Kvertperf05_FenestrationProductType != GlazedDoor
             result = 0.46;  
          case StoreFront:  case CurtainWall: case DemisingWallFen:
             result = 0.41
-         End Switch 
+         End Switch
+      Else If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones
+         If Kvertperf05_FenestrationProductType == OperableWindow
+            result = 0.46
+         Else
+            result = 0.34; 
       Else  If Kvertperf06_TopLevelOccupancy == LowRiseResidential 
          If Kvertperf05_FenestrationProductType == StoreFront Or CurtainWall Or DemisingWallFen
             If A03_ClimateZoneNumber == 1 Or 16
@@ -18199,10 +18551,12 @@ Else If Kvertperf05_FenestrationProductType != GlazedDoor
                result = 0.41; 
             End If
          Else  If Kvertperf05_FenestrationProductType == FixedWindow Or GlazedDoor Or OperableWindow
-            If A03_ClimateZoneNumber == InRange (1,6) Or InRange(9, 16)
-               result = 0.30; 
-            Else If A03_ClimateZoneNumber == 7 Or 8
-               result = 0.34; 
+            If A03_ClimateZoneNumber 1 Or 3 Or 4 Or 5 Or 11 Or 13 Or 14 Or 15 Or 16
+               result = 0.28
+            Else if A03_ClimateZoneNumber == 2 Or 8 Or 9 Or 10 Or 12
+               result = 0.30
+            Else If A03_ClimateZoneNumber == 6 Or 7
+               result = 0.34
             End If
          Else if Kvertperf05_FenestrationProductType = FixedWindowMF Or OperableWindowMF
             If A03_ClimateZoneNumber == 1 Or 16
@@ -18301,9 +18655,7 @@ Else If Kvertperf07_ComplianceMethodSHGC_VT == NoOverHang
 Else If Kvertperf05_FenestrationProductType == GlazedDoor
    If Kvertperf06_FenestrationModification == AllNew Or AddGT50ft2
       If Kvertperf06_TopLevelOccupancy == HighriseResidential
-         If A03_ClimateZoneNumber = 1 Or 3 Or 5 Or 16
-            result = NotApplicableMessage stored in Kvertperf11b_NotApplicableMessage
-         Else if A03_ClimateZoneNumber == 2 Or 4 Or InRange(6, 15)
+         If A03_ClimateZoneNumber = 2 Or 4 Or InRange(6, 15)
             result = 0.23
          End If
       Else If Kvertperf06_TopLevelOccupancy == HotelMotel Or Nonresidential Or RelocableSchoolBuildingAllZones
@@ -18359,7 +18711,7 @@ Else If Kvertperf07_ComplianceMethodSHGC_VT == Table140_3BCD
          result = 0.26;  
       End Switch
    Else If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones 
-      result = 0.26;  
+      result = 0.22;  
    End If 
 Else  If Kvertperf07_ComplianceMethodSHGC_VT == Table141_0A 
    If A03_ClimateZoneNumber == 1, 3, 5 Or 16 
@@ -18369,21 +18721,17 @@ Else  If Kvertperf07_ComplianceMethodSHGC_VT == Table141_0A
    End If
 Else If Kvertperf07_ComplianceMethodSHGC_VT == Table170_2A 
    If Kvertperf05_FenestrationProductType == StoreFront Or CurtainWall  
-      If A03_ClimateZoneNumber == 1 Or 3 Or 5 Or 16
-         result = BlankGrayedOut stored in Kvertperf11b_SHGC_NotApplicableMessage
-      Else If A03_ClimateZoneNumber == 2 Or 4 Or  InRange(6, 15)
-         result = 0.26;
-      End If 
+      If A03_ClimateZoneNumber ==  2 Or 4 Or InRange(6, 13)
+         result = 0.26
+      Else if A03_ClimateZoneNumber == 14
+         result = 0.25
+      End If
    Else If Kvertperf05_FenestrationProductType == FixedWindow Or OperableWindow
-      If A03_ClimateZoneNumber == 1 Or 3 Or 5 Or 16
-            result = BlankGrayedOut stored in Kvertperf11b_SHGC_NotApplicableMessage
-      Else If A03_ClimateZoneNumber == 2 Or 4 Or InRange(6, 15)
-         result = 0.23; 
+      If A03_ClimateZoneNumber ==  2 Or 4 Or InRange(6, 15)
+         result = 0.23;  
       End If
    Else If Kvertperf05_FenestrationProductType == OperableWindowMF Or FixedWindowMF
-      If A03_ClimateZoneNumber == 1 Or 3 Or 5 Or 16
-         result = BlankGrayedOut stored in Kvertperf11b_SHGC_NotApplicableMessage
-      Else If A03_ClimateZoneNumber == 2 Or 4 Or InRange(6, 15)
+      If A03_ClimateZoneNumber == 2 Or 4 Or InRange(6, 15)
          result = 0.24
       End If
    End If
@@ -18430,11 +18778,8 @@ End If</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Kvertperf05_FenestrationProductType == ChromogenicFen Or DemisingWallFen Or GlazedDoorMF  
 Or
 If Kvertperf06_FenestrationModification == ReplaceLTE150ft2 Or AddLTE50ft2  
-Or
-If Kvertperf06_TopLevelOccupancy == LowRiseResidential And Kvertperf06_FenestrationModification == AllNew or AddGT50ft2 And If A03_ClimateZoneNumber == 1 Or 3 Or 5 Or 16
-Or
-If Kvertperf05_FenestrationProductType == FixedWindow or OperableWindow And Kvertperf07_ComplianceMethodSHGC_VT == Table170_2A And A03_ClimateZoneNumber == 1 Or 3 Or 5 Or 16
-
+Or 
+If Kvertperf05_FenestrationProductType == StoreFront Or CurtainWall Or OperableWindowMF Or FixedWindowMF Or GlazedDoor Or FixedWindow Or OperableWindow And A03_ClimateZoneNumber == 1 Or 3 Or 5 Or 16
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
@@ -18468,6 +18813,14 @@ case OperableWindow: result = 0.32
 case GlazedDoor: result = 0.17
 End Switch
 End If
+
+Else if Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones
+   If Kvertperf05_FenestrationProductType == OperableWindow
+      result = 0.32
+   Else if Kvertperf05_FenestrationProductType == GlazedDoor
+      result = 0.17
+   Else
+      result = 0.42
 
 Else If Kvertperf08_ComplianceMethodSHGC_VT == Equation140_3B
 result = Smallest (0.11 / ( Kvert07_TotalGlazingAreaAllOrientations / SUM ALL (Kvert03_ExteriorSurfaceGrossArea)), 0.40)
@@ -19736,7 +20089,7 @@ End If</xsd:documentation>
                                                 <xsd:element name="Kskyperf10a_UFactorLimit" type="com:UFactorLimit">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Product Performance</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Kskyperf06_TopLevelOccupancy == Nonresidential  
+                                                      <xsd:documentation source="CalculationsAndRules">If Kskyperf06_TopLevelOccupancy == Nonresidential Or RelocableSchoolBuildingAllZones
 Switch (Kskyperf05_FenestrationProductType) 
 case SkylightGlassCurb:  result = 0.58; 
 case SkylightGlassDeck:  result = 0.46;  

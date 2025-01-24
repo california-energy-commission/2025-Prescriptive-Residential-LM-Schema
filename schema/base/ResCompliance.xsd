@@ -20476,6 +20476,64 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
       <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="VestibuleExemptions">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="PublicNA">NA: Not used by the public</dtyp:displayterm>
+            <dtyp:displayterm value="DwellingUnitNA">NA: Directly from sleeping or dwelling unit</dtyp:displayterm>
+            <dtyp:displayterm value="LT3000NA">NA: Directly from space <d:lt/>3,0000 ft2</dtyp:displayterm>
+            <dtyp:displayterm value="RevolvingDoorNA">NA: Revolving doors installed </dtyp:displayterm>
+            <dtyp:displayterm value="VehicularMovementNA">NA: Used to facilitate vehicular movement or material handling</dtyp:displayterm>
+            <dtyp:displayterm value="AirCurtainNA">NA: Air curtain with velocity <d:gte/> 6.56 ft/sec and tested in accordance with ANSI/AMCA 220</dtyp:displayterm>
+            <dtyp:displayterm value="SubmittedBefore1_1_2026">NA: Building plans submitted before 1/1/2026</dtyp:displayterm>
+            <dtyp:displayterm value="NoException">None of these exceptions apply</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="PublicNA"/>
+         <xsd:enumeration value="DwellingUnitNA"/>
+         <xsd:enumeration value="LT3000NA"/>
+         <xsd:enumeration value="RevolvingDoorNA"/>
+         <xsd:enumeration value="VehicularMovementNA"/>
+         <xsd:enumeration value="AirCurtainNA"/>
+         <xsd:enumeration value="SubmittedBefore1_1_2026"/>
+         <xsd:enumeration value="NoException"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="VestibuleSelfClosingDevice">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="VestibuleSelfClosingProvided">Door into and out of vestibule is equipped with self-closing device</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="VestibuleSelfClosingProvided"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="VestibuleShutOffControl">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Configured45Degrees">Configured to shut off heating source when outdoor temp is <d:gt/> 45 deg</dtyp:displayterm>
+            <dtyp:displayterm value="NotHeatedNA">NA: Vestibule not heated</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Configured45Degrees"/>
+         <xsd:enumeration value="NotHeatedNA"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="VestibuleThermostat">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="VestibuleThermostat">Controlled by thermostat located in vestibule configured to limit heating to a temp not <d:lte/> 60 deg and cooling to a temp <d:gte/> than 85 deg</dtyp:displayterm>
+            <dtyp:displayterm value="NotHeatedCooledNA">NA: Vestibule not heated or cooled</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="VestibuleThermostat"/>
+         <xsd:enumeration value="NotHeatedCooledNA"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="VerifyLowLeakDuctsConditionedSpaceVCHP">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
