@@ -4816,25 +4816,6 @@ For selection of NA-6 properties</xsd:documentation>
          <xsd:enumeration value="0.269"/>
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="SlabInsulationUFactorRequired">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Required Slab Insulation U-factor</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="0.058">0.058</dtyp:displayterm>
-            <dtyp:displayterm value="0.092">0.092</dtyp:displayterm>
-            <dtyp:displayterm value="0.138">0.138</dtyp:displayterm>
-            <dtyp:displayterm value="0.269">0.269</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationDecimalNonNegative">
-         <xsd:enumeration value="0.058"/>
-         <xsd:enumeration value="0.092"/>
-         <xsd:enumeration value="0.138"/>
-         <xsd:enumeration value="0.269"/>
-      </xsd:restriction>
-   </xsd:simpleType>
    <xsd:simpleType name="SlabPerimeter">
       <xsd:annotation>
          <xsd:documentation>Units: ft</xsd:documentation>

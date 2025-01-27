@@ -5018,19 +5018,6 @@ For selection of NA-6 properties</xsd:documentation>
          <xsd:enumeration value="UnheatedSlabOnGrade"/>
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="SlabInsulationUFactorRequired">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Required Slab Insulation R Value</dtyp:displayterm>
-         </xsd:appinfo>       
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="0_58">0.58</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="0_58"/>
-      </xsd:restriction>
-   </xsd:simpleType>
    <xsd:simpleType name="SolarReflectance">
       <xsd:annotation>
          <xsd:documentation>From E+ Input/Output Ref:The diffuse solar reflectance of the unglazed part of the shading  surface (default = 0.2). This reflectance is assumed to be the same for   beam-to-diffuse and diffuse-to-diffuse reflection. Beam-to-diffuse reflection  is assumed to be independent of angle of incidence of beam radiation.  Diffuse-to-diffuse reflection is assumed to be independent of angular distribution of the incident of diffuse radiation. The outgoing diffuse radiation is assumed to be isotropic (hemispherically uniform). The sum of this reflectance and the shading surface transmittance should be less than or equal to 1.0.  Units: none</xsd:documentation>
