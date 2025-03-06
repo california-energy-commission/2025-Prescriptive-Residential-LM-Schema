@@ -17664,6 +17664,11 @@ If J04_DoorTypeMF ==  DwellingUnitEntry result = 0.20
 Else If J04_DoorTypeMF ==  CommonAreaEntry result = 0.70
 Else If J04_DoorTypeMF ==  CommonAreaEntryNonswinging result = 0.50
 End If
+
+If J04_DoorTypeMF == CommonAreaEntryNonswinging
+AND If A03_ClimateZoneNumber == 1 Or 16
+result = 0.50;
+Else result = 1.45
  
 End If</xsd:documentation>
                                           </xsd:annotation>

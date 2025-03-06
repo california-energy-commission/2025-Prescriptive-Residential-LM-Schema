@@ -631,7 +631,7 @@ End if</xsd:documentation>
                   <xsd:element name="B_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i]This table includes domestic water heating systems that are within the scope of the permit application and are demonstrating compliance using the prescriptive paths outlined in [d:t24refnolink/]140./ [d:t24refnolink/]170.2(d) and  [d:t24refnolink/]141.0(a)/[d:t24refnolink/]180.1, or  [d:t24refnolink/]141.0(b)2N / [d:t24refnolink/]180.2 for additions or alterations.  Solar water heating systems are documented on the LMCC-SAB compliance document.  Combined hydronic water heating systems are documented on the LMCC-MCH compliance document.[/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]This table includes domestic water heating systems that are within the scope of the permit application and are demonstrating compliance using the prescriptive paths outlined in [d:t24refnolink/]140.5/ [d:t24refnolink/]170.2(d) and  [d:t24refnolink/]141.0(a)/[d:t24refnolink/]180.1, or  [d:t24refnolink/]141.0(b)2N / [d:t24refnolink/]180.2 for additions or alterations.  Solar water heating systems are documented on the LMCC-SAB compliance document.  Combined hydronic water heating systems are documented on the LMCC-MCH compliance document.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="B01Label" minOccurs="0">
