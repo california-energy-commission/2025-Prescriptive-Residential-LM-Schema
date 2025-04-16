@@ -2605,8 +2605,8 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm value="ClassroomLectureTrainingVocationalArea">Classroom, Lecture, or Training Vocational</dtyp:displayterm>
             <dtyp:displayterm value="CommercialIndustrialStorageArea">Commercial Industrial Storage Area</dtyp:displayterm>
             <dtyp:displayterm value="CommercialIndustrialStorageAreaRefrigerated">Commercial and Industrial Storage Area (refrigerated)</dtyp:displayterm>
-            <dtyp:displayterm value="CommercialIndustrialStorageShipping">Commercial Industrial Storage Shipping</dtyp:displayterm>
-            <dtyp:displayterm value="CommercialIndustrialWarehouse">Commercial Industrial Warehouse</dtyp:displayterm>
+            <dtyp:displayterm value="CommercialIndustrialStorageShipping">Storage- Commercial/Industrial - Warehouse</dtyp:displayterm>
+            <dtyp:displayterm value="CommercialIndustrialWarehouse">Storage - Commercial/Industrial - Shipping and Handling</dtyp:displayterm>
             <dtyp:displayterm value="ComputerRoom">Computer Room</dtyp:displayterm>
             <dtyp:displayterm value="ConferenceMultipurposeMeetingMF">Conference, Multipurpose and Meeting Area</dtyp:displayterm>
             <dtyp:displayterm value="ConventionConferenceMultipurposeMeetingCenterArea">Convention, Conference, Multipurpose and Meeting Center</dtyp:displayterm>

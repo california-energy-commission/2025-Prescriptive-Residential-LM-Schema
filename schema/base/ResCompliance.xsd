@@ -821,6 +821,36 @@
             <dtyp:displayterm value="TunableWhiteLuminaires">Tunable white luminaires</dtyp:displayterm>
             <dtyp:displayterm value="VideoConferencing">Video Conferencing</dtyp:displayterm>
             <dtyp:displayterm value="WhiteChalkBoardLighting">White/chalk board</dtyp:displayterm>
+            <dtyp:displayterm value="ValuableDisplay">Valuable Display Case</dtyp:displayterm>
+            <dtyp:displayterm value="Wall106A">Wall Display MH [d:lte/] 10'6" A</dtyp:displayterm>
+            <dtyp:displayterm value="Wall107A">Wall Display MH 10'7" - 14' A</dtyp:displayterm>
+            <dtyp:displayterm value="Wall14A">Wall Display MH [d:gt/] 14' A</dtyp:displayterm>
+            <dtyp:displayterm value="Floor106A">Floor Display and Task MH [d:lte/]  10'6" A</dtyp:displayterm>
+            <dtyp:displayterm value="Fllor107A">Floor Display and Task MH 10'7" - 14' A</dtyp:displayterm>
+            <dtyp:displayterm value="Floor14A">Floor Display and Task MH [d:gt/] 14' A</dtyp:displayterm>
+            <dtyp:displayterm value="Wall106B">Wall Display MH [d:lte/] 10'6" B</dtyp:displayterm>
+            <dtyp:displayterm value="Wall107B">Wall Display MH 10'7" - 14' B</dtyp:displayterm>
+            <dtyp:displayterm value="Wall14B">Wall Display MH [d:gt/] 14' B</dtyp:displayterm>
+            <dtyp:displayterm value="Floor106B">Floor Display and Task MH [d:lte/]  10'6" B</dtyp:displayterm>
+            <dtyp:displayterm value="Floor107B">Floor Display and Task MH 10'7" - 14' B</dtyp:displayterm>
+            <dtyp:displayterm value="Floor14B">Floor Display and Task MH [d:gt/] 14' B</dtyp:displayterm>
+            <dtyp:displayterm value="Wall106C">Wall Display MH [d:lte/] 10'6" C</dtyp:displayterm>
+            <dtyp:displayterm value="Wall107C">Wall Display MH 10'7" - 14' C</dtyp:displayterm>
+            <dtyp:displayterm value="Wall14C">Wall Display MH [d:gt/] 14' C</dtyp:displayterm>
+            <dtyp:displayterm value="Wall106D">Wall Display MH [d:lte/] 10'6" D</dtyp:displayterm>
+            <dtyp:displayterm value="Wall107D">Wall Display MH 10'7" - 14' D</dtyp:displayterm>
+            <dtyp:displayterm value="Wall14D">Wall Display MH [d:gt/] 14' D</dtyp:displayterm>
+            <dtyp:displayterm value="Wall106E">Wall Display MH [d:lte/] 10'6" E</dtyp:displayterm>
+            <dtyp:displayterm value="Wall107E">Wall Display MH 10'7" - 14' E</dtyp:displayterm>
+            <dtyp:displayterm value="Wall14E">Wall Display MH [d:gt/] 14' E</dtyp:displayterm>
+            <dtyp:displayterm value="Floor106C">Floor Display and Task MH [d:lte/]  10'6" C</dtyp:displayterm>
+            <dtyp:displayterm value="Floor107C">Floor Display and Task MH 10'7" - 14' C</dtyp:displayterm>
+            <dtyp:displayterm value="Floor14C">Floor Display and Task MH [d:gt/] 14' C</dtyp:displayterm>
+            <dtyp:displayterm value="Floor106D">Floor Display and Task MH [d:lte/]  10'6" D</dtyp:displayterm>
+            <dtyp:displayterm value="Floor107D">Floor Display and Task MH 10'7" - 14' D</dtyp:displayterm>
+            <dtyp:displayterm value="Floor14D">Floor Display and Task MH [d:gt/] 14' D</dtyp:displayterm>
+            <dtyp:displayterm value="General10A">General Lighting enclosed ceiling [d:gt/] 10' A</dtyp:displayterm>
+            <dtyp:displayterm value="General10B">General Lighting enclosed ceiling [d:gt/] 10' B</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -843,19 +873,47 @@
          <xsd:enumeration value="TunableWhiteLuminaires"/>
          <xsd:enumeration value="VideoConferencing"/>
          <xsd:enumeration value="WhiteChalkBoardLighting"/>
+         <xsd:enumeration value="ValuableDisplay"/>
+         <xsd:enumeration value="Wall106A"/>
+         <xsd:enumeration value="Wall107A"/>
+         <xsd:enumeration value="Wall14A"/>
+         <xsd:enumeration value="Floor106A"/>
+         <xsd:enumeration value="Fllor107A"/>
+         <xsd:enumeration value="Floor14A"/>
+         <xsd:enumeration value="Wall106B"/>
+         <xsd:enumeration value="Wall107B"/>
+         <xsd:enumeration value="Wall14B"/>
+         <xsd:enumeration value="Floor106B"/>
+         <xsd:enumeration value="Floor107B"/>
+         <xsd:enumeration value="Floor14B"/>
+         <xsd:enumeration value="Wall106C"/>
+         <xsd:enumeration value="Wall107C"/>
+         <xsd:enumeration value="Wall14C"/>
+         <xsd:enumeration value="Wall106D"/>
+         <xsd:enumeration value="Wall107D"/>
+         <xsd:enumeration value="Wall14D"/>
+         <xsd:enumeration value="Wall106E"/>
+         <xsd:enumeration value="Wall107E"/>
+         <xsd:enumeration value="Wall14E"/>
+         <xsd:enumeration value="Floor106C"/>
+         <xsd:enumeration value="Floor107C"/>
+         <xsd:enumeration value="Floor14C"/>
+         <xsd:enumeration value="Floor106D"/>
+         <xsd:enumeration value="Floor107D"/>
+         <xsd:enumeration value="Floor14D"/>
+         <xsd:enumeration value="General10A"/>
+         <xsd:enumeration value="General10B"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AreaControlsCompliance">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="ManualOnOff">Readily Accessible</dtyp:displayterm>
-            <dtyp:displayterm value="AnnunciatedAreaControl">Annunciated</dtyp:displayterm>
-            <dtyp:displayterm value="AuthorizedPersonnelAreaControl">Authorized Personnel</dtyp:displayterm>
+            <dtyp:displayterm value="ManualOnOff">Readily Accessible and located in the same space.</dtyp:displayterm>
+            <dtyp:displayterm value="AuthorizedPersonnelAreaControl">Readily Accessible and located where the lighting or its status can be seen.</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="ManualOnOff"/>
-         <xsd:enumeration value="AnnunciatedAreaControl"/>
          <xsd:enumeration value="AuthorizedPersonnelAreaControl"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -12071,26 +12129,23 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AreaCategory">Area Category Method</dtyp:displayterm>
-            <dtyp:displayterm value="AreaCategoryAndTailored">Area Category And Tailored Method</dtyp:displayterm>
             <dtyp:displayterm value="CompleteBuilding">Complete Building Method</dtyp:displayterm>
             <dtyp:displayterm value="NotApplicableLightingMethod">N/A</dtyp:displayterm>
-            <dtyp:displayterm value="RatedPowerReduction">Rated Power Reduction Method</dtyp:displayterm>
-            <dtyp:displayterm value="Tailored">Tailored Method</dtyp:displayterm>
+            <dtyp:displayterm value="OneForOne">One for One Alteration</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AreaCategory"/>
-         <xsd:enumeration value="AreaCategoryAndTailored"/>
          <xsd:enumeration value="CompleteBuilding"/>
          <xsd:enumeration value="NotApplicableLightingMethod"/>
-         <xsd:enumeration value="RatedPowerReduction"/>
-         <xsd:enumeration value="Tailored"/>
+         <xsd:enumeration value="OneForOne"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LightingProjectScopeNR">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AlteredLightingSystem">Altered Lighting System</dtyp:displayterm>
+            <dtyp:displayterm value="AlteredGarageLighting">Altered Lighting System - Parking Garage</dtyp:displayterm>
             <dtyp:displayterm value="AlterationsLuminairesComponent">Alterations to Luminaires Component</dtyp:displayterm>
             <dtyp:displayterm value="AlterationsLuminairesEntire">Alterations to All Luminaires</dtyp:displayterm>
             <dtyp:displayterm value="AlterationsWiring">Alterations to Lighting Wiring</dtyp:displayterm>
@@ -12101,6 +12156,7 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AlteredLightingSystem"/>
+         <xsd:enumeration value="AlteredGarageLighting"/>
          <xsd:enumeration value="AlterationsLuminairesComponent"/>
          <xsd:enumeration value="AlterationsLuminairesEntire"/>
          <xsd:enumeration value="AlterationsWiring"/>
@@ -12379,7 +12435,7 @@
             <dtyp:displayterm value="HealthcareNA">NA: Licensed Healthcare</dtyp:displayterm>
             <dtyp:displayterm value="NA_LTE40PctPreAltLP">NA:  [d:lte/] 40 % lower compared to pre-alteration LP</dtyp:displayterm>
             <dtyp:displayterm value="NA_LTE80PctAllowedLP">NA:  [d:lte/] 80 % LP (alt only)</dtyp:displayterm>
-            <dtyp:displayterm value="NotRequiredHealthSafety">NA: per H&amp;LS</dtyp:displayterm>
+            <dtyp:displayterm value="NotRequiredHealthSafety">NA: per H&amp;LS Ordinance/Stature/Regulation</dtyp:displayterm>
             <dtyp:displayterm value="NotRequiredLT4000W">NA  [d:lt/] 4,000W subject to multilevel</dtyp:displayterm>
             <dtyp:displayterm value="RequiredGTE4000W">Required [d:gte/] 4,000W subject to multilevel</dtyp:displayterm>
             <dtyp:displayterm value="RequiredUsingPAF">Required: Using PAF (Table P)</dtyp:displayterm>
@@ -12980,12 +13036,12 @@
    <xsd:simpleType name="MultilevelControls">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="AreaLT100SqFtNA">NA: Enclosed area [d:lt/]100SF</dtyp:displayterm>
+            <dtyp:displayterm value="AreaLT100SqFtNA">NA: Space [d:lt/]100SF</dtyp:displayterm>
             <dtyp:displayterm value="HealthcareNA">NA:  Licensed Healthcare</dtyp:displayterm>
             <dtyp:displayterm value="DimmerControl">Dimmer</dtyp:displayterm>
+            <dtyp:displayterm value="HIDInduction">HID and induction with 1 step between 30 - 70%</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_5WperSqFtNA">NA: General Ltg [d:lte/] 0.5W/SF</dtyp:displayterm>
-            <dtyp:displayterm value="LumLTE2LampsNA">NA: Enclosed area w/ 1 luminaire [d:lte/]2 Lamps</dtyp:displayterm>
-            <dtyp:displayterm value="LumSSLNA">NA: Enclosed area w/ 1 inseparable SSL luminaire</dtyp:displayterm>
+            <dtyp:displayterm value="LumSSLNA">NA: Indoor space with only 1 luminaire</dtyp:displayterm>
             <dtyp:displayterm value="MultilevelSwitch">Multilevel Switch</dtyp:displayterm>
             <dtyp:displayterm value="NA_LTE80PctAllowedLP">NA:  [d:lte/] 80 % LP (alt only)</dtyp:displayterm>
             <dtyp:displayterm value="RestroomsNA">NA:  Restrooms</dtyp:displayterm>
@@ -12995,8 +13051,8 @@
          <xsd:enumeration value="AreaLT100SqFtNA"/>
          <xsd:enumeration value="HealthcareNA"/>
          <xsd:enumeration value="DimmerControl"/>
+         <xsd:enumeration value="HIDInduction"/>
          <xsd:enumeration value="LTE0_5WperSqFtNA"/>
-         <xsd:enumeration value="LumLTE2LampsNA"/>
          <xsd:enumeration value="LumSSLNA"/>
          <xsd:enumeration value="MultilevelSwitch"/>
          <xsd:enumeration value="NA_LTE80PctAllowedLP"/>
@@ -14402,10 +14458,10 @@
             <dtyp:displayterm value="NA_LTE40PctPreAltLP">NA:  [d:lte/] 40 % lower compared to pre-alteration LP</dtyp:displayterm>
             <dtyp:displayterm value="NA_LTE80PctAllowedLP">NA:  [d:lte/] 80 % LP (alt only)</dtyp:displayterm>
             <dtyp:displayterm value="NA_NotDaylit">NA: Not daylit zone</dtyp:displayterm>
-            <dtyp:displayterm value="OverhangRatioNA">NA: Overhang</dtyp:displayterm>
-            <dtyp:displayterm value="PrimaryLT120NA">NA: General Ltg [d:lt/] 120W</dtyp:displayterm>
+            <dtyp:displayterm value="OverhangRatioNA">NA: Overhang (Exception 1 to 130.1(d))</dtyp:displayterm>
+            <dtyp:displayterm value="PrimaryLT120NA">NA: General Ltg [d:lt/] 75W</dtyp:displayterm>
             <dtyp:displayterm value="RetailNA">NA: Sidelit retail sales area</dtyp:displayterm>
-            <dtyp:displayterm value="SkylightShaded">NA: Skylight shaded</dtyp:displayterm>
+            <dtyp:displayterm value="SkylightShaded">NA: Skylight shaded (Exception 1 to 130.1(d))</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -17458,10 +17514,11 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="NA_LTE40PctPreAltLP">NA:  [d:lte/] 40 % lower compared to pre-alteration LP</dtyp:displayterm>
             <dtyp:displayterm value="NA_LTE80PctAllowedLP">NA:  [d:lte/] 80 % LP (alt only)</dtyp:displayterm>
             <dtyp:displayterm value="NA_NotDaylit">NA: Not daylit zone</dtyp:displayterm>
-            <dtyp:displayterm value="OverhangRatioNA">NA: Overhang</dtyp:displayterm>
-            <dtyp:displayterm value="PrimaryLT120NA">NA: General Ltg [d:lt/] 120W</dtyp:displayterm>
+            <dtyp:displayterm value="OverhangRatioNA">NA: Overhang (Exception 1 to 130.1(d))</dtyp:displayterm>
+            <dtyp:displayterm value="PrimaryLT120NA">NA: General Ltg [d:lt/] 75W</dtyp:displayterm>
+            <dtyp:displayterm value="PrimaryLT85NA">NA: Primary not required and [d:lt/] 85W</dtyp:displayterm>
             <dtyp:displayterm value="RetailNA">NA: Sidelit retail sales area</dtyp:displayterm>
-            <dtyp:displayterm value="SkylightShaded">NA: Skylight shaded</dtyp:displayterm>
+            <dtyp:displayterm value="SkylightShaded">NA: Skylight shaded (Exception 1 to 130.1(d))</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -17475,6 +17532,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:enumeration value="NA_NotDaylit"></xsd:enumeration>
          <xsd:enumeration value="OverhangRatioNA"/>
          <xsd:enumeration value="PrimaryLT120NA"/>
+         <xsd:enumeration value="PrimaryLT85NA"/>
          <xsd:enumeration value="RetailNA"/>
          <xsd:enumeration value="SkylightShaded"/>
       </xsd:restriction>
@@ -17613,7 +17671,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AutomaticTimerSwitch">Auto. Time Switch</dtyp:displayterm>
             <dtyp:displayterm value="BuildingLevelShutOffControl">See Building Level</dtyp:displayterm>
-            <dtyp:displayterm value="CountdownTimerSwitch">Countdown Timer</dtyp:displayterm>
+            <dtyp:displayterm value="CountdownTimerSwitch">Countdown Timer in closet [d:lt/] 70 sq ft or server aisle</dtyp:displayterm>
             <dtyp:displayterm value="ElecEquipRoomNA">NA: Elec. equip. rm</dtyp:displayterm>
             <dtyp:displayterm value="EMCS">EMCS</dtyp:displayterm>
             <dtyp:displayterm value="HealthcareNA">NA: Licensed Healthcare</dtyp:displayterm>
@@ -17621,6 +17679,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="OccupancySensor">Occupancy Sensor</dtyp:displayterm>
             <dtyp:displayterm value="PartialOffShutOffControl">Partial Off</dtyp:displayterm>
             <dtyp:displayterm value="PartialOnShutOffControl">Partial On</dtyp:displayterm>
+            <dtyp:displayterm value="Vacancy">Vacancy Sensor</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -17634,12 +17693,13 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:enumeration value="OccupancySensor"/>
          <xsd:enumeration value="PartialOffShutOffControl"/>
          <xsd:enumeration value="PartialOnShutOffControl"/>
+         <xsd:enumeration value="Vacancy"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ShutOffControlsBuilding">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="AreaLevelControls">See Area/Space Level Controls</dtyp:displayterm>
+            <dtyp:displayterm value="AreaLevelControls">See Area/Space Level Controls (Column 8)</dtyp:displayterm>
             <dtyp:displayterm value="NA24x7Operation">NA: 24x7 operation</dtyp:displayterm>
             <dtyp:displayterm value="OtherShutOffControl">Whole Building Other</dtyp:displayterm>
             <dtyp:displayterm value="WholeBuildingAutoTimeSwitch">Whole Building Auto Time Switch</dtyp:displayterm>
