@@ -212,6 +212,14 @@
       </xsd:annotation>
       <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
+   <xsd:simpleType name="AddressHash">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Address Hash</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string"/>
+   </xsd:simpleType>
    <xsd:simpleType name="AddressSignsInternalLuminationInstalled">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -13374,6 +13382,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:sequence>
          <xsd:element name="compMgrRevision" type="comp:CompMgrRevision" minOccurs="0"/>
       </xsd:sequence>
+      <xsd:attribute name="addressHash" type="comp:AddressHash"/>
       <xsd:attribute name="complianceDocumentGUID" type="comp:ComplianceDocumentGUID" use="required"/>
       <xsd:attribute name="complianceDocumentSchemaVersion" type="comp:ComplianceDocumentSchemaVersion" use="required"/>
       <xsd:attribute name="compMgrVersion" type="comp:CompMgrVersion" use="optional"/>
