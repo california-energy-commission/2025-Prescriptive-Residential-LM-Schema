@@ -4608,12 +4608,6 @@
             <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle">Within 6ft of uncontrolled AND Split-wired receptacle</dtyp:displayterm>
             <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledReceptacle">Within 6ft of uncontrolled receptacle</dtyp:displayterm>
             <dtyp:displayterm value="MultipleReceptacleControlledAndUncontrolled">Multiple receptacle with [d:gte/] 1 controlled and uncontrolled receptacle</dtyp:displayterm>
-            <dtyp:displayterm value="HealthNA">NA: Healthcare Facility</dtyp:displayterm>
-            <dtyp:displayterm value="DataEquipmentNA">NA: Data Equipment Receptacle</dtyp:displayterm>
-            <dtyp:displayterm value="20AmpCircuitNA">NA: Circuit [d:gt/] 20 Amperes</dtyp:displayterm>
-            <dtyp:displayterm value="UPS247UsageNA">NA: Uninteruptible Power Supply Receptacle intended for 24/7/365</dtyp:displayterm>
-            <dtyp:displayterm value="ClockReceptacleGT6FtHigh">NA: Clock Receptacle [d:gte/] 6FT Above Floor</dtyp:displayterm>
-            <dtyp:displayterm value="RefrigeratorWaterDispenserNA">NA: Refrigerator/Water Dispenser Receptacle</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -4621,12 +4615,6 @@
          <xsd:enumeration value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle"/>
          <xsd:enumeration value="ControlledWithin6ftOfUncontrolledReceptacle"/>
          <xsd:enumeration value="MultipleReceptacleControlledAndUncontrolled"/>
-         <xsd:enumeration value="HealthNA"/>
-         <xsd:enumeration value="DataEquipmentNA"/>
-         <xsd:enumeration value="20AmpCircuitNA"/>
-         <xsd:enumeration value="UPS247UsageNA"/>
-         <xsd:enumeration value="ClockReceptacleGT6FtHigh"/>
-         <xsd:enumeration value="RefrigeratorWaterDispenserNA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ControlledReceptacleDemandResponse">
@@ -11911,6 +11899,46 @@
       <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="KitchenHasGas">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenAllElectric">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenWithinHealthcare">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenERComplies">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="LandscapeDesignGoalOPR">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -17772,7 +17800,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="PowerReduced65">Power reduced 65%+</dtyp:displayterm>
-            <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor 24x7x365 use</dtyp:displayterm>
+            <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor; illuminated day and night</dtyp:displayterm>
             <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
             <dtyp:displayterm value="OneHourNA">NA: Illuminated [d:lt/]1 hour during day</dtyp:displayterm>
 
@@ -17794,7 +17822,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="AutoTimeSwitchPhotoControl">Automatic Time Switch + Photocontrol (outdoor)</dtyp:displayterm>
             <dtyp:displayterm value="OtherIndoor">Other (indoor)</dtyp:displayterm>
             <dtyp:displayterm value="OtherOutdoor">Other (outdoor)</dtyp:displayterm>
-            <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor 24x7x365 use</dtyp:displayterm>
+            <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor; Covered &amp; on 24/7</dtyp:displayterm>
             <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>

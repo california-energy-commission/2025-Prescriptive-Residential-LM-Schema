@@ -1730,15 +1730,15 @@ End If
 If result == true continue evaluation: 
  
 If I01SlabMF_FloorTypeApplies == true
-If fields beginning with Islab01, Islab02, Islab03, Islab04,  Islab05, Islab06, Islab08 == BlankGrayedOut or have another value result = true, Else result = false
-End If.
-If result == true continue evaluation: 
-If Islab04_ConstructionSpecificationMethod == UFactor 
-If Islab06_InsulationUFactor  LTE Islab05_InsulationUFactorLimit  result = true Else result = false
-End If
-Else If Islab04_ConstructionSpecificationMethod == RValue
-If Islab06_InsulationRValue GTE  Islab05_InsulationRValueLimit  result = true Else result = false
-End If
+ If fields beginning with Islab01, Islab02, Islab03, Islab04,  Islab05, Islab06, Islab08 == BlankGrayedOut or have another value result = true, Else result = false
+ End If.
+ If result == true continue evaluation: 
+   If Islab04_ConstructionSpecificationMethod == UFactor 
+      If Islab06_InsulationUFactor  LTE Islab05_InsulationUFactorLimit  result = true Else result = false
+   End If
+ Else If Islab04_ConstructionSpecificationMethod == RValue
+    If Islab06_InsulationRValue GTE  Islab05_InsulationRValueLimit  result = true Else result = false
+ End If
 End If 
 End If</xsd:documentation>
                         </xsd:annotation>
@@ -1771,8 +1771,7 @@ End If</xsd:documentation>
                      <xsd:element name="C05_CompliantSectionJ" type="comp:CompliantSectionJ">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"/>
-                           <xsd:documentation source="CalculationsAndRules">If B02NewVestibule_ComponentApplies == True And J01_VestibuleName Or J02_VestibuleExemptions Or J03_VestibuleShutOffControl Or J04_VestibuleThermostat Or J05_VestibuleSelfClosingDevice are present but have no value
-Or B02NewDoor_ComponentApplies or B02AddDoor_ComponentApplies == True And J01_DoorName, J02_DoorDescription, J03_TopLevelOccupancy, J04_DoorOperation, J05_DoorConstructionType, J06_UFactorLimit, And J07_UfactorJA451 Are present but have no value
+                           <xsd:documentation source="CalculationsAndRules">If B02NewDoor_ComponentApplies or B02AddDoor_ComponentApplies == True And J01_DoorName, J02_DoorDescription, J03_TopLevelOccupancy, J04_DoorOperation, J05_DoorConstructionType, J06_UFactorLimit, And J07_UfactorJA451 Are present but have no value
 Or B02NewDoor_ComponentApplies Or B02AddDoor_ComponentApplies == True And J07_UfactorJA451 GT J06_UFactorLimit 
    result = false
 Else 
@@ -1782,8 +1781,8 @@ Else
                      <xsd:element name="C05_NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"/>
-                           <xsd:documentation source="CalculationsAndRules">If B02AddDoor_ComponentApplies And B02NewDoor_ComponentApplies == false 
-And B02NewVestibule_ComponentApplies == False
+                           <xsd:documentation source="CalculationsAndRules">If B02AddDoor_ComponentApplies And B02NewDoor_ComponentApplies And B02AltDoor_ComponentApplies == false
+
    result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out</xsd:documentation>
                         </xsd:annotation>
                         <xsd:simpleType>
@@ -8249,14 +8248,14 @@ Condition:  G04_TopLevelOccupancy == HotelMotel Or OtherOccupancy And G05_RoofSl
  
 Condition: G04_TopLevelOccupancy == HotelMotel And G05_RoofSlope == LowSlope And  G03_Status == ExistingAlteration And A03_ClimateZoneNumber ==  InRange(1,8) Or 12 Or 16
  
-Condition:  G04_TopLevelOccupancy == ResidentialMF And G05_RoofSlope == LowSlope And G03_Status == New And A03_ClimateZoneNumber ==  InRange(1,12) Or 14 Or 16; 
+Condition:  G04_TopLevelOccupancy == ResidentialMF or ResidentialNR And G05_RoofSlope == LowSlope And G03_Status == New And A03_ClimateZoneNumber ==  InRange(1,12) Or 14 Or 16; 
  
-Condition:  G04_TopLevelOccupancy == ResidentialMF And G05_RoofSlope == SteepSlope And G03_Status == New And A03_ClimateZoneNumber ==  InRange(1,9) Or 16 
+Condition:  G04_TopLevelOccupancy == ResidentialMF or ResidentialNR And G05_RoofSlope == SteepSlope And G03_Status == New And A03_ClimateZoneNumber ==  InRange(1,9) Or 16 
  
-Condition:  G04_TopLevelOccupancy == ResidentialMF Or OtherOccupancy And G05_RoofSlope == LowSlope And G03_Status == ExistingAlteration And A03_ClimateZoneNumber ==  1,3, 5 Or 16 
+Condition:  G04_TopLevelOccupancy == ResidentialMF or ResidentialNR Or OtherOccupancy And G05_RoofSlope == LowSlope And G03_Status == ExistingAlteration And A03_ClimateZoneNumber ==  1,3, 5 Or 16 
  
  
-Condition:  G04_TopLevelOccupancy == ResidentialMF Or OtherOccupancy And G05_RoofSlope == SteepSlope And G03_Status == ExistingAlteration And A03_ClimateZoneNumber ==  1,2, 3, 5, 6, 7 Or 16</xsd:documentation>
+Condition:  G04_TopLevelOccupancy == ResidentialMF or ResidentialNR Or OtherOccupancy And G05_RoofSlope == SteepSlope And G03_Status == ExistingAlteration And A03_ClimateZoneNumber ==  1,2, 3, 5, 6, 7 Or 16</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="comp:NotApplicableMessage">
@@ -8316,7 +8315,7 @@ WoodFrameLTEU034 idsplay term NA: Wood Frame Roof U :
                                                                <d:lte/> 0.034
  
 Else If G04_TopLevelOccupancy == HotelMotel And G05_RoofSlope == LowSlope 
-Or G04_TopLevelOccupancy == ResidentialMF  Or OtherOccupancy And G03_Status ==  New  add to list
+Or G04_TopLevelOccupancy == ResidentialMF or ResidentialNR Or OtherOccupancy And G03_Status ==  New  add to list
 SolarReflectanceIndex display term Solar Reflectance Index (SRI),
 RoofSolarPV display term NA: Roof-integrated PV or Solar Thermal, 
 MassRoofGTE25Lbs display term NA: Weight 
@@ -8326,7 +8325,7 @@ Else If G03_Status ==  New  And G05_RoofSlope == SteepSlope add to list:
 SolarReflectanceIndex display term Solar Reflectance Index (SRI),
 RoofSolarPV display term NA: Roof-integrated PV or Solar Thermal,
  
-Else If G03_Status == ExistingAlteration And G04_TopLevelOccupancy == ResidentialMF  Or OtherOccupancy And G05_RoofSlope == LowSlope  add to list
+Else If G03_Status == ExistingAlteration And G04_TopLevelOccupancy == ResidentialMF or ResidentialNR Or OtherOccupancy And G05_RoofSlope == LowSlope  add to list
 SolarReflectanceIndex display term Solar Reflectance Index (SRI),
 RoofSolarPV display term NA: Roof-integrated PV or Solar Thermal, 
 MassRoofGTE25Lbs display term NA: Weight 
@@ -8336,7 +8335,7 @@ RoofAlteredLT2000Ft2 display term NA:
                                                                <d:lt/>2,000ft2 altered
 RvalueTradeOff display term R-value Trade-off per Table 180.2-A
  
-Else If G03_Status == ExistingAlteration And G04_TopLevelOccupancy == ResidentialMF  Or OtherOccupancy And G05_RoofSlope == SteepSlope  add to list
+Else If G03_Status == ExistingAlteration And G04_TopLevelOccupancy == ResidentialMF or ResidentialNR Or OtherOccupancy And G05_RoofSlope == SteepSlope  add to list
 SolarReflectanceIndex display term Solar Reflectance Index (SRI),
 RoofSolarPV display term NA: Roof-integrated PV or Solar Thermal, 
 MassRoofGTE25Lbs display term NA: Weight 
@@ -8590,6 +8589,22 @@ Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRan
 result = 0.75
 End If
 End If
+
+case ResidentialNR  (display term Multifamily Attic Roof (Option C))
+If G05_RoofSlope == LowSlope 
+If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15
+result = 0.75
+Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
+result = 0.75
+End If
+Else If G05_RoofSlope == SteepSlope
+If G03_Status == New And A03_ClimateZoneNumber == InRange(10,15)
+result = 0.75
+Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
+result = 0.75
+End If
+End If
+
  
 case OtherOccupancy  (display term Multifamily Non-Attic Roof)
 If G05_RoofSlope == LowSlope 
@@ -8624,6 +8639,21 @@ result = BlankGrayedOut
 End If
  
 case ResidentialMF  (display term Multifamily Attic Roof)
+If G05_RoofSlope == LowSlope 
+If G03_Status == New And A03_ClimateZoneNumber == InRange (1, 12) Or 14 Or 16
+result = BlankGrayedOut 
+Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 1, 3, 5 Or 16
+result = BlankGrayedOut
+End If
+Else If G05_RoofSlope == SteepSlope
+If G03_Status == New And A03_ClimateZoneNumber == InRange(1, 9) Or 16
+result = BlankGrayedOut
+Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 1, 2, 3, 5, 6, 7, Or 16
+result = BlankGrayedOut
+End If
+End If
+
+case ResidentialNR  (display term Multifamily Attic Roof)
 If G05_RoofSlope == LowSlope 
 If G03_Status == New And A03_ClimateZoneNumber == InRange (1, 12) Or 14 Or 16
 result = BlankGrayedOut 
@@ -8696,6 +8726,21 @@ result = 16;
 End If 
  
 case ResidentialMF  (display term Multifamily Attic Roof)
+If G05_RoofSlope == LowSlope 
+If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15
+result = 75
+Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
+result = 75
+End If
+Else If G05_RoofSlope == SteepSlope
+If G03_Status == New And A03_ClimateZoneNumber == InRange(10,15)
+result = 16
+Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
+result = 16
+End If
+End If
+
+case ResidentialNR  (display term Multifamily Attic Roof (Option C))
 If G05_RoofSlope == LowSlope 
 If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15
 result = 75
@@ -15331,28 +15376,6 @@ End If</xsd:documentation>
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="I01SlabMF_FloorTypeApplies" type="comp:FloorTypeApplies">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Slab-on-grade (new Low-rise MF only)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A03_ClimateZoneNumber ==  16 user input is required
-If checked result = true; Else result = false</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="I01SlabMF_NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Slab-on-grade (new Low-rise MF only)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A03_ClimateZoneNumber != 16
-result = BlankGrayedOut
-End If</xsd:documentation>
-                        </xsd:annotation>
-                        <xsd:simpleType>
-                           <xsd:restriction base="comp:NotApplicableMessage">
-                              <xsd:enumeration value="BlankGrayedOut"/>
-                           </xsd:restriction>
-                        </xsd:simpleType>
-                     </xsd:element>
-                  </xsd:choice>
                   <xsd:element name="IFootnote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
@@ -17272,7 +17295,7 @@ End If</xsd:documentation>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Iheatedmultifamily05_SlabInsulationUFactorRequired">
+                                                <xsd:element name="Iheatedmultifamily05_SlabInsulationUFactorRequired" type="env:SlabInsulationUFactorRequired">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Thermal Performance</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Iheatedmultifamily04_ConstructionSpecificationMethod == UFactor
@@ -17297,7 +17320,7 @@ End If</xsd:documentation>
                                                 </xsd:element>
                                              </xsd:choice>
                                              <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Iheatedmultifamily06_UfactorMandatory">
+                                                <xsd:element name="Iheatedmultifamily06_UfactorMandatory" type="comp:UfactorMandatory">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Thermal Performance per Design</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Iheatedmultifamily04_ConstructionSpecificationMethod == Ufactor
@@ -17306,7 +17329,7 @@ Else
    value stored in Iheatedmultifamily06_InsulationRValue</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
-                                                <xsd:element name="Iheatedmultifamily06_InsulationRValue">
+                                                <xsd:element name="Iheatedmultifamily06_InsulationRValue" type="env:InsulationRValueLimit">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Thermal Performance per Design</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Iheatedmultifamily04_ConstructionSpecificationMethod == RValue
@@ -17714,121 +17737,6 @@ If J04_DoorTypeMF==FireRated
 result = BlankGrayedOut
 End If
 End If</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:NotApplicableMessage">
-                                                <xsd:enumeration value="BlankGrayedOut"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                 </xsd:sequence>
-                              </xsd:complexType>
-                           </xsd:element>
-                        </xsd:sequence>
-                     </xsd:complexType>
-                  </xsd:element>
-                  <xsd:element name="TableJVestibules">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">
-                           <d:b>Vestibules</d:b>
-                        </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required If B02AddDoor_ComponentApplies  Or B02NewDoor_ComponentApplies == true Or B02AltDoor_ComponentApplies == true</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:complexType>
-                        <xsd:sequence>
-                           <xsd:element name="JVestibules_BeginNote1" minOccurs="0">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"/>
-                                 <xsd:documentation source="AdditionalRequirements">
-                                    <d:i> Public entrances in newly constructed buildings of occupancy types A, B, E, I, and M shall include an enclosed vestibule meeting the requirements of 
-                                       <d:t24refnolink/>120.7(e)</d:i>
-                                 </xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
-                              <xsd:complexType>
-                                 <xsd:sequence>
-                                    <xsd:element name="J01_VestibuleName" type="env:VestibuleName">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Tag/Plan Detail ID</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User enters text</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="J02_VestibuleExemptions" type="comp:VestibuleExemptions">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Exception to 
-                                             <d:t24refnolink/>120.7(e)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from the valid enumarations</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J03_VestibuleShutOffControl" type="comp:VestibuleShutOffControl">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions == NoException
-   User selects from valid enumerations
-Else 
-   Value stored in J03_NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="J03_NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions != NoException
-   result = BlankGrayedOut
-Else 
-   Value stored in J03_VestibuleShutOffControl</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:NotApplicableMessage">
-                                                <xsd:enumeration value="BlankGrayedOut"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J04_VestibuleThermostat" type="comp:VestibuleThermostat">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions == NoException
-   User selects from valid enumerations
-Else 
-   Value stored in J04_NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="J04_NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions != NoException
-   result = BlankGrayedOut
-Else 
-   Value stored in J04_VestibuleThermostat</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:NotApplicableMessage">
-                                                <xsd:enumeration value="BlankGrayedOut"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J05_VestibuleSelfClosingDevice" type="comp:VestibuleSelfClosingDevice">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions == NoException
-   User selects from valid enumerations
-Else 
-   Value stored in J05_NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="J05_NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J02_VestibuleExemptions != NoException
-   result = BlankGrayedOut
-Else 
-   Value stored in J05_VestibuleSelfClosingDevice</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="comp:NotApplicableMessage">
@@ -20119,7 +20027,7 @@ Else If Kskyperf06_TopLevelOccupancy == LowRiseResidential
          result = 0.34 
    End If 
    Else If Kskyperf09_ComplianceMethodSHGC_VT == Table180_2B
-      result 0.30
+      result 0.46
    Else If Kskyperf06_FenestrationModification = NewSky16MF
       result 0.55    
 End If

@@ -467,15 +467,6 @@ Else result = false
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B01_ProjectHasPoolSpa" type="comp:ProjectHasPoolSpa" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Pool/Spa (mandatory [d:t24refnolink/]110..4 /[d:t24refnolink/]160.7)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input
-If checked result = true
-Else result = false
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="BEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
@@ -688,39 +679,6 @@ End If</xsd:documentation>
                         </xsd:restriction>
                      </xsd:simpleType>
                   </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="C13_CompliantSectionR" type="comp:CompliantSectionR" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Multifamily Pool/Spa [d:t24refnolink/]160.7 [d:line1/] (See Table R)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: 
-If  B01_ProjectHasPoolSpa == false 
-result = BlankGrayedOut  stored in NotApplicableMessage; 
-Else If  Pool01 - Pool08 have data
-If Pool02_PoolSpaService != SingleTenant 
-result = true display term Yes; 
-Else If Pool02_PoolSpaService == SingleTenant And Pool09- Pool11 And Pool09- Pool11 have data And Pool12 has data or result == BlankGrayedOut
-result = true display term Yes; 
-Else result = false display term No
-EndIf
-Else result = false display term No
-EndIf</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="C13_NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Multifamily Pool/Spa [d:t24refnolink/]160.7 [d:line1/] (See Table R)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If  B01_ProjectHasPoolSpa  == false 
- 
-result = BlankGrayedOut stored in NotApplicableMessage; 
-End If</xsd:documentation>
-                        </xsd:annotation>
-                        <xsd:simpleType>
-                           <xsd:restriction base="comp:NotApplicableMessage">
-                              <xsd:enumeration value="BlankGrayedOut"/>
-                           </xsd:restriction>
-                        </xsd:simpleType>
-                     </xsd:element>
-                  </xsd:choice>
                   <xsd:element name="C14_DoesFormComplyLMCC" type="comp:DoesFormComplyLMCC" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Compliance Results[/d:b]</xsd:documentation>
@@ -1584,6 +1542,97 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
+         <xsd:element name="ElectricReadyKitchen" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Electric Ready Commercial Kitchens [d:t24refnolink/]120.6(k)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HospitalBuilding
+this section does not apply
+Else If  B01_ProjectHasCommercialKitchen == true
+this section is required
+End If</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="ElectricReadyKitchen_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]This table includes electrical system requirements that must be met when using gas or propane in newly constructed commercial kitchens to demonstrate compliance with [d:t24refnolink/]120.6(k).[/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ElectricReadyKitchen" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Newly constructed commercial kitchen[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="ElectricReadyKitchen01_KitchenHasGas" type="comp:KitchenHasGas" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Uses gas or propane fuel</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false;</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="ElectricReadyKitchen01_KitchenAllElectric" type="comp:KitchenAllElectric" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">All-electric kitchen</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false;</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="ElectricReadyKitchen01_KitchenWithinHealthcare" type="comp:KitchenWithinHealthcare" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Is within a healthcare facility</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false;</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="ElectricReadyKitchen_SubHeading02to03" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Mandatory requirements for commercial kitchens</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="ElectricReadyKitchen02_KitchenERComplies" type="comp:KitchenERComplies" >
+                              <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:[d:l t="*"][d:list] a) The branch circuit conductors shall be rated at 50 amps minimum.[/d:list][d:list] b) The electrical service panel shall have a minimum capacity of 800 connected amps. [/d:list][/d:l]</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenHasGas  user input;  If checked result = true; else result = false.</xsd:documentation>
+                              </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="ElectricReadyKitchen02_NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:[d:l t="*"][d:list] a) The branch circuit conductors shall be rated at 50 amps minimum.[/d:list][d:list] b) The electrical service panel shall have a minimum capacity of 800 connected amps. [/d:list][/d:l]</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare  user input;  If checked result = true; else result = false.</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                     <xsd:element name="ElectricReadyKitchen03_KitchenERComplies" type="comp:KitchenERComplies" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenHasGas  user input;  If checked result = true; else result = false.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="ElectricReadyKitchen03_NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare  user input;  If checked result = true; else result = false.</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
          <xsd:element name="Section_R" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Pool &amp; SPAs</xsd:documentation>
@@ -1873,7 +1922,7 @@ D03_ExceptionalConditionMessageCCPRCE += UserChangedSelectionInCI</xsd:documenta
                   <xsd:element name="Lmci_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i] Selections have been made based on information provided in this document. If any selection have been changed by permit applicant, an explanation should be included in Table E. Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online at https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2022-building-energy-efficiency-3 [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i] Selections have been made based on information provided in this document. If any selection have been changed by permit applicant, an explanation should be included in Table E. Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online. [/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Lmci01_RequireLMCIPrc01E" type="comp:RequireLMCIPrc01E" >
