@@ -4482,7 +4482,7 @@ Document Data</dtyp:displayterm>
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="ControlledReceptacle50PercentHotelMotel">50 % are controlled receptacle (hotel/motel room)</dtyp:displayterm>
-            <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle">Within 6ft of uncontrolled AND Split-wired receptacle</dtyp:displayterm>
+            <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle">Within 6ft of uncontrolled AND multiple receptacle outlet</dtyp:displayterm>
             <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledReceptacle">Within 6ft of uncontrolled receptacle</dtyp:displayterm>
             <dtyp:displayterm value="MultipleReceptacleControlledAndUncontrolled">Multiple receptacle with 
                <d:gte/> 1 controlled and uncontrolled receptacle</dtyp:displayterm>

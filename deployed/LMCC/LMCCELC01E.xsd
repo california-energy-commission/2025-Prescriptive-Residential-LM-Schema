@@ -1764,7 +1764,7 @@ result = BlankGrayedOut</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i><d:sup>1</d:sup> Plug-in strips and other plug-in devices shall not be used to comply with the requirements of section 
+                           <d:i><d:sup>2</d:sup> Plug-in strips and other plug-in devices shall not be used to comply with the requirements of section 
                               <d:t24refnolink/>130.5(d) </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
@@ -1974,40 +1974,10 @@ If J01e_WaterHeaterIndividualDwellingUnit == true</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="J10_CondensateDrain" type="comp:CondensateDrain">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"/>
-                                 <xsd:documentation source="AdditionalRequirements">A condensate drain that is no more than 2 inches higher than the base of the installed water heater, and allows natural draining without pump assistance</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
                            <xsd:element name="J11_HeatPumpWHReady" type="comp:HeatPumpWHReady">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
                                  <xsd:documentation source="AdditionalRequirements">The construction drawings shall designate a space at least 39 inches by 39 inches and 96 inches tall for the future location of heat pump water heater</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="J12_WaterHeaterVentilation" type="comp:WaterHeaterVentilation">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"/>
-                                 <xsd:documentation source="AdditionalRequirements">A ventilation method meeting one of the following:
-                                    <d:line1/>
-                                    <d:tab1/> - The designated space for the future heat pump water heater shall have a minimum volume of 700 cubic feet; or
-                                    <d:line1/>
-                                    <d:tab1/> - The designated space for the future heat pump water heater shall vent to a communicating space in the same pressure boundary via permanent openings with a minimum total NFA of 250 square inches., so that the total combined volume connected via permanent openings is 700 cubic feet or larger. The permanent openings shall be:
-                                    <d:line1/>
-                                    <d:tab1/> - Fully louvered doors with fixed louvers; or
-                                    <d:line1/>
-                                    <d:tab1/> - Two permanent fixed openings located within 12 inches from the enclosure top and bottom;
-                                    <d:line1/>
-                                    <d:tab1/> - The designated space for the future heat pump water heater shall include two 8 inches capped ducts, venting to the building exterior:
-                                    <d:line1/>
-                                    <d:tab1/> - All ducts, connections, and building penetrations shall be sealed.
-                                    <d:line1/>
-                                    <d:tab1/> - Exhaust air ducts and all ducts which cross pressure boundaries shall be insulated to a minimum insulation level of R-6.
-                                    <d:line1/>
-                                    <d:tab1/> - Airflow from termination points shall be diverted away from each other.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -2022,54 +1992,6 @@ If J01f_WaterHeaterMultipleDwellingUnit == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="J13_HeatPumpWHReady" type="comp:HeatPumpWHReady">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"/>
-                                 <xsd:documentation source="AdditionalRequirements">Space shall be reserved for a Heat Pump. The minimum space reserved shall include space for service clearances and air flow clearances and shall meet one of the following:
-                                    <d:line1/>
-                                    <d:tab1/> - The space reserved shall be the space required for a heat pump water heater system that meets the total building hot water demand as calculated and documented by the responsible person associated with the project; or 
-                                    <d:line1/>
-                                    <d:tab1/> - The space reserved shall meet the requirements specified in Joint Appendix JA15.2.1.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="J14_WaterHeaterTankReady" type="comp:WaterHeaterTankReady">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"/>
-                                 <xsd:documentation source="AdditionalRequirements">Space shall be reserved for Tanks.The minimum space reserved shall include space for service clearances and shall meet one of the following:
-                                    <d:line1/>
-                                    <d:tab1/> - The space reserved shall be the space required for a heat pump water heater system that meets the total building hot water demand as calculated and documented by the responsible person associated with the project; or 
-                                    <d:line1/>
-                                    <d:tab1/> - The space reserved shall meet the requirements specified in Joint Appendix JA15.2.2.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="J15_WaterHeaterVentilation" type="comp:WaterHeaterVentilation">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"/>
-                                 <xsd:documentation source="AdditionalRequirements">Ventilation shall be provided by meeting one of the following: 
-                                    <d:line1/>
-                                    <d:tab1/> - Physical space reserved for the heat pump shall be located outside; or
-                                    <d:line1/>
-                                    <d:tab1/>- A pathway shall be reserved for future routing of supply and exhaust air via ductwork from the reserved heat pump location to a suitable outdoor location. Penetrations through the building envelope for louvers and ducts shall be planned and identified for future use. The reserved pathway and penetrations through the building envelope shall be sized to meet one of the following:
-                                    <d:line1/>
-                                    <d:tab1/> - The reserved pathway and penetrations shall be sized to serve a heat pump water heater system that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.
-                                    <d:line1/>
-                                    <d:tab1/> - The reserved pathway and penetrations shall be sized to meet the requirements specified in Joint Appendix JA15.2.3.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="J16_CondensateDrain" type="comp:CondensateDrain">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"/>
-                                 <xsd:documentation source="AdditionalRequirements">Condensate drainage piping. An approved receptacle that is sized per the California Plumbing Code for condensate drainage shall be installed within 3 feet of the reserved heat pump location, or piping shall be installed from within 3 feet of the reserved heat pump location to an approved discharge location that is sized in accordance with the California Plumbing Code, and meet one of the following:
-                                    <d:line1/>
-                                    <d:tab1/> - Condensate drainage shall be sized to serve a heat pump water heater system that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.
-                                    <d:line1/>
-                                    <d:tab1/> - Condensate drainage piping shall be sized to meet the requirements specified in Joint Appendix JA15.2.4.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; else result = false</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
                            <xsd:element name="J17_HeatPumpWHReady" type="comp:HeatPumpWHReady">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
