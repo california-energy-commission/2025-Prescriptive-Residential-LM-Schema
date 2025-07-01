@@ -541,7 +541,7 @@ When PV/battery/solar thermal requirements don't apply or are traded using the p
                   </xsd:element>
                   <xsd:element name="A03_ConditionedFloorArea" type="com:ConditionedFloorArea" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Conditioned Floor Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="FieldText">Square Footage of Building (ft[d:sup]2[/d:sup])</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:b][d:i]STOP! Roofs designed for vehicle traffic, parking or for heliports are not required to comply with solar ready requirements in [d:t24ref/]110.10.  Document this exception by providing the plan sheet showing the roof design in 03a to the right and completing the signature page.[/d:i][/d:b]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input;</xsd:documentation>
                      </xsd:annotation>
@@ -635,8 +635,7 @@ Or
 Bpv01d_NoContiguousAccess == true
 Or
 Bpv01e_SnowloadException == true
-Or
-Bpv0g_PerfTradeOffException == true
+
  BSolarReady is REQUIRED</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
@@ -735,7 +734,7 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="Bpv" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance with Solar Photovoltaic (PV)  Requirements in [d:t24refnolink/]170.2(f)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Compliance with Solar Photovoltaic (PV) Requirements in [d:t24refnolink/]170.2(f)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This subsection is required If  A04_WholeBuildngOccupancy ==  MultiFamilyMixedUseLT4 And A04a_LocalJurisdiction == LocalAuthorityNA And A05_RoofConstRangeSolar == NewRoofLTE533ft2 Or NewRoofGT533ft2
  
 If this subsection is required,  one and only one field can be checked with a result == true and it is the only field that is displayed in the final report.   Fields are evaluated in the order they occur in the schema and once a field is evaluated as true and displayed as checked, remaining fields are set to unchecked, result == false and not displayed.</xsd:documentation>
@@ -744,10 +743,10 @@ If this subsection is required,  one and only one field can be checked with a re
                         <xsd:sequence>
                            <xsd:element name="Bpv01a_SystemIncludesPV" type="comp:SystemIncludesPV" >
                               <xsd:annotation>
-                                 <xsd:documentation source="FieldText">Provided PV system sized per  [d:t24refnolink/]170.2 (f)</xsd:documentation>
+                                 <xsd:documentation source="FieldText">Provided PV system sized per [d:t24refnolink/]170.2(f)</xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">The project has included an installed PV system per requirements in [d:t24refnolink/]170.2(f) as documented in Table J.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">Calculated field: In Section_J
-If Pv10_ DesignSize  GTE Pv09_PV_MinSizeSARA
+If Pv10_ DesignSize  GTE Pv05_PV_MinSizeSARA
 result = true
 Else result = false
 End If
@@ -759,13 +758,13 @@ End If</xsd:documentation>
                            </xsd:element>
                            <xsd:element name="Bpv01c_RequiredLT1_8kW" type="comp:RequiredLT1_8kW" >
                               <xsd:annotation>
-                                 <xsd:documentation source="FieldText">Exception to PV and Battery: Required PV [d:lt/] 1.8kW</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">The required PV system size is less than 1.8 kW dc as documented in Table J..</xsd:documentation>
+                                 <xsd:documentation source="FieldText">Exception to PV and Battery: Required PV [d:lt/] 4kW</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">The required PV system size is less than 4 kW dc as documented in Table J.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">Calculated field: In Section_J
 If Bpv01a_SystemIncludesPV == true  
 result = false
 Else (evaluating values from J)
-If Pv09_PV_MinSizeSARA LT 1.8
+If Pv05_PV_MinSizeSARA LT 4.0
 result = true
 Else result = false
 End If
@@ -784,7 +783,7 @@ End If</xsd:documentation>
 If Bpv01a_SystemIncludesPV == true Or  Bpv01c_RequiredLT1_8kW == true
 result = false
 Else (evaluating values from J)
-If Pv05_SolarAccessRoofArea  LT 80
+If Pv12_SolarAccessRoofArea  LT 80
 result = true
 Else result = false
 End If
@@ -809,24 +808,12 @@ field NOT REPORTED IN PDF
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="Bpv0g_PerfTradeOffException" type="comp:PerfTradeOffException" >
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText">The prescriptive PV/battery requirement has been traded off using the performance compliance approach as documented on the PRF Certificate of Compliance form.</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">The project is a multi-tenant building in an area where a load serving entity does not provide either a Virtual Net Metering (VNEM) or community solar program.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input
-If result == true 
-BSolarReady subsection is triggered
-Else If result == false And Bpv0e_SnowLoadException And Bpv0f_MultiTenantException == false 
-Section_J is triggered  
-End If</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
                   <xsd:element name="Bdhw" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance with Solar Thermal Water Heating Requirements in [d:t24refnolink/]170.2(d)3C (Multifamiily and hotel/ motel occupancies only)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Compliance with Solar Thermal Water Heating Requirements in [d:t24refnolink/]170.2(d)2Bii (Multifamiily and hotel/ motel occupancies only)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This subsection is required if user has indicated in UI a gas/propane central water heating system</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
@@ -834,7 +821,7 @@ End If</xsd:documentation>
                            <xsd:element name="Bdhw01a_SystemIncludesSolarDHW" type="comp:SystemIncludesSolarDHW" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">The project includes a hotel/motel or multifamily occupancy with a gas or propane central water-heating system (serves 2+ dwelling units) and includes a permanently installed domestic solar water-heating system to comply with [d:t24refnolink/]170.2(d)3C and Reference Residential Appendix RA4, as documented in Table H.</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">The project includes a hotel/motel or multifamily occupancy with a gas or propane central water-heating system (serves 2+ dwelling units) and includes a permanently installed domestic solar water-heating system to comply with [d:t24refnolink/]170.2(d)2Bii and Reference Residential Appendix RA4, as documented in Table H.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input
 If result == true Section_H is required</xsd:documentation>
                               </xsd:annotation>
@@ -982,7 +969,7 @@ End If</xsd:documentation>
                            <xsd:documentation source="FieldText">Required Minimum DC Power Rating (Watts)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field:  
 If Section_J IsPresent
-result = Pv09_PV_MinSizeSARA x 1000
+result = Pv05_PV_MinSizeSARA x 1000
 End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -1013,7 +1000,7 @@ End If</xsd:documentation>
                            <xsd:documentation source="FieldText">Designed DC Power Rating (Watts)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field:  
 If Section_J IsPresent
-result = Pv10_PV_DesignSize x 1000
+result = Pv15_PV_DesignSize x 1000
 End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -1320,13 +1307,13 @@ result = NotApplicableBat display term Not Applicable</xsd:documentation>
                                     <xsd:element name="D01_SectionExceptionalConditionNotes" type="comp:SectionExceptionalConditionNotes" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"></xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">This combines all the strings stored in in ExceptionalConditionNote for sections that have exceptional conditions</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">This combines all the strings stored in ExceptionalConditionNote for sections that have exceptional conditions</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D02_AllSectionsErrorMessages" type="comp:AllSectionsErrorMessages"  maxOccurs="unbounded">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"></xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">This combines all the strings stored in in SectionErrorMessage  for sections that have errors</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">This combines all the strings stored in SectionErrorMessage  for sections that have errors</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -1764,7 +1751,7 @@ End If</xsd:documentation>
                   <xsd:element name="H_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i]This table is completed if the project is installing a solar water heating (SWH) system to comply with [d:t24refnolink/]110.10(b)1B Exception 2 or for multifamily/ hotel/motel occupancies to demonstrate compliance with [d:t24refnolink/]170.2(d)3C. [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]This table is completed if the project is installing a solar water heating (SWH) system to comply with [d:t24refnolink/]110.10(b)1B Exception 2 or for multifamily/ hotel/motel occupancies to demonstrate compliance with [d:t24refnolink/]170.2(d)2Bii. [/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="H00a" minOccurs="0">
@@ -1776,7 +1763,7 @@ End If</xsd:documentation>
                   <xsd:element name="H00c_IsDWHR_Installed" type="comp:IsDWHR_Installed" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Drain Water Heat Recovery</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS Rater as specified in the Reference Appendix RA3.6.9 is being used to lower the required Solar Savings Fraction per [d:t24refnolink/]170.2(d)3Cii.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS Rater as specified in the Reference Appendix RA3.6.9 is being used to lower the required Solar Savings Fraction per [d:t24refnolink/]170.2(d)2Bii.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true; Else result = false</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -1974,7 +1961,7 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">PHOTOVOLTAIC (PV) SYSTEMS</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if Bpv01e_SnowLoadException == false And Bpv0g_PerfTradeOffException == false And A04a_LocalJurisdiction == LocalAuthorityNA</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if Bpv01e_SnowLoadException == false And A04a_LocalJurisdiction == LocalAuthorityNA</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1990,65 +1977,73 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
                         <xsd:documentation source="FieldText">[d:b]Photovoltaic (PV) Systems[/d:b]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Pv01_RoofArea" type="env:RoofArea" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Area of New Roof[d:sup]1[/d:sup] (ft[d:sup]2[/d:sup])</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input area</xsd:documentation>
-                     </xsd:annotation>
+                  <xsd:element name="TablePV_EquationSubheading" minOccurs="0">
+                           <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">[d:b]Equation 170.2-C Calculation Method[/d:b]</xsd:documentation>
+                           </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Pv02_RoofArea70PercentSolarAccess" type="comp:RoofArea70PercentSolarAccess" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Roof Area [d:lt/] 70% Solar Access[d:sup]2[/d:sup] (ft[d:sup]2[/d:sup])</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input area</xsd:documentation>
-                     </xsd:annotation>
+                  <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Pv01_WholeBuildingOccupancy"  maxOccurs="1">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Multifamilty Building Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects one from list of occupancies</xsd:documentation>
+                                          <xsd:appinfo source="displayterm">
+                                             <dtyp:displayterm value="HighRiseResidential">High-rise multifamily</dtyp:displayterm>
+                                             <dtyp:displayterm value="MedicalClinicBuilding">Medical Office/Clinic</dtyp:displayterm>
+                                             <dtyp:displayterm value="UnleasedTenantSpace">Tenant Space [d:lte/]2,000 ft2 in Multitenant Building</dtyp:displayterm>
+                                          </xsd:appinfo>
+                                          
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="com:WholeBuildingOccupancy">
+                                             <xsd:enumeration value="FinancialInstitutionBuilding"/>
+                                             <xsd:enumeration value="GroceryStoreBuilding"/>
+                                             <xsd:enumeration value="HighRiseResidential"/>
+                                             <xsd:enumeration value="HotelMotel"/>
+                                             <xsd:enumeration value="LibraryBuilding"/>
+                                             <xsd:enumeration value="MedicalClinicBuilding"/>
+                                             <xsd:enumeration value="OfficeBuilding"/>
+                                             <xsd:enumeration value="RestaurantBuilding"/>
+                                             <xsd:enumeration value="RetailBuilding"/>
+                                             <xsd:enumeration value="SchoolBuilding"/>
+                                             <xsd:enumeration value="SportsRecreation"/>
+                                             <xsd:enumeration value="TenantSpaceGT2000"/>
+                                             <xsd:enumeration value="ReligiousFacilityBuilding"/>
+                                             <xsd:enumeration value="UnleasedTenantSpace"/>
+                                             <xsd:enumeration value="Warehouse"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
                   </xsd:element>
-                  <xsd:element name="Pv03_BuildingPlanName" type="comp:BuildingPlanName" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Plansheet or Document showing Solar Access Calculations</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                     </xsd:annotation>
+                  <xsd:element name="Pv02_ConditionedFloorArea" type="com:ConditionedFloorArea" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Conditioned Floor Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input; area</xsd:documentation>
+                                       </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Pv04_RoofAreaOccupied" type="comp:RoofAreaOccupied" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Occupied Roof Area[d:sup]3[/d:sup] (ft[d:sup]2[/d:sup])</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Pv05_SolarAccessRoofArea" type="comp:SolarAccessRoofArea" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Solar Access Roof Area (SARA) (ft[d:sup]2[/d:sup])</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:
-result = Pv01_RoofArea - Pv02_RoofArea70PercentSolarAccess - Pv04_RoofAreaOccupied</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Pv06_PV_MaxSizeSARA" type="comp:PV_MaxSizeSARA" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Max Size of PV system that will fit on SARA (kWdc)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Pv07_DwellingUnitsCount" type="com:DwellingUnitsCount" >
+                  <xsd:element name="Pv03_DwellingUnitsCount" type="com:DwellingUnitsCount" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"># of Dwelling Units</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User inpt</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Pv08_BatteryCapacity" type="hvac:BatteryCapacity" >
+                  <xsd:element name="Pv04_BatteryCapacity" type="hvac:BatteryCapacity" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Usable Capacity of Battery Storage[d:sup]4[/d:sup]  (kWh)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Usable Capacity of BESS[d:sup]4[/d:sup] (kWh)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input battery capacity (kWh) which could be 0</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Pv09_PV_MinSizeSARA" type="comp:PV_MinSizeSARA" >
+                  <xsd:element name="Pv05_PV_MinSizeSARA" type="comp:PV_MinSizeSARA" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Min Size of PV System Required (kWdc)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:
-result = Smallest (Pv06_PV_MaxSizeSARA,, Equation result )
-If result == Equation result And Pv08_BatteryCapacity GTE 7.5
+If result == Equation result And Pv04_BatteryCapacity GTE 7.5
 D03_ExceptionalConditionMessageCCSABE += BatteryCapacityReducesPV
  
  
-Equation result = ((A03_ConditionedFloorArea x FactorA) / 1000 + (Pv07_DwellingUnitsCount  x FactorB))
+result = ((A03_ConditionedFloorArea x FactorA) / 1000 + (Pv03_DwellingUnitsCount  x FactorB))
  
 FactorA  and FactorB assigned as follows:
  
@@ -2103,9 +2098,91 @@ FactorA = 0.59
 FactorB = 1.22 
 End Switch
 End If</xsd:documentation>
+                                             </xsd:annotation>
+                                          </xsd:element>
+                                          </xsd:sequence>
+                                    </xsd:complexType>   
+                           </xsd:element>
+                           <xsd:element name="TablePV_SaraSubheading" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">[d:b]SARA Calculation Method[/d:b]</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element> 
+                  <xsd:element name="Row2" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                  <xsd:element name="Pv06_RoofName" type="comp:RoofName" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Roof Name</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                              </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Pv06_RoofSlope" type="comp:RoofSlope" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Roof Slope</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Pv10_PV_DesignSize" type="comp:PV_DesignSize" >
+                  <xsd:element name="Pv08_RoofArea" type="env:RoofArea" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Area of New Roof[d:sup]1[/d:sup] (ft[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input area</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Pv09_RoofArea70PercentSolarAccess" type="comp:RoofArea70PercentSolarAccess" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Roof Area [d:lt/] 70% Solar Access[d:sup]2[/d:sup] (ft[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input area</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Pv10_BuildingPlanName" type="comp:BuildingPlanName" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Plansheet or Document showing Solar Access Calculations</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Pv11_RoofAreaOccupied" type="comp:RoofAreaOccupied" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Roof area occupied, no structural support, not available due to other state codes, [d:lt/] 80 contiguous ft (ft[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Pv12_SolarAccessRoofArea" type="comp:SolarAccessRoofArea" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Solar Access Roof Area (SARA) (ft[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:
+result = Pv08_RoofArea - Pv09_RoofArea70PercentSolarAccess - Pv11_RoofAreaOccupied</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Pv13_PV_MinSizeSARA" type="comp:PV_MinSizeSARA" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Min Capacity of PV System Required (kWdc)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:
+If Pv06_RoofSlope == LT212
+Result = ((Pv11_SolarAccessRoofArea x 14)/1000)
+
+Else If Pv06_RoofSlope == GTE212
+Result = ((Pv11_SolarAccessRoofArea x 18)/1000)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>   
+      </xsd:element>
+                  <xsd:element name="Pv14_PV_Total_MinSizeSARA" type="comp:PV_MinSizeSARA" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Min Size PV System Required for all Roofs (kWdc)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:
+If (Sum All (Pv05_PV_MinSizeSARA)) or (Sum All (Pv13_PV_MinSizeSARA)) LT 4
+   result = 0 
+Else If Pv05_PV_MinSizeSARA LT Pv13_PV_MinSizeSARA
+   result = Pv05_PV_MinSizeSARA
+Else
+   result = Pv13_PV_MinSizeSARA
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Pv15_PV_DesignSize" type="comp:PV_DesignSize" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Size of PV system in Design (kWdc)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>

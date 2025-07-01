@@ -4575,7 +4575,6 @@ Not Shared</dtyp:displayterm>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AddAltRoofLTE2000ft2">Alteration/ Addition increases roof area [d:lte/]2,000 ft[d:sup]2[/d:sup]</dtyp:displayterm>
             <dtyp:displayterm value="AddRoofGT2000ft2">Addition increases roof area [d:gt/]2,000 ft[d:sup]2[/d:sup]</dtyp:displayterm>
-            <dtyp:displayterm value="EmergencyRebuild">Declared Emergency Area Rebuild</dtyp:displayterm>
             <dtyp:displayterm value="NewRoofGT533ft2">New construction</dtyp:displayterm>
             <dtyp:displayterm value="NewRoofLTE533ft2">New construction w/ roof [d:lte/]533 ft[d:sup]2[/d:sup]</dtyp:displayterm>
          </xsd:appinfo>
@@ -4583,7 +4582,6 @@ Not Shared</dtyp:displayterm>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AddAltRoofLTE2000ft2"/>
          <xsd:enumeration value="AddRoofGT2000ft2"/>
-         <xsd:enumeration value="EmergencyRebuild"/>
          <xsd:enumeration value="NewRoofGT533ft2"/>
          <xsd:enumeration value="NewRoofLTE533ft2"/>
       </xsd:restriction>

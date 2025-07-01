@@ -8327,13 +8327,15 @@
   <xsd:simpleType name="ExceptionalConditionMessageCCSABE">
     <xsd:annotation>
       <xsd:appinfo source="displaytermType">
-        <dtyp:displayterm>NRCC-SRA-E Exceptional Condition Message</dtyp:displayterm>
+        <dtyp:displayterm>NRCC-SAB-E Exceptional Condition Message</dtyp:displayterm>
       </xsd:appinfo>
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="BatteryCapacityReducesPV">See Table J for minimum battery capacity (kWh) being used to reduce required PV system size (kW).</dtyp:displayterm>
         <dtyp:displayterm value="CalculatorOutputAttachedForH">Table H column 03 does not indicate the output from CEC's Solar Water Heating Calculator has been attached.  Please attach the output and indicate this in Table H.</dtyp:displayterm>
         <dtyp:displayterm value="SubAreaComplianceInF">Table F indicates a subarea that is not in compliance with the requirements.  Please revisit Table F</dtyp:displayterm>
         <dtyp:displayterm value="UserChangedSelectionInCI">Selections made in Certificates of Installation Table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
+        <dtyp:displayterm value="PVBatteryExemptMF">The permit applicant has indicated the project is exempt from PV and battery requirement because the project only includes multifamily occupancy, the load serving entity does not provide virtual energy bill credits, and  does not have an approved community solar program. Please confirm is accurate.</dtyp:displayterm>
+        <dtyp:displayterm value="PVExempt2000SF">The permit applicant has indicated that one or more tenant spaces within the project are exempt from PV and battery requirements because the tentant space is <d:lte/>2,000 sf, is served by an HVAC system that does not serve other tenant spaces within the building, has an individual electricity meter that does not include electric consumption of other tentants, the load serving entity does not provide virtual energy bill credits, and  does not have an approved community solar program. Please confirm is accurate.</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
@@ -8341,6 +8343,8 @@
       <xsd:enumeration value="CalculatorOutputAttachedForH"/>
       <xsd:enumeration value="SubAreaComplianceInF"/>
       <xsd:enumeration value="UserChangedSelectionInCI"/>
+      <xsd:enumeration value="PVBatteryExemptMF"/>
+      <xsd:enumeration value="PVExempt2000SF"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="ExceptionalConditionMessageCIELCE">
@@ -17276,6 +17280,22 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
     </xsd:annotation>
     <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RoofName">
+    <xsd:restriction base="xsd:token">
+      </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RoofSlope">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="LT212"><d:lt/>2:12</dtyp:displayterm>
+        <dtyp:displayterm value="GTE212"><d:gte/> 2:12</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="LT212"/>
+      <xsd:enumeration value="GTE212"/>
+    </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="RoofProductBrand">
     <xsd:restriction base="xsd:token">
