@@ -825,7 +825,7 @@
         <dtyp:displayterm value="Wall107A">Wall Display MH 10'7" - 14' A</dtyp:displayterm>
         <dtyp:displayterm value="Wall14A">Wall Display MH <d:gt/> 14' A</dtyp:displayterm>
         <dtyp:displayterm value="Floor106A">Floor Display and Task MH <d:lte/>  10'6" A</dtyp:displayterm>
-        <dtyp:displayterm value="Fllor107A">Floor Display and Task MH 10'7" - 14' A</dtyp:displayterm>
+        <dtyp:displayterm value="Floor107A">Floor Display and Task MH 10'7" - 14' A</dtyp:displayterm>
         <dtyp:displayterm value="Floor14A">Floor Display and Task MH <d:gt/> 14' A</dtyp:displayterm>
         <dtyp:displayterm value="Wall106B">Wall Display MH <d:lte/> 10'6" B</dtyp:displayterm>
         <dtyp:displayterm value="Wall107B">Wall Display MH 10'7" - 14' B</dtyp:displayterm>
@@ -877,7 +877,7 @@
       <xsd:enumeration value="Wall107A"/>
       <xsd:enumeration value="Wall14A"/>
       <xsd:enumeration value="Floor106A"/>
-      <xsd:enumeration value="Fllor107A"/>
+      <xsd:enumeration value="Floor107A"/>
       <xsd:enumeration value="Floor14A"/>
       <xsd:enumeration value="Wall106B"/>
       <xsd:enumeration value="Wall107B"/>

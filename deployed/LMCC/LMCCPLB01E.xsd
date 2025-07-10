@@ -359,7 +359,8 @@ End if</xsd:documentation>
 
 FACTORY-INSTALLED PIPING WITHIN SPACE CONDITIONING EQUIPMENT CERTIFIED UNDER
                                        <d:t24refnolink/>110.1 OR
-                                       <d:t24ref h="110.2"/></xsd:documentation>
+                                       <d:t24ref h="110.2"/>
+                                    </xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If MM120_3_MeasureApplies == true, 
 user input
 Else

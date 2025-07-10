@@ -1549,7 +1549,7 @@ End If</xsd:documentation>
                   <xsd:element name="TableAlteredLighting" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required if LightingProjectScopeNR == AlteredLightingSystem</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required if Baltered01_LightingProjectScopeNR == AlteredLightingSystem</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -2145,7 +2145,7 @@ End If</xsd:documentation>
                      <xsd:element name="C10_NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">[d:b]Controls Compliance (See Table H for Details)[/d:b]</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If all values for Baltered02_LightingPrescriptiveMethodNR == Or Baltered04_LightingPrescriptiveMethodNR == RatedPowerReduction result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank;</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If all values for Baltered02_LightingPrescriptiveMethodNR == Or Baltered04_LightingPrescriptiveMethodNR == OneForOne result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank;</xsd:documentation>
                         </xsd:annotation>
                         <xsd:simpleType>
                            <xsd:restriction base="comp:NotApplicableMessage">
@@ -2159,7 +2159,7 @@ End If</xsd:documentation>
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">[d:b]One-for-one Luminaire Alterations Compliance (See Table Q for Details)[/d:b]</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">
-If all values for Baltered02_LightingPrescriptiveMethodNR and Baltered04_LightingPrescriptiveMethodNR  != RatedPowerReduction
+If all values for Baltered02_LightingPrescriptiveMethodNR and Baltered04_LightingPrescriptiveMethodNR  != OneForOne
 Or  If  Q01_RatedPowerReductionScopeApplies == false
    result = NotApplicable stored in C11_NotApplicableMessage display term NOT APPLICABLE; 
 
@@ -2262,7 +2262,7 @@ End if</xsd:documentation>
          <xsd:element name="Section_F" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">INDOOR LIGHTING FIXTURE SCHEDULE</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section applies If Bnew01_LightingProjectScope Or Bpark01_LightingProjectScope != NotApplicableLightingScope Or at least one instance of Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR != RatedPowerReduction</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section applies If Bnew01_LightingProjectScope Or Bpark01_LightingProjectScope != NotApplicableLightingScope Or at least one instance of Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR != OneForOne</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2946,7 +2946,7 @@ MM130_1c6_MeasureApplies  = true and is displayed</xsd:documentation>
                                                 <xsd:enumeration value="ConventionConferenceMultipurposeMeetingCenterArea"/>
                                                 <xsd:enumeration value="CopyRoom"/>
                                                 <xsd:enumeration value="CorridorArea"/>
-                                                <xsd:enumeration value="ElectricalMechancialTelephoneRoom"/>
+                                                <xsd:enumeration value="ElectricalMechanicalTelephoneRoom"/>
                                                 <xsd:enumeration value="ExerciseCenterGymnasiumArea"/>
                                                 <xsd:enumeration value="ExhibitMuseumArea"/>
                                                 <xsd:enumeration value="FamilyDiningArea"/>
@@ -2994,7 +2994,6 @@ MM130_1c6_MeasureApplies  = true and is displayed</xsd:documentation>
                                                 <xsd:enumeration value="ReligiousWorshipArea"/>
                                                 <xsd:enumeration value="Restroom"/>
                                                 <xsd:enumeration value="RetailFittingRoom"/>
-                                                <xsd:enumeration value="RetailMallConcourse"/>
                                                 <xsd:enumeration value="RetailMerchandiseSalesWholesaleShowroom"/>
                                                 <xsd:enumeration value="RetailSalesArea"/>
                                                 <xsd:enumeration value="SportsArenaSeatsGTE5000ClassI"/>
@@ -3010,12 +3009,6 @@ MM130_1c6_MeasureApplies  = true and is displayed</xsd:documentation>
                                                 <xsd:enumeration value="VideoConferencingStudio"/>
                                              </xsd:restriction>
                                           </xsd:simpleType>
-                                       </xsd:element>
-                                       <xsd:element name="H05_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Complete Building or Area Category Primary Function Area</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If  values for  Bnew02_LightingPrescriptiveMethodNR Or Bnew04_LightingPrescriptiveMethodNR == Tailored And  If  All values for  Baltered02_LightingPrescriptiveMethodNR  Or Baltered04_LightingPrescriptiveMethodNR ==  Tailored     result = Not Applicable stored in the NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:element name="H06_AreaControlsCompliance" type="comp:AreaControlsCompliance" >
@@ -3308,7 +3301,7 @@ End If</xsd:documentation>
                                                          <xsd:enumeration value="ConventionConferenceMultipurposeMeetingCenterArea"/>
                                                          <xsd:enumeration value="CopyRoom"/>
                                                          <xsd:enumeration value="CorridorArea"/>
-                                                         <xsd:enumeration value="ElectricalMechancialTelephoneRoom"/>
+                                                         <xsd:enumeration value="ElectricalMechanicalTelephoneRoom"/>
                                                          <xsd:enumeration value="ExerciseCenterGymnasiumArea"/>
                                                          <xsd:enumeration value="ExhibitMuseumArea"/>
                                                          <xsd:enumeration value="FamilyDiningArea"/>
@@ -3356,7 +3349,6 @@ End If</xsd:documentation>
                                                          <xsd:enumeration value="ReligiousWorshipArea"/>
                                                          <xsd:enumeration value="Restroom"/>
                                                          <xsd:enumeration value="RetailFittingRoom"/>
-                                                         <xsd:enumeration value="RetailMallConcourse"/>
                                                          <xsd:enumeration value="RetailMerchandiseSalesWholesaleShowroom"/>
                                                          <xsd:enumeration value="RetailSalesArea"/>
                                                          <xsd:enumeration value="SportsArenaSeatsGTE5000ClassI"/>
@@ -3392,7 +3384,7 @@ Else If Ic02_SpaceFunction NotNull Switch (Ic02_SpaceFunction)
 case AuditoriumArea: case BeautySalonArea:  case FinancialTransactionsArea:   case HospitalPatientRoom: case LobbyMainEntry: case LowVisionCorridorArea: case MuseumRestoration:    result = 0.70; 
 case AutoRepairArea: case HospitalMedicalSupply:   case LoungeBreakRoom: result = 0.55;  
  
-case ClassroomLectureTrainingVocationalArea:  case CommercialIndustrialStorageArea:  case ExhibitMuseumArea: case  GeneralCommercialIndustrialWorkAreaLowBay: case HospitalImaging:  case OfficeGreaterThan250Ft:  case RetailFittingRoom: case RetailMallConcourse:  case Stairwell: case MallAndAtria:    result = 0.60;  
+case ClassroomLectureTrainingVocationalArea:  case CommercialIndustrialStorageArea:  case ExhibitMuseumArea: case  GeneralCommercialIndustrialWorkAreaLowBay: case HospitalImaging:  case OfficeGreaterThan250Ft:  case RetailFittingRoom:  case Stairwell: case MallAndAtria:    result = 0.60;  
  
 case LibraryReadingArea: case LowVisionStairwell:  case LowVisionDiningArea: LowVisionWaitingArea: case HospitalNursery: case TheaterPerformance:   result = 0.80;  
  
@@ -3404,7 +3396,7 @@ case  HotelFunctionArea: case GeneralCommercialIndustrialWorkAreaPrecision:   ca
 ;   
 case AudienceSeatingArea: case CopyRoom:  case ExerciseCenterGymnasiumArea: case TheaterMotionPicture: result = 0.50;   
  
-case CommercialIndustrialWarehouse: case CorridorArea: case FamilyDiningArea:  case ElectricalMechancialTelephoneRoom:  case TransportationFunctionConcourseBaggage:  case AllOthersSpace: case StorageMF: result = 0.40;    
+case CommercialIndustrialWarehouse: case CorridorArea: case FamilyDiningArea:  case ElectricalMechanicalTelephoneRoom:  case TransportationFunctionConcourseBaggage:  case AllOthersSpace: case StorageMF: result = 0.40;    
     
  
 case ConventionConferenceMultipurposeMeetingCenterArea: case ConferenceMultipurposeMeetingMF: case HospitalPhysicalTherapy:  case NurseStationMF: case SportsArenaSeatsLimitedClassIV:  case  result = 0.75;
@@ -3439,12 +3431,134 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input.  If selected, Section J is required.</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:element name="Ic06b_AdditionalAllowanceForPAF" type="comp:AdditionalAllowanceForPAF" >
-                                                <xsd:annotation>
-                                                   <xsd:documentation source="FieldText">PAF</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">User input.  If selected, Section P is required.</xsd:documentation>
-                                                </xsd:annotation>
-                                             </xsd:element>
+                                             <xsd:choice>
+                                                <xsd:element name="Ic06b_AdditionalAllowanceForPAF" type="comp:AdditionalAllowanceForPAF" >
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">PAF</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">
+   If Iu02_SpaceFunction includes at least one of the following this field is user input
+   AudienceSeatingArea
+   AuditoriumArea
+   AutoRepairArea
+   BarLoungeFineDiningArea
+   BeautySalonArea
+   CivicMeetingPlaceArea
+   ClassroomLectureTrainingVocationalArea
+   ConferenceMultipurposeMeetingMF
+   ConventionConferenceMultipurposeMeetingCenterArea
+   CorridorArea
+   ElectricalMechanicalTelephoneRoom
+   ExhibitMuseumArea
+   FamilyDiningArea
+   FastfoodDining
+   FinancialTransactionsArea
+   GeneralCommercialIndustrialWorkAreaHighBay
+   GeneralCommercialIndustrialWorkAreaLowBay
+   GeneralCommercialIndustrialWorkAreaPrecision
+   GrocerySalesArea
+   HospitalImaging
+   HospitalNursery
+   HospitalNurseStation
+   HospitalPatientRoom
+   HospitalPhysicalTherapy
+   HospitalRecovery
+   HotelFunctionArea
+   LaboratoryScientific
+   LibraryReadingArea
+   LobbyMainEntry
+   LoungeBreakRoom
+   LowVisionCorridorArea
+   LowVisionDiningArea
+   LowVisionLobbyMainEntry
+   LowVisionMultipurposeRoom
+   LowVisionReligiousWorshipArea
+   LowVisionRestroom
+   LowVisionStairwell
+   LowVisionWaitingArea
+   MallAndAtria
+   MuseumRestoration
+   NurseStationMF
+   Office250FtOrLess
+   OfficeGreaterThan250Ft
+   ParkingGarageBuildingParkingArea
+   PharmacyArea
+   PhysicalTherapyMF
+   ReligiousWorshipArea
+   Restroom
+   RetailFittingRoom
+   RetailMerchandiseSalesWholesaleShowroom
+   Stairwell
+   TheaterMotionPicture
+   TheaterPerformance
+   TransportationFunctionTicketing
+   VideoConferencingStudio
+                                                      </xsd:documentation>
+                                                   </xsd:annotation>
+                                                </xsd:element>
+                                                <xsd:element name="Ic06b_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">PAF</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">
+   If Iu02_SpaceFunction does not include one of the following result = BlankGrayedOut
+   AudienceSeatingArea
+   AuditoriumArea
+   AutoRepairArea
+   BarLoungeFineDiningArea
+   BeautySalonArea
+   CivicMeetingPlaceArea
+   ClassroomLectureTrainingVocationalArea
+   ConferenceMultipurposeMeetingMF
+   ConventionConferenceMultipurposeMeetingCenterArea
+   CorridorArea
+   ElectricalMechanicalTelephoneRoom
+   ExhibitMuseumArea
+   FamilyDiningArea
+   FastfoodDining
+   FinancialTransactionsArea
+   GeneralCommercialIndustrialWorkAreaHighBay
+   GeneralCommercialIndustrialWorkAreaLowBay
+   GeneralCommercialIndustrialWorkAreaPrecision
+   GrocerySalesArea
+   HospitalImaging
+   HospitalNursery
+   HospitalNurseStation
+   HospitalPatientRoom
+   HospitalPhysicalTherapy
+   HospitalRecovery
+   HotelFunctionArea
+   LaboratoryScientific
+   LibraryReadingArea
+   LobbyMainEntry
+   LoungeBreakRoom
+   LowVisionCorridorArea
+   LowVisionDiningArea
+   LowVisionLobbyMainEntry
+   LowVisionMultipurposeRoom
+   LowVisionReligiousWorshipArea
+   LowVisionRestroom
+   LowVisionStairwell
+   LowVisionWaitingArea
+   MallAndAtria
+   MuseumRestoration
+   NurseStationMF
+   Office250FtOrLess
+   OfficeGreaterThan250Ft
+   ParkingGarageBuildingParkingArea
+   PharmacyArea
+   PhysicalTherapyMF
+   ReligiousWorshipArea
+   Restroom
+   RetailFittingRoom
+   RetailMerchandiseSalesWholesaleShowroom
+   Stairwell
+   TheaterMotionPicture
+   TheaterPerformance
+   TransportationFunctionTicketing
+   VideoConferencingStudio
+            </xsd:documentation>
+                                                   </xsd:annotation>
+                                                </xsd:element>
+                                             </xsd:choice>
                                           </xsd:sequence>
                                        </xsd:complexType>
                                     </xsd:element>
@@ -3581,7 +3695,7 @@ End If</xsd:documentation>
                                                          <xsd:enumeration value="ConventionConferenceMultipurposeMeetingCenterArea"/>
                                                          <xsd:enumeration value="CopyRoom"/>
                                                          <xsd:enumeration value="CorridorArea"/>
-                                                         <xsd:enumeration value="ElectricalMechancialTelephoneRoom"/>
+                                                         <xsd:enumeration value="ElectricalMechanicalTelephoneRoom"/>
                                                          <xsd:enumeration value="ExerciseCenterGymnasiumArea"/>
                                                          <xsd:enumeration value="ExhibitMuseumArea"/>
                                                          <xsd:enumeration value="FamilyDiningArea"/>
@@ -3663,7 +3777,7 @@ Else If Iu02_SpaceFunction NotNull Switch (Iu02_SpaceFunction)
 case AuditoriumArea: case BeautySalonArea:  case FinancialTransactionsArea:   case HospitalPatientRoom: case LobbyMainEntry: case LowVisionCorridorArea: case MuseumRestoration:    result = 0.70; 
 case AutoRepairArea: case HospitalMedicalSupply:   case LoungeBreakRoom: result = 0.55;  
  
-case ClassroomLectureTrainingVocationalArea:  case CommercialIndustrialStorageArea:  case ExhibitMuseumArea: case  GeneralCommercialIndustrialWorkAreaLowBay: case HospitalImaging:  case OfficeGreaterThan250Ft:  case RetailFittingRoom: case RetailMallConcourse:  case Stairwell: case MallAndAtria:  result = 0.60;  
+case ClassroomLectureTrainingVocationalArea:  case CommercialIndustrialStorageArea:  case ExhibitMuseumArea: case  GeneralCommercialIndustrialWorkAreaLowBay: case HospitalImaging:  case OfficeGreaterThan250Ft:  case RetailFittingRoom: case Stairwell: case MallAndAtria:  result = 0.60;  
  
 case LibraryReadingArea: case LowVisionStairwell:  case LowVisionDiningArea: LowVisionWaitingArea: case HospitalNursery: case TheaterPerformance:   result = 0.80;  
  
@@ -3675,7 +3789,7 @@ case  HotelFunctionArea: case GeneralCommercialIndustrialWorkAreaPrecision:   ca
 ;   
 case AudienceSeatingArea: case CopyRoom:  case ExerciseCenterGymnasiumArea: case TheaterMotionPicture: result = 0.50;   
  
-case CommercialIndustrialWarehouse: case CorridorArea: case FamilyDiningArea:  case ElectricalMechancialTelephoneRoom:  case TransportationFunctionConcourseBaggage:  case AllOthersSpace: case StorageMF:  result = 0.40;    
+case CommercialIndustrialWarehouse: case CorridorArea: case FamilyDiningArea:  case ElectricalMechanicalTelephoneRoom:  case TransportationFunctionConcourseBaggage:  case AllOthersSpace: case StorageMF:  result = 0.40;    
  
 case ConventionConferenceMultipurposeMeetingCenterArea: case ConferenceMultipurposeMeetingMF: case HospitalPhysicalTherapy:  case NurseStationMF: case SportsArenaSeatsLimitedClassIV:  case  result = 0.75;
 case GeneralCommercialIndustrialWorkAreaHighBay:  case Office250FtOrLess: case Restroom:  result = 0.65;  
@@ -3709,12 +3823,134 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input.  If selected, Section J is required.</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:element name="Iu06b_AdditionalAllowanceForPAF" type="comp:AdditionalAllowanceForPAF" >
-                                                <xsd:annotation>
-                                                   <xsd:documentation source="FieldText">PAF</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">User input.  If selected, Section P is required.</xsd:documentation>
-                                                </xsd:annotation>
-                                             </xsd:element>
+                                             <xsd:choice>
+                                                <xsd:element name="Iu06b_AdditionalAllowanceForPAF" type="comp:AdditionalAllowanceForPAF" >
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">PAF</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">
+   If Iu02_SpaceFunction includes at least one of the following this field is user input
+   AudienceSeatingArea
+   AuditoriumArea
+   AutoRepairArea
+   BarLoungeFineDiningArea
+   BeautySalonArea
+   CivicMeetingPlaceArea
+   ClassroomLectureTrainingVocationalArea
+   ConferenceMultipurposeMeetingMF
+   ConventionConferenceMultipurposeMeetingCenterArea
+   CorridorArea
+   ElectricalMechanicalTelephoneRoom
+   ExhibitMuseumArea
+   FamilyDiningArea
+   FastfoodDining
+   FinancialTransactionsArea
+   GeneralCommercialIndustrialWorkAreaHighBay
+   GeneralCommercialIndustrialWorkAreaLowBay
+   GeneralCommercialIndustrialWorkAreaPrecision
+   GrocerySalesArea
+   HospitalImaging
+   HospitalNursery
+   HospitalNurseStation
+   HospitalPatientRoom
+   HospitalPhysicalTherapy
+   HospitalRecovery
+   HotelFunctionArea
+   LaboratoryScientific
+   LibraryReadingArea
+   LobbyMainEntry
+   LoungeBreakRoom
+   LowVisionCorridorArea
+   LowVisionDiningArea
+   LowVisionLobbyMainEntry
+   LowVisionMultipurposeRoom
+   LowVisionReligiousWorshipArea
+   LowVisionRestroom
+   LowVisionStairwell
+   LowVisionWaitingArea
+   MallAndAtria
+   MuseumRestoration
+   NurseStationMF
+   Office250FtOrLess
+   OfficeGreaterThan250Ft
+   ParkingGarageBuildingParkingArea
+   PharmacyArea
+   PhysicalTherapyMF
+   ReligiousWorshipArea
+   Restroom
+   RetailFittingRoom
+   RetailMerchandiseSalesWholesaleShowroom
+   Stairwell
+   TheaterMotionPicture
+   TheaterPerformance
+   TransportationFunctionTicketing
+   VideoConferencingStudio
+                                                      </xsd:documentation>
+                                                   </xsd:annotation>
+                                                </xsd:element>
+                                                <xsd:element name="Iu06b_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">PAF</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">
+   If Iu02_SpaceFunction does not include one of the following result = BlankGrayedOut
+   AudienceSeatingArea
+   AuditoriumArea
+   AutoRepairArea
+   BarLoungeFineDiningArea
+   BeautySalonArea
+   CivicMeetingPlaceArea
+   ClassroomLectureTrainingVocationalArea
+   ConferenceMultipurposeMeetingMF
+   ConventionConferenceMultipurposeMeetingCenterArea
+   CorridorArea
+   ElectricalMechanicalTelephoneRoom
+   ExhibitMuseumArea
+   FamilyDiningArea
+   FastfoodDining
+   FinancialTransactionsArea
+   GeneralCommercialIndustrialWorkAreaHighBay
+   GeneralCommercialIndustrialWorkAreaLowBay
+   GeneralCommercialIndustrialWorkAreaPrecision
+   GrocerySalesArea
+   HospitalImaging
+   HospitalNursery
+   HospitalNurseStation
+   HospitalPatientRoom
+   HospitalPhysicalTherapy
+   HospitalRecovery
+   HotelFunctionArea
+   LaboratoryScientific
+   LibraryReadingArea
+   LobbyMainEntry
+   LoungeBreakRoom
+   LowVisionCorridorArea
+   LowVisionDiningArea
+   LowVisionLobbyMainEntry
+   LowVisionMultipurposeRoom
+   LowVisionReligiousWorshipArea
+   LowVisionRestroom
+   LowVisionStairwell
+   LowVisionWaitingArea
+   MallAndAtria
+   MuseumRestoration
+   NurseStationMF
+   Office250FtOrLess
+   OfficeGreaterThan250Ft
+   ParkingGarageBuildingParkingArea
+   PharmacyArea
+   PhysicalTherapyMF
+   ReligiousWorshipArea
+   Restroom
+   RetailFittingRoom
+   RetailMerchandiseSalesWholesaleShowroom
+   Stairwell
+   TheaterMotionPicture
+   TheaterPerformance
+   TransportationFunctionTicketing
+   VideoConferencingStudio
+            </xsd:documentation>
+                                                   </xsd:annotation>
+                                                </xsd:element>
+                                             </xsd:choice>
                                           </xsd:sequence>
                                        </xsd:complexType>
                                     </xsd:element>
@@ -3811,7 +4047,7 @@ End If</xsd:documentation>
                                                       <xsd:enumeration value="ConventionConferenceMultipurposeMeetingCenterArea"/>
                                                       <xsd:enumeration value="CopyRoom"/>
                                                       <xsd:enumeration value="CorridorArea"/>
-                                                      <xsd:enumeration value="ElectricalMechancialTelephoneRoom"/>
+                                                      <xsd:enumeration value="ElectricalMechanicalTelephoneRoom"/>
                                                       <xsd:enumeration value="ExerciseCenterGymnasiumArea"/>
                                                       <xsd:enumeration value="ExhibitMuseumArea"/>
                                                       <xsd:enumeration value="FamilyDiningArea"/>
@@ -3859,7 +4095,6 @@ End If</xsd:documentation>
                                                       <xsd:enumeration value="ReligiousWorshipArea"/>
                                                       <xsd:enumeration value="Restroom"/>
                                                       <xsd:enumeration value="RetailFittingRoom"/>
-                                                      <xsd:enumeration value="RetailMallConcourse"/>
                                                       <xsd:enumeration value="RetailMerchandiseSalesWholesaleShowroom"/>
                                                       <xsd:enumeration value="RetailSalesArea"/>
                                                       <xsd:enumeration value="SportsArenaSeatsGTE5000ClassI"/>
@@ -3890,9 +4125,9 @@ End If</xsd:documentation>
                                                                      <xsd:documentation source="FieldText">Applicable Qualifying Lighting System from Table 140.6-C</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">User selects from dropdown list values dependent on Jc02_SpaceFunction as follows:  
  If Jc02_SpaceFunction == AuditoriumArea or ExhibitMuseumArea : list DecorativeDisplayF; 
-Else If Jc02_SpaceFunction == AutoRepairArea, ElectricalMechancialTelephoneRoom, GeneralCommercialIndustrialWorkAreaHighBay, Or  GeneralCommercialIndustrialWorkAreaLowBay:  list DetailedTaskA;   
+Else If Jc02_SpaceFunction == AutoRepairArea, ElectricalMechanicalTelephoneRoom, GeneralCommercialIndustrialWorkAreaHighBay, Or  GeneralCommercialIndustrialWorkAreaLowBay:  list DetailedTaskA;   
  
-Else If Jc02_SpaceFunction == AudienceSeatingArea, CivicMeetingPlaceArea, ConventionCenterAudienceSeatingArea, CorridorArea, HotelFunctionArea,   FastfoodDining, FamilyDiningArea,  FinancialTransactionsArea,  LibraryReadingArea, LobbyMainEntry, LoungeBreakRoom, ReligiousWorshipArea, RetailMallConcourse, TheaterMotionPicture, TheaterPerformance  MallAndAtria, ConferenceMultipurposeMeetingMF or ConventionConferenceMultipurposeMeetingCenterArea list DecorativeDisplayC;  
+Else If Jc02_SpaceFunction == AudienceSeatingArea, CivicMeetingPlaceArea, ConventionCenterAudienceSeatingArea, CorridorArea, HotelFunctionArea,   FastfoodDining, FamilyDiningArea,  FinancialTransactionsArea,  LibraryReadingArea, LobbyMainEntry, LoungeBreakRoom, ReligiousWorshipArea, TheaterMotionPicture, TheaterPerformance  MallAndAtria, ConferenceMultipurposeMeetingMF or ConventionConferenceMultipurposeMeetingCenterArea list DecorativeDisplayC;  
 Else If Jc02_SpaceFunction ==  BeautySalonArea: list DecorativeDisplayC and DetailedTaskB;  
 Else If Jc02_SpaceFunction == ClassroomLectureTrainingVocationalArea: list WhiteChalkBoardLighting;   
 Else If Jc02_SpaceFunction == TransportationFunctionTicketing Or LowVisionRestroom: list DecorativeDisplayB;  
@@ -3909,11 +4144,11 @@ Else If Jc02_SpaceFunction == HospitalPatientRoom:  list TunableWhiteLuminaires 
 Else If Jc02_SpaceFunction == LowVisionWaitingArea,  LowVisionMultipurposeRoom, LowVisionReligiousWorshipArea Or LowVisionDiningArea:   list TunableWhiteLuminaires and DecorativeDisplayD;
 Else If Jc02_SpaceFunction == VideoConferencingStudio: list VideoConferencing;  
 Else If Jc02_SpaceFunction ==  LowVisionLobbyMainEntry: list TunableWhiteLuminaires, DecorativeDisplayD and LowVisionMainEntryTransition;
-Else If Jc02_SpaceFunction == LowVisionCorridorArea or LowVisionStairwell Or LowVisionWaitingAreaMF Or LowVisionDiningAreaMF Or LowVisionMultipurposeRoomMF:  list DecorativeDisplayD.
+Else If Jc02_SpaceFunction == LowVisionCorridorArea or LowVisionStairwell Or LowVisionWaitingAreaMF Or LowVisionMultipurposeRoomMF:  list DecorativeDisplayD.
 Else If Jc02_SpaceFunction == MuseumRestoration:  list  DetailedTaskC; 
-Else If Jc02_SpaceFunction == ConventionConferenceMultipurposeMeetingCenterArea:  list  Wall106A, Wall107A, Wall14A, Floor106A, Fllor107A, Floor14A; 
+Else If Jc02_SpaceFunction == ConventionConferenceMultipurposeMeetingCenterArea:  list  Wall106A, Wall107A, Wall14A, Floor106A, Floor107A, Floor14A; 
 Else If Jc02_SpaceFunction == BarLoungeFineDiningArea:  list  DecorativeDisplayE, Wall106B, Wall107B, Wall14B, Floor106B, Floor107B, Floor14B, General10A; 
-Else If Jc02_SpaceFunction == LobbyMainEntry:  list  Wall106C, Wall107C, Wall14C; 
+Else If Jc02_SpaceFunction == LobbyMainEntry:  list  Wall106C, Wall107C, Wall14C, DecorativeDisplayC; 
 Else If Jc02_SpaceFunction == GrocerySalesArea:  list  DecorativeDisplayE, Wall106D, Wall107D, Wall14D, Floor106C, Floor107C, Floor14C, General10B; 
 Else If Jc02_SpaceFunction == RetailMerchandiseSalesWholesaleShowroom:  list  DecorativeDisplayE, Wall106E, Wall107E, Wall14E, Floor106D, Floor107D, Floor14D, ValuableDisplay, General10B; 
 End If</xsd:documentation>
@@ -3944,7 +4179,7 @@ case Wall106A: result = 2.0 ;
 case Wall107A: result = 2.35 ;
 case Wall14A: result = 2.66 ;
 case Floor106A: result = 0.30 ;
-case Fllor107A: result = 0.35 ;
+case Floor107A: result = 0.35 ;
 case Floor14A: result = 0.40 ;
 case Wall106B: result = 1.25 ;
 case Wall107B: result = 1.5 ;
@@ -4166,7 +4401,7 @@ End If</xsd:documentation>
                                                       <xsd:enumeration value="ConventionConferenceMultipurposeMeetingCenterArea"/>
                                                       <xsd:enumeration value="CopyRoom"/>
                                                       <xsd:enumeration value="CorridorArea"/>
-                                                      <xsd:enumeration value="ElectricalMechancialTelephoneRoom"/>
+                                                      <xsd:enumeration value="ElectricalMechanicalTelephoneRoom"/>
                                                       <xsd:enumeration value="ExerciseCenterGymnasiumArea"/>
                                                       <xsd:enumeration value="ExhibitMuseumArea"/>
                                                       <xsd:enumeration value="FamilyDiningArea"/>
@@ -4214,7 +4449,6 @@ End If</xsd:documentation>
                                                       <xsd:enumeration value="ReligiousWorshipArea"/>
                                                       <xsd:enumeration value="Restroom"/>
                                                       <xsd:enumeration value="RetailFittingRoom"/>
-                                                      <xsd:enumeration value="RetailMallConcourse"/>
                                                       <xsd:enumeration value="RetailMerchandiseSalesWholesaleShowroom"/>
                                                       <xsd:enumeration value="RetailSalesArea"/>
                                                       <xsd:enumeration value="SportsArenaSeatsGTE5000ClassI"/>
@@ -4245,9 +4479,9 @@ End If</xsd:documentation>
                                                                      <xsd:documentation source="FieldText">Applicable Qualifying Lighting System from Table 140.6-C</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">User selects from dropdown list values dependent on Ju02_SpaceFunction as follows:   
 If Ju02_SpaceFunction == AuditoriumArea or ExhibitMuseumArea : list DecorativeDisplayF; 
-Else If Ju02_SpaceFunction == AutoRepairArea, ElectricalMechancialTelephoneRoom, GeneralCommercialIndustrialWorkAreaHighBay, Or  GeneralCommercialIndustrialWorkAreaLowBay:  list DetailedTaskA;   
+Else If Ju02_SpaceFunction == AutoRepairArea, ElectricalMechanicalTelephoneRoom, GeneralCommercialIndustrialWorkAreaHighBay, Or  GeneralCommercialIndustrialWorkAreaLowBay:  list DetailedTaskA;   
  
-Else If Ju02_SpaceFunction == AudienceSeatingArea, CivicMeetingPlaceArea, ConventionCenterAudienceSeatingArea, CorridorArea, HotelFunctionArea,   FastfoodDining, FamilyDiningArea,  FinancialTransactionsArea,  LibraryReadingArea, LobbyMainEntry, LoungeBreakRoom, ReligiousWorshipArea, RetailMallConcourse, TheaterMotionPicture, TheaterPerformance MallAndAtria, ConferenceMultipurposeMeetingMF or ConventionConferenceMultipurposeMeetingCenterArea list DecorativeDisplayC;  
+Else If Ju02_SpaceFunction == AudienceSeatingArea, CivicMeetingPlaceArea, ConventionCenterAudienceSeatingArea, CorridorArea, HotelFunctionArea,   FastfoodDining, FamilyDiningArea,  FinancialTransactionsArea,  LibraryReadingArea, LobbyMainEntry, LoungeBreakRoom, ReligiousWorshipArea, TheaterMotionPicture, TheaterPerformance MallAndAtria, ConferenceMultipurposeMeetingMF or ConventionConferenceMultipurposeMeetingCenterArea list DecorativeDisplayC;  
  
 Else If Ju02_SpaceFunction ==  BeautySalonArea: list DecorativeDisplayC and DetailedTaskB;  
 Else If Ju02_SpaceFunction == ClassroomLectureTrainingVocationalArea: list WhiteChalkBoardLighting;   
@@ -4265,7 +4499,7 @@ Else If Ju02_SpaceFunction == HospitalPatientRoom:  list TunableWhiteLuminaires 
 Else If Ju02_SpaceFunction == LowVisionWaitingArea,  LowVisionMultipurposeRoom, LowVisionReligiousWorshipArea Or LowVisionDiningArea:   list TunableWhiteLuminaires and DecorativeDisplayD;
 Else If Ju02_SpaceFunction == VideoConferencingStudio: list VideoConferencing;  
 Else If Ju02_SpaceFunction ==  LowVisionLobbyMainEntry: list TunableWhiteLuminaires, DecorativeDisplayD and LowVisionMainEntryTransition;  
-Else If Ju02_SpaceFunction == LowVisionCorridorArea or LowVisionStairwell Or LowVisionWaitingAreaMF Or LowVisionDiningAreaMF Or LowVisionMultipurposeRoomMF:   list DecorativeDisplayD.
+Else If Ju02_SpaceFunction == LowVisionCorridorArea or LowVisionStairwell Or LowVisionWaitingAreaMF Or LowVisionMultipurposeRoomMF:   list DecorativeDisplayD.
 Else If Ju02_SpaceFunction == MuseumRestoration:  list  DetailedTaskC; 
 End If</xsd:documentation>
                                                                   </xsd:annotation>
@@ -4894,7 +5128,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_Q" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">ONE-FOR-ONE LUMINAIRE ALTERATIONS</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if in section B there is at least one value in  Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR  == RatedPowerReduction</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if in section B there is at least one value in  Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR  == OneForOne</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -5162,7 +5396,7 @@ Fixture Table and following totals fields Q08Total_TotalPowerPreAlteration and  
                                                                <xsd:enumeration value="ConventionConferenceMultipurposeMeetingCenterArea"/>
                                                                <xsd:enumeration value="CopyRoom"/>
                                                                <xsd:enumeration value="CorridorArea"/>
-                                                               <xsd:enumeration value="ElectricalMechancialTelephoneRoom"/>
+                                                               <xsd:enumeration value="ElectricalMechanicalTelephoneRoom"/>
                                                                <xsd:enumeration value="ExerciseCenterGymnasiumArea"/>
                                                                <xsd:enumeration value="ExhibitMuseumArea"/>
                                                                <xsd:enumeration value="FamilyDiningArea"/>
@@ -5210,7 +5444,6 @@ Fixture Table and following totals fields Q08Total_TotalPowerPreAlteration and  
                                                                <xsd:enumeration value="ReligiousWorshipArea"/>
                                                                <xsd:enumeration value="Restroom"/>
                                                                <xsd:enumeration value="RetailFittingRoom"/>
-                                                               <xsd:enumeration value="RetailMallConcourse"/>
                                                                <xsd:enumeration value="RetailMerchandiseSalesWholesaleShowroom"/>
                                                                <xsd:enumeration value="RetailSalesArea"/>
                                                                <xsd:enumeration value="SportsArenaSeatsGTE5000ClassI"/>
@@ -5299,7 +5532,7 @@ Lmca01_RequireLMCALti02A = trueEnd If</xsd:documentation>
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Notes</xsd:documentation>
                                                             <xsd:documentation source="AdditionalRequirements">*Notes: Controls with a * require a note in the space below explaining how compliance is achieved.</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Q17_AreaControlsCompliance == PartialOffShutOffControl or PartialOnShutOffControl
+                                                            <xsd:documentation source="CalculationsAndRules">If Q18_ShutOffControlsArea == PartialOffShutOffControl or PartialOnShutOffControl
 User is required to provide a note; Else field is grayed out</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -5438,7 +5671,7 @@ End If</xsd:documentation>
                                                 <xsd:enumeration value="ConventionConferenceMultipurposeMeetingCenterArea"/>
                                                 <xsd:enumeration value="CopyRoom"/>
                                                 <xsd:enumeration value="CorridorArea"/>
-                                                <xsd:enumeration value="ElectricalMechancialTelephoneRoom"/>
+                                                <xsd:enumeration value="ElectricalMechanicalTelephoneRoom"/>
                                                 <xsd:enumeration value="ExerciseCenterGymnasiumArea"/>
                                                 <xsd:enumeration value="ExhibitMuseumArea"/>
                                                 <xsd:enumeration value="FamilyDiningArea"/>
@@ -5486,7 +5719,6 @@ End If</xsd:documentation>
                                                 <xsd:enumeration value="ReligiousWorshipArea"/>
                                                 <xsd:enumeration value="Restroom"/>
                                                 <xsd:enumeration value="RetailFittingRoom"/>
-                                                <xsd:enumeration value="RetailMallConcourse"/>
                                                 <xsd:enumeration value="RetailMerchandiseSalesWholesaleShowroom"/>
                                                 <xsd:enumeration value="RetailSalesArea"/>
                                                 <xsd:enumeration value="SportsArenaSeatsGTE5000ClassI"/>
@@ -5526,7 +5758,7 @@ End Switch
 Else If R02_SpaceFunction NotNull Switch (R02_SpaceFunction) 
 ParkingGarageBuildingParkingArea: result = 0.10;
  
-case CommercialIndustrialWarehouse: case CorridorArea: case FamilyDiningArea:  case ElectricalMechancialTelephoneRoom:  case TransportationFunctionConcourseBaggage:  case AllOthersSpace: case StorageMF: result = 0.40;    
+case CommercialIndustrialWarehouse: case CorridorArea: case FamilyDiningArea:  case ElectricalMechanicalTelephoneRoom:  case TransportationFunctionConcourseBaggage:  case AllOthersSpace: case StorageMF: result = 0.40;    
  
 case FastfoodDining: case BarLoungeFineDiningArea: case LockerDressingRoom: case Laundry: case TransportationFunctionTicketing: result = 0.45;
  
@@ -5534,7 +5766,7 @@ case AudienceSeatingArea: case CopyRoom:  case ExerciseCenterGymnasiumArea: case
  
 case AutoRepairArea: case HospitalMedicalSupply:   case LoungeBreakRoom: result = 0.55;  
  
-case ClassroomLectureTrainingVocationalArea:  case CommercialIndustrialStorageArea:  case ExhibitMuseumArea: case  GeneralCommercialIndustrialWorkAreaLowBay: case HospitalImaging:  case OfficeGreaterThan250Ft:  case RetailFittingRoom: case RetailMallConcourse:  case Stairwell MallAndAtria result = 0.60;  
+case ClassroomLectureTrainingVocationalArea:  case CommercialIndustrialStorageArea:  case ExhibitMuseumArea: case  GeneralCommercialIndustrialWorkAreaLowBay: case HospitalImaging:  case OfficeGreaterThan250Ft:  case RetailFittingRoom:  case Stairwell MallAndAtria result = 0.60;  
  
 case GeneralCommercialIndustrialWorkAreaHighBay:  case Office250FtOrLess: case Restroom:  result = 0.65;  
  
@@ -5909,7 +6141,7 @@ this subsection is required</xsd:documentation>
                            <xsd:element name="T09_AutoManualControlsReq" type="comp:AutoManualControlsReq" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">An Energy Management Control System (EMCS) or a multiscene programmable controller may be used to comply with dimming, occupancy, and lighting control requirements in Section 160.5(a)2 if it provides the functionality of the specified controls in accordance with Section 110.9, and the physical controls specified in in Section 160.5(a)2A. No controls shall bypass control functions of a dimmer, occupant sensor, or vacany sensor where the dimmer or sensor has been installed to comply with Section 160.5(a)2.</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">An Energy Management Control System (EMCS) or a multiscene programmable controller may be used to comply with dimming, occupancy, and lighting control requirements in Section 160.5(a)2 if it provides the functionality of the specified controls in accordance with Section 110.9, and the physical controls specified in in Section 160.5(a)2A. No controls shall bypass control functions of a dimmer, occupant sensor, or vacancy sensor where the dimmer or sensor has been installed to comply with Section 160.5(a)2.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input: If Yes is checked result = true Else If Not Applicable is checked result = false display term Not Applicable</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
