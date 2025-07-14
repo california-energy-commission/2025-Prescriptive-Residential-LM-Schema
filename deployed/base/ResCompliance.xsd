@@ -13504,19 +13504,21 @@
   <xsd:simpleType name="OutdoorCompliantLightSource">
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
-        <dtyp:displayterm value="Flourescent">Pin-based linear flourescent/ CFL w electronic ballast</dtyp:displayterm>
-        <dtyp:displayterm value="GarageDoorNA">NA: Integral to garage door opener</dtyp:displayterm>
+        <dtyp:displayterm value="IntegralNA">NA: Integral to exhaust fans, kitchen range hoods, bath vanity mirrors, garage door opener and ceiling fan kits. </dtyp:displayterm>
+        <dtyp:displayterm value="InternalNA">NA: Lighting internal to drawers, cabinetry, and linen closets (45 lumens per watt or greater).</dtyp:displayterm>
         <dtyp:displayterm value="HID">HID (inc. pulse-start metal halide &amp;amp; high pressure sodium)</dtyp:displayterm>
-        <dtyp:displayterm value="InductionLamp">w hardwired high frequency generator &amp;amp; Induction Lamp</dtyp:displayterm>
-        <dtyp:displayterm value="LED">LED</dtyp:displayterm>
+        <dtyp:displayterm value="InductionLamp">Luminaires with hardwired high frequency generator &amp;amp; Induction Lamp</dtyp:displayterm>
+        <dtyp:displayterm value="SSL">Inseparable solid state lighting (SSL) luminaires that provide decorative lighting</dtyp:displayterm>
+        <dtyp:displayterm value="LED">LED light sources installed outdoors</dtyp:displayterm>
         <dtyp:displayterm value="NightPathLightNA">NA: Night, step or path light <d:lt/> 5W</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
-      <xsd:enumeration value="Flourescent"/>
-      <xsd:enumeration value="GarageDoorNA"/>
+      <xsd:enumeration value="IntegralNA"/>
+      <xsd:enumeration value="InternalNA"/>
       <xsd:enumeration value="HID"/>
       <xsd:enumeration value="InductionLamp"/>
+      <xsd:enumeration value="SSL"/>
       <xsd:enumeration value="LED"/>
       <xsd:enumeration value="NightPathLightNA"/>
     </xsd:restriction>

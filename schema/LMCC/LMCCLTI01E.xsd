@@ -1681,7 +1681,7 @@ D03  ExceptionalConditionMessageCCLTIE += FloorAreasInconsistentValues</xsd:docu
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:b][d:i]ALERT! The One-for-one Luminaire Alteration Method for alterations may only be used for one-for-one luminaire alterations within a building or tenant space of 5,000 ft[d:sup]2[/d:sup] or less per [d:t24refnolink/]141.0(b)2liii /[d:t24refnolink/]180.2(b)4.[/d:i][/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This text is displayed to the user If Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR == RatedPowerReduction And Baltered03_AlteredLightingConditionedFloorArea Or Baltered05_AlteredLightingUnconditionedFloorArea Or SUM (Baltered03_AlteredLightingConditionedFloorArea, Baltered05_AlteredLightingUnconditionedFloorArea) GT 5000</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This text is displayed to the user If Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR == OneForOne And Baltered03_AlteredLightingConditionedFloorArea Or Baltered05_AlteredLightingUnconditionedFloorArea Or SUM (Baltered03_AlteredLightingConditionedFloorArea, Baltered05_AlteredLightingUnconditionedFloorArea) GT 5000</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -2125,7 +2125,7 @@ End If</xsd:documentation>
                      <xsd:element name="C10_DoLightingControlsComply" type="comp:DoLightingControlsComply" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">[d:b]Controls Compliance (See Table H for Details)[/d:b]</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If all values for Baltered02_LightingPrescriptiveMethodNR == Or Baltered04_LightingPrescriptiveMethodNR == RatedPowerReduction result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank; 
+                           <xsd:documentation source="CalculationsAndRules">If all values for Baltered02_LightingPrescriptiveMethodNR == Or Baltered04_LightingPrescriptiveMethodNR == OneForOne result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank; 
 Else
 If D03_ExceptionalConditionMessageCCLTIE contains  LP80PercentAlterationExceededInR Or LP80PercentAlterationMissingDataInR
 result = DoesNotComply display term DOES NOT COMPLY;
@@ -2145,7 +2145,7 @@ End If</xsd:documentation>
                      <xsd:element name="C10_NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">[d:b]Controls Compliance (See Table H for Details)[/d:b]</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If all values for Baltered02_LightingPrescriptiveMethodNR == Or Baltered04_LightingPrescriptiveMethodNR == OneForOne result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank;</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If all values forSection_H Baltered04_LightingPrescriptiveMethodNR == OneForOne result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank;</xsd:documentation>
                         </xsd:annotation>
                         <xsd:simpleType>
                            <xsd:restriction base="comp:NotApplicableMessage">
@@ -2790,7 +2790,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_H" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">INDOOR LIGHTING CONTROLS (Not including PAFs)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section applies If Bnew01_LightingProjectScopeNR Or Bpark01_LightingProjectScopeNR != NotApplicableLightingScope Or at least one instance of Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR != RatedPowerReduction And != NotApplicableLightingMethod</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section applies If Bnew01_LightingProjectScopeNR Or Bpark01_LightingProjectScopeNR != NotApplicableLightingScope Or at least one instance of Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR != OneForOne And != NotApplicableLightingMethod</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
