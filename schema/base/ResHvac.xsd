@@ -10957,6 +10957,7 @@
             <dtyp:displayterm value="StorageLarge">Large Storage</dtyp:displayterm>
             <dtyp:displayterm value="StorageResDutyCommercial">Residential-Duty Commercial Storage</dtyp:displayterm>
             <dtyp:displayterm value="StorageSmall">Small Storage</dtyp:displayterm>
+
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -13409,6 +13410,28 @@
          <xsd:enumeration value="kW"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterSpaceType">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="MultipleDwelling">Multiple Dwelling Units/Hotel/Motel Guest Rooms</dtyp:displayterm>
+            <dtyp:displayterm value="IndividualDwelling">Individual Dwelling Unit/Hotel/Motel Guest Room</dtyp:displayterm>
+            <dtyp:displayterm value="CommonUse">Common Use Area</dtyp:displayterm>
+            <dtyp:displayterm value="Nonresidential">Nonresidential</dtyp:displayterm>
+            <dtyp:displayterm value="StateBuilding">State Building</dtyp:displayterm>
+            <dtyp:displayterm value="School">School</dtyp:displayterm>
+            <dtyp:displayterm value="IndividualSchool">Individual School Bathroom</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="MultipleDwelling"/>
+         <xsd:enumeration value="IndividualDwelling"/>
+         <xsd:enumeration value="CommonUse"/>
+         <xsd:enumeration value="Nonresidential"/>
+         <xsd:enumeration value="StateBuilding"/>
+         <xsd:enumeration value="School"/>
+         <xsd:enumeration value="IndividualSchool"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="WaterHeaterStandbyLossFraction">
       <xsd:annotation>
          <xsd:documentation>  Units: none</xsd:documentation>
@@ -13442,49 +13465,23 @@
    <xsd:simpleType name="WaterHeaterType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="BoilerCommercialGTE1MMBtu">Commercial Package Gas Hot Water Supply Boilers ([d:gte/] 1MM Btu/h)</dtyp:displayterm>
-            <dtyp:displayterm value="BoilerCommercialLT1MMBtu">Commercial Package Gas Hot Water Supply Boilers (300k - [d:lt/]1MMBtu/h)</dtyp:displayterm>
-            <dtyp:displayterm value="BoilerDHW">Boiler</dtyp:displayterm>
-            <dtyp:displayterm value="BoilerResDutyCommercial">Residential-duty Gas Hot Water Supply Boilers ([d:lt/]300k Btu/h)</dtyp:displayterm>
-            <dtyp:displayterm value="BoilerWaterHeater">Commercial Gas Hot Water Supply Boilers</dtyp:displayterm>
-            <dtyp:displayterm value="CentralHeatPumpWH">Heat Pump Water Heater</dtyp:displayterm>
-            <dtyp:displayterm value="CommercialPkgBoiler">Commercial Packaged  Boiler</dtyp:displayterm>
-            <dtyp:displayterm value="HeatPumpWaterHeater">Heat Pump Water Heater</dtyp:displayterm>
-            <dtyp:displayterm value="IndirectDHW">Indirect</dtyp:displayterm>
-            <dtyp:displayterm value="InstantaneousCommercial">Commercial Gas Instantaneous Water Heater</dtyp:displayterm>
-            <dtyp:displayterm value="InstantaneousConsumer">Consumer Rated Gas-Fired Instantaneous (50,000-200,000 BTUH)</dtyp:displayterm>
-            <dtyp:displayterm value="InstantaneousConsumerElectric">Consumer Rated Electric Instantaneous ([d:lte/]12kW)</dtyp:displayterm>
-            <dtyp:displayterm value="InstantaneousResDutyCommercial">Residential-Duty Commercial Electric Instantaneous (12-58.6kW)</dtyp:displayterm>
-            <dtyp:displayterm value="StorageCommercial">Commercial Gas Storage Water Heater</dtyp:displayterm>
-            <dtyp:displayterm value="StorageCommercialElectric">Commercial Electric Storage Water Heater</dtyp:displayterm>
-            <dtyp:displayterm value="StorageConsumer">Consumer Rated Gas-Fired Storage ([d:lte/] 75,000 BTUH)</dtyp:displayterm>
-            <dtyp:displayterm value="StorageConsumerElectric">Consumer Rated Electric Storage</dtyp:displayterm>
-            <dtyp:displayterm value="StorageResDutyCommercial">Residential-Duty Commercial Gas-Fired Storage (75,000-105,000 BTUH)</dtyp:displayterm>
-            <dtyp:displayterm value="TableTopElectric">Consumer Rated Electric Tabletop Water Heater</dtyp:displayterm>
-            <dtyp:displayterm value="NEEAIndividualHeatPumpWH">NEEA Individual Heat Pump Water Heater </dtyp:displayterm>
-            <dtyp:displayterm value="NonNEEAIndividualHeatPumpWH">Non-NEEA Individual Heat Pump Water Heater </dtyp:displayterm>
+            <dtyp:displayterm value="HeatPumpAirSource">Air Source Heat Pump Water Heater</dtyp:displayterm>
+            <dtyp:displayterm value="HeatPumpWaterHeater">Non-air Source Heat Pump Water Heater</dtyp:displayterm>
+            <dtyp:displayterm value="InstantaneousConsumer">Gas Instantaneous</dtyp:displayterm>
+            <dtyp:displayterm value="InstantaneousConsumerElectric">Electric Storage</dtyp:displayterm>
+            <dtyp:displayterm value="StorageConsumer">Electric Instantaneous</dtyp:displayterm>
+            <dtyp:displayterm value="StorageResDutyCommercial">Gas Storage</dtyp:displayterm>
+            <dtyp:displayterm value="NEEAIndividualHeatPumpWH">NEEA Heat Pump Water Heater </dtyp:displayterm>
+            <dtyp:displayterm value="NonNEEAIndividualHeatPumpWH">Non-NEEA Heat Pump Water Heater </dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="BoilerCommercialGTE1MMBtu"/>
-         <xsd:enumeration value="BoilerCommercialLT1MMBtu"/>
-         <xsd:enumeration value="BoilerDHW"/>
-         <xsd:enumeration value="BoilerResDutyCommercial"/>
-         <xsd:enumeration value="BoilerWaterHeater"/>
-         <xsd:enumeration value="CentralHeatPumpWH"/>
-         <xsd:enumeration value="CommercialPkgBoiler"/>
+         <xsd:enumeration value="HeatPumpAirSource"/>
          <xsd:enumeration value="HeatPumpWaterHeater"/>
-         <xsd:enumeration value="IndirectDHW"/>
-         <xsd:enumeration value="InstantaneousCommercial"/>
          <xsd:enumeration value="InstantaneousConsumer"/>
          <xsd:enumeration value="InstantaneousConsumerElectric"/>
-         <xsd:enumeration value="InstantaneousResDutyCommercial"/>
-         <xsd:enumeration value="StorageCommercial"/>
-         <xsd:enumeration value="StorageCommercialElectric"/>
          <xsd:enumeration value="StorageConsumer"/>
-         <xsd:enumeration value="StorageConsumerElectric"/>
          <xsd:enumeration value="StorageResDutyCommercial"/>
-         <xsd:enumeration value="TableTopElectric"/>
          <xsd:enumeration value="NEEAIndividualHeatPumpWH"/>
          <xsd:enumeration value="NonNEEAIndividualHeatPumpWH"/>
       </xsd:restriction>
@@ -13598,20 +13595,16 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="CentralDwellingUnits">Central System (serving 2 or more dwelling units)</dtyp:displayterm>
-            <dtyp:displayterm value="CentralNonresSpaces">Central System (serving nonresidential spaces)</dtyp:displayterm>
-            <dtyp:displayterm value="CombinedHydronic">Combined Hydronic System</dtyp:displayterm>
+            <dtyp:displayterm value="CentralNonresSpaces">Serving Nonresidential or MF/Hotel/Motel Common use area</dtyp:displayterm>
             <dtyp:displayterm value="IndividualDwellingUnits">Individual Dwelling Units System(s)</dtyp:displayterm>
-            <dtyp:displayterm value="IndividualNonresSpaces">Individual System (serving nonresidential spaces)</dtyp:displayterm>
-            <dtyp:displayterm value="SolarThermalSystem">Dwelling Unit Solar Thermal System</dtyp:displayterm>
+            <dtyp:displayterm value="PoolSpa">Pool/Spa</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="CentralDwellingUnits"/>
          <xsd:enumeration value="CentralNonresSpaces"/>
-         <xsd:enumeration value="CombinedHydronic"/>
          <xsd:enumeration value="IndividualDwellingUnits"/>
-         <xsd:enumeration value="IndividualNonresSpaces"/>
-         <xsd:enumeration value="SolarThermalSystem"/>
+         <xsd:enumeration value="PoolSpa"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WaterHeatingSystemName">
