@@ -823,6 +823,25 @@ MM110_8c_MeasureApplies  = true and is displayed And
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="B02NewVestibule_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Vestibules</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">
+If A03_ClimateZoneNumber == InRange(2,13)
+And A05_AboveGradeStoryCount LT 4
+And A06_TotalConditionedFloorArea LT 10,000
+result = false
+
+Else User Input
+ 
+Mandatory Measure Triggers
+If result == true   
+MM110_8a_MeasureApplies  = true and is displayed And 
+MM110_8b_MeasureApplies  = true and is displayed And
+MM110_8c_MeasureApplies  = true and is displayed And
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="B02NewDoor_ComponentApplies" type="comp:ComponentApplies" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Exterior Opaque Doors</xsd:documentation>
@@ -1177,6 +1196,7 @@ Or Fframed12_ContinuousInsulationNR IsPresent And == R10ci, R14ci, R17ci, R20ci 
 Or  Fframed12_ContinuousInsulationOther IsPresent And GTE 10
 result = true; Else result = false;  
 End If
+Else If Fframed13_NotApplicableMessage IsPresent result = true; Else result = false
 End If
 End If   
  
@@ -1669,18 +1689,22 @@ End If
 End If
 If result == true continue evaluation: 
  
-If I01SlabMF_FloorTypeApplies == true
- If fields beginning with Islab01, Islab02, Islab03, Islab04,  Islab05, Islab06, Islab08 == BlankGrayedOut or have another value result = true, Else result = false
- End If.
- If result == true continue evaluation: 
-   If Islab04_ConstructionSpecificationMethod == UFactor 
-      If Islab06_InsulationUFactor  LTE Islab05_InsulationUFactorLimit  result = true Else result = false
+If I01Unheated_FloorTypeApplies == true
+   If Iheatedmultifamily06_UfactorMandatory IsPresent
+      If Iheatedmultifamily06_UfactorMandatory GTE Iheatedmultifamily05_SlabInsulationUFactorRequired
+         result = true
+      Else 
+         result = false
+   If Iheatedmultifamily06_InsulationRValue
+      If Iheatedmultifamily06_InsulationRValue LTE Iheatedmultifamily05_SlabInsulationRValueRequired
+         result = true
+      Else
+         result = False
    End If
- Else If Islab04_ConstructionSpecificationMethod == RValue
-    If Islab06_InsulationRValue GTE  Islab05_InsulationRValueLimit  result = true Else result = false
- End If
-End If 
-End If</xsd:documentation>
+If result == true 
+   final result = true
+Else 
+   final result = False</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C04_NotApplicableMessage" >
@@ -1710,7 +1734,8 @@ End If</xsd:documentation>
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">
-If B02NewDoor_ComponentApplies or B02AddDoor_ComponentApplies == True And J01_DoorName, J02_DoorDescription, J03_TopLevelOccupancy, J04_DoorOperation, J05_DoorConstructionType, J06_UFactorLimit, And J07_UfactorJA451 Are present but have no value
+If B02NewVestibule_ComponentApplies == True And JVestibules01_VestibuleName Or JVestibules02_VestibuleExemptions Or JVestibules03_VestibuleShutOffControl Or JVestibules04_VestibuleThermostat Or JVestibules05_VestibuleSelfClosingDevice are present but have no value
+Or B02NewDoor_ComponentApplies or B02AddDoor_ComponentApplies == True And J01_DoorName, J02_DoorDescription, J03_TopLevelOccupancy, J04_DoorOperation, J05_DoorConstructionType, J06_UFactorLimit, And J07_UfactorJA451 Are present but have no value
 Or B02NewDoor_ComponentApplies Or B02AddDoor_ComponentApplies == True And J07_UfactorJA451 GT J06_UFactorLimit 
    result = false
 Else 
@@ -1722,8 +1747,8 @@ Else
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">
-If B02AddDoor_ComponentApplies And B02NewDoor_ComponentApplies And B02AltDoor_ComponentApplies == false
-
+If B02AddDoor_ComponentApplies And B02NewDoor_ComponentApplies And B02AltDoor_ComponentApplies == false 
+And B02NewVestibule_ComponentApplies == False
    result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out
 </xsd:documentation>
                         </xsd:annotation>
@@ -9205,7 +9230,9 @@ End If</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Cavity Insulation per Design</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Hframed05_UfactorSpecSource == JA4Tables, this row is grayed out; 
-Else If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware user  enters number for R-value
+Else If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware 
+Or Hframed05_NotApplicableMessage == BlankGrayedOut
+user  enters number for R-value
 End If</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
@@ -9414,12 +9441,6 @@ If Hframed04b_Status == ExistingAlteration And Hframed10_ConstructionSpecificati
 
    End If
 End If
-
-
- --- NEW ---
-      If Hframed07_PartitionFramingMaterial == WoodFraming Or Wood0_625Gypsum
-         If Hframed07_FramingSize == 2x4
-            result =
 </xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
@@ -17143,7 +17164,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">EXTERIOR DOOR SCHEDULE</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If B02AddDoor_ComponentApplies  Or B02NewDoor_ComponentApplies == true Or B02AltDoor_ComponentApplies == true
+               <xsd:documentation source="CalculationsAndRules">This section is required If B02AddDoor_ComponentApplies  Or B02NewDoor_ComponentApplies Or B02AltDoor_ComponentApplies Or B02NewVestibule_ComponentApplies == true
                   Or
                   If B02AltDoor_ComponentApplies == true 
   
@@ -17331,6 +17352,121 @@ End If</xsd:documentation>
                                           </xsd:simpleType>
                                        </xsd:element>
                                     </xsd:choice>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="TableJVestibules" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Vestibules[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If B02NewVestibule_ComponentApplies == true</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                        <xsd:element name="JVestibules_BeginNote1" minOccurs="0">
+                           <xsd:annotation>
+                              <xsd:documentation source="FieldText"></xsd:documentation>
+                              <xsd:documentation source="AdditionalRequirements">[d:i] Public entrances in newly constructed buildings of occupancy types A, B, E, I, and M shall include an enclosed vestibule meeting the requirements of [d:t24refnolink/]120.7(e)[/d:i]</xsd:documentation>
+                           </xsd:annotation>
+                        </xsd:element>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="JVestibules01_VestibuleName" type="env:VestibuleName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/Plan Detail ID</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User enters text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="JVestibules02_VestibuleExemptions" type="comp:VestibuleExemptions">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exception to [d:t24refnolink/]120.7(e)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from the valid enumarations</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="JVestibules03_VestibuleShutOffControl" type="comp:VestibuleShutOffControl">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If J02_VestibuleExemptions == NoException
+   User selects from valid enumerations
+Else 
+   Value stored in J03_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="JVestibules03_NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Shut off Controls</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If J02_VestibuleExemptions != NoException
+   result = BlankGrayedOut
+Else 
+   Value stored in J03_VestibuleShutOffControl</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>  
+                                    </xsd:choice>                          
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="JVestibules04_VestibuleThermostat" type="comp:VestibuleThermostat">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Thermostat</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If J02_VestibuleExemptions == NoException
+   User selects from valid enumerations
+Else 
+   Value stored in J04_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="JVestibules04_NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Thermostat</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If J02_VestibuleExemptions != NoException
+   result = BlankGrayedOut
+Else 
+   Value stored in J04_VestibuleThermostat</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>  
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="JVestibules05_VestibuleSelfClosingDevice" type="comp:VestibuleSelfClosingDevice">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If J02_VestibuleExemptions == NoException
+   User selects from valid enumerations
+Else 
+   Value stored in J05_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="JVestibules05_NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+If J02_VestibuleExemptions != NoException
+   result = BlankGrayedOut
+Else 
+   Value stored in J05_VestibuleSelfClosingDevice</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>  
+                                    </xsd:choice> 
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
