@@ -329,6 +329,7 @@
             <dtyp:displayterm value="EvaporativeCoolerNA">NA: Evaporative Cooler</dtyp:displayterm>
             <dtyp:displayterm value="ProvidedAirFiltration">Provided</dtyp:displayterm>
             <dtyp:displayterm value="ProvidedNA">NA: Not system type specified in footnote 2</dtyp:displayterm>
+            <dtyp:displayterm value="EvaporativeCooler">Evaporative Cooler</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -5236,6 +5237,10 @@
       <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
+      <xsd:simpleType name="DocLocationHotWaterSupplyTemp">
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="DocLocationMandMeasBlock">
       <xsd:restriction base="xsd:token">
       </xsd:restriction>
@@ -5257,6 +5262,10 @@
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="DocLocationTowerOverflowAlarm">
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DocLocationVentilationAccessibility">
       <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
@@ -8251,6 +8260,10 @@
             <dtyp:displayterm value="HRRContinuousVentInJ">Table J indicates continuous ventilation is being used as an alternative to a balanced systems.  However, Table J also indicates that both supply and exhaust fans are being used.  Please verify the same ventilation type is being used in all dwelling units.</dtyp:displayterm>
             <dtyp:displayterm value="MultipleBoilerConflictInF">Table F indicates more than one boiler, however an exception for isolation valve has been indicated that only applies to plants with only one boiler.  Please revise Table F. prior to permit application.</dtyp:displayterm>
             <dtyp:displayterm value="MultipleChillerConflictInF">Table F indicates more than one chiller, however an exception for isolation valve has been indicated that only applies to plants with only one chiller.  Please revise Table F. prior to permit application.</dtyp:displayterm>
+            <dtyp:displayterm value="MultizonePackage1">The permit applicant has indicated they are pursuing Multizone package i- VRF with refrigerant loop heat recovery and DOAS. Please ensure the project design meets the multizone space conditioning requirements of 140.4(a)3Ai.</dtyp:displayterm>
+            <dtyp:displayterm value="MultizonePackage2">The permit applicant has indicated they are pursuing Multizone package ii - Four pipe fan coil supplied by an air to water heat pump with DOAS. Please ensure the project design meets the multizone space conditioning requirements of 140.4(a)3Aii</dtyp:displayterm>
+            <dtyp:displayterm value="MultizonePackage3">The permit applicant has indicated they are pursuing Multizone package iii - VAV supplied by an air to water heat pump system. Please ensure the project design meets the multizone space conditioning requirements of 140.4(a)3Aiii</dtyp:displayterm>
+            <dtyp:displayterm value="MultizonePackage4">The permit applicant has indicated they are pursuing Multizone package iv - Dual fan dual duct. Please ensure the project design meets the multizone space conditioning requirements of 140.4(a)3Aiv</dtyp:displayterm>
             <dtyp:displayterm value="NaturalVentilationInJ">The permit applicant has indicated on Table J that natural ventilation is being utilized to meet ventilation requirements.  Additional documentation may be requested by the Authority Having Jurisdiction demonstrating compliance for natural ventilation design.</dtyp:displayterm>
             <dtyp:displayterm value="TransferAirUsedInJ">Transfer air is being used in at least one zone to meet minimum ventilation requirements. See Table J for details. Transfer air must be designed per [d:t24ref/]120.1(g) for air classification and recirculation limitations and be documented within construction documents.</dtyp:displayterm>
             <dtyp:displayterm value="UserChangedSelectionInCI">Selections made in the Certificates of Installation Table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
@@ -8267,6 +8280,10 @@
          <xsd:enumeration value="HRRContinuousVentInJ"/>
          <xsd:enumeration value="MultipleBoilerConflictInF"/>
          <xsd:enumeration value="MultipleChillerConflictInF"/>
+         <xsd:enumeration value="MultizonePackage1"/>
+         <xsd:enumeration value="MultizonePackage2"/>
+         <xsd:enumeration value="MultizonePackage3"/>
+         <xsd:enumeration value="MultizonePackage4"/>
          <xsd:enumeration value="NaturalVentilationInJ"/>
          <xsd:enumeration value="TransferAirUsedInJ"/>
          <xsd:enumeration value="UserChangedSelectionInCI"/>
@@ -8964,6 +8981,7 @@
             <dtyp:displayterm value="MeetsEfficiencyTable140_4A">NA: Efficiency per Table 140.4-F</dtyp:displayterm>
             <dtyp:displayterm value="ServingComputerRoom">See CC-PRC for details</dtyp:displayterm>
             <dtyp:displayterm value="IncreasesTDV">NA: Increases Overall TDV Energy Use</dtyp:displayterm>
+            <dtyp:displayterm value="MultizonePackages">NA: Systems Complying with multizone space conditioning requirements of 140.4(a)3ai or ii</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -8978,6 +8996,7 @@
          <xsd:enumeration value="MeetsEfficiencyTable140_4A"/>
          <xsd:enumeration value="ServingComputerRoom"/>
          <xsd:enumeration value="IncreasesTDV"/>
+         <xsd:enumeration value="MultizonePackages"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="FanSystemHERS_VerificationName">
@@ -14671,6 +14690,19 @@
       <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="ProjectHasAirWaterHeatPump">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Air Economizer</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="ProjectHasAreaControl">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -16226,6 +16258,356 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAEnv02F">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAEnv03F">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCALti03A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCALti04A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCALti05A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCALto02A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch02A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch03A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch04A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch04H">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch05A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch06A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch07A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch08A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch09A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch10A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch11A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch12A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch13A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch14A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch15A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch16A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch17A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch18A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch19A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch20">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch20H">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch21">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch21H">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch22A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch23A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAMch24A">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAPrc02F">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAPrc03F">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RequireNRCAPrc12F">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="RequireLMCAEnv02F">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -17160,47 +17542,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="RequireNRCAEnv03F">
-      <xsd:annotation>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
-            <dtyp:displayterm value="false">No</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="xsd:boolean">
-      </xsd:restriction>
-   </xsd:simpleType>
    <xsd:simpleType name="RequireNRCALti02A">
-      <xsd:annotation>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
-            <dtyp:displayterm value="false">No</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="xsd:boolean">
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="RequireNRCALti03A">
-      <xsd:annotation>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
-            <dtyp:displayterm value="false">No</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="xsd:boolean">
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="RequireNRCALti04A">
-      <xsd:annotation>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
-            <dtyp:displayterm value="false">No</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="xsd:boolean">
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="RequireNRCALti05A">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Yes</dtyp:displayterm>
