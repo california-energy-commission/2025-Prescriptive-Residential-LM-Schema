@@ -7088,6 +7088,7 @@
             <dtyp:displayterm>HVAC  System Type</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="AirWaterHeatPump">Air-To-Water Heat Pump</dtyp:displayterm>
             <dtyp:displayterm value="ComputerRoomAC">Computer Room AC</dtyp:displayterm>
             <dtyp:displayterm value="CeilingCRAC">Ceiling Mounted Computer Room AC</dtyp:displayterm>
             <dtyp:displayterm value="DedicatedOAS">Dedicated Outside Air System</dtyp:displayterm>
@@ -7107,6 +7108,7 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="AirWaterHeatPump"/>
          <xsd:enumeration value="ComputerRoomAC"/>
          <xsd:enumeration value="CeilingCRAC"/>
          <xsd:enumeration value="DedicatedOAS"/>

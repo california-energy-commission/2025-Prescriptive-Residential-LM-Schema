@@ -3018,27 +3018,15 @@ Else If Fscs03_SystemZoning == MultiZone
    If Fscs05_WholeBuildingOccupancy ==  OfficeBuilding Or (Fscs05_WholeBuildingOccupancy == SchoolBuilding And A02_ClimateZoneNumber == InRange(1,5) or InRange(8,16)
    And A04_TotalConditionedFloorArea + A05_TotalUnconditionedFloorArea GTE 150,000
    And A06_AboveGradeStoryCount LTE 5
-      User gets to select from the four non reported UI only options below (some options may require more than one row to be created in TableDrySizing):
-      - "Option 1 - VRF with refrigerant loop heat recovery and DOAS". Reported values:
-         - F02_HvacSystemType = VariableRefrigerantFlowHeatRecovery and F03VRFHeatRecovery_VariableRefrigerantFlow = AirCooledHP_VRF
-         - F02_HvacSystemType = DedicatedOAS
-
-      - "Option 2 - Air to water heat pump with Four pipe fan coil and DOAS" - Reported Values:
-         - F02_HvacSystemType == DedicatedOAS
-         - Fd02_ChillerType = AirWaterHeatPump
-
-      - "Option 3 - VAV with heating provided by air to water heat pump" - is not an option if not an option if A03All_WholeBuildingOccupancy == ClassroomBuilding or SchoolBuilding and A02_ClimateZoneNumber == 1 Or 3) Reported Value:
-         - F03 - F11 = BlankGrayedOut 
-         - Fd02_ChillerType = AirWaterHeatPump
-      
-      - "Option 4 - Dual Fan Dual Duct" - reported value is one of any of the following: 
-      - F02_HvacSystemType == UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR Or PTAC_PTHP Or SPV_ACHP Or VariableRefrigerantFlow Or VariableRefrigerantFlowHeatRecovery Or HeatPumpAC Or RoomAC_HP
+      List: VariableRefrigerantFlowHeatRecovery, DedicatedOAS, AirWaterHeatPump, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, HeatPumpAC, RoomAC_HP
+   End If
 Else
    List all values
 End If</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                              <xsd:restriction base= "hvac:HvacSystemType">
+                                                <xsd:enumeration value="AirWaterHeatPump"/>
                                                 <xsd:enumeration value="DedicatedOAS"/>
                                                 <xsd:enumeration value="FurnaceAC"/>
                                                 <xsd:enumeration value="FurnaceUnitHeater"/>
