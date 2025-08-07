@@ -1369,6 +1369,29 @@ End If</xsd:documentation>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
+                                                         <xsd:element name="Dry09cc_EfficiencySEER2" type="hvac:EfficiencySEER2" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent 
+If Fa09_EfficiencySEER2 IsPresent
+   result = CC-MCH Fa09_EfficiencySEER2 
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fa09_EfficiencySEER2</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Dry09cc_EfficiencyEER2" type="hvac:EfficiencyEER2" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent and Fa09_EfficiencySEER2_EER2 IsPresent
+result = CC-MCH Fa09_EfficiencySEER2_EER2 result1
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fa09_EfficiencySEER2_EER2 result1</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
                                                          <xsd:element name="Dry09cc_NotApplicableMessage" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
@@ -1436,6 +1459,18 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Dry09cc_EfficiencySEER IsPresent
 If Dry01_InstalledSameAsCC == true
 result = Dry09cc_EfficiencySEER but user can change value
+Else If Dry01_InstalledSameAsCC == false
+User input
+End if
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Dry09_EfficiencySEER2" type="hvac:EfficiencySEER2" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Dry09cc_EfficiencySEER IsPresent
+If Dry01_InstalledSameAsCC == true
+result = Dry09cc_EfficiencySEER2 but user can change value
 Else If Dry01_InstalledSameAsCC == false
 User input
 End if
@@ -1650,6 +1685,7 @@ End If</xsd:documentation>
                                                                <xsd:restriction base="hvac:EfficiencyType">
                                                                   <xsd:enumeration value="IEER"/>
                                                                   <xsd:enumeration value="SEER"/>
+                                                                  <xsd:enumeration value="SEER2"/>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>
@@ -1691,6 +1727,7 @@ End If</xsd:documentation>
                                                                <xsd:restriction base="hvac:EfficiencyType">
                                                                   <xsd:enumeration value="IEER"/>
                                                                   <xsd:enumeration value="SEER"/>
+                                                                  <xsd:enumeration value="SEER2"/>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>
