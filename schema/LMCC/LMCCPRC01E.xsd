@@ -1542,7 +1542,7 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="ElectricReadyKitchen" minOccurs="0">
+         <xsd:element name="ERCommercialKitchen" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Electric Ready Commercial Kitchens [d:t24refnolink/]120.6(k)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HospitalBuilding
