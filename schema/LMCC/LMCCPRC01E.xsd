@@ -1589,6 +1589,7 @@ End If</xsd:documentation>
                                  <xsd:documentation source="FieldText">Mandatory requirements for commercial kitchens</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
+                           <xsd:choice maxOccurs="1">
                            <xsd:element name="ElectricReadyKitchen02_KitchenERComplies" type="comp:KitchenERComplies" >
                               <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
@@ -1608,6 +1609,8 @@ End If</xsd:documentation>
                            </xsd:restriction>
                         </xsd:simpleType>
                      </xsd:element>
+                     </xsd:choice>
+                     <xsd:choice maxOccurs="1">
                      <xsd:element name="ElectricReadyKitchen03_KitchenERComplies" type="comp:KitchenERComplies" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
@@ -1627,6 +1630,7 @@ End If</xsd:documentation>
                            </xsd:restriction>
                         </xsd:simpleType>
                      </xsd:element>
+                     </xsd:choice>
                   </xsd:sequence>
                </xsd:complexType>
                   </xsd:element>

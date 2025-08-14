@@ -1631,44 +1631,48 @@ End If</xsd:documentation>
                       <xsd:documentation source="FieldText">Mandatory requirements for commercial kitchens</xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="ElectricReadyKitchen02_KitchenERComplies" type="comp:KitchenERComplies">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenHasGas  user input;  If checked result = true; else result = false.</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricReadyKitchen02_NotApplicableMessage">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare  user input;  If checked result = true; else result = false.</xsd:documentation>
-                    </xsd:annotation>
-                    <xsd:simpleType>
-                      <xsd:restriction base="comp:NotApplicableMessage">
-                        <xsd:enumeration value="BlankGrayedOut"/>
-                      </xsd:restriction>
-                    </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="ElectricReadyKitchen03_KitchenERComplies" type="comp:KitchenERComplies">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenHasGas  user input;  If checked result = true; else result = false.</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricReadyKitchen03_NotApplicableMessage">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare  user input;  If checked result = true; else result = false.</xsd:documentation>
-                    </xsd:annotation>
-                    <xsd:simpleType>
-                      <xsd:restriction base="comp:NotApplicableMessage">
-                        <xsd:enumeration value="BlankGrayedOut"/>
-                      </xsd:restriction>
-                    </xsd:simpleType>
-                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                    <xsd:element name="ElectricReadyKitchen02_KitchenERComplies" type="comp:KitchenERComplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenHasGas  user input;  If checked result = true; else result = false.</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="ElectricReadyKitchen02_NotApplicableMessage">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare  user input;  If checked result = true; else result = false.</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="comp:NotApplicableMessage">
+                          <xsd:enumeration value="BlankGrayedOut"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                    <xsd:element name="ElectricReadyKitchen03_KitchenERComplies" type="comp:KitchenERComplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenHasGas  user input;  If checked result = true; else result = false.</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="ElectricReadyKitchen03_NotApplicableMessage">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare  user input;  If checked result = true; else result = false.</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:simpleType>
+                        <xsd:restriction base="comp:NotApplicableMessage">
+                          <xsd:enumeration value="BlankGrayedOut"/>
+                        </xsd:restriction>
+                      </xsd:simpleType>
+                    </xsd:element>
+                  </xsd:choice>
                 </xsd:sequence>
               </xsd:complexType>
             </xsd:element>
