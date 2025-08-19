@@ -3069,6 +3069,7 @@
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="HeatPumpWaterHeater240V">A single 240 volt heat pump water heater serving the dwelling unit.  (New Construction and Additions Only)</dtyp:displayterm>
+        <dtyp:displayterm value="HeatPumpWaterHeater120V">A single 120 volt heat pump water heater serving a dwelling unit with 1 bedroom or less. (New Construction and Additions Only)</dtyp:displayterm>
         <dtyp:displayterm value="HeatPumpConditionedInsulated">A single heat pump water heater with storage tank located in the garage or conditioned space and be placed on an incompressible, rigid insulated surface with minimum R-10. The water heater shall be installed with a communication interface that meets either the requirements of 110.12(a) or has a ANSI/CTA-2045-B communication port (Alterations Only)</dtyp:displayterm>
         <dtyp:displayterm value="HeatPumpNEEA">A single heat pump water heater that meets the requirements of NEEA Advanced Water Heater Specification Tier 3 or higher.</dtyp:displayterm>
         <dtyp:displayterm value="InstantaneousConsumerNoTank">Gas/propane instantaneous water heater with input rating <d:lte/> 200,000 BTUH and no storage tank. Note: Can not comply using the prescriptive path with a storage tank per <d:t24refnolink/>170.2(d)1C (New Construction and Additions Only)</dtyp:displayterm>
@@ -3078,6 +3079,7 @@
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
       <xsd:enumeration value="HeatPumpWaterHeater240V"/>
+      <xsd:enumeration value="HeatPumpWaterHeater120V"/>
       <xsd:enumeration value="HeatPumpConditionedInsulated"/>
       <xsd:enumeration value="HeatPumpNEEA"/>
       <xsd:enumeration value="InstantaneousConsumerNoTank"/>

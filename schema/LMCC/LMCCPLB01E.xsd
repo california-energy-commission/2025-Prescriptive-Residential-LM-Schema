@@ -861,7 +861,7 @@ result = true display term Yes;
 Else result = false display term No
 End If
  
-Else If F05_IsEfficiencyCapWeightedAvg == true And F04_EfficiencyCapWeightedAvg GTE 90%
+Else If F05_IsEfficiencyCapWeightedAvg == true And F06_EfficiencyCapWeightedAvg GTE 90%
  
 If (F11_ThermalEfficiency GTE F12_ThermalEfficiencyMinimum 
 Or F11_EfficiencyAFUE GTE F12_EfficiencyMinimumValueAFUE  
@@ -923,12 +923,12 @@ End If</xsd:documentation>
 If RecircLoops IsPresent then 
 If G01_AirReleaseValve, G02_BackflowCheckValve,  G03_HoseBibb,  G04_IsolationValves,  G05_ TankDrainPort,  G06_ColdWaterCheckValve, G07_RecircLoopHP, And G08_RecircFuelHP   !=ReqNo; 
  
-And G13_HeatPumpDistRequirement != ReqHeatPumpNo 
-And G14_IndividualSysDistRequirement != ReqDWHRCZ16No  
+And G10_HeatPumpDistRequirement != ReqHeatPumpNo 
+And G11_IndividualSysDistRequirementelement != ReqDWHRCZ16No  
 And G15_IndividualSysDistRequirement  != ReqDemandRecircNo
 And G16_DwellingUnitsPipeInsulationComplies != false
-And G17_NonresPipeInsulationComplies != false 
-And G18_PipeInsulationProtectionComplies != false then 
+And G14_NonresPipeInsulationComplies != false 
+And G15_PipeInsulationProtectionComplies != false then 
 result = true; 
 Else result = false
 End If
@@ -1145,7 +1145,7 @@ End If</xsd:documentation>
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                       <xsd:element name="F01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName" >
+                                       <xsd:element name="F03_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">System Name</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If B02New_WaterHeatingSystem  IsPresent And  B02New_WaterHeatingSystem ==  CentralNonresSpaces Or == CentralDwellingUnits 
@@ -1163,7 +1163,7 @@ End If</xsd:documentation>
                                              </xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="F03_NotApplicableMessage" >
+                                       <xsd:element name="F06_NotApplicableMessage " >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">System Name</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If B02New_WaterHeatingSystem  IsPresent And  B02New_WaterHeatingSystem !=  CentralNonresSpaces And  != CentralDwellingUnits 
@@ -1180,7 +1180,7 @@ End If</xsd:documentation>
                                           </xsd:simpleType>
                                        </xsd:element>
                                        <xsd:choice maxOccurs="1">
-                                       <xsd:element name="F03_ExceptionsToPrescReqsDHW" type="comp:ExceptionsToPrescReqsDHW" >
+                                       <xsd:element name="F04_ExceptionsToPrescReqsDHW" type="comp:ExceptionsToPrescReqsDHW" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exception to [d:t24refnolink/]140.5(c)/[d:t24refnolink/]170.2(d)2B</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If B02New_WaterHeatingSystem  IsPresent And  B02New_WaterHeatingSystem ==  CentralNonresSpaces Or == CentralDwellingUnits 
@@ -1190,7 +1190,7 @@ User selects from dropdown list
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="F03_NotApplicableMessage" >
+                                       <xsd:element name="F06_NotApplicableMessage " >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exception to [d:t24refnolink/]140.5(c)/[d:t24refnolink/]170.2(d)2B</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If B02New_WaterHeatingSystem  IsPresent And  B02New_WaterHeatingSystem !=  CentralNonresSpaces And  != CentralDwellingUnits 
@@ -1208,21 +1208,21 @@ End If</xsd:documentation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="F04_EfficiencyCapWeightedAvg" type="hvac:EfficiencyCapWeightedAvg" >
+                                       <xsd:element name="F06_EfficiencyCapWeightedAvg" type="hvac:EfficiencyCapWeightedAvg" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Capacity-weighted Average Efficiency %</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules"> If F03_ExceptionsToPrescReqsDHW == ExceptionsNonApply
+                                             <xsd:documentation source="CalculationsAndRules"> If F04_ExceptionsToPrescReqsDHW == ExceptionsNonApply
  
 Calculated field: For all rows where  F10a_WaterHeaterCapacityRated GT 100,000 And F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial And F07_Status == NewOrAddition
 result = (SUM (F11 Rated Efficiency for the row where F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial  x  F10a_WaterHeaterCapacityRated)) /  SUM ALL ( F10a_WaterHeaterCapacityRated where F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial)
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="F04_NotApplicableMessage" >
+                                       <xsd:element name="F06_NotApplicableMessage " >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Capacity-weighted Average Efficiency %</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">if F05_IsEfficiencyCapWeightedAvg == false
-Or F03_ExceptionsToPrescReqsDHW != ExceptionsNonApply
+Or F04_ExceptionsToPrescReqsDHW != ExceptionsNonApply
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -1234,22 +1234,22 @@ End If</xsd:documentation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="F04_EfficiencyCapWeightedAvg" type="hvac:EfficiencyCapWeightedAvg" >
+                                       <xsd:element name="F06_EfficiencyCapWeightedAvg" type="hvac:EfficiencyCapWeightedAvg" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Capacity-weighted Average Efficiency %</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules"> If F05_IsEfficiencyCapWeightedAvg == true
-And F03_ExceptionsToPrescReqsDHW == ExceptionsNonApply
+And F04_ExceptionsToPrescReqsDHW == ExceptionsNonApply
  
 Calculated field: For all rows where  F10a_WaterHeaterCapacityRated GT 100,000 And F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial
 result = (SUM (F11 Rated Efficiency for the row where F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial  x  F10a_WaterHeaterCapacityRated)) /  SUM ALL ( F10a_WaterHeaterCapacityRated where F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial)
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="F04_NotApplicableMessage" >
+                                       <xsd:element name="F06_NotApplicableMessage " >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Capacity-weighted Average Efficiency %</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">if F05_IsEfficiencyCapWeightedAvg == false
-Or F03_ExceptionsToPrescReqsDHW != ExceptionsNonApply
+Or F04_ExceptionsToPrescReqsDHW != ExceptionsNonApply
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -1269,7 +1269,7 @@ End If</xsd:documentation>
                                              <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                                                 <xsd:complexType>
                                                    <xsd:sequence>
-                                                      <xsd:element name="F05_WaterHeaterName" type="hvac:WaterHeaterName" >
+                                                      <xsd:element name="F07_WaterHeaterName" type="hvac:WaterHeaterName" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
@@ -1463,7 +1463,7 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">System Name</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">
-Result = F01_WaterHeatingSystemName
+Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -1471,18 +1471,6 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">Calculated Field:  If user checks any of the types: F16a, F16b,F16c, F16d, F16e, F16f the value for that type is added to F16_DwellingUnitWaterHeater;  This list is used in other rows and other sections like section G for evaluations based on equipment types in the project</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="F16a_EquipmentTypeApplies" type="comp:EquipmentTypeApplies" >
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Gas/propane instantaneous water heater with input rating [d:lte/] 200,000 BTUH and no storage tank.  Note: Can not comply using the prescriptive path with a storage tank per Exception 1 [d:t24refnolink/]170.2(d)1 (New Construction and Additions Only)</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If F07_Status == NewOrAddition And F02_WaterHeaterSpaceType == IndividualDwelling And F08_WaterHeaterType == 
-                                     row is grayed out. 
-Else user input
-End If
-If checked result = true; Else result = false.  
-If result == true then F16_DwellingUnitWaterHeater += InstantaneousConsumerNoTank</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="F16b_EquipmentTypeApplies" type="comp:EquipmentTypeApplies" >
@@ -1506,7 +1494,7 @@ Else user input
 End If
  
 If checked result = true; Else result = false.  
-If result == true F16_DwellingUnitWaterHeater += HeatPumpWaterHeater240V</xsd:documentation>
+If result == true F16_DwellingUnitWaterHeater += HeatPumpWaterHeater120V</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="F16c_EquipmentTypeApplies" type="comp:EquipmentTypeApplies" >
@@ -1571,7 +1559,7 @@ End If
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">System Name</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">
-Result = F01_WaterHeatingSystemName
+Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -1665,7 +1653,7 @@ User selects from dropdown; </xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">System Name</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">
-Result = F01_WaterHeatingSystemName
+Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -1809,7 +1797,7 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">System Name</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">
-Result = F01_WaterHeatingSystemName
+Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -1955,11 +1943,11 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">System Name</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">
-Result = F01_WaterHeatingSystemName
+Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G13_HeatPumpDistRequirement" type="comp:HeatPumpDistRequirement" >
+                           <xsd:element name="G10_HeatPumpDistRequirement" type="comp:HeatPumpDistRequirement" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Per [d:t24refnolink/]170.2(d)1A, single 240 volt heat pump water heaters serving dwelling units must also include systems with: [d:l t="*"][d:list] Compact hot water distribution system as specified in Reference Appendix RA4.4.16 in climate zones 1 and 16; AND [/d:list][d:list] A drain water heat recovery system that is field verified by a HERS rater per Reference Appendix RA3.6.9 in climate zone 16[/d:list][/d:l]</xsd:documentation>
@@ -1979,7 +1967,7 @@ result = ReqHeatPumpYes
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="G14_IndividualSysDistRequirement" type="comp:IndividualSysDistRequirement" >
+                           <xsd:element name="G11_IndividualSysDistRequirementelement" type="comp:IndividualSysDistRequirement" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS rater per Reference Appendix RA3.6.9 in climate zone 16 per [d:t24refnolink/]170.2(d)1B.</xsd:documentation>
@@ -2007,7 +1995,7 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="G16ToG18Heading" minOccurs="0">
+                  <xsd:element name="G13ToG15Heading" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:b]Mandatory Pipe Insulation All Occupancies - [d:t24refnolink/]120.3, [d:t24refnolink/]160.4 [/d:b]</xsd:documentation>
@@ -2017,7 +2005,7 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">System Name</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">
-Result = F01_WaterHeatingSystemName
+Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -2029,7 +2017,7 @@ End If</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits Or IndividualDwellingUnits  user input;  If checked result = true; else result = false.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
-                     <xsd:element name="G16_NotApplicableMessage" >
+                     <xsd:element name="G13_NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If NO  row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits Or IndividualDwellingUnits 
@@ -2044,7 +2032,7 @@ End If</xsd:documentation>
                      </xsd:element>
                   </xsd:choice>
                   <xsd:choice maxOccurs="1">
-                     <xsd:element name="G17_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies" >
+                     <xsd:element name="G14_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
                            <xsd:documentation source="AdditionalRequirements">For systems serving nonresidential spaces, pipe insulation for the following applications is specified to comply with Table 120.3-A1 or Table 120.3-A2 (see below) per [d:t24refnolink/]120.3: [d:l t="*"][d:list] Recirculating system piping, including supply and return piping of the water heater [/d:list][d:list] The first 8 ft of hot and cold outlet piping, including between storage tank and heat trap, for a nonrecirculating storage system [/d:list][d:list] Pipes that are externally heated [/d:list][/d:l]</xsd:documentation>
@@ -2057,7 +2045,7 @@ else result = false.
 End If
  
 Mandatory Measure Triggers:
-If result == true And G18_PipeInsulationProtectionComplies == true
+If result == true And G15_PipeInsulationProtectionComplies == true
 MM120_3_MeasureApplies  = true and is displayed 
 End If</xsd:documentation>
                         </xsd:annotation>
@@ -2076,14 +2064,14 @@ End If</xsd:documentation>
                         </xsd:simpleType>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="G18_PipeInsulationProtectionComplies" type="comp:PipeInsulationProtectionComplies" >
+                  <xsd:element name="G15_PipeInsulationProtectionComplies" type="comp:PipeInsulationProtectionComplies" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Per [d:t24refnolink/]120.3(b)/ [d:t24refnolink/]160.4(f), pipe and appurtenance insulation shall be protected from damage, including that due to sunlight, moisture, equipment maintenance, and wind.  Insulation exposed to weather shall be installed with a cover suitable for outdoor service.  Pipe insulation buried below grade must be installed in a water proof and non-crushable casing or sleeve.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; else result = false  End If
  
 Mandatory Measure Triggers:  
-Multi-field triggers:  See G17_NonresPipeInsulationComplies CalculationsAndRules for trigger values from this field</xsd:documentation>
+Multi-field triggers:  See G14_NonresPipeInsulationComplies CalculationsAndRules for trigger values from this field</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Gpit" minOccurs="0">
@@ -2253,7 +2241,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">System Name</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">
-Result = F01_WaterHeatingSystemName
+Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -2382,7 +2370,7 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">System Name</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">
-Result = F01_WaterHeatingSystemName
+Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -2423,7 +2411,7 @@ Dropdown options (only the one that is selected shows up):
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">System Name</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">
-Result = F01_WaterHeatingSystemName
+Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>

@@ -304,7 +304,7 @@ End if</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">[d:b][d:t24refnolink/]120.1(a) GENERAL VENTILATION AND INDOOR AIR QUALITY REQUIREMENTS [/d:b]</xsd:documentation>
 												<xsd:documentation source="AdditionalRequirements">ALL OCCUPIABLE SPACES IN HOTEL/MOTEL AND NONRESIDENTIAL BUILDINGS OTHER THAN HEALTHCARE SHALL COMPLY WITH APPLICABLE REQUIREMENTS OF [d:t24ref/]120.1(a) THROUGH (g).  THE REQUIRED OUTDOOR AIR VENTILATION RATE AND AIR-DISTRIBUTION SYSTEM DESIGN SHALL BE  CLEARLY IDENTIFIED ON THE PLANS.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B03e_ProjectHasVentilation == true  
+												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B01c_ProjectHasVentilation == true  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -324,7 +324,7 @@ End if</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">[d:b][d:t24refnolink/]120.1(c)2 NATURAL VENTILATION  [/d:b]</xsd:documentation>
 												<xsd:documentation source="AdditionalRequirements">NATURALLY VENTILATED SPACES SHALL BE DESIGNED IN ACCORDANCE WITH [d:t24refnolink/]120.1(c)2A THROUGH [d:t24refnolink/]120.1(c)2C AND INCLUDE A MECHANICAL VENTILATION SYSTEMS DESIGNED IN ACCORDANCE WITH [d:t24refnolink/]120.1(c)3.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B03e_ProjectHasVentilation == true  
+												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B01c_ProjectHasVentilation == true  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -368,7 +368,7 @@ End if</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">[d:b][d:t24refnolink/]120.1(c)3 MECHANICAL VENTILATION  [/d:b]</xsd:documentation>
 												<xsd:documentation source="AdditionalRequirements">OCCUPIABLE SPACES SHALL BE VENTILATED WITH A MECHANICAL VENTILATION SYSTEM CAPABLE OF PROVIDING AN OUTDOOR AIRFLOW RATE (V[d:sub]Z[/d:sub]) TO THE ZONE NO LESS THAN EQUATION 120.1-F.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B03e_ProjectHasVentilation == true  
+												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B01c_ProjectHasVentilation == true  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -406,7 +406,7 @@ End if</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">[d:b][d:t24refnolink/]120.1(d) TIMES OF OCCUPANCY [/d:b]</xsd:documentation>
 												<xsd:documentation source="AdditionalRequirements">MINIMUM OUTDOOR AIR RATE SHALL BE MET AT TIMES WHEN THE SPACE IS USUALLY OCCUPIED IN ACCORDANCE WITH [d:t24refnolink/]120.1(c).</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B03e_ProjectHasVentilation == true  
+												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B01c_ProjectHasVentilation == true  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -450,7 +450,7 @@ End if</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">[d:b][d:t24refnolink/]120.1(d)2 PRE-OCCUPANCY [/d:b]</xsd:documentation>
 												<xsd:documentation source="AdditionalRequirements">THE LESSER OF THE MINIMUM RATE OF OUTDOOR AIR REQUIRED BY SECTION 120.1(c) OR THREE COMPLETE AIR CHANGES SHALL BE SUPPLIED TO THE ENTIRE BUILDING DURING THE 1-HOUR PERIOD IMMEDIATELY BEFORE THE BUILDING IS NORMALLY OCCUPIED.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B03e_ProjectHasVentilation == true  
+												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B01c_ProjectHasVentilation == true  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -579,7 +579,7 @@ End If</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText"/>
 												<xsd:documentation source="AdditionalRequirements">[d:t24refnolink/]120.1(f)1 ALL MECHANICAL VENTILATION AND SPACE-CONDITIONING SYSTEMS SHALL BE DESIGNED WITH AND HAVE INSTALLED DUCTWORK, DAMPERS, AND CONTROLS TO ALLOW OA RATES TO BE OPERATED AT NO LESS THAN THE LARGER OF: 120.1(c)3 MINIMUMS OR THE RATE REQUIRED FOR MAKE-UP OF EXHAUST SYSTEMS FOR AN EXEMPT OR COVERED PROCESS, CONTROL OF ODORS, OR CONTAMINANT REMOVAL IN A SPACE.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B03e_ProjectHasVentilation == true  
+												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B01c_ProjectHasVentilation == true  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -609,7 +609,7 @@ End if</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">[d:b][d:t24refnolink/]120.1(g) AIR CLASSIFICATION AND RECIRCULATION LIMITATIONS [/d:b]</xsd:documentation>
 												<xsd:documentation source="AdditionalRequirements">AIR CLASSIFICATION AND RECIRCULATION LIMITATIONS OF AIR SHALL BE BASED ON TABLE 120.1-A OR TABLE 120.1-C, AND IN ACCORDANCE WITH [d:t24refnolink/]120.1(g)1 THROUGH 4.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B03e_ProjectHasVentilation == true 
+												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B01c_ProjectHasVentilation == true 
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -1851,7 +1851,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fan Systems</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input.  If checked result = true, Else If unchecked result = false
-If B03e_ProjectHasVentilation == true 
+If B01c_ProjectHasVentilation == true 
 result = true
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -1887,7 +1887,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:b] [d:i]ALERT! Healthcare facilities must be ventilated in accordance with Chapter 4 of the CMC as amended by HCAI and do not need to show compliance with Title 24, Part 6 ventilation requirements in Table J.[/d:i][/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Display this alert If A03_WholeBuildingOccupancy includes HospitalBuilding And B03e_ProjectHasVentilation == true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Display this alert If A03_WholeBuildingOccupancy includes HospitalBuilding And B01c_ProjectHasVentilation == true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="B_Alert2" minOccurs="0">
@@ -2249,7 +2249,7 @@ End If</xsd:documentation>
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field:  
-If B03e_ProjectHasVentilation == false result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out  
+If B01c_ProjectHasVentilation == false result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out  
 End If</xsd:documentation>
                         </xsd:annotation>
                         <xsd:simpleType>
@@ -11425,7 +11425,7 @@ DwellingUnitNA display term NA: dwelling unit</xsd:documentation>
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">VENTILATION AND INDOOR AIR QUALITY</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If B03e_ProjectHasVentilation == true,but only J01, J02a, J02b and J03 are displayed initially.
+               <xsd:documentation source="CalculationsAndRules">This section is required If B01c_ProjectHasVentilation == true,but only J01, J02a, J02b and J03 are displayed initially.
  
 Mandatory Measure Triggers:
 If this section is required 
@@ -11929,7 +11929,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Check the box if the system is using supply to meet the ventilation requirements per [d:t24refnolink/]160.2(b)2Aivb1</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">
-  If A03All_WholeBuildingOccupancy includes HighRiseResidential And B03e_ProjectHasVentilation == true 
+  If A03All_WholeBuildingOccupancy includes HighRiseResidential And B01c_ProjectHasVentilation == true 
   or J19a_IsVentSystemContinuous ==true 
    result = true display term selected Yes radio button
  
@@ -13584,7 +13584,7 @@ End If
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-02-A - Outdoor Air</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean values with default result = false.  
-If B03e_ProjectHasVentilation == true result = true
+If B01c_ProjectHasVentilation == true result = true
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -14124,7 +14124,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-20a-A  Multi-Family Ventilation</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false; 
  
-If B03e_ProjectHasVentilation == true AND A03All_WholeBuildingOccupancy == HighRiseResidential Or  LowRiseResidential  
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOccupancy == HighRiseResidential Or  LowRiseResidential  
 result = true display term selected Yes radio button
 End If
  
@@ -14138,7 +14138,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Nrca19_RequireNRCAMch20 == true; this field is loaded with systems/spaces that satisfy this condition:
-If B03e_ProjectHasVentilation == true AND A03All_WholeBuildingOcccupancy ==  HighRiseResidential Or LowRiseResidential  
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOcccupancy ==  HighRiseResidential Or LowRiseResidential  
 load value in J19_SpaceName in TableVentMF
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -15047,7 +15047,7 @@ End If</xsd:documentation>
                                        <xsd:element name="Q03o_DocLocationHoodSound" type="comp:DocLocationHoodSound" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Kitchen range hoods shall be rated for sound in accordance with Section 7.2 of ASHRAE 62.2</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Section_J IsPresent because B03e_ProjectHasVentilation == true
+                                             <xsd:documentation source="CalculationsAndRules">If Section_J IsPresent because B01c_ProjectHasVentilation == true
 User enters string for plan or construction document location of this mandatory measure
 End If</xsd:documentation>
                                           </xsd:annotation>
