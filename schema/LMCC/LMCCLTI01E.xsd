@@ -3073,7 +3073,7 @@ Multi-field triggers: See H02_ShutOffControlsBuilding CalculationsAndRules for t
                                           
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H09_PrimarySkylitDaylightControlsIncluded">
+                                    <xsd:element name="H09_PrimarySkylitDaylightControlsIncluded"  type="comp:PrimarySkylitDaylightControlsIncluded">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Primary/Skylit Daylighting [d:t24refnolink/]130.1(d) /[d:t24refnolink/]160.5(b)4D</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from dropdown list.  
@@ -3088,23 +3088,8 @@ End If
  
 Note: MM130_1d includes text for 130.1d,  130.1d3, 130.1d4, and 130.1d5,</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="dtyp:EnumerationConstant">
-                                             <xsd:enumeration value="GarageAdaptZoneNA" />
-                                             <xsd:enumeration value="GarageGlazingLT36Ft2NA" />
-                                             <xsd:enumeration value="GarageLT60NA" />
-                                             <xsd:enumeration value="GlazingLT24Ft2NA" />
-                                             <xsd:enumeration value="Included" />
-                                             <xsd:enumeration value="NA_LTE80PctAllowedLP" />
-                                             <xsd:enumeration value="NA_NotDaylit" />
-                                             <xsd:enumeration value="OverhangRatioNA" />
-                                             <xsd:enumeration value="PrimaryLT120NA" />
-                                             <xsd:enumeration value="RetailNA" />
-                                             <xsd:enumeration value="SkylightShaded" />
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="H10_SecondaryDaylightControlsIncluded">
+                                    <xsd:element name="H10_SecondaryDaylightControlsIncluded" type="comp:SecondaryDaylightControlsIncluded">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Secondary Daylighting [d:t24refnolink/]130.1(d) /[d:t24refnolink/]160.5(b)4D</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from dropdown list.  
@@ -3112,21 +3097,6 @@ Note: MM130_1d includes text for 130.1d,  130.1d3, 130.1d4, and 130.1d5,</xsd:do
 Lmca02_RequireLMCALti03A = false
 End If</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="dtyp:EnumerationConstant">
-                                             <xsd:enumeration value="GarageAdaptZoneNA" />
-                                             <xsd:enumeration value="GarageGlazingLT36Ft2NA" />
-                                             <xsd:enumeration value="GarageLT60NA" />
-                                             <xsd:enumeration value="GlazingLT24Ft2NA" />
-                                             <xsd:enumeration value="Included" />
-                                             <xsd:enumeration value="NA_LTE80PctAllowedLP" />
-                                             <xsd:enumeration value="NA_NotDaylit" />
-                                             <xsd:enumeration value="OverhangRatioNA" />
-                                             <xsd:enumeration value="PrimaryLT120NA" />
-                                             <xsd:enumeration value="RetailNA" />
-                                             <xsd:enumeration value="SkylightShaded" />
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="H11_InterlockedLightingSystems" type="lit:InterlockedLightingSystems" >
                                        <xsd:annotation>
@@ -6102,7 +6072,7 @@ this subsection is required</xsd:documentation>
                            <xsd:element name="T04_RecessedDownlightReq" type="comp:RecessedDownlightReq" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Recessed Downlight Luminaires other than those marked for use in fire-rated installations and other than recessed luminaires installed in non-insulated ceilings shall meet all of the following requirements:[d:line1/] - Shall not contain screw base lamp sockets; and [d:line1/] - Have a label that certifies the luminaire is airtight with air leakage less than 2.0 cfm at 75 Pascals when tested in accordance with ASTM E283. An exhaust fan   housing with integral light shall not be required to be certified airtight; and [d:line1/] - Be sealed with a gasket or caulk between the luminaire housing and ceiling, and have all air leak paths between conditioned and unconditioned spaces sealed with a gasket or caulk, or be installed per manufacturer's instructions to maintain airtightness between the luminaire housing and ceiling; and [d:line1/] - Meet the clearance and installation requirements of California Electrical Code Section 410.116 for recessed luminaires.</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Recessed Downlight Luminaires other than those marked for use in fire-rated installations and other than recessed luminaires installed in non-insulated ceilings shall meet all of the following requirements:[d:line1/] - Shall not contain screw base lamp sockets; and [d:line1/] - Have a label that certifies the luminaire is airtight with air leakage less than 2.0 cfm at 75 Pascals when tested in accordance with ASTM E283. An exhaust fan   housing with integral light shall not be required to be certified airtight; and [d:line1/] - Be sealed with a gasket or caulk between the luminaire housing and ceiling, and have all air leak paths between conditioned and unconditioned spaces sealed with a gasket or caulk, or be installed per manufacturer's instructions to maintain airtightness between the luminaire housing and ceiling; and [d:line1/] - Meet the clearance and installation requirements of California Electrical Code Article 410.116 for recessed luminaires.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input: If Yes is checked result = true Else If Not Applicable is checked result = false display term Not Applicable</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
