@@ -2018,6 +2018,7 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
                     </xsd:annotation>
                     <xsd:simpleType>
                       <xsd:restriction base="com:WholeBuildingOccupancy">
+                        <xsd:enumeration value="EventsExhibits"/>
                         <xsd:enumeration value="FinancialInstitutionBuilding"/>
                         <xsd:enumeration value="GroceryStoreBuilding"/>
                         <xsd:enumeration value="HighRiseResidential"/>

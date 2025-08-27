@@ -1936,14 +1936,14 @@ fields F01-F04 have data;
 Condition 2
 If Table1DryEquipment IsPresent  Then for every row 
 any field in range Fa01-Fa09 != BlankGrayedOut  has data And 
-If Fa05 and Fa06 != BlankGrayedOut Then Fa05 LTE Fa06 And 
-If Fa08 And Fa09 != BlankGrayedOut Then Fa08 LTE Fa09; 
+If Fa05 and Fa06 != BlankGrayedOut Or FederalMinimum Then Fa05 LTE Fa06 And 
+If Fa08 And Fa09 != BlankGrayedOut Or FederalMinimum Then Fa08 LTE Fa09; 
  
 Condition 3
 If Table2DryEquipment IsPresent  Then for every row 
 any field in range Fb01-Fb07 != BlankGrayedOut  has data And
- If Fb03 and Fb04  != BlankGrayedOut  Then Fb03 LTE Fb04 And 
-If Fb06 And Fb07 != BlankGrayedOut Then Fb06 LTE Fb07; 
+If Fb03 and Fb04  != BlankGrayedOut Or FederalMinimum  Then Fb03 LTE Fb04 And 
+If Fb06 And Fb07 != BlankGrayedOut Or FederalMinimum Then Fb06 LTE Fb07; 
  
 Condition 4
 If TableBoiler IsPresent  Then  for every row 
@@ -2034,11 +2034,11 @@ If Fdoas06a And Fdoas08a != BlankGrayedOut Then Fdoas06a LTE Fdoas08a And
 If Fdoas06b And Fdoas08b != BlankGrayedOut Then Fdoas06b LTE Fdoas08b 
  
 Condition 9 
- If TableDFHP IsPresent Then for every row
+If TableDFHP IsPresent Then for every row
 any field in range Fdfhp01- Fdfhp11 != BlankGrayedOut has data. And
-If Fdfhp07a (min effic) And Fdfhp08a (design effic)  != BlankGrayedOut Then Fdfhp07a GTE Fdfhp08a And 
-If Fdfhp07b (min effic) And Fdfhp08b (design effic)  != BlankGrayedOut Then Fdfhp07b GTE Fdfhp08b And 
-If Fdfhp10a (min effic) And Fdfhp11a (design effic)  != BlankGrayedOut Then Fdfhp10a GTE Fdfhp11a
+If Fdfhp07a (min effic) And Fdfhp08a (design effic)  != BlankGrayedOut Or FederalMinimum Then Fdfhp07a GTE Fdfhp08a And 
+If Fdfhp07b (min effic) And Fdfhp08b (design effic)  != BlankGrayedOut Or FederalMinimum Then Fdfhp07b GTE Fdfhp08b And 
+If Fdfhp10a (min effic) And Fdfhp11a (design effic)  != BlankGrayedOut Or FederalMinimum Then Fdfhp10a GTE Fdfhp11a
  
  
 If all conditions are true
