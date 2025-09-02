@@ -4093,12 +4093,13 @@
   <xsd:simpleType name="CompliantLightSource">
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
-        <dtyp:displayterm value="LED_PowerSupplyGTE80percentEfficient">LED + pwr supply 80%+ eff.</dtyp:displayterm>
-        <dtyp:displayterm value="NeonOrColdCathodeWithPowerGTE68PercentEfficient">Neon/cold cathode + trans./pwr (of supply output current <d:gte/>50mA) 68%+ eff.</dtyp:displayterm>
-        <dtyp:displayterm value="NeonOrColdCathodeWithPowerGTE75PercentEfficient">Neon/cold cathode + trans./pwr (of supply output current <d:lt/>50mA) 75%+ eff.</dtyp:displayterm>
-        <dtyp:displayterm value="T20CompliantSingleVoltageExternalPower">NA: Title 20 compliant single voltage extrnl pwr supply</dtyp:displayterm>
-        <dtyp:displayterm value="T20CompliantTrafficSigns">NA: Traffics signs that are Title 20 compliant</dtyp:displayterm>
-        <dtyp:displayterm value="T20CompliantExitSigns">NA: Exit signs that are Title 20 compliant</dtyp:displayterm>
+        <dtyp:displayterm value="LED_PowerSupplyGTE80percentEfficient">LED light source w/power supply efficiency <d:gt/> 80%</dtyp:displayterm>
+        <dtyp:displayterm value="NeonOrColdCathodeWithPowerGTE68PercentEfficient">Neon/cold cathode lamp w/transformer or power (<d:gt/> 50 mA) efficiency <d:gt/> 68%</dtyp:displayterm>
+        <dtyp:displayterm value="NeonOrColdCathodeWithPowerGTE75PercentEfficient">Neon/cold cathode lamp w/transformer or power (<d:lt/> 50 mA) efficiency <d:gt/> 75%</dtyp:displayterm>
+        <dtyp:displayterm value="T20CompliantSingleVoltageExternalPower">LED light source w/Title 20 power supply converting 120 v AC to lower DC/AC</dtyp:displayterm>
+        <dtyp:displayterm value="T20CompliantTrafficSigns">NA: Title 20 Illuminated Traffic Signs</dtyp:displayterm>
+        <dtyp:displayterm value="T20CompliantExitSigns">NA: Title 20 Illuminated Exit Signs</dtyp:displayterm>
+        <dtyp:displayterm value="IncandescentNotEmcOrIlluminated">NA: Unfiltered incandescent NOT supporting EMC nor illuminate sign</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
@@ -4108,6 +4109,7 @@
       <xsd:enumeration value="T20CompliantSingleVoltageExternalPower"/>
       <xsd:enumeration value="T20CompliantTrafficSigns"/>
       <xsd:enumeration value="T20CompliantExitSigns"/>
+      <xsd:enumeration value="IncandescentNotEmcOrIlluminated"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="CompliantSectionF">

@@ -991,7 +991,7 @@ result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out;</
                             <xsd:documentation source="CalculationsAndRules">Auto-filled result = B02_LightedSignDescription for sign defined in G01_LightedSignName</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
-                        <xsd:element name="G03_CompliantLightSource" type="comp:CompliantLightSource" minOccurs="1" maxOccurs="unbounded">
+                        <xsd:element name="G03_CompliantLightSource" type="comp:CompliantLightSource">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Compliant Light Sources<d:sup>1,2</d:sup></xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">User selects one or more light sources</xsd:documentation>
