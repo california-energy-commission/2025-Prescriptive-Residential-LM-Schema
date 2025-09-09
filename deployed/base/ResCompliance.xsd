@@ -1217,7 +1217,7 @@
         <dtyp:displayterm value="AutoSchedule">Provided</dtyp:displayterm>
         <dtyp:displayterm value="EMCS">Provided - EMCS</dtyp:displayterm>
         <dtyp:displayterm value="MultifamilyLightingNA">NA: MF Complying w <d:t24refnolink/>160.5(a)</dtyp:displayterm>
-        <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by H&amp;amp;LS</dtyp:displayterm>
+        <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by Health or Life Safety Statute/Ordinance/Regulation</dtyp:displayterm>
         <dtyp:displayterm value="ParkingSalesNA">NA: Parking or Sales Lots <d:gt/>24 ft/all other at any height</dtyp:displayterm>
         <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
       </xsd:appinfo>
@@ -12471,7 +12471,7 @@
         <dtyp:displayterm value="CutoffGTE6200Lumens">Provided</dtyp:displayterm>
         <dtyp:displayterm value="CutoffLT6200Lumens">NA: <d:lt/> 6200 lumens</dtyp:displayterm>
         <dtyp:displayterm value="CutoffLtgZone0">NA: Ltg Zone LZ-0</dtyp:displayterm>
-        <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by H&amp;amp;LS</dtyp:displayterm>
+        <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by Health or Life Safety Statute/Ordinance/Regulation</dtyp:displayterm>
         <dtyp:displayterm value="Part11">NA: Exception in Section 5.106.8 of Part 11</dtyp:displayterm>
         <dtyp:displayterm value="Per1407">NA: Exception in Section 140.7(a)</dtyp:displayterm>
         <dtyp:displayterm value="ReplacePoleMountNA">NA: Replacement of pole-mounted per <d:t24refnolink/>130.2(b) /<d:t24refnolink/>160.5(c)</dtyp:displayterm>
@@ -12575,7 +12575,7 @@
         <dtyp:displayterm value="HealthcareNA">NA: Licensed Healthcare</dtyp:displayterm>
         <dtyp:displayterm value="NA_LTE40PctPreAltLP">NA:  <d:lte/> 40 % lower compared to pre-alteration LP</dtyp:displayterm>
         <dtyp:displayterm value="NA_LTE80PctAllowedLP">NA:  <d:lte/> 80 % LP (alt only)</dtyp:displayterm>
-        <dtyp:displayterm value="NotRequiredHealthSafety">NA: per H&amp;amp;LS Ordinance/Stature/Regulation</dtyp:displayterm>
+        <dtyp:displayterm value="NotRequiredHealthSafety">NA: per Health or Life Safety Statute/Ordinance/Regulation</dtyp:displayterm>
         <dtyp:displayterm value="NotRequiredLT4000W">NA  <d:lt/> 4,000W subject to multilevel</dtyp:displayterm>
         <dtyp:displayterm value="RequiredGTE4000W">Required <d:gte/> 4,000W subject to multilevel</dtyp:displayterm>
         <dtyp:displayterm value="RequiredUsingPAF">Required: Using PAF (Table P)</dtyp:displayterm>
@@ -13087,7 +13087,7 @@
         <dtyp:displayterm value="MonumentNA">NA: Public Monument Lighting</dtyp:displayterm>
         <dtyp:displayterm value="MotionSensorCompliant">Provided</dtyp:displayterm>
         <dtyp:displayterm value="MultifamilyLightingNA">NA: MF Complying w <d:t24refnolink/>160.5(a)</dtyp:displayterm>
-        <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by H&amp;amp;LS</dtyp:displayterm>
+        <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by Health or Life Safety Statute/Ordinance/Regulation</dtyp:displayterm>
         <dtyp:displayterm value="OutdoorTheaterNA">NA: Outdoor Theater</dtyp:displayterm>
         <dtyp:displayterm value="ParkingLuminaireLT78NA">NA: Parking Lot each Luminaire <d:lt/> 78 Watts</dtyp:displayterm>
         <dtyp:displayterm value="PublicRoadNA">NA: Lighting for Public Roadways</dtyp:displayterm>
@@ -13096,7 +13096,7 @@
         <dtyp:displayterm value="StairsRampNA">NA: Stairs Wheelchair Lift/Ramp Lighting</dtyp:displayterm>
         <dtyp:displayterm value="TempLightNA">NA: Temporary Lighting</dtyp:displayterm>
         <dtyp:displayterm value="ThemeParkNA">NA: Theme Park Special Effect Lighting</dtyp:displayterm>
-        <dtyp:displayterm value="TimeOutNA">H&amp;amp;LS: time-out period longer than 15 minutes/ dimming level above 50 percent</dtyp:displayterm>
+        <dtyp:displayterm value="TimeOutNA">Health or Life Safety Statute/Ordinance/Regulation: time-out period longer than 15 minutes/ dimming level above 50 percent</dtyp:displayterm>
         <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
         <dtyp:displayterm value="OrnamentalNA">NA: Ornamental</dtyp:displayterm>
         <dtyp:displayterm value="OutdoorDiningNA">NA: Outdoor Dining</dtyp:displayterm>
@@ -18272,7 +18272,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="AstronomicalTimer">Astronomical Timer</dtyp:displayterm>
         <dtyp:displayterm value="MultifamilyLightingNA">NA: MF Complying w <d:t24refnolink/>160.5(a)</dtyp:displayterm>
-        <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by H&amp;amp;LS</dtyp:displayterm>
+        <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by Health or Life Safety Statute/Ordinance/Regulation</dtyp:displayterm>
         <dtyp:displayterm value="OtherTechnology">Other Control</dtyp:displayterm>
         <dtyp:displayterm value="Photocontrol">Photocontrol</dtyp:displayterm>
         <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>

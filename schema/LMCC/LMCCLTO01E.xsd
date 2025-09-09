@@ -1582,10 +1582,7 @@ the user must enter an explanation on how wattage is determined for each luminai
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Shut-Off [d:line1/] [d:t24refnolink/]130.2(c)1 / [d:t24refnolink/]160.5(c)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from dropdown list: 
-AstronomicalTimer display term Astronomical Timer, , 
-Photocontrol display term Photocontrol, MultifamilyLightingNA display term NA: MF Complying w 160.5(a), OtherTechnology display term Other Control Technology, NotPermittedNA display term NA: Not permitted by H&amp;LS, TunnelsNA display term NA: Lighting in Tunnels
    
- 
 Mandatory Measure Triggers:
 If result == AstronomicalTimer Or Photocontrol 
 MM130_2c1_MeasureApplies  = true and text is displayed 
@@ -1597,10 +1594,8 @@ End If</xsd:documentation>
                                           <xsd:documentation source="FieldText">Auto-Schedule [d:line1/] [d:t24refnolink/]130.2(c)2 / [d:t24refnolink/]160.5(c)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If BB01b_LightingProjectScopeNR IsPresent And  AND B03_LuminaireAlteredPercentRange = GTE10PercentLT50Percent Or GTE50Percent
 User selects from full dropdown list: 
-ParkingSalesNA display term NA: Parking or Sales Lots [d:gt/]24 ft/all other at any height, AutoSchedule display term Yes, EMCS display term Yes - EMCS, MultifamilyLightingNA display term NA: MF Complying w 160.5(a), NotPermittedNA display term NA: Not permitted by H&amp;LS, TunnelsNA display term NA: Lighting in Tunnels
  
 Else User selects from the list excluding ParkingSalesNA
-AutoSchedule display term Yes, EMCS display term Yes - EMCS, MultifamilyLightingNA display term NA: MF Complying w 160.5(a), NotPermittedNA display term NA: Not permitted by H&amp;LS, TunnelsNA display term NA: Lighting in Tunnels
 
 Mandatory Measure Triggers:
 If result == AutoSchedule Or EMCS 
