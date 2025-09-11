@@ -46,7 +46,7 @@
             <xsd:element name="Report" type="xsd:base64Binary"/>
             <xsd:element name="ReportMMB" type="xsd:base64Binary" minOccurs="0"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220901"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="LMCILTS01E"/>
       </xsd:complexType>
    </xsd:element>
@@ -623,73 +623,6 @@ End If</xsd:documentation>
                                                             </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
-                                                      <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Sign07cc_IsMethodEnergyVerifiedLabel" type="comp:IsMethodEnergyVerifiedLabel" >
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">ENERGY VERIFIED Label [d:sup]1[/d:sup]</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
-If B05_LightedSignPrescriptiveMethod ==  EnergyVerifiedLabel
-If C06_IsMethodEnergyVerifiedLabel IsPresent
-result = C06_IsMethodEnergyVerifiedLabel
-End If
-End If
-End If</xsd:documentation>
-                                                               <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCLTS01E"  usage="reference">B05_LightedSignPrescriptiveMethod</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="CCLTS01E"  usage="copy">C06_IsMethodEnergyVerifiedLabel</dtyp:srcSchema>
-                                                               </xsd:appinfo>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="Sign07cc_NotApplicableMessage" >
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">ENERGY VERIFIED Label [d:sup]1[/d:sup]</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
-If B05_LightedSignPrescriptiveMethod !=  EnergyVerifiedLabelresult = BlankGrayedOut 
-Else If C06_NotApplicableMessage IsPresent
-result = C06_NotApplicableMessage
-End If
-End If</xsd:documentation>
-                                                               <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCLTS01E"  usage="reference">B05_LightedSignPrescriptiveMethod</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="CCLTS01E"  usage="copy">C06_NotApplicableMessage</dtyp:srcSchema>
-                                                               </xsd:appinfo>
-                                                            </xsd:annotation>
-                                                            <xsd:simpleType>
-                                                               <xsd:restriction base="comp:NotApplicableMessage">
-                                                                  <xsd:enumeration value="BlankGrayedOut"/>
-                                                               </xsd:restriction>
-                                                            </xsd:simpleType>
-                                                         </xsd:element>
-                                                      </xsd:choice>
-                                                      <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Sign07_IsMethodEnergyVerifiedLabel" type="comp:IsMethodEnergyVerifiedLabel" >
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">ENERGY VERIFIED Label [d:sup]1[/d:sup]</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If Sign01_InstalledSameAsCC == true  
-If Sign07cc_IsMethodEnergyVerifiedLabel IsPresent
-result = Sign07cc_IsMethodEnergyVerifiedLabel
-End If
-Else If Sign01_InstalledSameAsCC == false
-User  selects from list  of true value display term is ENERGY VERIFIED Sign Installed and false value display term No ENERGY VERIFIED Label
-End If</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="Sign07_NotApplicableMessage" >
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">ENERGY VERIFIED Label [d:sup]1[/d:sup]</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If Sign01_InstalledSameAsCC == true  
-If  Sign07cc_NotApplicableMessage IsPresent
-result = Sign07cc_NotApplicableMessage
-End If
-End If</xsd:documentation>
-                                                            </xsd:annotation>
-                                                            <xsd:simpleType>
-                                                               <xsd:restriction base="comp:NotApplicableMessage">
-                                                                  <xsd:enumeration value="BlankGrayedOut"/>
-                                                               </xsd:restriction>
-                                                            </xsd:simpleType>
-                                                         </xsd:element>
-                                                      </xsd:choice>
                                                    </xsd:sequence>
                                                 </xsd:complexType>
                                              </xsd:element>
@@ -706,8 +639,6 @@ result = NotInScope
   
 Else If Sign05cc_LightedSignDesignedPower IsPresent And 
 Sign05_LightedSignDesignedPower GT  Sign05cc_LightedSignDesignedPower 
-Or 
-Sign07_IsMethodEnergyVerifiedLabel IsPresent And Sign07_IsMethodEnergyVerifiedLabel == false
  result = MayNotComply
  
  Else  If  
@@ -718,11 +649,9 @@ And
 Sign05_NotApplicableMessage IsPresent Or Sign05_LightedSignDesignedPower == Sign05cc_LightedSignDesignedPower 
 And 
 Sign06_NotApplicableMessage IsPresent Or  Sign06_CompliantLightSource  == Sign06cc_CompliantLightSource
-And 
-Sign07_NotApplicableMessage IsPresent Or Sign07_IsMethodEnergyVerifiedLabel == Sign07cc_IsMethodEnergyVerifiedLabel 
 result = ExactMatch
 
-Else If Sign05_LightedSignDesignedPower LTE  Sign05cc_LightedSignDesignedPower Or Sign07_IsMethodEnergyVerifiedLabel == true Or Sign06_CompliantLightSource  IsPresent
+Else If Sign05_LightedSignDesignedPower LTE  Sign05cc_LightedSignDesignedPower
 result = EqualBetter
 End If</xsd:documentation>
                                        </xsd:annotation>
@@ -732,12 +661,6 @@ End If</xsd:documentation>
                            </xsd:element>
                         </xsd:sequence>
                      </xsd:complexType>
-                  </xsd:element>
-                  <xsd:element name="SignEndNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]1[/d:sup]  FOOTNOTE: ENERGY VERIFIED labels must be permanent, pre-printed, factory-installed, ENERGY VERIFIED label confirming that the sign complies with the Section 140.8 of the California 2019 Title 24, Part 6 Standards.  [/d:i]</xsd:documentation>
-                     </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableControls" minOccurs="0">
                      <xsd:annotation>

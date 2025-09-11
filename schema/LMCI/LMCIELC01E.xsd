@@ -46,7 +46,7 @@
             <xsd:element name="Report" type="xsd:base64Binary"/>
             <xsd:element name="ReportMMB" type="xsd:base64Binary" minOccurs="0"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220901"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="LMCIELC01E"/>
       </xsd:complexType>
    </xsd:element>
@@ -646,7 +646,10 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]2[/d:sup] Feeder is defined as "all circuit conductors between the service equipment, the source of a separately derived system, or other power supply source and the final branch-circuit overcurrent device," in Article 100 of the California Electrical Code.[/d:i]</xsd:documentation>
                      </xsd:annotation>
-                  </xsd:element>
+                  </xsd:element>   
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
                   <xsd:element name="Circuits" minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Separation of Electrical Circuits for Energy Monitoring[/d:b]</xsd:documentation>
@@ -1142,7 +1145,7 @@ End If</xsd:documentation>
                                                          </xsd:element>
                                                          <xsd:element name="Controls02cc_ControlledReceptacleNA" type="comp:ControlledReceptacleNA"  minOccurs="0" maxOccurs="unbounded">
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles[d:sup]1[/d:sup]</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles[d:sup]1,2[/d:sup]</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
    If I02_ControlledReceptacleNA IsPresent
    result = I02_ControlledReceptacleNA 
@@ -1349,7 +1352,7 @@ result = BlankGrayedOut</xsd:documentation>
                                                       <xsd:choice maxOccurs="1">
                                                       <xsd:element name="Controls04cc_AreControlledReceptaclesPermanentlyMarked" type="comp:AreControlledReceptaclesPermanentlyMarked" >
                                                          <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Permanent Durable Marking Is Used</xsd:documentation>
+                                                            <xsd:documentation source="FieldText">Permanent Marking Is Used</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CC-ELC parent  and I04_AreControlledReceptaclesPermanentlyMarked IsPresent
 result = I04_AreControlledReceptaclesPermanentlyMarked
 End If</xsd:documentation>
@@ -1364,7 +1367,7 @@ End If</xsd:documentation>
                                                       </xsd:element>
                                                       <xsd:element name="Controls04cc_NotApplicableMessage" >
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Permanent Durable Marking Is Used</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Permanent Marking Is Used</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If I04_NotApplicableMessage IsPresent
 result = BlankGrayedOut</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
@@ -1381,7 +1384,7 @@ result = BlankGrayedOut</xsd:documentation>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="Controls04_AreControlledReceptaclesPermanentlyMarked" type="comp:AreControlledReceptaclesPermanentlyMarked" >
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Permanent Durable Marking Is Used</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Permanent Marking Is Used</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == false
    User selects from AreControlledReceptaclesPermanentlyMarked true value displayed in dropdown as  Controlled and Uncontrolled Receptacles Identified with Permanent Marking, or any values from ControlledReceptacleNA
    
@@ -1400,7 +1403,7 @@ result = BlankGrayedOut</xsd:documentation>
                                                          </xsd:element>
                                                          <xsd:element name="Controls04_ControlledReceptacleNA" type="comp:ControlledReceptacleNA"  minOccurs="0" maxOccurs="unbounded">
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Permanent Durable Marking Will be Used</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Permanent Marking Will be Used</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == false
    User selects from AreControlledReceptaclesPermanentlyMarked true value displayed in dropdown as  Controlled and Uncontrolled Receptacles Identified with Permanent Marking, or any values from ControlledReceptacleNA
    
@@ -1415,7 +1418,7 @@ result = BlankGrayedOut</xsd:documentation>
                                                          </xsd:element>
                                                          <xsd:element name="Controls04_NotApplicableMessage" >
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Permanent Durable Marking Is Used</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Permanent Marking Is Used</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Controls04cc_NotApplicableMessage IsPresent
 result = BlankGrayedOut</xsd:documentation>
                                                             </xsd:annotation>
@@ -1485,6 +1488,12 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]1[/d:sup] FOOTNOTES: Office areas, lobbies, conference rooms, kitchen areas in office spaces, and copy rooms must meet controlled receptacle requirements.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="ControlsEndNote2" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]2[/d:sup] Plug-in strips and other plug-in devices shall not be used to comply with the requirements of section 130.5(d)[/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="Electmf" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Electric Ready for Multifamily Occupancies[/d:b]</xsd:documentation>
@@ -1536,6 +1545,26 @@ result = J01c_SingleUnitDryer</xsd:documentation>
 result = J01d_CommonAreaDryer</xsd:documentation>
                                  <xsd:appinfo source="CIsrc">
                                     <dtyp:srcSchema form="CCELC01E"  usage="copy">J01d_CommonAreaDryer</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Electmf01ecc_WaterHeaterIndividualDwellingUnit" type="comp:WaterHeaterIndividualDwellingUnit"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
+result = J01e_WaterHeaterIndividualDwellingUnit</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCELC01E"  usage="copy">J01e_WaterHeaterIndividualDwellingUnit</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Electmf01fcc_WaterHeaterMultipleDwellingUnit" type="comp:WaterHeaterMultipleDwellingUnit"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
+result = WaterHeaterMultipleDwellingUnit</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCELC01E"  usage="copy">WaterHeaterMultipleDwellingUnit</dtyp:srcSchema>
                                  </xsd:appinfo>
                               </xsd:annotation>
                            </xsd:element>
@@ -1619,7 +1648,44 @@ this subsection is displayed</xsd:documentation>
                                     <xsd:element name="Electmf07" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"></xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Conductors or raceway shall be installed with termination points at the main electrical panel, via subpanels panels if applicable, to a location no more than 3 feet from each gas outlet or a designated location of future electric replacement equipment. Both ends of the conductors or raceway shall be labelled "Future 240V Use."  The conductors or raceway and any intervening subpanels, panelboards, switchboards, and busbars shall be sized to meet the future electric power requirements, at the service voltage to the point at which the conductors serving the building connect to the utility distribution system, as specified below. The capacity requirements may be adjusted for demand factors in accordance with the California Electric Code. Gas flow rates shall be determined in accordance with the California Plumbing Code. Capacity shall be one of the following: [d:line1/][d:tab1/]- 24 amps at 208/240 volts per clothes dryer; [d:line1/][d:tab1/]- 2.6 kVA for each 10,000 Btu per hour of rated gas input or gas pipe capacity; or [d:line1/][d:tab1/]- The electrical power required to provide equivalent functionality of the gas-powered equipment as calculated by the responsible person</xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Conductors or raceway shall be installed with termination points at the main electrical panel, via subpanels panels if applicable, to a location no more than 3 feet from each gas outlet or a designated location of future electric replacement equipment. Both ends of the conductors or raceway shall be labelled "Future 240V Use." Gas flow rates shall be determined in accordance with the California Plumbing Code. Capacity shall be one of the following: [d:line1/][d:tab1/]- 24 amps at 208/240 volts per clothes dryer; [d:line1/][d:tab1/]- 2.6 kVA for each 10,000 Btu per hour of rated gas input or gas pipe capacity; or [d:line1/][d:tab1/]- The electrical power required to provide equivalent functionality of the gas-powered equipment as calculated by the responsible person</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="WaterHeaterIndividualDwelling" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Gas/Propane Water Heaters Serving Individual Dwelling Units</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If Electmf01ecc_WaterHeaterIndividualDwellingUnit == true
+this subsection is displayed</xsd:documentation>
+                              </xsd:annotation>
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Electmf08" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">A dedicated 125 volt, 20 amp electrical receptacle that is connected to the electric panel with a 120/240 volt 3 conductor branch circuit rated to 30 amps minimum, within 3 feet from the water heater and accessible to the water heater with no obstructions. In addition, all the following:[d:line1/][d:tab1/]- Both ends of the unused conductor shall be labeled with the word “spare” and be electrically isolated; and[d:line1/][d:tab1/]- A reserved single pole circuit breaker space in the electrical panel adjacent to the circuit breaker for the branch circuit in A above and labeled with the words “Future 240V Use”</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Electmf09" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">The construction drawings shall designate a space at least 39 inches by 39 inches and 96 inches tall for the future location of heat pump water heater.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="WaterHeaterMultipleDwelling" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Gas/Propane Water Heaters Serving Multiple Dwelling Units</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If Electmf01fcc_WaterHeaterMultipleDwellingUnit == true
+this subsection is displayed</xsd:documentation>
+                              </xsd:annotation>
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Electmf10" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Physical space shall be reserved on the bus system of the main switchboard or on the bus system of a distribution board to serve the future heat pump water heater system including the heat pump and temperature maintenance tanks. In addition, the physical space reserved shall be capable of providing adequate power to the future heat pump water heater in accordance with the following:[d:line1/][d:tab1/] - Heat Pump. Meet one of the following:[d:line1/][d:tab1/][d:tab1/]- The electrical power required to power a heat pump water heater system heat pump that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.[d:line1/][d:tab1/][d:tab1/] - The electrical power required that meets the requirements specified for the heat pump in Joint Appendix JA15.2.5.[d:line1/][d:tab1/]- Temperature Maintenance Tank. Meet one of the following: [d:line1/][d:tab1/][d:tab1/] - The electrical power required to power a heat pump water heater system temperature maintenance tank that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.[d:line1/][d:tab1/][d:tab1/] - The electrical power required that meets the requirements specified for the temperature maintenance tank in Joint Appendix JA15.2.5.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
