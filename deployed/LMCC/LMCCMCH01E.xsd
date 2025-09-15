@@ -2162,7 +2162,7 @@ If TableDFHP IsPresent Then for every row
 any field in range Fdfhp01- Fdfhp11 != BlankGrayedOut has data. And
 If Fdfhp07a (min effic) And Fdfhp08a (design effic)  != BlankGrayedOut Or FederalMinimum Then Fdfhp07a GTE Fdfhp08a And 
 If Fdfhp07b (min effic) And Fdfhp08b (design effic)  != BlankGrayedOut Or FederalMinimum Then Fdfhp07b GTE Fdfhp08b And 
-If Fdfhp10a (min effic) And Fdfhp11a (design effic)  != BlankGrayedOut Or FederalMinimum Then Fdfhp10a GTE Fdfhp11a
+If Fdfhp10a (min effic) And Fdfhp11a (design effic)  != BlankGrayedOut Or FederalMinimum Then Fdfhp10a GTE Fdfhp11aTable1DryEquipment
  
  
 If all conditions are true
@@ -3266,7 +3266,7 @@ End If
                           <xsd:element name="F03_NotApplicableMessage">
                             <xsd:annotation>
                               <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
-                              <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == HeatPumpDualFuel
+                              <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == HeatPumpDualFuel or AirWaterHeatPump 
 result = BlankGrayedOut
 End If</xsd:documentation>
                             </xsd:annotation>
@@ -3629,7 +3629,7 @@ End If</xsd:documentation>
                 <xsd:documentation source="FieldText">
                   <d:b>Dry System Equipment Efficiency (other than Package Terminal Air Conditioners (PTAC) and Package Terminal Heat Pumps (PTHP), DX-DOAS and Dual Fuel Heat Pumps) </d:b>
                 </xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">This table is required for every row such that F02_HvacSystemType != PTAC_PTHP Or DOAS Or HeatPumpDualFuel
+                <xsd:documentation source="CalculationsAndRules">This table is required for every row such that F02_HvacSystemType != PTAC_PTHP Or DOAS Or HeatPumpDualFuel Or AirWaterHeatPump 
                         </xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>

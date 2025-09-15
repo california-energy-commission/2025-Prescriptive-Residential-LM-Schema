@@ -4611,13 +4611,6 @@
         <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledReceptacle">Within 6ft of uncontrolled receptacle</dtyp:displayterm>
         <dtyp:displayterm value="MultipleReceptableOutletGT1Controlled">Multiple receptacle outlet with <d:gt/> 1 controlled and uncontrolled receptacle</dtyp:displayterm>
         <dtyp:displayterm value="MultipleReceptacleControlledAndUncontrolled">Multiple receptacle with <d:gte/> 1 controlled and uncontrolled receptacle</dtyp:displayterm>
-        <dtyp:displayterm value="50PercentControlledReceptacles">50% are controlled receptacles (hotel/motel room only)</dtyp:displayterm>
-        <dtyp:displayterm value="NAHealthcare">NA: Healthcare</dtyp:displayterm>
-        <dtyp:displayterm value="NADataEquipment">NA: Data Equipment Receptacle</dtyp:displayterm>
-        <dtyp:displayterm value="NA20Amps">NA: Circuit <d:gt/> 20 Amperes</dtyp:displayterm>
-        <dtyp:displayterm value="NAUPS247">NA: Uninteruptible Power Supply Receptacle intended for 24/7/365</dtyp:displayterm>
-        <dtyp:displayterm value="NAGT6Ft">NA: Clock Receptacle <d:gt/> 6FT Above Floor</dtyp:displayterm>
-        <dtyp:displayterm value="NAWaterDispenser">NA: Refrigerator/Water Dispenser Receptacle</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
@@ -4626,13 +4619,6 @@
       <xsd:enumeration value="ControlledWithin6ftOfUncontrolledReceptacle"/>
       <xsd:enumeration value="MultipleReceptableOutletGT1Controlled"/>
       <xsd:enumeration value="MultipleReceptacleControlledAndUncontrolled"/>
-      <xsd:enumeration value="50PercentControlledReceptacles"/>
-      <xsd:enumeration value="NAHealthcare"/>
-      <xsd:enumeration value="NADataEquipment"/>
-      <xsd:enumeration value="NA20Amps"/>
-      <xsd:enumeration value="NAUPS247"/>
-      <xsd:enumeration value="NAGT6Ft"/>
-      <xsd:enumeration value="NAWaterDispenser"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="ControlledReceptacleDemandResponse">
@@ -8337,7 +8323,6 @@
         <dtyp:displayterm>NRCC-PRC-E Exceptional Condition Message</dtyp:displayterm>
       </xsd:appinfo>
       <xsd:appinfo source="displayterm">
-        <dtyp:displayterm value="CFD_Analysis">Table M indicates a computational fluid dynamics (CFD) analysis was performed to meet computer room containment requirements in <d:t24ref h="140.9(a)6"/>.  Authority Having Jurisdiction may ask for calculations to confirm compliance at their discretion.</dtyp:displayterm>
         <dtyp:displayterm value="ElevLgtPowerExceedsMax">Table K indicates one or more elevators which have designed lighting power greater than the Maximum Power Allowed.  Please revise Table K to demonstrate compliance.</dtyp:displayterm>
         <dtyp:displayterm value="ElevVentPowerExceedsMax">Table K indicates one or more elevators which have designed ventilation Watts/cfm greater than the maximum Watts/cfm allowed.  Please revise Table K to demonstrate compliance.</dtyp:displayterm>
         <dtyp:displayterm value="UserChangedSelectionInCI">Selections made in Certificates of Installation Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
@@ -8345,7 +8330,6 @@
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
-      <xsd:enumeration value="CFD_Analysis"/>
       <xsd:enumeration value="ElevLgtPowerExceedsMax"/>
       <xsd:enumeration value="ElevVentPowerExceedsMax"/>
       <xsd:enumeration value="UserChangedSelectionInCI"/>

@@ -2478,7 +2478,11 @@ Else result = UFactor and cannot be changed by user</xsd:documentation>
                                 <xsd:element name="Fframed13_NotApplicableMessage">
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText">Thermal Performance Unit</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Fframed04_Status == ExistingAlteration And  Fframed05_RoofInsulationException  != NoExceptionApplies result = BlankGrayedOut</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">
+If Fframed04_Status != ExistingAlteration or Fframed04_Status == ExistingAlteration and Fframed05_RoofInsulationException = NoExceptionApplies
+   result = BlankGrayedOut
+End if
+                                                      </xsd:documentation>
                                   </xsd:annotation>
                                   <xsd:simpleType>
                                     <xsd:restriction base="comp:NotApplicableMessage">
@@ -9243,7 +9247,7 @@ End If</xsd:documentation>
                                 <xsd:element name="Hframed08_CavityInsulationNR">
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText">Cavity Insulation per Design</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware this row is grayed out;  
+                                    <xsd:documentation source="CalculationsAndRules">If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware Or Hframed06_WallType == WallTypeOther this row is grayed out;  
 Else If Hframed05_UfactorSpecSource == JA4Tables 
 user selects from list customized as follows: 
  
@@ -9289,18 +9293,33 @@ End If</xsd:documentation>
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText">Cavity Insulation per Design</xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">If Hframed05_UfactorSpecSource == JA4Tables, this row is grayed out; 
-Else If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware 
+Else If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware  or Hframed06_WallType == WallTypeOther
 Or Hframed05_NotApplicableMessage == BlankGrayedOut
 user  enters number for R-value
 End If</xsd:documentation>
                                   </xsd:annotation>
+                                </xsd:element>
+                                <xsd:element name="Hframed08_NotApplicableMessage">
+                                  <xsd:annotation>
+                                    <xsd:documentation source="FieldText">Cavity Insulation per Design</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">
+If Hframed06_WallType == WallTypeOther
+   result == BlankGrayedOut
+End If
+                                                      </xsd:documentation>
+                                  </xsd:annotation>
+                                  <xsd:simpleType>
+                                    <xsd:restriction base="comp:NotApplicableMessage">
+                                      <xsd:enumeration value="BlankGrayedOut"/>
+                                    </xsd:restriction>
+                                  </xsd:simpleType>
                                 </xsd:element>
                               </xsd:choice>
                               <xsd:choice maxOccurs="1">
                                 <xsd:element name="Hframed09_ContinuousInsulationNR">
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware this row is grayed out; 
+                                    <xsd:documentation source="CalculationsAndRules">If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware Or Hframed06_WallType == WallTypeOther this row is grayed out; 
 Else If Hframed05_UfactorSpecSource == JA4Tables user selects from list customized as follows: 
  
 If Hframed07_PartitionFramingMaterial == Metal, list: R0ci display term None, R2ci display term R-2, R4ci display term R-4, R5ci display term R-5, R6ci display term R-6, R7ci display term R-7, R8ci display term R-8, R10ci display term R-10, R12ci display term R-12, R14ci display term R-14, R15ci display term R-15; 
@@ -9330,7 +9349,7 @@ End If</xsd:documentation>
                                 <xsd:element name="Hframed09_ContinuousInsulationOther" type="com:ContinuousInsulationOther">
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Hframed05_UfactorSpecSource == JA4Tables, this row is grayed out; 
+                                    <xsd:documentation source="CalculationsAndRules">If Hframed05_UfactorSpecSource == JA4Tables  Or Hframed06_WallType == WallTypeOther, this row is grayed out; 
 Else If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters number for R-value
 End If</xsd:documentation>
                                   </xsd:annotation>
@@ -9338,7 +9357,7 @@ End If</xsd:documentation>
                                 <xsd:element name="Hframed09_NotApplicableMessage">
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Hframed10_ConstructionSpecificationMethod == RValue result = BlankGrayedOut stored in NotApplicableMessage and both rows for Hframed09 are grayed out;
+                                    <xsd:documentation source="CalculationsAndRules">If Hframed10_ConstructionSpecificationMethod == RValue Or  Or Hframed06_WallType == WallTypeOther result = BlankGrayedOut stored in NotApplicableMessage and both rows for Hframed09 are grayed out;
 End If</xsd:documentation>
                                   </xsd:annotation>
                                   <xsd:simpleType>
@@ -9348,25 +9367,39 @@ End If</xsd:documentation>
                                   </xsd:simpleType>
                                 </xsd:element>
                               </xsd:choice>
-                              <xsd:element name="Hframed10_ConstructionSpecificationMethod">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Thermal Performance Unit</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">
-If Hframed04b_Status == ExistingAlteration  And Hframed01_UseInAreaWeightedAveUfactor  == false And Hframed02_UseInAreaWeightedAveUfactor  == false 
-   list RValue, UFactor 
-Else If Hframed04a_TopLevelOccupancy == ResidentialNR
-   result = RValue and cannot be changed by user
-Else 
-   result = UFactor and cannot be changed by user
+                              <xsd:choice>
+                                <xsd:element name="Hframed10_ConstructionSpecificationMethod">
+                                  <xsd:annotation>
+                                    <xsd:documentation source="FieldText">Thermal Performance Unit</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">
+   If Hframed04b_Status == ExistingAlteration  And Hframed01_UseInAreaWeightedAveUfactor  == false And Hframed02_UseInAreaWeightedAveUfactor  == false 
+      list RValue, UFactor 
+   Else If Hframed04a_TopLevelOccupancy == ResidentialNR
+      result = RValue and cannot be changed by user
+   Else 
+      result = UFactor and cannot be changed by user
+   End If</xsd:documentation>
+                                  </xsd:annotation>
+                                  <xsd:simpleType>
+                                    <xsd:restriction base="env:ConstructionSpecificationMethod">
+                                      <xsd:enumeration value="RValue"/>
+                                      <xsd:enumeration value="UFactor"/>
+                                    </xsd:restriction>
+                                  </xsd:simpleType>
+                                </xsd:element>
+                                <xsd:element name="Hframed10_NotApplicableMessage">
+                                  <xsd:annotation>
+                                    <xsd:documentation source="FieldText">Thermal Performance Unit</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">If Hframed06_WallType == WallTypeOther result = BlankGrayedOut stored in NotApplicableMessag
 End If</xsd:documentation>
-                                </xsd:annotation>
-                                <xsd:simpleType>
-                                  <xsd:restriction base="env:ConstructionSpecificationMethod">
-                                    <xsd:enumeration value="RValue"/>
-                                    <xsd:enumeration value="UFactor"/>
-                                  </xsd:restriction>
-                                </xsd:simpleType>
-                              </xsd:element>
+                                  </xsd:annotation>
+                                  <xsd:simpleType>
+                                    <xsd:restriction base="comp:NotApplicableMessage">
+                                      <xsd:enumeration value="BlankGrayedOut"/>
+                                    </xsd:restriction>
+                                  </xsd:simpleType>
+                                </xsd:element>
+                              </xsd:choice>
                               <xsd:choice maxOccurs="1">
                                 <xsd:element name="Hframed11_InsulationUFactorLimit" type="env:InsulationUFactorLimit">
                                   <xsd:annotation>
@@ -9511,6 +9544,18 @@ End If
                                     </xsd:restriction>
                                   </xsd:simpleType>
                                 </xsd:element>
+                                <xsd:element name="Hframed12_NotApplicableMessage">
+                                  <xsd:annotation>
+                                    <xsd:documentation source="FieldText">Required Thermal Performance</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">If Hframed06_WallType == WallTypeOther result = BlankGrayedOut stored in NotApplicableMessag
+End If</xsd:documentation>
+                                  </xsd:annotation>
+                                  <xsd:simpleType>
+                                    <xsd:restriction base="comp:NotApplicableMessage">
+                                      <xsd:enumeration value="BlankGrayedOut"/>
+                                    </xsd:restriction>
+                                  </xsd:simpleType>
+                                </xsd:element>
                               </xsd:choice>
                               <xsd:element name="Hframed12UF">
                                 <xsd:annotation>
@@ -9521,7 +9566,7 @@ End If
                                     <xsd:element name="Hframed12_NotApplicableMessage">
                                       <xsd:annotation>
                                         <xsd:documentation source="FieldText"/>
-                                        <xsd:documentation source="CalculationsAndRules">If Hframed10_ConstructionSpecificationMethod == RValue result = BlankGrayedOut stored in NotApplicableMessage and all fields in Hframed12 are grayed out;
+                                        <xsd:documentation source="CalculationsAndRules">If Hframed10_ConstructionSpecificationMethod == RValue Or Hframed06_WallType == WallTypeOther result = BlankGrayedOut stored in NotApplicableMessage and all fields in Hframed12 are grayed out;
 End If</xsd:documentation>
                                       </xsd:annotation>
                                       <xsd:simpleType>
@@ -9864,7 +9909,7 @@ Else If Hframed05_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters 
                                 <xsd:element name="Hframed13_NotApplicableMessage">
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText">Net Area <d:sup>3</d:sup> ft<d:sup>2</d:sup></xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Hframed10_ConstructionSpecificationMethod == RValue Or If Hframed01_UseInAreaWeightedAveUfactor Or Hframed02_UseInAreaWeightedAveUfactor == false result = BlankGrayedOut stored in NotApplicableMessage;</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">If Hframed10_ConstructionSpecificationMethod == RValue Or If Hframed01_UseInAreaWeightedAveUfactor Or Hframed02_UseInAreaWeightedAveUfactor == false Or Hframed06_WallType == WallTypeOther result = BlankGrayedOut stored in NotApplicableMessage;</xsd:documentation>
                                   </xsd:annotation>
                                   <xsd:simpleType>
                                     <xsd:restriction base="comp:NotApplicableMessage">
@@ -20047,7 +20092,7 @@ End If</xsd:documentation>
 If Kskyperf06_TopLevelOccupancy == HotelMotel And Kskyperf05_FenestrationProductType == SkylightTubular:  Or 
  If Kskyperf06_FenestrationModification == AddLTE50ft2  Or 
 If Kskyperf06_TopLevelOccupancy == LowRiseResidential  Or 
-If Kskyperf06_TopLevelOccupancy == OtherOccupancy And Kskyperf06_FenestrationModification == NewSky16MF  
+If Kskyperf06_TopLevelOccupancy == OtherOccupancy And Kskyperf06_FenestrationModification == "AllNew" OR  NewSky16MF  
  
 result = BlankGrayedOut
 End If</xsd:documentation>
