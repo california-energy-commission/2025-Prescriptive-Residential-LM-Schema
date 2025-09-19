@@ -4609,8 +4609,7 @@
         <dtyp:displayterm value="ControlledReceptacle50PercentHotelMotel">50 % are controlled receptacle (hotel/motel room)</dtyp:displayterm>
         <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle">Within 6ft of uncontrolled AND multiple receptacle outlet</dtyp:displayterm>
         <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledReceptacle">Within 6ft of uncontrolled receptacle</dtyp:displayterm>
-        <dtyp:displayterm value="MultipleReceptableOutletGT1Controlled">Multiple receptacle outlet with <d:gt/> 1 controlled and uncontrolled receptacle</dtyp:displayterm>
-        <dtyp:displayterm value="MultipleReceptacleControlledAndUncontrolled">Multiple receptacle with <d:gte/> 1 controlled and uncontrolled receptacle</dtyp:displayterm>
+        <dtyp:displayterm value="MultipleReceptableOutletGT1Controlled">Multiple receptacle outlet with <d:gte/> 1 controlled and uncontrolled receptacle</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
@@ -4618,7 +4617,6 @@
       <xsd:enumeration value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle"/>
       <xsd:enumeration value="ControlledWithin6ftOfUncontrolledReceptacle"/>
       <xsd:enumeration value="MultipleReceptableOutletGT1Controlled"/>
-      <xsd:enumeration value="MultipleReceptacleControlledAndUncontrolled"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="ControlledReceptacleDemandResponse">

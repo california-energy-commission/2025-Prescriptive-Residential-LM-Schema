@@ -1163,22 +1163,6 @@ End If</xsd:documentation>
                                              </xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="F06_NotApplicableMessage " >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02New_WaterHeatingSystem  IsPresent And  B02New_WaterHeatingSystem !=  CentralNonresSpaces And  != CentralDwellingUnits 
-result = BlankGrayedOut
-Else If B02Altered_WaterHeatingSystem  IsPresent And  B02Altered_WaterHeatingSystem !=  CentralNonresSpaces And  != CentralDwellingUnits 
-result = BlankGrayedOut
- 
-End If</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:NotApplicableMessage">
-                                                <xsd:enumeration value="BlankGrayedOut"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
                                        <xsd:choice maxOccurs="1">
                                        <xsd:element name="F04_ExceptionsToPrescReqsDHW" type="comp:ExceptionsToPrescReqsDHW" >
                                           <xsd:annotation>
@@ -1224,33 +1208,6 @@ End If</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F04_ExceptionsToPrescReqsDHW != ExceptionsNonApply
 Or 
 If all rows F07_Status != NewOrAddition
-result = BlankGrayedOut
-End If</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:NotApplicableMessage">
-                                                <xsd:enumeration value="BlankGrayedOut"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="F06_EfficiencyCapWeightedAvg" type="hvac:EfficiencyCapWeightedAvg" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Capacity-weighted Average Efficiency %</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules"> If F05_IsEfficiencyCapWeightedAvg == true
-And F04_ExceptionsToPrescReqsDHW == ExceptionsNonApply
- 
-Calculated field: For all rows where  F10a_WaterHeaterCapacityRated GT 100,000 And F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial
-result = (SUM (F11 Rated Efficiency for the row where F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial  x  F10a_WaterHeaterCapacityRated)) /  SUM ALL ( F10a_WaterHeaterCapacityRated where F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial)
-End If</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="F06_NotApplicableMessage " >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Capacity-weighted Average Efficiency %</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">if F05_IsEfficiencyCapWeightedAvg == false
-Or F04_ExceptionsToPrescReqsDHW != ExceptionsNonApply
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
