@@ -6821,8 +6821,8 @@
   <xsd:simpleType name="HeatRecovery">
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
-        <dtyp:displayterm value="true">Yes</dtyp:displayterm>
-        <dtyp:displayterm value="false">No</dtyp:displayterm>
+        <dtyp:displayterm value="true">Required</dtyp:displayterm>
+        <dtyp:displayterm value="false">Not Required</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="xsd:boolean">

@@ -3151,7 +3151,8 @@ Else If Fscs03_SystemZoning == MultiZone
    And A04_TotalConditionedFloorArea + A05_TotalUnconditionedFloorArea GTE 150,000
    And A06_AboveGradeStoryCount LTE 5
       List: VariableRefrigerantFlowHeatRecovery, DedicatedOAS, AirWaterHeatPump, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, HeatPumpAC, RoomAC_HP
-   End If
+      D03_ExceptionalConditionMessageCCMCHE += FanPowerIndexExceedsMaxInH; 
+      End If
 Else
    List all values
 End If</xsd:documentation>
@@ -4305,7 +4306,11 @@ End If</xsd:documentation>
                             <xsd:annotation>
                               <xsd:documentation source="FieldText">Refrigerant Loop Heat Recovery</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">
-If F02_HvacSystemType == Multizone Option 1
+If Fscs03_SystemZoning == MultiZone
+And Fscs05_WholeBuildingOccupancy ==  OfficeBuilding Or (Fscs05_WholeBuildingOccupancy == SchoolBuilding And A02_ClimateZoneNumber == InRange(1,5) or InRange(8,16)
+And And A04_TotalConditionedFloorArea + A05_TotalUnconditionedFloorArea GTE 150,000
+And A06_AboveGradeStoryCount LTE 5
+And F02_HvacSystemType == VariableRefrigerantFlow Or VariableRefrigerantFlowHeatRecovery
    result = true
 Else 
    result = BlankGrayedOut stored in Fa06a_NotApplicableMessage</xsd:documentation>
@@ -4315,7 +4320,7 @@ Else
                             <xsd:annotation>
                               <xsd:documentation source="FieldText">Refrigerant Loop Heat Recovery</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">
-If F02_HvacSystemType == Multizone Option 1
+If Fa06a_HeatRecovery != true
    result = BlankGrayedOut
 End If</xsd:documentation>
                             </xsd:annotation>
