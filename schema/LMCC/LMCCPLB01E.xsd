@@ -1637,7 +1637,7 @@ If checked result = true; else result = false.</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">The primary storage tank temperature setpoint shall be at least 135[d:deg/]F - [d:t24refnolink/]170.2(d)2Aiv.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == false
+                                 <xsd:documentation source="CalculationsAndRules">If F22HP_EquipmentTypeApplies == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1648,7 +1648,7 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Minimum heat pump water heater compressor cut-off temperature shall be equal to or lower than 40[d:deg/]F ambient air temperature - [d:t24refnolink/]170.2(d)2Aivi.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == false
+                                 <xsd:documentation source="CalculationsAndRules">If F22HP_EquipmentTypeApplies == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1659,7 +1659,7 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Design documentation shall specify the operating conditions at which the primary heat pump water heater can supply hot water at design outlet water temperature without engaging auxiliary heating mechanism - [d:t24refnolink/]170.2(d)2Aivii.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == false
+                                 <xsd:documentation source="CalculationsAndRules">If F22HP_EquipmentTypeApplies == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1670,7 +1670,7 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">NEEA Advanced Water Heater Specification for commercial heat pump water heater Tier 2 or higher - [d:t24refnolink/]170.2(d)2A.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == false
+                                 <xsd:documentation source="CalculationsAndRules">If F22HP_EquipmentTypeApplies == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1747,10 +1747,13 @@ End If</xsd:documentation>
                   <xsd:element name="RecircLoops" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Recirculation Loops in Central Systems Serving Dwelling Units, Hotel/Motel Guest Rooms, or Nonresidential Spaces  - [d:t24refnolink/]110.3, [d:t24refnolink/]170.2(d)2[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits Or CentralNonresSpaces; Else G01-G09 are not displayed</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If current row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits Or CentralNonresSpaces; Else G01-G09 are not displayed</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                           <xsd:complexType>
+                           <xsd:sequence>
                            <xsd:element name="RecircLoops_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">System Name</xsd:documentation>
@@ -1831,7 +1834,7 @@ Multi-field triggers: See G01_AirReleaseValve CalculationsAndRules for trigger v
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: For heat pump water heating systems, the hot water return from the recirculation loop shall connect to a recirculation loop tank and shall not directly connect to the primary heat pump water heater inlet or the primary thermal storage tanks per [d:t24refnolink/]170.2(d)2Aii.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == true 
+                                 <xsd:documentation source="CalculationsAndRules">In current row, If F22HP_EquipmentTypeApplies == true 
 User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else result = ReqNA and row is grayed out
 End If</xsd:documentation>
@@ -1841,7 +1844,7 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: For heat pump water heating systems, the fuel source for the recirculation loop tank shall be electricity per [d:t24refnolink/]170.2(d)2Aiii.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == true 
+                                 <xsd:documentation source="CalculationsAndRules">In current row, If F22HP_EquipmentTypeApplies == true 
 User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else result = ReqNA and row is grayed out
 End If</xsd:documentation>
@@ -1886,6 +1889,9 @@ User selects from radio buttons Yes result = ReqYes and No result = ReqNo;
 Else result = ReqNA and row is grayed out
 End If</xsd:documentation>
                               </xsd:annotation>
+                           </xsd:element>
+                           </xsd:sequence>
+                           </xsd:complexType>
                            </xsd:element>
                         </xsd:sequence>
                      </xsd:complexType>

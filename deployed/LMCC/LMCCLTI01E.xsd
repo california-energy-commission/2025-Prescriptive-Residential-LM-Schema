@@ -5098,7 +5098,7 @@ End If</xsd:documentation>
       <xsd:element name="Section_Q" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation source="FieldText">ONE-FOR-ONE LUMINAIRE ALTERATIONS</xsd:documentation>
-          <xsd:documentation source="CalculationsAndRules">This section is required if in section B there is at least one value in  Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR  == OneForOne</xsd:documentation>
+          <xsd:documentation source="CalculationsAndRules">This section is required if in section B there is at least one value in  Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR Or BalteredPark02_LightingPrescriptiveMethodNR Or BalteredPark04_LightingPrescriptiveMethodNR  == OneForOne</xsd:documentation>
           <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
         </xsd:annotation>
         <xsd:complexType>

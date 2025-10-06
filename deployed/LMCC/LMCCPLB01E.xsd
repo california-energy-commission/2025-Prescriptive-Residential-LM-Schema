@@ -1613,7 +1613,7 @@ If checked result = true; else result = false.</xsd:documentation>
                     <xsd:annotation>
                       <xsd:documentation source="FieldText"/>
                       <xsd:documentation source="AdditionalRequirements">The primary storage tank temperature setpoint shall be at least 135<d:deg/>F - <d:t24refnolink/>170.2(d)2Aiv.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == false
+                      <xsd:documentation source="CalculationsAndRules">If F22HP_EquipmentTypeApplies == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1624,7 +1624,7 @@ End If</xsd:documentation>
                     <xsd:annotation>
                       <xsd:documentation source="FieldText"/>
                       <xsd:documentation source="AdditionalRequirements">Minimum heat pump water heater compressor cut-off temperature shall be equal to or lower than 40<d:deg/>F ambient air temperature - <d:t24refnolink/>170.2(d)2Aivi.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == false
+                      <xsd:documentation source="CalculationsAndRules">If F22HP_EquipmentTypeApplies == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1635,7 +1635,7 @@ End If</xsd:documentation>
                     <xsd:annotation>
                       <xsd:documentation source="FieldText"/>
                       <xsd:documentation source="AdditionalRequirements">Design documentation shall specify the operating conditions at which the primary heat pump water heater can supply hot water at design outlet water temperature without engaging auxiliary heating mechanism - <d:t24refnolink/>170.2(d)2Aivii.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == false
+                      <xsd:documentation source="CalculationsAndRules">If F22HP_EquipmentTypeApplies == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1646,7 +1646,7 @@ End If</xsd:documentation>
                     <xsd:annotation>
                       <xsd:documentation source="FieldText"/>
                       <xsd:documentation source="AdditionalRequirements">NEEA Advanced Water Heater Specification for commercial heat pump water heater Tier 2 or higher - <d:t24refnolink/>170.2(d)2A.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == false
+                      <xsd:documentation source="CalculationsAndRules">If F22HP_EquipmentTypeApplies == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1729,23 +1729,26 @@ End If</xsd:documentation>
                 <xsd:documentation source="FieldText">
                   <d:b>Recirculation Loops in Central Systems Serving Dwelling Units, Hotel/Motel Guest Rooms, or Nonresidential Spaces  - <d:t24refnolink/>110.3, <d:t24refnolink/>170.2(d)2</d:b>
                 </xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits Or CentralNonresSpaces; Else G01-G09 are not displayed</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If current row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits Or CentralNonresSpaces; Else G01-G09 are not displayed</xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="RecircLoops_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">
+                  <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="RecircLoops_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">System Name</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
 Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G01_AirReleaseValve" type="comp:AirReleaseValve">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">Air release valve or vertical pump installation per <d:t24refnolink/>110.3(c)4A</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User select from radio buttons Yes result = ReqYes, No result = ReqNo 
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="G01_AirReleaseValve" type="comp:AirReleaseValve">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">Air release valve or vertical pump installation per <d:t24refnolink/>110.3(c)4A</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User select from radio buttons Yes result = ReqYes, No result = ReqNo 
  
 Mandatory Measure Triggers:
 If result == ReqYes And 
@@ -1757,117 +1760,120 @@ G06_ColdWaterCheckValve == ReqYes
  
 MM110_3c4_MeasureApplies = true and is displayed
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G02_BackflowCheckValve" type="comp:BackflowCheckValve">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">Check valve or similar located between recirculation pump and water heating equipment to prevent backflow per <d:t24refnolink/>110.3(c)4B</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User select from radio buttons Yes result = ReqYes, No result = ReqNo 
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="G02_BackflowCheckValve" type="comp:BackflowCheckValve">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">Check valve or similar located between recirculation pump and water heating equipment to prevent backflow per <d:t24refnolink/>110.3(c)4B</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User select from radio buttons Yes result = ReqYes, No result = ReqNo 
  
 Mandatory Measure Triggers:  
 Multi-field triggers: See G01_AirReleaseValve CalculationsAndRules for trigger values from this field</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G03_HoseBibb" type="comp:HoseBibb">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">Hose bibb installed between pump and equipment and isolation valve between hose bibb and equipment per <d:t24refnolink/>110.3(c)4C</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User select from radio buttons Yes result = ReqYes, No result = ReqNo
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="G03_HoseBibb" type="comp:HoseBibb">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">Hose bibb installed between pump and equipment and isolation valve between hose bibb and equipment per <d:t24refnolink/>110.3(c)4C</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User select from radio buttons Yes result = ReqYes, No result = ReqNo
  
 Mandatory Measure Triggers:  
 Multi-field triggers: See G01_AirReleaseValve CalculationsAndRules for trigger values from this field</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G04_IsolationValves" type="comp:IsolationValves">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">Isolation valves on both sides of the pump per <d:t24refnolink/>110.3(c)4D</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User select from radio buttons Yes result = ReqYes, No result = ReqNo
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="G04_IsolationValves" type="comp:IsolationValves">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">Isolation valves on both sides of the pump per <d:t24refnolink/>110.3(c)4D</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User select from radio buttons Yes result = ReqYes, No result = ReqNo
  
 Mandatory Measure Triggers:  
 Multi-field triggers: See G01_AirReleaseValve CalculationsAndRules for trigger values from this field</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G05_TankDrainPort" type="comp:TankDrainPort">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">Cold water and recirculation loop piping shall not be connected to the hot water storage tank drain port per <d:t24refnolink/>110.3(c)4E</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User select from radio buttons Yes result = ReqYes, No result = ReqNo
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="G05_TankDrainPort" type="comp:TankDrainPort">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">Cold water and recirculation loop piping shall not be connected to the hot water storage tank drain port per <d:t24refnolink/>110.3(c)4E</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User select from radio buttons Yes result = ReqYes, No result = ReqNo
  
 Mandatory Measure Triggers:  
 Multi-field triggers: See G01_AirReleaseValve CalculationsAndRules for trigger values from this field</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G06_ColdWaterCheckValve" type="comp:ColdWaterCheckValve">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">Check valve installed on cold water supply between hot water system and next closest tee on cold water supply per <d:t24refnolink/>110.3(c)4F</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User select from radio buttons Yes result = ReqYes, No result = ReqNo
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="G06_ColdWaterCheckValve" type="comp:ColdWaterCheckValve">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">Check valve installed on cold water supply between hot water system and next closest tee on cold water supply per <d:t24refnolink/>110.3(c)4F</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User select from radio buttons Yes result = ReqYes, No result = ReqNo
  
 Mandatory Measure Triggers:  
 Multi-field triggers: See G01_AirReleaseValve CalculationsAndRules for trigger values from this field</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G08_RecircLoopHP" type="comp:RecircLoopHP">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: For heat pump water heating systems, the hot water return from the recirculation loop shall connect to a recirculation loop tank and shall not directly connect to the primary heat pump water heater inlet or the primary thermal storage tanks per <d:t24refnolink/>170.2(d)2Aii.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == true 
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="G08_RecircLoopHP" type="comp:RecircLoopHP">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: For heat pump water heating systems, the hot water return from the recirculation loop shall connect to a recirculation loop tank and shall not directly connect to the primary heat pump water heater inlet or the primary thermal storage tanks per <d:t24refnolink/>170.2(d)2Aii.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">In current row, If F22HP_EquipmentTypeApplies == true 
 User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else result = ReqNA and row is grayed out
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G09_RecircFuelHP" type="comp:RecircFuelHP">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: For heat pump water heating systems, the fuel source for the recirculation loop tank shall be electricity per <d:t24refnolink/>170.2(d)2Aiii.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If F23HP_EquipmentTypeApplies == true 
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="G09_RecircFuelHP" type="comp:RecircFuelHP">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: For heat pump water heating systems, the fuel source for the recirculation loop tank shall be electricity per <d:t24refnolink/>170.2(d)2Aiii.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">In current row, If F22HP_EquipmentTypeApplies == true 
 User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else result = ReqNA and row is grayed out
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G09_RecircTemp" type="comp:RecircTemp">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: The recirculation loop tank temperature setpoint shall be at least 10°F lower than the primary thermal storage tank temperature setpoint - <d:t24refnolink/>170.2(d)2Av</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="G09_RecircTemp" type="comp:RecircTemp">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: The recirculation loop tank temperature setpoint shall be at least 10°F lower than the primary thermal storage tank temperature setpoint - <d:t24refnolink/>170.2(d)2Av</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
 User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else result = ReqNA and row is grayed out
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G10_PipingSize" type="comp:PipingSize">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: All hot water distribution piping shall be sized in accordance with the California Plumbing Code Appendix M per <d:t24refnolink/>170.2(d)2C.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="G10_PipingSize" type="comp:PipingSize">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: All hot water distribution piping shall be sized in accordance with the California Plumbing Code Appendix M per <d:t24refnolink/>170.2(d)2C.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
 User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else result = ReqNA and row is grayed out
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G11_RecircThermostat" type="comp:RecircThermostat">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:A recirculation system with mechanical or digital thermostatic master mixing valve on each distribution supply and return loop and meet the requirements in Reference Appendix RA4.4, unless building has ≤ 8 dwelling units, per <d:t24refnolink/>170.2(d)2D.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="G11_RecircThermostat" type="comp:RecircThermostat">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:A recirculation system with mechanical or digital thermostatic master mixing valve on each distribution supply and return loop and meet the requirements in Reference Appendix RA4.4, unless building has ≤ 8 dwelling units, per <d:t24refnolink/>170.2(d)2D.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
 User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else result = ReqNA and row is grayed out
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="G12_PipingInsulation" type="comp:PipingInsulation">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: Insulation for hot water pipes shall be field verified as specifid in Reference Appendix RA3.6.3 per <d:t24refnolink/>170.2(d)2E.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="G12_PipingInsulation" type="comp:PipingInsulation">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: Insulation for hot water pipes shall be field verified as specifid in Reference Appendix RA3.6.3 per <d:t24refnolink/>170.2(d)2E.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
 User selects from radio buttons Yes result = ReqYes and No result = ReqNo; 
 Else result = ReqNA and row is grayed out
 End If</xsd:documentation>
-                    </xsd:annotation>
+                          </xsd:annotation>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
                   </xsd:element>
                 </xsd:sequence>
               </xsd:complexType>
