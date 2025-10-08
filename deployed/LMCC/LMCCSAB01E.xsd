@@ -519,13 +519,13 @@ End If</xsd:documentation>
                 </xsd:restriction>
               </xsd:simpleType>
             </xsd:element>
-            <xsd:element name="A04a_OtherFloorArea" type="com:ConditionedFloorArea">
+            <xsd:element name="A04a_OtherFloorArea" type="comp:ExceptionApplies" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">Square footage for "All Other Occupancies"</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">In your mixed-occupancy building, do the building types listed in Table 140.10-A make up more than 80% of the total square footage of your project?</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">
-                           If multiple A04_WholeBuildingOccupancy selections are made and one A04_WholeBuildingOccupancy == AllOthersBuildings
-                           User input;</xsd:documentation>
+User input
+</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
             <xsd:element name="A04a_LocalJurisdiction" type="comp:LocalJurisdiction">

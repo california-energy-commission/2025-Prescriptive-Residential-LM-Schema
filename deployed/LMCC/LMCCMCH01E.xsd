@@ -3148,7 +3148,7 @@ Else
       List all values
 Else If Fscs03_SystemZoning == MultiZone
    If Fscs05_WholeBuildingOccupancy ==  OfficeBuilding Or (Fscs05_WholeBuildingOccupancy == SchoolBuilding And A02_ClimateZoneNumber == InRange(1,5) or InRange(8,16)
-   And A04_TotalConditionedFloorArea + A05_TotalUnconditionedFloorArea GTE 150,000
+   And A04_TotalConditionedFloorArea + A05_TotalUnconditionedFloorArea LT 150,000
    And A06_AboveGradeStoryCount LTE 5
       List: VariableRefrigerantFlowHeatRecovery, DedicatedOAS, AirWaterHeatPump, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, HeatPumpAC, RoomAC_HP
       D03_ExceptionalConditionMessageCCMCHE += FanPowerIndexExceedsMaxInH; 
@@ -7976,7 +7976,7 @@ For any result   D03_ExceptionalConditionMessageCCMCHE += ElectricHeatExceptionI
                 <xsd:documentation source="FieldText">
                   <d:b>Mechanical Heat Recovery</d:b>
                 </xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If B01aProjectHasHeatingAirSystem, B01b_ProjectHasCoolingAirSystem,  B02a_ProjectHasWaterEconomizer, B02d_ProjectHasCoolingTowers, B02e_ProjectHasChillers, B02f_ProjectHasBoilers, B03b_ProjectHasElectricHeat == true
+                <xsd:documentation source="CalculationsAndRules">If B01aProjectHasHeatingAirSystem Or B01b_ProjectHasCoolingAirSystem Or B02a_ProjectHasWaterEconomizer Or B02d_ProjectHasCoolingTowers Or B02e_ProjectHasChillers Or B02f_ProjectHasBoilers Or B03b_ProjectHasElectricHeat == true
 TableMechanicalHeatRecovery is required
 </xsd:documentation>
               </xsd:annotation>
@@ -8250,10 +8250,6 @@ End If</xsd:documentation>
                   <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                     <xsd:annotation>
                       <xsd:documentation source="CalculationsAndRules">
-If F02_HvacSystemType == Multizone Option 1, add a row to represent the DOAS system portion of Multizone option 1. For this row:
-   H00d_SystemZoning should be limited to DOASZoneGT1kW or DOASZone
-   And H02_NotApplicableMessage, H04_NotApplicableMessage, H05_NotApplicableMessage, H06_NotApplicableMessage, H07_NotApplicableMessage, H08_NotApplicableMessage, H12a_SupplyFanBaseAllowance and H12b_ExhaustFanBaseAllowance = BlankGrayedOut
-   And H12_FanSystemPowerAllowance = H00f_FanSystemFlowCapacity * 0.77
                                  </xsd:documentation>
                     </xsd:annotation>
                     <xsd:complexType>
