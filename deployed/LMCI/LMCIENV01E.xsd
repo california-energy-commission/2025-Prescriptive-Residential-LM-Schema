@@ -217,6 +217,12 @@ End If</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
+            <xsd:element name="B04b_ProjectHasNewVestibule" type="comp:ProjectHasNewVestibule">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Vestibules</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
             <xsd:element name="B05a_ProjectHasFloorAssembly" type="comp:ProjectHasFloorAssembly">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Assembly type</xsd:documentation>
@@ -6344,6 +6350,234 @@ Else If
 result = EqualBetter
 End If
 End If</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="TableVestibule" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">
+                  <d:b>Vestibules</d:b>
+                </xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">This subtable is required If B04b_ProjectHasNewVestibule == true</xsd:documentation>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="Vestibule01cc_VestibuleName" type="env:VestibuleName">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Tag/Plan Detail ID</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
+If CC-ENV parent
+   result = JVestibules01_VestibuleName
+End If</xsd:documentation>
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCENV01E" usage="copy">JVestibules01_VestibuleName</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Vestibule01_InMyScope" type="comp:InMyScope">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
+If result == false As-built fields are blank and grayed out
+And D01_ExceptionalConditionMessageCIENVE += VestibuleNotInScope  
+End If</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="VestibuleScopeChoice">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                          </xsd:annotation>
+                          <xsd:complexType>
+                            <xsd:choice>
+                              <xsd:element name="VestibuleScopeNA_NotApplicableMessage">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="CalculationsAndRules">If Vestibule01_InMyScope == false
+result = BlankGrayedOut for Vestibule02cc-Doors06cc and Vestibule02-Doors05 As-built fields are blank and grayed out 
+End If</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:restriction base="comp:NotApplicableMessage">
+                                    <xsd:enumeration value="BlankGrayedOut"/>
+                                  </xsd:restriction>
+                                </xsd:simpleType>
+                              </xsd:element>
+                              <xsd:element name="VestibuleInScope">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element name="Vestibule01_InstalledSameAsCC" type="comp:InstalledSameAsCC" minOccurs="0">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Vestibule02cc_VestibuleExemptions" type="comp:VestibuleExemptions">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Exception to <d:t24refnolink/>120.7(e)</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">
+If CC-ENV parent
+   result = JVestibules02_VestibuleExemptions
+End If</xsd:documentation>
+                                        <xsd:appinfo source="CIsrc">
+                                          <dtyp:srcSchema form="CCENV01E" usage="copy">JVestibules02_VestibuleExemptions</dtyp:srcSchema>
+                                        </xsd:appinfo>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Vestibule02_VestibuleExemptions" type="comp:VestibuleExemptions">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Exception to <d:t24refnolink/>120.7(e)</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">
+If CC-ENV parent
+   user selects from list
+End If</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Vestibule03cc_VestibuleShutOffControl">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Shut Off Controls</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">
+If CC-ENV parent
+If JVestibules03_VestibuleShutOffControl IsPresent
+   result = JVestibules03_VestibuleShutOffControl
+Else if JVestibules03_NotApplicableMessage IsPresent
+   result = JVestibules03_NotApplicableMessage
+End If
+End If</xsd:documentation>
+                                        <xsd:appinfo source="CIsrc">
+                                          <dtyp:srcSchema form="CCENV01E" usage="copy">JVestibules03_VestibuleShutOffControl</dtyp:srcSchema>
+                                          <dtyp:srcSchema form="CCENV01E" usage="copy">JVestibules03_NotApplicableMessage</dtyp:srcSchema>
+                                        </xsd:appinfo>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:union memberTypes="comp:VestibuleShutOffControl comp:NotApplicableMessage"/>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Vestibule03_VestibuleShutOffControl">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Shut Off Controls</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">
+If CC-ENV parent
+   If Vestibule01_InstalledSameAsCC == true
+      result = JVestibules03_VestibuleShutOffControl
+   Else 
+      user selects from list
+End If</xsd:documentation>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:union memberTypes="comp:VestibuleShutOffControl comp:NotApplicableMessage"/>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Vestibule04cc_DoorConstructionType">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Thermostat</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">
+If CC-ENV parent
+   If JVestibules04_VestibuleThermostat IsPresent
+      result = JVestibules04_VestibuleThermostat
+   Else if JVestibules04_NotApplicableMessage IsPresent
+      result = JVestibules04_NotApplicableMessage
+   End If
+End If</xsd:documentation>
+                                        <xsd:appinfo source="CIsrc">
+                                          <dtyp:srcSchema form="CCENV01E" usage="copy">JVestibules04_VestibuleThermostat</dtyp:srcSchema>
+                                          <dtyp:srcSchema form="CCENV01E" usage="copy">JVestibules04_NotApplicableMessage</dtyp:srcSchema>
+                                        </xsd:appinfo>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:union memberTypes="comp:VestibuleThermostat comp:NotApplicableMessage"/>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Vestibule04_DoorConstructionType">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Thermostat</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">
+If CC-ENV parent
+   If Vestibule01_InstalledSameAsCC == true
+      result = Vestibule04cc_DoorConstructionType
+   Else 
+      user selects from list
+End If
+</xsd:documentation>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:union memberTypes="comp:VestibuleThermostat comp:NotApplicableMessage"/>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Vestibule05cc_VestibuleSelfClosingDevice">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">
+If CC-ENV parent
+   If JVestibules05_VestibuleSelfClosingDevice IsPresent
+      result = JVestibules05_VestibuleSelfClosingDevice
+   Else if JVestibules05_NotApplicableMessage IsPresent
+      result = JVestibules05_NotApplicableMessage
+   End If
+End If</xsd:documentation>
+                                        <xsd:appinfo source="CIsrc">
+                                          <dtyp:srcSchema form="CCENV01E" usage="copy">JVestibules05_VestibuleSelfClosingDevice</dtyp:srcSchema>
+                                          <dtyp:srcSchema form="CCENV01E" usage="copy">JVestibules05_NotApplicableMessage</dtyp:srcSchema>
+                                        </xsd:appinfo>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:union memberTypes="comp:VestibuleSelfClosingDevice comp:NotApplicableMessage"/>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Vestibule05_VestibuleSelfClosingDevice">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Self-Closing Device</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">
+If CC-ENV parent
+   If Vestibule01_InstalledSameAsCC == true
+      result = Vestibule05cc_VestibuleSelfClosingDevice
+   Else 
+      user input
+End If
+</xsd:documentation>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:union memberTypes="comp:VestibuleSelfClosingDevice comp:NotApplicableMessage"/>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:choice>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="Vestibule06_ComplianceResultCI" type="comp:ComplianceResultCI">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Compliance</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
+If any user input field is blank
+   result = TableIncomplete  
+Else If Doors01_InMyScope == false 
+   result = NotInScope
+ 
+Else If
+Vestibule02cc_VestibuleExemptions IsPresent and Vestibule02cc_VestibuleExemptions == Vestibule02_VestibuleExemptions
+And
+Vestibule03cc_VestibuleShutOffControl IsPresent And  Vestibule03cc_VestibuleShutOffControl ==  Vestibule03_VestibuleShutOffControl
+And
+Vestibule04cc_DoorConstructionType IsPresent And  Vestibule04cc_DoorConstructionType ==  Vestibule04_DoorConstructionType
+And
+Vestibule05cc_VestibuleSelfClosingDevice IsPresent And  Vestibule05cc_VestibuleSelfClosingDevice ==  Vestibule05_VestibuleSelfClosingDevice
+   result = ExactMatch
+ 
+Else
+   result = EqualBetter
+</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                       </xsd:sequence>

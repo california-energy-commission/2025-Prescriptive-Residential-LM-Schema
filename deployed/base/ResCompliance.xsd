@@ -8442,6 +8442,7 @@
       </xsd:appinfo>
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="DoorNotInScope">A Door assembly was selected as Not in Scope in the Exterior Doors Table.  Please ensure that this Door assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
+        <dtyp:displayterm value="VestibuleNotInScope">A vestibule assembly was selected as Not in Scope in the vestibules Table.  Please ensure that this vestibule assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
         <dtyp:displayterm value="FenNotInScope">A Fenestration assembly was selected as Not in Scope in the Vertical Fenestration, Skylights, and Glazed Doors Table.  Please ensure that this Fenestration assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
         <dtyp:displayterm value="FloorNotInScope">A Floor assembly was selected as Not in Scope in the Floors Table.  Please ensure that this Floor assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
         <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
@@ -15138,6 +15139,16 @@
       </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="ProjectHasNewSolidDoor">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+        <dtyp:displayterm value="false">No</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ProjectHasNewVestibule">
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="true">Yes</dtyp:displayterm>
