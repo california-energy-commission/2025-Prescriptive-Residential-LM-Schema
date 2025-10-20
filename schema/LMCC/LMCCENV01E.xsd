@@ -19912,7 +19912,7 @@ End If</xsd:documentation>
 If Kskyperf06_TopLevelOccupancy == HotelMotel And Kskyperf05_FenestrationProductType == SkylightTubular:  Or 
  If Kskyperf06_FenestrationModification == AddLTE50ft2  Or 
 If Kskyperf06_TopLevelOccupancy == LowRiseResidential  Or 
-If Kskyperf06_TopLevelOccupancy == OtherOccupancy And Kskyperf06_FenestrationModification == "AllNew" OR  NewSky16MF  
+If Kskyperf06_TopLevelOccupancy == HighRiseResidential And Kskyperf06_FenestrationModification == "AllNew" OR  NewSky16MF  
  
 result = BlankGrayedOut
 End If</xsd:documentation>

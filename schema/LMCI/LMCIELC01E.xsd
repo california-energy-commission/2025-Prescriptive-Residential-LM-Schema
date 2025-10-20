@@ -1562,9 +1562,9 @@ result = J01e_WaterHeaterIndividualDwellingUnit</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
-result = WaterHeaterMultipleDwellingUnit</xsd:documentation>
+result = J01f_WaterHeaterMultipleDwellingUnit</xsd:documentation>
                                  <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCELC01E"  usage="copy">WaterHeaterMultipleDwellingUnit</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCELC01E"  usage="copy">J01f_WaterHeaterMultipleDwellingUnit</dtyp:srcSchema>
                                  </xsd:appinfo>
                               </xsd:annotation>
                            </xsd:element>

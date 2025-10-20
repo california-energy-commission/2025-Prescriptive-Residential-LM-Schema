@@ -4392,6 +4392,18 @@
     <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="CondensateDrainageRequirements">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="Reserved">Condensate drainage shall be sized to serve a heat pump water heater system that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.</dtyp:displayterm>
+        <dtyp:displayterm value="JA15">Condensate drainage piping shall be sized to meet the requirements specified in Joint Appendix JA15.2.4.</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="Reserved"/>
+      <xsd:enumeration value="JA15"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:simpleType name="CondenserEnteringDryBulbTemperature">
     <xsd:annotation>
       <xsd:documentation>  Units: F</xsd:documentation>
@@ -9682,6 +9694,32 @@
     </xsd:annotation>
     <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="HeatPumpSpacingRequirements">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="Reserved">The space reserved shall be the space required for a heat pump water heater system that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.</dtyp:displayterm>
+        <dtyp:displayterm value="JA15">The space reserved shall meet the requirements specified in Joint Appendix JA15.2.1.</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="Reserved"/>
+      <xsd:enumeration value="JA15"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="HeatPumpVentilationRequirements">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="Outside">Physical space reserved for the heat pump shall be located outside.</dtyp:displayterm>
+        <dtyp:displayterm value="FuturePathway">A pathway shall be reserved for future routing of supply and exhaust air via ductwork from the reserved heat pump location to a suitable outdoor location. Penetrations through the building envelope for louvers and ducts shall be planned and identified for future use. The reserved pathway and penetrations through the building envelope shall be sized to meet one of the following:
+   <d:l t="*"><d:list>The reserved pathway and penetrations shall be sized to serve a heat pump water heater system that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.
+   </d:list><d:list>The reserved pathway and penetrations shall be sized to meet the requirements specified in Joint Appendix JA15.2.3.</d:list></d:l></dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="Outside"/>
+      <xsd:enumeration value="FuturePathway"/>
+    </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="HeatPumpSystemHERS_VerificationName">
     <xsd:restriction base="xsd:string">
@@ -19532,6 +19570,18 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
     <xsd:restriction base="dtyp:EnumerationConstant">
       <xsd:enumeration value="ReqNo"/>
       <xsd:enumeration value="ReqYes"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TankSpacingRequirements">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="Reserved">The space reserved shall be the space required for a heat pump water heater system that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.</dtyp:displayterm>
+        <dtyp:displayterm value="JA15">The space reserved shall meet the requirements specified in Joint Appendix JA15.2.2.</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="Reserved"/>
+      <xsd:enumeration value="JA15"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="TargetSubcooling">
