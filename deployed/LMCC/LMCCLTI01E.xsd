@@ -43,7 +43,7 @@ End If</xsd:documentation>
                       <xsd:annotation>
                         <xsd:documentation source="FieldText">
                           <d:b>
-                            <d:i>2022 Nonresidential Energy Standards Compliance (Title 24, Part 6)</d:i>
+                            <d:i>2025 Nonresidential Energy Standards Compliance (Title 24, Part 6)</d:i>
                           </d:b>
                         </xsd:documentation>
                       </xsd:annotation>
@@ -773,7 +773,7 @@ End If</xsd:documentation>
                       <xsd:annotation>
                         <xsd:documentation source="FieldText">
                           <d:b>
-                            <d:i>2022 Nonresidential Energy Standards Compliance (Title 24, Part 6, Ch.1)</d:i>
+                            <d:i>2025 Nonresidential Energy Standards Compliance (Title 24, Part 6, Ch.1)</d:i>
                           </d:b>
                         </xsd:documentation>
                       </xsd:annotation>
@@ -1359,7 +1359,6 @@ End If</xsd:documentation>
                         <xsd:enumeration value="AreaCategory"/>
                         <xsd:enumeration value="CompleteBuilding"/>
                         <xsd:enumeration value="NotApplicableLightingMethod"/>
-                        <xsd:enumeration value="OneForOne"/>
                       </xsd:restriction>
                     </xsd:simpleType>
                   </xsd:element>
@@ -1380,7 +1379,6 @@ End If</xsd:documentation>
                         <xsd:enumeration value="AreaCategory"/>
                         <xsd:enumeration value="CompleteBuilding"/>
                         <xsd:enumeration value="NotApplicableLightingMethod"/>
-                        <xsd:enumeration value="OneForOne"/>
                       </xsd:restriction>
                     </xsd:simpleType>
                   </xsd:element>

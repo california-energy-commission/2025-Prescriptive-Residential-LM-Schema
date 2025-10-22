@@ -663,6 +663,26 @@ End If</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">This is a flag set by the agent that generates the report XML data to indicate that the user requested a Mandatory Measures Note Block which is placed after the DeclarationBlock in the XML output.</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
+            <xsd:element name="A10_ProjectScopeNR">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">Data not reported in pdf that is used for data analysis</xsd:documentation>
+                <xsd:appinfo source="displayterm">
+                  <dtyp:displayterm value="AdditionComplete">Addition</dtyp:displayterm>
+                  <dtyp:displayterm value="ExistingAdditionAndAlteration">Addition Alteration</dtyp:displayterm>
+                  <dtyp:displayterm value="ExistingAlteration">Alteration</dtyp:displayterm>
+                  <dtyp:displayterm value="NewComplete">New</dtyp:displayterm>
+                </xsd:appinfo>
+              </xsd:annotation>
+              <xsd:simpleType>
+                <xsd:restriction base="comp:ProjectScopeNR">
+                  <xsd:enumeration value="AdditionComplete"/>
+                  <xsd:enumeration value="ExistingAdditionAndAlteration"/>
+                  <xsd:enumeration value="ExistingAlteration"/>
+                  <xsd:enumeration value="NewComplete"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
             <xsd:element name="AFootnote1" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
