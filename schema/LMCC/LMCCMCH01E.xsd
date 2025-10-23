@@ -7863,34 +7863,36 @@ Else
                                           </xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Fg06_HeatRecoveryRequirements" type="hvac:HeatRecoveryRequirements">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">
-If Fg06_HeatRecoveryRequired = true 
-   If Fg04_HeatingCapacity GT 500
-      result = TransferAndPreheat
-   Else
-      result = Transfer
-Else result = BlankGrayedOut stored in Fg06_NotApplicableMessage
-                                          </xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Fg06_NotApplicableMessage">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">
-If Fg06_HeatRecoveryRequired = false
-   result = BlankGrayedOut stored in Fg06_NotApplicableMessage
-End If
-                                          </xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:NotApplicableMessage">
-                                             <xsd:enumeration value="BlankGrayedOut"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
+                                    <xsd:choice>
+                                       <xsd:element name="Fg06_HeatRecoveryRequirements" type="hvac:HeatRecoveryRequirements">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+   If Fg06_HeatRecoveryRequired = true 
+      If Fg04_HeatingCapacity GT 500
+         result = TransferAndPreheat
+      Else
+         result = Transfer
+   Else result = BlankGrayedOut stored in Fg06_NotApplicableMessage
+                                             </xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Fg06_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+   If Fg06_HeatRecoveryRequired = false
+      result = BlankGrayedOut stored in Fg06_NotApplicableMessage
+   End If
+                                             </xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -11714,27 +11716,27 @@ Else If J09_VentilationSpaceFunction == RestroomPrivateContExhaust
 Else If J09_VentilationSpaceFunction == RestroomPublic
    result = J11_ExhaustNumberFixtures * 70
 If J09_VentilationSpaceFunction == AnimalImaging Or PetShop
-   result = 0.9 x J09_VentilationSpaceFunction;
+   result = 0.9 x J10_SpaceFloorArea;
 Else if J09_VentilationSpaceFunction == AnimalOperating
-   result = 3.0 x J09_VentilationSpaceFunction\
+   result = 3.0 x J10_SpaceFloorArea\
 Else if J09_VentilationSpaceFunction == AnimalRecovery, AnimalPreperation, AnimalSurgery, AutoRepairVent, StorageOccupiableLiquids, AnimalCageVentilated
-   result = 1.5 x J09_VentilationSpaceFunction
+   result = 1.5 x J10_SpaceFloorArea
 Else if J09_VentilationSpaceFunction == AnimalProcedure, AnimalNecropsy, AnimalHolding, AnimalCage
-   result = 2.25 x J09_VentilationSpaceFunction
+   result = 2.25 x J10_SpaceFloorArea
 Else if J09_VentilationSpaceFunction == ClassroomArt Or FoodServiceKitchen
-   result = 0.7 x J09_VentilationSpaceFunction
+   result = 0.7 x J10_SpaceFloorArea
 Else if J09_VentilationSpaceFunction == BarberShop, CopyPrintRoom, LockerAthleticIndustrial, SportsSpectatorAreaVent, Or WoodMetalShop
-   result = 0.5 x J09_VentilationSpaceFunction
+   result = 0.5 x J10_SpaceFloorArea
 Else if J09_VentilationSpaceFunction == BeautyNailSalon
-   result = 0.6 x J09_VentilationSpaceFunction
+   result = 0.6 x J10_SpaceFloorArea
 Else if J09_VentilationSpaceFunction == CellWithToiletVent, DarkRoom, JanitorRoom, SoiledLaundryStorage, ScienceLab, TrashRecyclingRoom, Or CollegeLab
-   result = 1.0 x J09_VentilationSpaceFunction
+   result = 1.0 x J10_SpaceFloorArea
 Else if J09_VentilationSpaceFunction == KitchenetteVent
-   result = 0.3 x J09_VentilationSpaceFunction
+   result = 0.3 x J10_SpaceFloorArea
 Else if J09_VentilationSpaceFunction == LockerAllOthers
-   result = 0.25 x J09_VentilationSpaceFunction
+   result = 0.25 x J10_SpaceFloorArea
 Else if J09_VentilationSpaceFunction == ParkingGarageVent
-   result = 0.75 x J09_VentilationSpaceFunction
+   result = 0.75 x J10_SpaceFloorArea
 Else 
    result = BlankGrayedOut 
  </xsd:documentation>
