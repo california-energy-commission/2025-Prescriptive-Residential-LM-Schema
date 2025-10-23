@@ -1165,6 +1165,10 @@ End If</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">If F04_ExceptionsToPrescReqsDHW != ExceptionsNonApply
 Or 
 If all rows F07_Status != NewOrAddition
+Or 
+If all rows have F10a_WaterHeaterCapacityRated LTE 100,000
+or
+If no rows have F08_WaterHeaterType == InstantaneousConsumer or StorageResDutyCommercial
 result = BlankGrayedOut
 End If</xsd:documentation>
                             </xsd:annotation>
@@ -2231,84 +2235,90 @@ End If</xsd:documentation>
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="H_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">
+            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="H_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">System Name</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">
 Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="H01_TempControlsCertification" type="comp:TempControlsCertification">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">Construction documents require manufacturer certification that service water-heating systems are equipped with automatic temperature controls capable of adjusting temperature settings per <d:t24refnolink/>110.3(a).</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralNonresSpaces Or IndividualNonresSpaces user selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="H02_OutletTempControls" type="comp:OutletTempControls">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">Systems with capacity <d:gt/> 167,000 BTUH equipped with outlet temperature controls per <d:t24refnolink/>110.3(c)1 unless covered by California Plumbing Code 613.0.</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">User selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H01_TempControlsCertification" type="comp:TempControlsCertification">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                      <xsd:documentation source="AdditionalRequirements">Construction documents require manufacturer certification that service water-heating systems are equipped with automatic temperature controls capable of adjusting temperature settings per <d:t24refnolink/>110.3(a).</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralNonresSpaces Or IndividualNonresSpaces user selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H02_OutletTempControls" type="comp:OutletTempControls">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                      <xsd:documentation source="AdditionalRequirements">Systems with capacity <d:gt/> 167,000 BTUH equipped with outlet temperature controls per <d:t24refnolink/>110.3(c)1 unless covered by California Plumbing Code 613.0.</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">User selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA
  
 Mandatory Measure Triggers:
 If result == ReqYes ;
 MM110_3c1_MeasureApplies = true and is displayed
 End If</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="H03_CirculatingPumpControls" type="comp:CirculatingPumpControls">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">Controls for circulating pumps or electrical heat trace systems are capable of automatically turning off the system per <d:t24ref h="110.3(c)2"/> unless systems serves healthcare facility.</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">User selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H03_CirculatingPumpControls" type="comp:CirculatingPumpControls">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                      <xsd:documentation source="AdditionalRequirements">Controls for circulating pumps or electrical heat trace systems are capable of automatically turning off the system per <d:t24ref h="110.3(c)2"/> unless systems serves healthcare facility.</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">User selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA
  
 Mandatory Measure Triggers:
 If result == ReqYes ;
 MM110_3c2_MeasureApplies = true and is displayed
 End If</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="H04_MultipleUnitsPumpControls" type="comp:MultipleUnitsPumpControls">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">For recirculation systems serving multiple dwelling units, design includes a mechanical or digital thermostatic master mixing valve on each distribution supply and return loop per <d:t24refnolink/>170.2(d) or <d:t24refnolink/>180.1(b)3 for additions.</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits user selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="H05_SingleUnitOnOffControls" type="comp:SingleUnitOnOffControls">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">For recirculation systems serving individual dwelling units, design includes manual on/off controls as specified in Reference Appendix RA4.4.9 per  <d:t24refnolink/>170.2(d).</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == IndividualDwellingUnits user selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="H06_BoilerAirShutOffReq" type="comp:BoilerAirShutOffReq">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">Combustion air positive shut-off shall be provided per <d:t24refnolink/>120.9(a) &amp;amp; <d:t24refnolink/>160.4(d) on all newly installed commercial boilers as follows: <d:l t="*"><d:list> Boilers with input capacity <d:gte/> 2.5 MMBtu/h, in which the boiler is designed to operate with a nonpositive vent static pressure </d:list><d:list>Boilers where one stack serves two or more boilers with a total combined input capacity per stack of 2.5 MMBtu/h.</d:list></d:l></xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HighRiseResidential user selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="H07_BoilerFanMotorReq" type="comp:BoilerFanMotorReq">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">Boiler combustion air fans with motor <d:gte/> 10 hp shall meet one of the following for newly installed boilers per <d:t24refnolink/>120.9(b) &amp;amp; <d:t24refnolink/>160.4(d)2: <d:l t="*"><d:list>  The fan motor shall be driven by a variable speed drive OR </d:list><d:list> The fan motor shall include controls that limit the fan motor demand to <d:lte/>30% of the total design wattage at 50% of the design air volume.</d:list></d:l></xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HighRiseResidential user selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="H08_BoilerStackGasReq" type="comp:BoilerStackGasReq">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">Newly installed boilers with an input capacity {d:gte/] 5MMBtu/h and a steady state full-load combustion efficiency <d:lt/> 90% shall maintain excess (stack-gas) oxygen concentrations <d:lte/>  5% by volume on a dry basis over firing rates of 20-100%. Combustion air volume shall be controlled with respect to firing rate or flue gas oxygen concentration. Use of a common gas and combustion air control linkage or jack shaft is prohibited per <d:t24refnolink/>120.9(c) &amp;amp; <d:t24refnolink/>160.4(d)3.</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HighRiseResidential user selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="HErrorMessage_SectionErrorMessage" type="comp:SectionErrorMessage" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText"/>
-              </xsd:annotation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H04_MultipleUnitsPumpControls" type="comp:MultipleUnitsPumpControls">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                      <xsd:documentation source="AdditionalRequirements">For recirculation systems serving multiple dwelling units, design includes a mechanical or digital thermostatic master mixing valve on each distribution supply and return loop per <d:t24refnolink/>170.2(d) or <d:t24refnolink/>180.1(b)3 for additions.</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits user selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H05_SingleUnitOnOffControls" type="comp:SingleUnitOnOffControls">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                      <xsd:documentation source="AdditionalRequirements">For recirculation systems serving individual dwelling units, design includes manual on/off controls as specified in Reference Appendix RA4.4.9 per  <d:t24refnolink/>170.2(d).</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == IndividualDwellingUnits user selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H06_BoilerAirShutOffReq" type="comp:BoilerAirShutOffReq">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                      <xsd:documentation source="AdditionalRequirements">Combustion air positive shut-off shall be provided per <d:t24refnolink/>120.9(a) &amp;amp; <d:t24refnolink/>160.4(d) on all newly installed commercial boilers as follows: <d:l t="*"><d:list> Boilers with input capacity <d:gte/> 2.5 MMBtu/h, in which the boiler is designed to operate with a nonpositive vent static pressure </d:list><d:list>Boilers where one stack serves two or more boilers with a total combined input capacity per stack of 2.5 MMBtu/h.</d:list></d:l></xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HighRiseResidential user selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H07_BoilerFanMotorReq" type="comp:BoilerFanMotorReq">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                      <xsd:documentation source="AdditionalRequirements">Boiler combustion air fans with motor <d:gte/> 10 hp shall meet one of the following for newly installed boilers per <d:t24refnolink/>120.9(b) &amp;amp; <d:t24refnolink/>160.4(d)2: <d:l t="*"><d:list>  The fan motor shall be driven by a variable speed drive OR </d:list><d:list> The fan motor shall include controls that limit the fan motor demand to <d:lte/>30% of the total design wattage at 50% of the design air volume.</d:list></d:l></xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HighRiseResidential user selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H08_BoilerStackGasReq" type="comp:BoilerStackGasReq">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                      <xsd:documentation source="AdditionalRequirements">Newly installed boilers with an input capacity {d:gte/] 5MMBtu/h and a steady state full-load combustion efficiency <d:lt/> 90% shall maintain excess (stack-gas) oxygen concentrations <d:lte/>  5% by volume on a dry basis over firing rates of 20-100%. Combustion air volume shall be controlled with respect to firing rate or flue gas oxygen concentration. Use of a common gas and combustion air control linkage or jack shaft is prohibited per <d:t24refnolink/>120.9(c) &amp;amp; <d:t24refnolink/>160.4(d)3.</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HighRiseResidential user selects from radio buttons Yes result = ReqYes, Not Applicable result = ReqNA</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="HErrorMessage_SectionErrorMessage" type="comp:SectionErrorMessage" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText"/>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
             </xsd:element>
           </xsd:sequence>
         </xsd:complexType>

@@ -655,147 +655,144 @@ End If</xsd:documentation>
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="Circuits" minOccurs="0" maxOccurs="unbounded">
-        <xsd:annotation>
-          <xsd:documentation source="FieldText">
-            <d:b>Separation of Electrical Circuits for Energy Monitoring</d:b>
-          </xsd:documentation>
-          <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If B01b_ProjectHasLoadSeparation == true</xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="CircuitsBeginNote1" minOccurs="0">
+            <xsd:element name="Circuits" minOccurs="0" maxOccurs="unbounded">
               <xsd:annotation>
-                <xsd:documentation source="FieldText"/>
-                <xsd:documentation source="AdditionalRequirements">
-                  <d:i> Submetered electrical power distribution systems that provide power to dwelling units/common living areas only in multifamily occupancies do not need to be included. </d:i>
+                <xsd:documentation source="FieldText">
+                  <d:b>Separation of Electrical Circuits for Energy Monitoring</d:b>
                 </xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If B01b_ProjectHasLoadSeparation == true</xsd:documentation>
               </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="CircuitSystem">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="Circuits00cc_ElectricalServiceName" type="comp:ElectricalServiceName">
+                  <xsd:element name="CircuitsBeginNote1" minOccurs="0">
                     <xsd:annotation>
-                      <xsd:documentation source="FieldText">Electrical Service Designation/Description</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                      <xsd:documentation source="FieldText"/>
+                      <xsd:documentation source="AdditionalRequirements">
+                        <d:i> Submetered electrical power distribution systems that provide power to dwelling units/common living areas only in multifamily occupancies do not need to be included. </d:i>
+                      </xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="CircuitSystem">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="Circuits00cc_ElectricalServiceName" type="comp:ElectricalServiceName">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Electrical Service Designation/Description</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 result = G00_ElectricalServiceName 
 End If
  
 This field is displayed after the CircuitsTitle and before TableCircuits</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="CCELC01E" usage="copy">G00_ElectricalServiceName</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Circuits00_InMyScope" type="comp:InMyScope">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCELC01E" usage="copy">G00_ElectricalServiceName</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Circuits00_InMyScope" type="comp:InMyScope">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
  If result == false Circuits01cc-Circuits03cc and Circuits03 As-built cell is blank and grayed out
 And D01_ExceptionalConditionMessageNRCIELCE += CircuitsNotInScope
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="TableCircuits">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                    </xsd:annotation>
-                    <xsd:complexType>
-                      <xsd:sequence>
-                        <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="TableCircuits">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                          </xsd:annotation>
                           <xsd:complexType>
                             <xsd:sequence>
-                              <xsd:element name="Circuits01cc_ElectricalLoadType" type="com:ElectricalLoadType">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Load Type<d:sup>1</d:sup></xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                              <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element name="Circuits01cc_ElectricalLoadType" type="com:ElectricalLoadType">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Load Type<d:sup>1</d:sup></xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 result = G01_ElectricalLoadType 
 End If
  
 The result is displayed in both the Per CC and As-built conditions</xsd:documentation>
-                                  <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCELC01E" usage="copy">G01_ElectricalLoadType</dtyp:srcSchema>
-                                  </xsd:appinfo>
-                                </xsd:annotation>
-                              </xsd:element>
-                              <xsd:element name="Circuits01_InstalledSameAsCC" type="comp:InstalledSameAsCC" minOccurs="0">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
-                                </xsd:annotation>
-                              </xsd:element>
-                              <xsd:choice maxOccurs="1">
-                                <xsd:element name="Circuits02cc_ElectricalLoadSeparationRequirement" type="comp:ElectricalLoadSeparationRequirement">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Minimum Required Separation of Load</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                        <xsd:appinfo source="CIsrc">
+                                          <dtyp:srcSchema form="CCELC01E" usage="copy">G01_ElectricalLoadType</dtyp:srcSchema>
+                                        </xsd:appinfo>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Circuits01_InstalledSameAsCC" type="comp:InstalledSameAsCC" minOccurs="0">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Circuits02cc_ElectricalLoadSeparationRequirement" type="comp:ElectricalLoadSeparationRequirement">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Minimum Required Separation of Load</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 result = G02_ElectricalLoadSeparationRequirement
 End If
  
 The result is displayed in both the Per CC and As-built conditions</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="copy">G02_ElectricalLoadSeparationRequirement</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Circuits02cc_NotApplicableMessage">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Separation Method<d:sup>2</d:sup></xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="copy">G02_ElectricalLoadSeparationRequirement</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Circuits02cc_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Separation Method<d:sup>2</d:sup></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 If G02_NotApplicableMessage IsPresent
 result = BlankGrayedOut
 End If</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="reference">G02_NotApplicableMessage</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                  <xsd:simpleType>
-                                    <xsd:restriction base="comp:NotApplicableMessage">
-                                      <xsd:enumeration value="BlankGrayedOut"/>
-                                    </xsd:restriction>
-                                  </xsd:simpleType>
-                                </xsd:element>
-                              </xsd:choice>
-                              <xsd:choice maxOccurs="1">
-                                <xsd:element name="Circuits03cc_ElectricalLoadComplianceMethod" type="comp:ElectricalLoadComplianceMethod">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Separation Method<d:sup>2</d:sup></xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="reference">G02_NotApplicableMessage</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Circuits03cc_ElectricalLoadComplianceMethod" type="comp:ElectricalLoadComplianceMethod">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Separation Method<d:sup>2</d:sup></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 If G03_ElectricalLoadComplianceMethod IsPresent
 result = G03_ElectricalLoadComplianceMethod
 End If</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="copy">G03_ElectricalLoadComplianceMethod</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Circuits03cc_NotApplicableMessage">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Separation Method<d:sup>2</d:sup></xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="copy">G03_ElectricalLoadComplianceMethod</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Circuits03cc_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Separation Method<d:sup>2</d:sup></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 If G03_NotApplicableMessage IsPresent
 result = BlankGrayedOut
 End If</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="reference">G03_NotApplicableMessage</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                  <xsd:simpleType>
-                                    <xsd:restriction base="comp:NotApplicableMessage">
-                                      <xsd:enumeration value="BlankGrayedOut"/>
-                                    </xsd:restriction>
-                                  </xsd:simpleType>
-                                </xsd:element>
-                              </xsd:choice>
-                              <xsd:choice maxOccurs="1">
-                                <xsd:element name="Circuits03_ElectricalLoadComplianceMethod" type="comp:ElectricalLoadComplianceMethod">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Separation Method<d:sup>2</d:sup></xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">User selects from dropdown list loaded as follows:
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="reference">G03_NotApplicableMessage</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Circuits03_ElectricalLoadComplianceMethod" type="comp:ElectricalLoadComplianceMethod">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Separation Method<d:sup>2</d:sup></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from dropdown list loaded as follows:
 If Circuits01_InstalledSameAsCC == true
 If Circuits03cc_ElectricalLoadComplianceMethod IsPresent
 result = Circuits03cc_ElectricalLoadComplianceMethod  but user can change the value
@@ -803,28 +800,28 @@ End If
 Else If Circuits01_InstalledSameAsCC == false
 User selects from list
 End If</xsd:documentation>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Circuits03_NotApplicableMessage">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Separation Method<d:sup>2</d:sup></xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Circuits00_InMyScope == false
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Circuits03_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Separation Method<d:sup>2</d:sup></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Circuits00_InMyScope == false
 result = BlankGrayedOut
 Else If Circuits03cc_NotApplicableMessage IsPresent
 result = Circuits03cc_NotApplicableMessage
 End If</xsd:documentation>
-                                  </xsd:annotation>
-                                  <xsd:simpleType>
-                                    <xsd:restriction base="comp:NotApplicableMessage">
-                                      <xsd:enumeration value="BlankGrayedOut"/>
-                                    </xsd:restriction>
-                                  </xsd:simpleType>
-                                </xsd:element>
-                              </xsd:choice>
-                              <xsd:element name="Circuits04_ComplianceResultCI" type="comp:ComplianceResultCI">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Compliance</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="Circuits04_ComplianceResultCI" type="comp:ComplianceResultCI">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Compliance</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">If any user input field is blank
 result = TableIncomplete  
 Else If Circuits00_InMyScope == false 
 result = NotInScope
@@ -837,7 +834,10 @@ Else
 result = EqualBetter
 End If
 End If</xsd:documentation>
-                                </xsd:annotation>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
                               </xsd:element>
                             </xsd:sequence>
                           </xsd:complexType>
@@ -845,218 +845,215 @@ End If</xsd:documentation>
                       </xsd:sequence>
                     </xsd:complexType>
                   </xsd:element>
+                  <xsd:element name="CircuitsEndNote1" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText"/>
+                      <xsd:documentation source="AdditionalRequirements">
+                        <d:i><d:sup>1</d:sup>  FOOTNOTES: For each separate load type, up to 10% of the connected load may be of any type.</d:i>
+                      </xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="CircuitsEndNote2" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText"/>
+                      <xsd:documentation source="AdditionalRequirements">
+                        <d:i><d:sup>2</d:sup>  See Chapter 8 of the Nonresidential Compliance Manual for more detail on Compliance Methods: https://www.energy.ca.gov/media/3881 </d:i>
+                      </xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
                 </xsd:sequence>
               </xsd:complexType>
             </xsd:element>
-            <xsd:element name="CircuitsEndNote1" minOccurs="0">
+            <xsd:element name="TableVoltageDrop" minOccurs="0">
               <xsd:annotation>
-                <xsd:documentation source="FieldText"/>
-                <xsd:documentation source="AdditionalRequirements">
-                  <d:i><d:sup>1</d:sup>  FOOTNOTES: For each separate load type, up to 10% of the connected load may be of any type.</d:i>
+                <xsd:documentation source="FieldText">
+                  <d:b>Feeder and Branch Circuit Conductor Voltage Drop </d:b>
                 </xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">This table is required and displayed If B01d_ProjectHasVoltDrop == true Or B01e_ProjectHasVoltDrop == true</xsd:documentation>
               </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="CircuitsEndNote2" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText"/>
-                <xsd:documentation source="AdditionalRequirements">
-                  <d:i><d:sup>2</d:sup>  See Chapter 8 of the Nonresidential Compliance Manual for more detail on Compliance Methods: https://www.energy.ca.gov/media/3881 </d:i>
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="TableVoltageDrop" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation source="FieldText">
-            <d:b>Feeder and Branch Circuit Conductor Voltage Drop </d:b>
-          </xsd:documentation>
-          <xsd:documentation source="CalculationsAndRules">This table is required and displayed If B01d_ProjectHasVoltDrop == true Or B01e_ProjectHasVoltDrop == true</xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="Volt01cc_ElectricalServiceName" type="comp:ElectricalServiceName">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Electrical Service Designation/Description</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                  <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="Volt01cc_ElectricalServiceName" type="comp:ElectricalServiceName">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Electrical Service Designation/Description</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 result = H01_ElectricalServiceName 
 End If
  
 The result is displayed in both the Per CC and As-built conditions</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="CCELC01E" usage="copy">H01_ElectricalServiceName</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Volt01_InMyScope" type="comp:InMyScope">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCELC01E" usage="copy">H01_ElectricalServiceName</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Volt01_InMyScope" type="comp:InMyScope">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
  If result == false Volt02cc-Volt06cc and Volt02-Volt06 As-built cell is blank and grayed out
 And D01_ExceptionalConditionMessageNRCIELCE += VoltageNotInScope 
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Volt01_InstalledSameAsCC" type="comp:InstalledSameAsCC" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="VoltScopeChoice">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                    </xsd:annotation>
-                    <xsd:complexType>
-                      <xsd:choice>
-                        <xsd:element name="VoltScopeNA_NotApplicableMessage">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="CalculationsAndRules">If Volt01_InMyScope == false
-result = BlankGrayedOut for Volt02cc-Volt06cc and Volt02-Volt06 As-built cells are blank and grayed out fields
-End If</xsd:documentation>
                           </xsd:annotation>
-                          <xsd:simpleType>
-                            <xsd:restriction base="comp:NotApplicableMessage">
-                              <xsd:enumeration value="BlankGrayedOut"/>
-                            </xsd:restriction>
-                          </xsd:simpleType>
                         </xsd:element>
-                        <xsd:element name="VoltInScope">
+                        <xsd:element name="Volt01_InstalledSameAsCC" type="comp:InstalledSameAsCC" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="VoltScopeChoice">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText"/>
                           </xsd:annotation>
                           <xsd:complexType>
-                            <xsd:sequence>
-                              <xsd:element name="Volt02cc_CircuitVoltageDropCompliance" type="comp:CircuitVoltageDropCompliance">
+                            <xsd:choice>
+                              <xsd:element name="VoltScopeNA_NotApplicableMessage">
                                 <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Combined Voltage Drop on Installed Feeder/Branch Circuit Conductors Compliance Method</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="CalculationsAndRules">If Volt01_InMyScope == false
+result = BlankGrayedOut for Volt02cc-Volt06cc and Volt02-Volt06 As-built cells are blank and grayed out fields
+End If</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:restriction base="comp:NotApplicableMessage">
+                                    <xsd:enumeration value="BlankGrayedOut"/>
+                                  </xsd:restriction>
+                                </xsd:simpleType>
+                              </xsd:element>
+                              <xsd:element name="VoltInScope">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element name="Volt02cc_CircuitVoltageDropCompliance" type="comp:CircuitVoltageDropCompliance">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Combined Voltage Drop on Installed Feeder/Branch Circuit Conductors Compliance Method</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 If H02a_CircuitVoltageDropCompliance IsPresent
 result =  VoltageDropLT5Percent;
 Else If H02b_CircuitVoltageDropCompliance IsPresent
 result = VoltageDropException
 End If</xsd:documentation>
-                                  <xsd:appinfo source="displayterm">
-                                    <dtyp:displayterm value="VoltageDropException">Voltage drop <d:gt/> 5% permitted by CA Electrical Code 647.4, 695.6, 695.7
+                                        <xsd:appinfo source="displayterm">
+                                          <dtyp:displayterm value="VoltageDropException">Voltage drop <d:gt/> 5% permitted by CA Electrical Code 647.4, 695.6, 695.7
 </dtyp:displayterm>
-                                  </xsd:appinfo>
-                                  <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCELC01E" usage="reference">H02a_CircuitVoltageDropCompliance</dtyp:srcSchema>
-                                    <dtyp:srcSchema form="CCELC01E" usage="reference">H02b_CircuitVoltageDropCompliance</dtyp:srcSchema>
-                                  </xsd:appinfo>
-                                </xsd:annotation>
-                              </xsd:element>
-                              <xsd:element name="Volt02_CircuitVoltageDropCompliance" type="comp:CircuitVoltageDropCompliance">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Combined Voltage Drop on Installed Feeder/Branch Circuit Conductors Compliance Method</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">If Volt01_InstalledSameAsCC == true 
+                                        </xsd:appinfo>
+                                        <xsd:appinfo source="CIsrc">
+                                          <dtyp:srcSchema form="CCELC01E" usage="reference">H02a_CircuitVoltageDropCompliance</dtyp:srcSchema>
+                                          <dtyp:srcSchema form="CCELC01E" usage="reference">H02b_CircuitVoltageDropCompliance</dtyp:srcSchema>
+                                        </xsd:appinfo>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Volt02_CircuitVoltageDropCompliance" type="comp:CircuitVoltageDropCompliance">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Combined Voltage Drop on Installed Feeder/Branch Circuit Conductors Compliance Method</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">If Volt01_InstalledSameAsCC == true 
 result = Volt02cc_CircuitVoltageDropCompliance but user can change value
 Else If Volt01_InstalledSameAsCC == false
 User selects from list: VoltageDropLT5Percent, VoltageDropException
 End If</xsd:documentation>
-                                  <xsd:appinfo source="displayterm">
-                                    <dtyp:displayterm value="VoltageDropException">Voltage drop <d:gt/> 5% permitted by CA Electrical Code 647.4, 695.6, 695.7
+                                        <xsd:appinfo source="displayterm">
+                                          <dtyp:displayterm value="VoltageDropException">Voltage drop <d:gt/> 5% permitted by CA Electrical Code 647.4, 695.6, 695.7
 </dtyp:displayterm>
-                                  </xsd:appinfo>
-                                </xsd:annotation>
-                              </xsd:element>
-                              <xsd:element name="Volt03cc_CircuitVoltageDropCalculations" type="comp:CircuitVoltageDropCalculations">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Voltage Drop Calculations</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                        </xsd:appinfo>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Volt03cc_CircuitVoltageDropCalculations" type="comp:CircuitVoltageDropCalculations">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Voltage Drop Calculations</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 If H03_CircuitVoltageDropCalculations  == CalculationsAttached Or CalculationsInDocs
 result = CalculationsInDocs 
 Else If H03_CircuitVoltageDropCalculations == CalculationsContractorResponsible
 result = CalculationsContractorResponsible
 End If
 End If</xsd:documentation>
-                                  <xsd:appinfo source="displayterm">
-                                    <dtyp:displayterm value="CalculationsContractorResponsible">Contractor Provided</dtyp:displayterm>
-                                  </xsd:appinfo>
-                                  <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCELC01E" usage="reference">H03_CircuitVoltageDropCalculations</dtyp:srcSchema>
-                                  </xsd:appinfo>
-                                </xsd:annotation>
-                              </xsd:element>
-                              <xsd:element name="Volt03_CircuitVoltageDropCalculations" type="comp:CircuitVoltageDropCalculations">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Voltage Drop Calculations</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">If Volt01_InstalledSameAsCC == true 
+                                        <xsd:appinfo source="displayterm">
+                                          <dtyp:displayterm value="CalculationsContractorResponsible">Contractor Provided</dtyp:displayterm>
+                                        </xsd:appinfo>
+                                        <xsd:appinfo source="CIsrc">
+                                          <dtyp:srcSchema form="CCELC01E" usage="reference">H03_CircuitVoltageDropCalculations</dtyp:srcSchema>
+                                        </xsd:appinfo>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Volt03_CircuitVoltageDropCalculations" type="comp:CircuitVoltageDropCalculations">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Voltage Drop Calculations</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">If Volt01_InstalledSameAsCC == true 
 result = Volt03cc_CircuitVoltageDropCalculations 
 Else If Volt01_InstalledSameAsCC == false
 User selects from list: CalculationsInDocs, CalculationsContractorResponsible
 End If</xsd:documentation>
-                                  <xsd:appinfo source="displayterm">
-                                    <dtyp:displayterm value="CalculationsContractorResponsible">Contractor Provided</dtyp:displayterm>
-                                  </xsd:appinfo>
-                                </xsd:annotation>
+                                        <xsd:appinfo source="displayterm">
+                                          <dtyp:displayterm value="CalculationsContractorResponsible">Contractor Provided</dtyp:displayterm>
+                                        </xsd:appinfo>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Volt04cc_NotApplicableMessage">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Voltage Drop to Feeder(s) (%)</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">result = BlankGrayedOut</xsd:documentation>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                          <xsd:enumeration value="BlankGrayedOut"/>
+                                        </xsd:restriction>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Volt04_VoltageDropToFeeders" type="comp:VoltageDropToFeeders">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Voltage Drop to Feeder(s) (%)</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Volt05cc_NotApplicableMessage">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Voltage Drop After the Feeder(s) (%)</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">result = BlankGrayedOut</xsd:documentation>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                          <xsd:enumeration value="BlankGrayedOut"/>
+                                        </xsd:restriction>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Volt05_VoltageDropAfterFeeders" type="comp:VoltageDropAfterFeeders">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Voltage Drop After the Feeder(s) (%)</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Volt06cc_NotApplicableMessage">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Total Voltage Drop  (%)</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">result = BlankGrayedOut</xsd:documentation>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                          <xsd:enumeration value="BlankGrayedOut"/>
+                                        </xsd:restriction>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Volt06_VoltageDropTotal" type="comp:VoltageDropTotal">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Total Voltage Drop  (%)</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">result = Volt04_VoltageDropToFeeders  + Volt05_VoltageDropAfterFeeders</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
                               </xsd:element>
-                              <xsd:element name="Volt04cc_NotApplicableMessage">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Voltage Drop to Feeder(s) (%)</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">result = BlankGrayedOut</xsd:documentation>
-                                </xsd:annotation>
-                                <xsd:simpleType>
-                                  <xsd:restriction base="comp:NotApplicableMessage">
-                                    <xsd:enumeration value="BlankGrayedOut"/>
-                                  </xsd:restriction>
-                                </xsd:simpleType>
-                              </xsd:element>
-                              <xsd:element name="Volt04_VoltageDropToFeeders" type="comp:VoltageDropToFeeders">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Voltage Drop to Feeder(s) (%)</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                </xsd:annotation>
-                              </xsd:element>
-                              <xsd:element name="Volt05cc_NotApplicableMessage">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Voltage Drop After the Feeder(s) (%)</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">result = BlankGrayedOut</xsd:documentation>
-                                </xsd:annotation>
-                                <xsd:simpleType>
-                                  <xsd:restriction base="comp:NotApplicableMessage">
-                                    <xsd:enumeration value="BlankGrayedOut"/>
-                                  </xsd:restriction>
-                                </xsd:simpleType>
-                              </xsd:element>
-                              <xsd:element name="Volt05_VoltageDropAfterFeeders" type="comp:VoltageDropAfterFeeders">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Voltage Drop After the Feeder(s) (%)</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                </xsd:annotation>
-                              </xsd:element>
-                              <xsd:element name="Volt06cc_NotApplicableMessage">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Total Voltage Drop  (%)</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">result = BlankGrayedOut</xsd:documentation>
-                                </xsd:annotation>
-                                <xsd:simpleType>
-                                  <xsd:restriction base="comp:NotApplicableMessage">
-                                    <xsd:enumeration value="BlankGrayedOut"/>
-                                  </xsd:restriction>
-                                </xsd:simpleType>
-                              </xsd:element>
-                              <xsd:element name="Volt06_VoltageDropTotal" type="comp:VoltageDropTotal">
-                                <xsd:annotation>
-                                  <xsd:documentation source="FieldText">Total Voltage Drop  (%)</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">result = Volt04_VoltageDropToFeeders  + Volt05_VoltageDropAfterFeeders</xsd:documentation>
-                                </xsd:annotation>
-                              </xsd:element>
-                            </xsd:sequence>
+                            </xsd:choice>
                           </xsd:complexType>
                         </xsd:element>
-                      </xsd:choice>
-                    </xsd:complexType>
-                  </xsd:element>
-                  <xsd:element name="Volt07_ComplianceResultCI" type="comp:ComplianceResultCI">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Voltage Drop Compliance</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+                        <xsd:element name="Volt07_ComplianceResultCI" type="comp:ComplianceResultCI">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Voltage Drop Compliance</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If any user input field is blank
 result = TableIncomplete  
 Else If Volt01_InMyScope == false 
 result = NotInScope
@@ -1072,207 +1069,207 @@ End If
 Else If Volt01_InstalledSameAsCC == false
 result = EqualBetter
 End If</xsd:documentation>
-                    </xsd:annotation>
+                          </xsd:annotation>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
                   </xsd:element>
                 </xsd:sequence>
               </xsd:complexType>
             </xsd:element>
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="TableControls" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation source="FieldText">
-            <d:b>Circuit Controls and Controlled Receptacles</d:b>
-          </xsd:documentation>
-          <xsd:documentation source="CalculationsAndRules">This table is required and displayed If B01c_ProjectHasReceptacleControl == true</xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="TableControls" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">
+                  <d:b>Circuit Controls and Controlled Receptacles</d:b>
+                </xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">This table is required and displayed If B01c_ProjectHasReceptacleControl == true</xsd:documentation>
+              </xsd:annotation>
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="Controls01cc_SpaceDescription" type="com:SpaceDescription" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Room name or Description</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                  <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="Controls01cc_SpaceDescription" type="com:SpaceDescription" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Room name or Description</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 result = I01_SpaceDescription 
 End If
  
 The result is displayed in both the Per CC and As-built conditions</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="CCELC01E" usage="copy">I01_SpaceDescription</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Controls01_InMyScope" type="comp:InMyScope">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCELC01E" usage="copy">I01_SpaceDescription</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Controls01_InMyScope" type="comp:InMyScope">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
  If result == false Controls02cc-Controls05cc and Controls02-Controls05 As-built cell is blank and grayed out
 And D01_ExceptionalConditionMessageNRCIELCE += CtrlNotInScope  
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ControlsScopeChoice">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                    </xsd:annotation>
-                    <xsd:complexType>
-                      <xsd:choice>
-                        <xsd:element name="ControlsScopeNA_NotApplicableMessage">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="CalculationsAndRules">If Controls01_InMyScope == false
-result = BlankGrayedOut for Controls02cc-Controls05cc and Controls02-Controls05 As-built fields
-End If</xsd:documentation>
                           </xsd:annotation>
-                          <xsd:simpleType>
-                            <xsd:restriction base="comp:NotApplicableMessage">
-                              <xsd:enumeration value="BlankGrayedOut"/>
-                            </xsd:restriction>
-                          </xsd:simpleType>
                         </xsd:element>
-                        <xsd:element name="ControlsInScope">
+                        <xsd:element name="ControlsScopeChoice">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText"/>
                           </xsd:annotation>
                           <xsd:complexType>
-                            <xsd:sequence>
-                              <xsd:element name="Controls01_InstalledSameAsCC" type="comp:InstalledSameAsCC" minOccurs="0">
+                            <xsd:choice>
+                              <xsd:element name="ControlsScopeNA_NotApplicableMessage">
                                 <xsd:annotation>
-                                  <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="CalculationsAndRules">If Controls01_InMyScope == false
+result = BlankGrayedOut for Controls02cc-Controls05cc and Controls02-Controls05 As-built fields
+End If</xsd:documentation>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:restriction base="comp:NotApplicableMessage">
+                                    <xsd:enumeration value="BlankGrayedOut"/>
+                                  </xsd:restriction>
+                                </xsd:simpleType>
                               </xsd:element>
-                              <xsd:choice maxOccurs="1">
-                                <xsd:element name="Controls02cc_ControlledReceptacleComplianceType" type="comp:ControlledReceptacleComplianceType" minOccurs="0" maxOccurs="unbounded">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup></xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                              <xsd:element name="ControlsInScope">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element name="Controls01_InstalledSameAsCC" type="comp:InstalledSameAsCC" minOccurs="0">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Controls02cc_ControlledReceptacleComplianceType" type="comp:ControlledReceptacleComplianceType" minOccurs="0" maxOccurs="unbounded">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
    If  I02_ControlledReceptacleComplianceType IsPresent
    result = I02_ControlledReceptacleComplianceType 
    End If
    End If</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="copy">I02_ControlledReceptacleComplianceType</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls02cc_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1,2</d:sup></xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="copy">I02_ControlledReceptacleComplianceType</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls02cc_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1,2</d:sup></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
    If I02_ControlledReceptacleNA IsPresent
    result = I02_ControlledReceptacleNA 
    End If</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="copy">I02_ControlledReceptacleNA</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls02cc_NotApplicableMessage">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup></xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If I02_NotApplicableMessage IsPresent
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="copy">I02_ControlledReceptacleNA</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls02cc_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If I02_NotApplicableMessage IsPresent
 result = BlankGrayedOut</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="reference">I02_NotApplicableMessage</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                  <xsd:simpleType>
-                                    <xsd:restriction base="comp:NotApplicableMessage">
-                                      <xsd:enumeration value="BlankGrayedOut"/>
-                                    </xsd:restriction>
-                                  </xsd:simpleType>
-                                </xsd:element>
-                              </xsd:choice>
-                              <xsd:choice maxOccurs="1">
-                                <xsd:element name="Controls02_ControlledReceptacleComplianceType" type="comp:ControlledReceptacleComplianceType" minOccurs="0" maxOccurs="unbounded">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup></xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="reference">I02_NotApplicableMessage</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Controls02_ControlledReceptacleComplianceType" type="comp:ControlledReceptacleComplianceType" minOccurs="0" maxOccurs="unbounded">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
    If  Controls02cc_ControlledReceptacleComplianceType IsPresent
    result = Controls02cc_ControlledReceptacleComplianceType but user can change value or add additional values from dropdown list 
    Else If Controls01_InstalledSameAsCC == false
    User selects all that apply in this space from dropdown list of ControlledReceptacleComplianceType 
    End If
    End If</xsd:documentation>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls02_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup></xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls02_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
    If Controlc02cc_ControlledReceptacleNA IsPresent
    result = Controlc02cc_ControlledReceptacleNA
    End If
    Else  If Controls01_InstalledSameAsCC == false
    User selects all that apply in this space from dropdown list of ControlledReceptacleNA values
    End If</xsd:documentation>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls02_NotApplicableMessage">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup></xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Controls02cc_NotApplicableMessage IsPresent
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls02_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Controls02cc_NotApplicableMessage IsPresent
 result = BlankGrayedOut</xsd:documentation>
-                                  </xsd:annotation>
-                                  <xsd:simpleType>
-                                    <xsd:restriction base="comp:NotApplicableMessage">
-                                      <xsd:enumeration value="BlankGrayedOut"/>
-                                    </xsd:restriction>
-                                  </xsd:simpleType>
-                                </xsd:element>
-                              </xsd:choice>
-                              <xsd:choice maxOccurs="1">
-                                <xsd:element name="Controls03cc_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl" minOccurs="0" maxOccurs="unbounded">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Controls03cc_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl" minOccurs="0" maxOccurs="unbounded">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 
    If  I03_ControlledReceptacleShutOffControl IsPresent
    result = I03_ControlledReceptacleShutOffControl
    End If
    End If</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="copy">I03_ControlledReceptacleShutOffControl</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls03cc_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="copy">I03_ControlledReceptacleShutOffControl</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls03cc_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 
    If I03_ControlledReceptacleNA IsPresent
    result = I03_ControlledReceptacleNA
    End If
    End If</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="copy">I03_ControlledReceptacleNA</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls03cc_NotApplicableMessage">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If I03_NotApplicableMessage IsPresent
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="copy">I03_ControlledReceptacleNA</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls03cc_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If I03_NotApplicableMessage IsPresent
 result = BlankGrayedOut</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="reference">I03_NotApplicableMessage</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                  <xsd:simpleType>
-                                    <xsd:restriction base="comp:NotApplicableMessage">
-                                      <xsd:enumeration value="BlankGrayedOut"/>
-                                    </xsd:restriction>
-                                  </xsd:simpleType>
-                                </xsd:element>
-                              </xsd:choice>
-                              <xsd:choice maxOccurs="1">
-                                <xsd:element name="Controls03_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl" minOccurs="0" maxOccurs="unbounded">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="reference">I03_NotApplicableMessage</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Controls03_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl" minOccurs="0" maxOccurs="unbounded">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
    If Controls03cc_ControlledReceptacleShutOffControl IsPresent
    result = Controls03cc_ControlledReceptacleShutOffControl
    but user can add additional values from dropdown list of ControlledReceptacleShutOffControl values
@@ -1281,12 +1278,12 @@ result = BlankGrayedOut</xsd:documentation>
    User can select from dropdown list of ControlledReceptacleShutOffControl
    End If
    End If</xsd:documentation>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls03_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls03_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
    If Controls03cc_ControlledReceptacleNA IsPresent
    result = Controls03cc_ControlledReceptacleNA but user can add additional values from dropdown list of ControlledReceptacleNA values
    End If
@@ -1298,109 +1295,109 @@ result = BlankGrayedOut</xsd:documentation>
    
    
    ControlledReceptacleNA and user may select  one or more that apply in this space or may not select any.</xsd:documentation>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls03_NotApplicableMessage">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Controls03cc_NotApplicableMessage IsPresent
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls03_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Controls03cc_NotApplicableMessage IsPresent
 result = BlankGrayedOut</xsd:documentation>
-                                  </xsd:annotation>
-                                  <xsd:simpleType>
-                                    <xsd:restriction base="comp:NotApplicableMessage">
-                                      <xsd:enumeration value="BlankGrayedOut"/>
-                                    </xsd:restriction>
-                                  </xsd:simpleType>
-                                </xsd:element>
-                              </xsd:choice>
-                              <xsd:choice maxOccurs="1">
-                                <xsd:element name="Controls04acc_ControlledReceptacleDemandResponse" type="comp:ControlledReceptacleDemandResponse">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Demand Response Controls</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Controls04acc_ControlledReceptacleDemandResponse" type="comp:ControlledReceptacleDemandResponse">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Demand Response Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 
    result = I04a_ControlledReceptacleDemandResponse
    End If</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="copy">I04a_ControlledReceptacleDemandResponse</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls04acc_NotApplicableMessage">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Demand Response Controls</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If I04a_NotApplicableMessage IsPresent
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="copy">I04a_ControlledReceptacleDemandResponse</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls04acc_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Demand Response Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If I04a_NotApplicableMessage IsPresent
 result = BlankGrayedOut</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="reference">I04a_NotApplicableMessage</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                  <xsd:simpleType>
-                                    <xsd:restriction base="comp:NotApplicableMessage">
-                                      <xsd:enumeration value="BlankGrayedOut"/>
-                                    </xsd:restriction>
-                                  </xsd:simpleType>
-                                </xsd:element>
-                              </xsd:choice>
-                              <xsd:choice maxOccurs="1">
-                                <xsd:element name="Controls04a_ControlledReceptacleDemandResponse" type="comp:ControlledReceptacleDemandResponse">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Demand Response Controls</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true and Controls04acc_ControlledReceptacleDemandResponse IsPresent
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="reference">I04a_NotApplicableMessage</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Controls04a_ControlledReceptacleDemandResponse" type="comp:ControlledReceptacleDemandResponse">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Demand Response Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true and Controls04acc_ControlledReceptacleDemandResponse IsPresent
 result = Controls04acc_ControlledReceptacleDemandResponse
 Else If Controls01_InstalledSameAsCC == false
 User can select from dropdown list of ControlledReceptacleDemandResponse 
 End If</xsd:documentation>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls04a_NotApplicableMessage">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Demand Response Controls</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Controls04acc_NotApplicableMessage IsPresent
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls04a_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Demand Response Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Controls04acc_NotApplicableMessage IsPresent
 result = BlankGrayedOut</xsd:documentation>
-                                  </xsd:annotation>
-                                  <xsd:simpleType>
-                                    <xsd:restriction base="comp:NotApplicableMessage">
-                                      <xsd:enumeration value="BlankGrayedOut"/>
-                                    </xsd:restriction>
-                                  </xsd:simpleType>
-                                </xsd:element>
-                              </xsd:choice>
-                              <xsd:choice maxOccurs="1">
-                                <xsd:element name="Controls04cc_AreControlledReceptaclesPermanentlyMarked" type="comp:AreControlledReceptaclesPermanentlyMarked">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Permanent Marking Is Used</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If CC-ELC parent  and I04_AreControlledReceptaclesPermanentlyMarked IsPresent
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Controls04cc_AreControlledReceptaclesPermanentlyMarked" type="comp:AreControlledReceptaclesPermanentlyMarked">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Permanent Marking Is Used</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-ELC parent  and I04_AreControlledReceptaclesPermanentlyMarked IsPresent
 result = I04_AreControlledReceptaclesPermanentlyMarked
 End If</xsd:documentation>
-                                    <xsd:appinfo source="displayterm">
-                                      <dtyp:displayterm value="true">Included in Design</dtyp:displayterm>
-                                    </xsd:appinfo>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="copy">I04_AreControlledReceptaclesPermanentlyMarked</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls04cc_NotApplicableMessage">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Permanent Marking Is Used</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If I04_NotApplicableMessage IsPresent
+                                          <xsd:appinfo source="displayterm">
+                                            <dtyp:displayterm value="true">Included in Design</dtyp:displayterm>
+                                          </xsd:appinfo>
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="copy">I04_AreControlledReceptaclesPermanentlyMarked</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls04cc_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Permanent Marking Is Used</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If I04_NotApplicableMessage IsPresent
 result = BlankGrayedOut</xsd:documentation>
-                                    <xsd:appinfo source="CIsrc">
-                                      <dtyp:srcSchema form="CCELC01E" usage="reference">I04_NotApplicableMessage</dtyp:srcSchema>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                  <xsd:simpleType>
-                                    <xsd:restriction base="comp:NotApplicableMessage">
-                                      <xsd:enumeration value="BlankGrayedOut"/>
-                                    </xsd:restriction>
-                                  </xsd:simpleType>
-                                </xsd:element>
-                              </xsd:choice>
-                              <xsd:choice maxOccurs="1">
-                                <xsd:element name="Controls04_AreControlledReceptaclesPermanentlyMarked" type="comp:AreControlledReceptaclesPermanentlyMarked">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Permanent Marking Is Used</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == false
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCELC01E" usage="reference">I04_NotApplicableMessage</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Controls04_AreControlledReceptaclesPermanentlyMarked" type="comp:AreControlledReceptaclesPermanentlyMarked">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Permanent Marking Is Used</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == false
    User selects from AreControlledReceptaclesPermanentlyMarked true value displayed in dropdown as  Controlled and Uncontrolled Receptacles Identified with Permanent Marking, or any values from ControlledReceptacleNA
    
    Else If Controls01_InstalledSameAsCC == true
@@ -1410,15 +1407,15 @@ result = BlankGrayedOut</xsd:documentation>
    User can select values from dropdown list of ControlledReceptacleNA values
    End If
    End If</xsd:documentation>
-                                    <xsd:appinfo source="displayterm">
-                                      <dtyp:displayterm value="true">Controlled and Uncontrolled Receptacles Identified with Permanent Marking</dtyp:displayterm>
-                                    </xsd:appinfo>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls04_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Permanent Marking Will be Used</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == false
+                                          <xsd:appinfo source="displayterm">
+                                            <dtyp:displayterm value="true">Controlled and Uncontrolled Receptacles Identified with Permanent Marking</dtyp:displayterm>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls04_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Permanent Marking Will be Used</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == false
    User selects from AreControlledReceptaclesPermanentlyMarked true value displayed in dropdown as  Controlled and Uncontrolled Receptacles Identified with Permanent Marking, or any values from ControlledReceptacleNA
    
    Else If Controls01_InstalledSameAsCC == true
@@ -1428,31 +1425,31 @@ result = BlankGrayedOut</xsd:documentation>
    User can select values from dropdown list of ControlledReceptacleNA values
    End If
    End If</xsd:documentation>
-                                  </xsd:annotation>
-                                </xsd:element>
-                                <xsd:element name="Controls04_NotApplicableMessage">
-                                  <xsd:annotation>
-                                    <xsd:documentation source="FieldText">Permanent Marking Is Used</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Controls04cc_NotApplicableMessage IsPresent
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Controls04_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Permanent Marking Is Used</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Controls04cc_NotApplicableMessage IsPresent
 result = BlankGrayedOut</xsd:documentation>
-                                  </xsd:annotation>
-                                  <xsd:simpleType>
-                                    <xsd:restriction base="comp:NotApplicableMessage">
-                                      <xsd:enumeration value="BlankGrayedOut"/>
-                                    </xsd:restriction>
-                                  </xsd:simpleType>
-                                </xsd:element>
-                              </xsd:choice>
-                            </xsd:sequence>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:choice>
                           </xsd:complexType>
                         </xsd:element>
-                      </xsd:choice>
-                    </xsd:complexType>
-                  </xsd:element>
-                  <xsd:element name="Controls05_ComplianceResultCI" type="comp:ComplianceResultCI">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Compliance</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+                        <xsd:element name="Controls05_ComplianceResultCI" type="comp:ComplianceResultCI">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Compliance</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If any user input field is blank
 result = TableIncomplete 
 Else If  Controls01_InMyScope == false
 result = NotInScope
@@ -1488,225 +1485,228 @@ End If
 Else If Controls01_InstalledSameAsCC == false
 result = EqualBetter
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                </xsd:sequence>
-              </xsd:complexType>
-            </xsd:element>
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="ControlsEndNote1" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation source="FieldText"/>
-          <xsd:documentation source="AdditionalRequirements">
-            <d:i><d:sup>1</d:sup> FOOTNOTES: Office areas, lobbies, conference rooms, kitchen areas in office spaces, and copy rooms must meet controlled receptacle requirements.</d:i>
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="ControlsEndNote2" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation source="FieldText"/>
-          <xsd:documentation source="AdditionalRequirements">
-            <d:i><d:sup>2</d:sup> Plug-in strips and other plug-in devices shall not be used to comply with the requirements of section 130.5(d)</d:i>
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Electmf" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation source="FieldText">
-            <d:b>Electric Ready for Multifamily Occupancies</d:b>
-          </xsd:documentation>
-          <xsd:documentation source="CalculationsAndRules">If in parent CC-ELC 
-Section_J IsPresent
-this subsection is required</xsd:documentation>
-        </xsd:annotation>
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="ElectmfCol1Label" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Electmf01acc_SingleUnitFurnace" type="comp:SingleUnitFurnace" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
-result = J01a_SingleUnitFurnace</xsd:documentation>
-                <xsd:appinfo source="CIsrc">
-                  <dtyp:srcSchema form="CCELC01E" usage="copy">J01a_SingleUnitFurnace</dtyp:srcSchema>
-                </xsd:appinfo>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Electmf01bcc_SingleUnitCooktop" type="comp:SingleUnitCooktop" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
-result = J01b_SingleUnitCooktop</xsd:documentation>
-                <xsd:appinfo source="CIsrc">
-                  <dtyp:srcSchema form="CCELC01E" usage="copy">J01b_SingleUnitCooktop</dtyp:srcSchema>
-                </xsd:appinfo>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Electmf01ccc_SingleUnitDryer" type="comp:SingleUnitDryer" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
-result = J01c_SingleUnitDryer</xsd:documentation>
-                <xsd:appinfo source="CIsrc">
-                  <dtyp:srcSchema form="CCELC01E" usage="copy">J01c_SingleUnitDryer</dtyp:srcSchema>
-                </xsd:appinfo>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Electmf01dcc_CommonAreaDryer" type="comp:CommonAreaDryer" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
-result = J01d_CommonAreaDryer</xsd:documentation>
-                <xsd:appinfo source="CIsrc">
-                  <dtyp:srcSchema form="CCELC01E" usage="copy">J01d_CommonAreaDryer</dtyp:srcSchema>
-                </xsd:appinfo>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Electmf01ecc_WaterHeaterIndividualDwellingUnit" type="comp:WaterHeaterIndividualDwellingUnit" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
-result = J01e_WaterHeaterIndividualDwellingUnit</xsd:documentation>
-                <xsd:appinfo source="CIsrc">
-                  <dtyp:srcSchema form="CCELC01E" usage="copy">J01e_WaterHeaterIndividualDwellingUnit</dtyp:srcSchema>
-                </xsd:appinfo>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Electmf01fcc_WaterHeaterMultipleDwellingUnit" type="comp:WaterHeaterMultipleDwellingUnit" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
-result = J01f_WaterHeaterMultipleDwellingUnit</xsd:documentation>
-                <xsd:appinfo source="CIsrc">
-                  <dtyp:srcSchema form="CCELC01E" usage="copy">J01f_WaterHeaterMultipleDwellingUnit</dtyp:srcSchema>
-                </xsd:appinfo>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="ElectmfFurnace" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Gas/ Propane Furnaces Serving Individual Dwelling Units (Heat Pump Space Heater Ready)</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If Electmf01acc_SingleUnitFurnace == true
-this subsection is displayed</xsd:documentation>
-              </xsd:annotation>
-              <xsd:complexType>
-                <xsd:sequence>
-                  <xsd:element name="Electmf02" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">A dedicated 240 volt branch circuit shall be installed within 3 feet from the furnace and accessible to the furnace with no obstructions. The branch circuit shall be rated at 30 amps minimum. The blank cover shall be identified as "240V ready". All electrical components shall be installed in accordance with the California Electrical Code.</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Electmf03" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future heat pump space heater installation. The reserved space shall be permanently marked as "For Future 240V use".</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                </xsd:sequence>
-              </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="ElectmfCookTop" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Gas/ Propane Cooktops Serving Individual Dwelling Units</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If Electmf01bcc_SingleUnitCooktop == true
-this subsection is displayed</xsd:documentation>
-              </xsd:annotation>
-              <xsd:complexType>
-                <xsd:sequence>
-                  <xsd:element name="Electmf03" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">A dedicated 240 volt branch circuit shall be installed within 3 feet from the cooktop and accessible to the cooktop with no obstructions. The branch circuit shall be rated at 50 amps minimum. The blank cover shall be identified as "240V ready". All electrical components shall be installed in accordance with the California Electrical Code.</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Electmf04" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future electric cooktop installation. The reserved space shall be permanently marked as "For Future 240V use".</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                </xsd:sequence>
-              </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="ElectmfDryer" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Gas/ Propane Clothes Dryers Serving Individual Dwelling Units</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If Electmf01ccc_SingleUnitDryer == true
-this subsection is displayed</xsd:documentation>
-              </xsd:annotation>
-              <xsd:complexType>
-                <xsd:sequence>
-                  <xsd:element name="Electmf05" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">A dedicated 240 volt branch circuit shall be installed within 3 feet from the clothes dryer and accessible to the clothes dryer with no obstructions. The branch circuit shall be rated at 30 amps minimum. The blank cover shall be identified as "240V ready". All electrical components shall be installed in accordance with the California Electrical Code.</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Electmf06" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future electric clothes dryer installation. The reserved space shall be permanently marked as "For Future 240V use".</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                </xsd:sequence>
-              </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="ElectmfDryerShared" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation source="FieldText">Gas/ Propane Clothes Dryers In Common Areas</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If Electmf01dcc_CommonAreaDryer == true
-this subsection is displayed</xsd:documentation>
-              </xsd:annotation>
-              <xsd:complexType>
-                <xsd:sequence>
-                  <xsd:element name="Electmf07" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">Conductors or raceway shall be installed with termination points at the main electrical panel, via subpanels panels if applicable, to a location no more than 3 feet from each gas outlet or a designated location of future electric replacement equipment. Both ends of the conductors or raceway shall be labelled "Future 240V Use." Gas flow rates shall be determined in accordance with the California Plumbing Code. Capacity shall be one of the following: <d:line1/><d:tab1/>- 24 amps at 208/240 volts per clothes dryer; <d:line1/><d:tab1/>- 2.6 kVA for each 10,000 Btu per hour of rated gas input or gas pipe capacity; or <d:line1/><d:tab1/>- The electrical power required to provide equivalent functionality of the gas-powered equipment as calculated by the responsible person</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="WaterHeaterIndividualDwelling" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Gas/Propane Water Heaters Serving Individual Dwelling Units</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If Electmf01ecc_WaterHeaterIndividualDwellingUnit == true
-this subsection is displayed</xsd:documentation>
-                    </xsd:annotation>
-                    <xsd:complexType>
-                      <xsd:sequence>
-                        <xsd:element name="Electmf08" minOccurs="0">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">A dedicated 125 volt, 20 amp electrical receptacle that is connected to the electric panel with a 120/240 volt 3 conductor branch circuit rated to 30 amps minimum, within 3 feet from the water heater and accessible to the water heater with no obstructions. In addition, all the following:<d:line1/><d:tab1/>- Both ends of the unused conductor shall be labeled with the word “spare” and be electrically isolated; and<d:line1/><d:tab1/>- A reserved single pole circuit breaker space in the electrical panel adjacent to the circuit breaker for the branch circuit in A above and labeled with the words “Future 240V Use”</xsd:documentation>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Electmf09" minOccurs="0">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">The construction drawings shall designate a space at least 39 inches by 39 inches and 96 inches tall for the future location of heat pump water heater.</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="WaterHeaterMultipleDwelling" minOccurs="0">
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ControlsEndNote1" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText"/>
+                <xsd:documentation source="AdditionalRequirements">
+                  <d:i><d:sup>1</d:sup> FOOTNOTES: Office areas, lobbies, conference rooms, kitchen areas in office spaces, and copy rooms must meet controlled receptacle requirements.</d:i>
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ControlsEndNote2" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText"/>
+                <xsd:documentation source="AdditionalRequirements">
+                  <d:i><d:sup>2</d:sup> Plug-in strips and other plug-in devices shall not be used to comply with the requirements of section 130.5(d)</d:i>
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Electmf" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">
+                  <d:b>Electric Ready for Multifamily Occupancies</d:b>
+                </xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">If in parent CC-ELC 
+Section_J IsPresent
+this subsection is required</xsd:documentation>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="ElectmfCol1Label" minOccurs="0">
                     <xsd:annotation>
-                      <xsd:documentation source="FieldText">Gas/Propane Water Heaters Serving Multiple Dwelling Units</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If Electmf01fcc_WaterHeaterMultipleDwellingUnit == true
+                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Electmf01acc_SingleUnitFurnace" type="comp:SingleUnitFurnace" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
+result = J01a_SingleUnitFurnace</xsd:documentation>
+                      <xsd:appinfo source="CIsrc">
+                        <dtyp:srcSchema form="CCELC01E" usage="copy">J01a_SingleUnitFurnace</dtyp:srcSchema>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Electmf01bcc_SingleUnitCooktop" type="comp:SingleUnitCooktop" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
+result = J01b_SingleUnitCooktop</xsd:documentation>
+                      <xsd:appinfo source="CIsrc">
+                        <dtyp:srcSchema form="CCELC01E" usage="copy">J01b_SingleUnitCooktop</dtyp:srcSchema>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Electmf01ccc_SingleUnitDryer" type="comp:SingleUnitDryer" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
+result = J01c_SingleUnitDryer</xsd:documentation>
+                      <xsd:appinfo source="CIsrc">
+                        <dtyp:srcSchema form="CCELC01E" usage="copy">J01c_SingleUnitDryer</dtyp:srcSchema>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Electmf01dcc_CommonAreaDryer" type="comp:CommonAreaDryer" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
+result = J01d_CommonAreaDryer</xsd:documentation>
+                      <xsd:appinfo source="CIsrc">
+                        <dtyp:srcSchema form="CCELC01E" usage="copy">J01d_CommonAreaDryer</dtyp:srcSchema>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Electmf01ecc_WaterHeaterIndividualDwellingUnit" type="comp:WaterHeaterIndividualDwellingUnit" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
+result = J01e_WaterHeaterIndividualDwellingUnit</xsd:documentation>
+                      <xsd:appinfo source="CIsrc">
+                        <dtyp:srcSchema form="CCELC01E" usage="copy">J01e_WaterHeaterIndividualDwellingUnit</dtyp:srcSchema>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Electmf01fcc_WaterHeaterMultipleDwellingUnit" type="comp:WaterHeaterMultipleDwellingUnit" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
+result = J01f_WaterHeaterMultipleDwellingUnit</xsd:documentation>
+                      <xsd:appinfo source="CIsrc">
+                        <dtyp:srcSchema form="CCELC01E" usage="copy">J01f_WaterHeaterMultipleDwellingUnit</dtyp:srcSchema>
+                      </xsd:appinfo>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ElectmfFurnace" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Gas/ Propane Furnaces Serving Individual Dwelling Units (Heat Pump Space Heater Ready)</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If Electmf01acc_SingleUnitFurnace == true
 this subsection is displayed</xsd:documentation>
                     </xsd:annotation>
                     <xsd:complexType>
                       <xsd:sequence>
-                        <xsd:element name="Electmf10" minOccurs="0">
+                        <xsd:element name="Electmf02" minOccurs="0">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Physical space shall be reserved on the bus system of the main switchboard or on the bus system of a distribution board to serve the future heat pump water heater system including the heat pump and temperature maintenance tanks. In addition, the physical space reserved shall be capable of providing adequate power to the future heat pump water heater in accordance with the following:<d:line1/><d:tab1/> - Heat Pump. Meet one of the following:<d:line1/><d:tab1/><d:tab1/>- The electrical power required to power a heat pump water heater system heat pump that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.<d:line1/><d:tab1/><d:tab1/> - The electrical power required that meets the requirements specified for the heat pump in Joint Appendix JA15.2.5.<d:line1/><d:tab1/>- Temperature Maintenance Tank. Meet one of the following: <d:line1/><d:tab1/><d:tab1/> - The electrical power required to power a heat pump water heater system temperature maintenance tank that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.<d:line1/><d:tab1/><d:tab1/> - The electrical power required that meets the requirements specified for the temperature maintenance tank in Joint Appendix JA15.2.5.</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">A dedicated 240 volt branch circuit shall be installed within 3 feet from the furnace and accessible to the furnace with no obstructions. The branch circuit shall be rated at 30 amps minimum. The blank cover shall be identified as "240V ready". All electrical components shall be installed in accordance with the California Electrical Code.</xsd:documentation>
                           </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Electmf03" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future heat pump space heater installation. The reserved space shall be permanently marked as "For Future 240V use".</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="ElectmfCookTop" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Gas/ Propane Cooktops Serving Individual Dwelling Units</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If Electmf01bcc_SingleUnitCooktop == true
+this subsection is displayed</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="Electmf03" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">A dedicated 240 volt branch circuit shall be installed within 3 feet from the cooktop and accessible to the cooktop with no obstructions. The branch circuit shall be rated at 50 amps minimum. The blank cover shall be identified as "240V ready". All electrical components shall be installed in accordance with the California Electrical Code.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Electmf04" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future electric cooktop installation. The reserved space shall be permanently marked as "For Future 240V use".</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="ElectmfDryer" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Gas/ Propane Clothes Dryers Serving Individual Dwelling Units</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If Electmf01ccc_SingleUnitDryer == true
+this subsection is displayed</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="Electmf05" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">A dedicated 240 volt branch circuit shall be installed within 3 feet from the clothes dryer and accessible to the clothes dryer with no obstructions. The branch circuit shall be rated at 30 amps minimum. The blank cover shall be identified as "240V ready". All electrical components shall be installed in accordance with the California Electrical Code.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Electmf06" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">The main electrical service panel shall have a reserved space to allow for the installation of a double pole circuit breaker for a future electric clothes dryer installation. The reserved space shall be permanently marked as "For Future 240V use".</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="ElectmfDryerShared" minOccurs="0">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Gas/ Propane Clothes Dryers In Common Areas</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">If Electmf01dcc_CommonAreaDryer == true
+this subsection is displayed</xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="Electmf07" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">Conductors or raceway shall be installed with termination points at the main electrical panel, via subpanels panels if applicable, to a location no more than 3 feet from each gas outlet or a designated location of future electric replacement equipment. Both ends of the conductors or raceway shall be labelled "Future 240V Use." Gas flow rates shall be determined in accordance with the California Plumbing Code. Capacity shall be one of the following: <d:line1/><d:tab1/>- 24 amps at 208/240 volts per clothes dryer; <d:line1/><d:tab1/>- 2.6 kVA for each 10,000 Btu per hour of rated gas input or gas pipe capacity; or <d:line1/><d:tab1/>- The electrical power required to provide equivalent functionality of the gas-powered equipment as calculated by the responsible person</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="WaterHeaterIndividualDwelling" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Gas/Propane Water Heaters Serving Individual Dwelling Units</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If Electmf01ecc_WaterHeaterIndividualDwellingUnit == true
+this subsection is displayed</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="Electmf08" minOccurs="0">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">A dedicated 125 volt, 20 amp electrical receptacle that is connected to the electric panel with a 120/240 volt 3 conductor branch circuit rated to 30 amps minimum, within 3 feet from the water heater and accessible to the water heater with no obstructions. In addition, all the following:<d:line1/><d:tab1/>- Both ends of the unused conductor shall be labeled with the word “spare” and be electrically isolated; and<d:line1/><d:tab1/>- A reserved single pole circuit breaker space in the electrical panel adjacent to the circuit breaker for the branch circuit in A above and labeled with the words “Future 240V Use”</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Electmf09" minOccurs="0">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">The construction drawings shall designate a space at least 39 inches by 39 inches and 96 inches tall for the future location of heat pump water heater.</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="WaterHeaterMultipleDwelling" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Gas/Propane Water Heaters Serving Multiple Dwelling Units</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If Electmf01fcc_WaterHeaterMultipleDwellingUnit == true
+this subsection is displayed</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="Electmf10" minOccurs="0">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Physical space shall be reserved on the bus system of the main switchboard or on the bus system of a distribution board to serve the future heat pump water heater system including the heat pump and temperature maintenance tanks. In addition, the physical space reserved shall be capable of providing adequate power to the future heat pump water heater in accordance with the following:<d:line1/><d:tab1/> - Heat Pump. Meet one of the following:<d:line1/><d:tab1/><d:tab1/>- The electrical power required to power a heat pump water heater system heat pump that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.<d:line1/><d:tab1/><d:tab1/> - The electrical power required that meets the requirements specified for the heat pump in Joint Appendix JA15.2.5.<d:line1/><d:tab1/>- Temperature Maintenance Tank. Meet one of the following: <d:line1/><d:tab1/><d:tab1/> - The electrical power required to power a heat pump water heater system temperature maintenance tank that meets the total building hot water demand as calculated and documented by the responsible person associated with the project.<d:line1/><d:tab1/><d:tab1/> - The electrical power required that meets the requirements specified for the temperature maintenance tank in Joint Appendix JA15.2.5.</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
                         </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
