@@ -196,7 +196,7 @@ End If</xsd:documentation>
             </xsd:element>
             <xsd:element name="B03c_ProjectHasAreaControl" type="comp:ProjectHasAreaControl">
               <xsd:annotation>
-                <xsd:documentation source="FieldText">Area Controls</xsd:documentation>
+                <xsd:documentation source="FieldText">Manual Controls</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -1198,13 +1198,13 @@ End If</xsd:documentation>
                   <xsd:element name="Dunit01" minOccurs="0">
                     <xsd:annotation>
                       <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">The following light sources are considered high efficacy light sources and are not required to comply with Title 24, Part 6 Joint Appendix 8 requirements: <d:line1/><d:tab1/>A. Pin-based linear fluorescent or compact fluorescent light sources using electronic ballasts <d:line1/><d:tab1/>B. Pulse-start metal halide light sources <d:line1/><d:tab1/>C. High pressure sodium light sources <d:line1/><d:tab1/>D. Have sunrise and sunset prediction accuracy within +/- 15 minutes and timekeeping accuracy within 5 min per year (astronomical only) <d:line1/><d:tab1/>E. Luminaires with hardwired high frequency generator and induction lamp  <d:line1/><d:tab1/>F. LED light sources installed outdoors  <d:line1/><d:tab1/>G. Inseparable solid state LED (SSL) luminaires containing colored light sources that are installed to provide decorative lighting <d:line1/>All other light sources shall be marked with "JA8-2019" or "JA8-2019-E" to qualify as high efficacy light sources.  Light sources not marked "JA8-2019" or "JA8-2019-E" do not meet the efficacy requirements.</xsd:documentation>
+                      <xsd:documentation source="AdditionalRequirements">The following light sources are not required to comply with Title 24, Part 6 Joint Appendix 8 requirements: <d:line1/><d:tab1/>A. Pulse-start metal halide light sources. <d:line1/><d:tab1/>B. High pressure sodium light sources. <d:line1/><d:tab1/>C. Luminaires with hardwired high frequency generator and induction lamp. <d:line1/><d:tab1/>D. LED light sources installed outdoors. <d:line1/><d:tab1/>E. Inseparable solid state LED (SSL) luminaires containing colored light sources that are installed to provide decorative lighting. <d:line1/><d:tab1/>F. Lighting integral to exhaust fans, kitchen range hoods, bath vanity mirrors, and garage door openers, and ceiling fan kits that are subject to DOE's Appliance and Equipment Standards Program. <d:line1/><d:tab1/>G. Navigation lighting rated less than five watts, such as night lights, step lights, and path lights. <d:line1/><d:tab1/>H. Lighting with an efficacy of 45 lumens per watt or greater and located internal to drawers, cabinetry, and or linen closets.</xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Dunit02" minOccurs="0">
                     <xsd:annotation>
                       <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">Ceiling recessed downlight luminaires shall not have screw bases regardless of lamp type.</xsd:documentation>
+                      <xsd:documentation source="AdditionalRequirements">All other light sources shall be marked with "JA8-2025" or "JA8-2025-E" to meet the requirements of JA8.  Light sources not marked "JA8-2025" or "JA8-2025-E" do not meet the efficacy requirements.</xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
                 </xsd:sequence>
@@ -1404,7 +1404,7 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                       <xsd:element name="Ctrl04cc_AreaControlsCompliance">
                                         <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Manual Area Controls</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Manual Controls</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
 If H06_AreaControlsCompliance IsPresent
 result = H06_AreaControlsCompliance
@@ -1420,7 +1420,7 @@ End If</xsd:documentation>
                                       </xsd:element>
                                       <xsd:element name="Ctrl04cc_MandatoryAreaControlsRequired">
                                         <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Manual Area Controls</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Manual Controls</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCPRFE parent
 If LtgControls05_MandatoryAreaControlsRequired IsPresent
 result = LtgControls05_MandatoryAreaControlsRequired
@@ -1440,7 +1440,7 @@ End If</xsd:documentation>
                                     </xsd:choice>
                                     <xsd:element name="Ctrl04_AreaControlsCompliance">
                                       <xsd:annotation>
-                                        <xsd:documentation source="FieldText">Manual Area Controls</xsd:documentation>
+                                        <xsd:documentation source="FieldText">Manual Controls</xsd:documentation>
                                         <xsd:documentation source="CalculationsAndRules">
 If Ctrl01_InstalledSameAsCC == true
 
