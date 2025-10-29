@@ -1510,11 +1510,12 @@ End If
                   </xsd:sequence>
                   </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="F18To20Heading" minOccurs="0">
+                  <xsd:element name="WaterHeatingAllOccupancies" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Water Heating Equipment All Occupancies- [d:t24refnolink/]110.3(c)3,[d:t24refnolink/]140.5(a) [/d:b]</xsd:documentation>
                      </xsd:annotation>
-                  </xsd:element>
+                     <xsd:complexType>
+                        <xsd:sequence>
                   <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                   <xsd:complexType>
                      <xsd:sequence>
@@ -1608,6 +1609,9 @@ User selects from dropdown; </xsd:documentation>
                   </xsd:sequence>
                   </xsd:complexType>
                   </xsd:element>
+                  </xsd:sequence>
+                  </xsd:complexType>
+                  </xsd:element>
                   <xsd:element name="DwellingUnitEquipmentCentralWH" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Multifamily and Hotel/Motel Water Heating Equipment for Central Systems Serving Dwelling Units[d:t24refnolink/]170.2(d)2&amp;3[/d:b]</xsd:documentation>
@@ -1636,7 +1640,7 @@ End If</xsd:documentation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Heat Pump Water Heater (New Construction and Additions Only - [d:t24refnolink/]170.2(d)2A)</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">
-If B01b_PlumbingProjectScope == NewSystem And F08_WaterHeaterType == NonNEEAIndividualHeatPumpWH
+If B01a_PlumbingProjectScope == NewSystem And F08_WaterHeaterType == NonNEEAIndividualHeatPumpWH
    User input; 
 Else  
    Result = false and row is grayed out;  
@@ -1995,12 +1999,12 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="G13ToG15Heading" minOccurs="0">
+                  <xsd:element name="MandatoryPipeAllOccupancies" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b]Mandatory Pipe Insulation All Occupancies - [d:t24refnolink/]120.3, [d:t24refnolink/]160.4 [/d:b]</xsd:documentation>
+                        <xsd:documentation source="FieldText">[d:b]Mandatory Pipe Insulation All Occupancies - [d:t24refnolink/]120.3, [d:t24refnolink/]160.4 [/d:b]</xsd:documentation>
                      </xsd:annotation>
-                  </xsd:element>
+                     <xsd:complexType>
+                        <xsd:sequence>
                   <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
@@ -2078,6 +2082,9 @@ Multi-field triggers:  See G14_NonresPipeInsulationComplies CalculationsAndRules
                      </xsd:annotation>
                   </xsd:element>
                   </xsd:sequence>
+                           </xsd:complexType>
+                           </xsd:element>
+                           </xsd:sequence>
                            </xsd:complexType>
                            </xsd:element>
                   <xsd:element name="Gpit" minOccurs="0">

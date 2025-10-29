@@ -3151,7 +3151,7 @@ Switch (Fframed12_ContinuousInsulationNR)
 case R0: result = 0.115; case R2: result = 0.093; case R4:  0.079; case R6: 0.068; case R7: result = 0.064; case R8: result = 0.060; case R10: result = 0.053; case R14: result = 0.044;  
 End Switch
  
-Else If  Fframed11_CavityInsulationOptionNR == R19SprayRigid 
+Else If  Fframed11_CavityInsulationOptionNR == R19SprayRigid or R19Batt
 Switch (Fframed12_ContinuousInsulationNR) 
 case R0: result = 0.121; case R2: result = 0.097; case R4: result = 0.082; case R6: result = 0.070; case R7: result = 0.066; case R8: result = 0.061; case R10: result = 0.055; case R14: result = 0.045;  
 End Switch
@@ -3256,7 +3256,7 @@ Switch (Fframed12_ContinuousInsulationNR)
 case R0: result = 0.096; case R2: result = 0.081; case R4:  0.069; case R6: 0.061; case R7: result = 0.057; case R8: result = 0.054; case R10: result = 0.049; case R14: result = 0.041; 
 End Switch
  
-Else If  Fframed11_CavityInsulationOptionNR == R19SprayRigid 
+Else If  Fframed11_CavityInsulationOptionNR == R19SprayRigid or R19Batt
 Switch (Fframed12_ContinuousInsulationNR) 
 case R0: result = 0.102; case R2: result = 0.085; case R4: result = 0.072; case R6: result = 0.063; case R7: result = 0.060; case R8: result = 0.056; case R10: result = 0.050; case R14: result = 0.042;  
 End Switch
@@ -9347,7 +9347,7 @@ End If</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Thermal Performance Unit</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">
-   If Hframed04b_Status == ExistingAlteration  And Hframed01_UseInAreaWeightedAveUfactor  == false And Hframed02_UseInAreaWeightedAveUfactor  == false 
+   If Hframed04b_Status == ExistingAlteration  And Hframed01_UseInAreaWeightedAveUfactor  == false And Hframed02_UseInAreaWeightedAveUfactor  == false And Hframed04a_TopLevelOccupancy != ResidentialNR
       list RValue, UFactor 
    Else If Hframed04a_TopLevelOccupancy == ResidentialNR
       result = RValue and cannot be changed by user
@@ -16970,7 +16970,7 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:element name="Iheatedmultifamily03">
+                                             <xsd:element name="Iheatedmultifamily03" minOccurs="0">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Insulation Location</xsd:documentation>
                                                    <xsd:documentation source="AdditionalRequirements">Slab floor perimeter</xsd:documentation>
@@ -19933,7 +19933,7 @@ End If</xsd:documentation>
 If Kskyperf06_TopLevelOccupancy == HotelMotel And Kskyperf05_FenestrationProductType == SkylightTubular:  Or 
  If Kskyperf06_FenestrationModification == AddLTE50ft2  Or 
 If Kskyperf06_TopLevelOccupancy == LowRiseResidential  Or 
-If Kskyperf06_TopLevelOccupancy == HighRiseResidential And Kskyperf06_FenestrationModification == "AllNew" OR  NewSky16MF  
+If Kskyperf06_TopLevelOccupancy == OtherOccupancy And Kskyperf06_FenestrationModification == "AllNew" OR  NewSky16MF  
  
 result = BlankGrayedOut
 End If</xsd:documentation>

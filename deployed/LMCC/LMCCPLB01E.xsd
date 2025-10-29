@@ -1480,29 +1480,30 @@ End If
                 </xsd:sequence>
               </xsd:complexType>
             </xsd:element>
-            <xsd:element name="F18To20Heading" minOccurs="0">
+            <xsd:element name="WaterHeatingAllOccupancies" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">
                   <d:b>Water Heating Equipment All Occupancies- <d:t24refnolink/>110.3(c)3,<d:t24refnolink/>140.5(a) </d:b>
                 </xsd:documentation>
               </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="F18To20Subheading_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">
+                  <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="F18To20Subheading_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">System Name</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
 Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="F18_StorageTankInsulation" type="comp:StorageTankInsulation">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">Unfired storage tank insulation shall have Internal + External <d:gte/>R-16 OR External <d:gte/>R-3.5. Label required per <d:t24refnolink/>110.3(c)3</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="F18_StorageTankInsulation" type="comp:StorageTankInsulation">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">Unfired storage tank insulation shall have Internal + External <d:gte/>R-16 OR External <d:gte/>R-3.5. Label required per <d:t24refnolink/>110.3(c)3</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
 If F08_WaterHeaterType == StorageResDutyCommercial, InstantaneousConsumerElectric, NEEAIndividualHeatPumpWH, NonNEEAIndividualHeatPumpWH, or HeatPumpAirSource               
    User selects from radio buttons, Yes result = ReqYes and No result = ReqNo and Not Applicable result = ReqNA
 Else 
@@ -1512,13 +1513,13 @@ Mandatory Measure Triggers:
 If result == ReqYes ;
 MM110_3c3_MeasureApplies = true and is displayed
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="F19_StateBuildingWaterHeatingEnergy" type="comp:StateBuildingWaterHeatingEnergy">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">New state buildings 60% of energy for service water heating from site solar energy or recovered energy per <d:t24refnolink/>110.3(c)5</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If B01a_PlumbingProjectScope == NewSystem And F02_WaterHeaterSpaceType == StateBuilding  user selects from radio buttons Yes result = ReqYes and No result = ReqNo;  
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="F19_StateBuildingWaterHeatingEnergy" type="comp:StateBuildingWaterHeatingEnergy">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">New state buildings 60% of energy for service water heating from site solar energy or recovered energy per <d:t24refnolink/>110.3(c)5</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If B01a_PlumbingProjectScope == NewSystem And F02_WaterHeaterSpaceType == StateBuilding  user selects from radio buttons Yes result = ReqYes and No result = ReqNo;  
 Else result = ReqNA and Not Applicable is checked and row is grayed out
  
  
@@ -1526,13 +1527,13 @@ Mandatory Measure Triggers:
 If result == ReqYes ;
 MM110_3c5_MeasureApplies = true and is displayed
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="F20_InstantaneousIsolationValves" type="comp:InstantaneousIsolationValves">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">Isolation valves for instantaneous water heater with input rating <d:gt/>6.8 kBTUH or 2 kW has been specified per <d:t24refnolink/>110.3(c)6</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="F20_InstantaneousIsolationValves" type="comp:InstantaneousIsolationValves">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">Isolation valves for instantaneous water heater with input rating <d:gt/>6.8 kBTUH or 2 kW has been specified per <d:t24refnolink/>110.3(c)6</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
 If F08_WaterHeaterType== InstantaneousConsumer, InstantaneousConsumerElectric, NEEAIndividualHeatPumpWH, NonNEEAIndividualHeatPumpWH, or HeatPumpAirSource               
    User selects from radio buttons, Yes result = ReqYes and No result = ReqNo and Not Applicable result = ReqNA
 Else 
@@ -1542,42 +1543,45 @@ Mandatory Measure Triggers:
 If result == ReqYes ;
 MM110_3c6_MeasureApplies = true and is displayed
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="F21_SchoolHeatPumpWH" type="comp:SchoolHeatPumpWH">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">School buildings <d:lt/> 25,000 ft<d:sup>2</d:sup> and <d:lt/> 4 stories must install a heat pump water heating system per <d:t24refnolink/>140.5(a)1.  Water heating systems serving an individual bathroom space may be an instantaneous electric water heater.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy != SchoolBuilding
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="F21_SchoolHeatPumpWH" type="comp:SchoolHeatPumpWH">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Requirement</xsd:documentation>
+                            <xsd:documentation source="AdditionalRequirements">School buildings <d:lt/> 25,000 ft<d:sup>2</d:sup> and <d:lt/> 4 stories must install a heat pump water heating system per <d:t24refnolink/>140.5(a)1.  Water heating systems serving an individual bathroom space may be an instantaneous electric water heater.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy != SchoolBuilding
 result = ReqNA and Not Applicable is checked and row is grayed out
 Else 
 User selects from radio buttons Yes result = ReqYes and No result = ReqNo  
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="F22Heading" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">
-                        <d:b>Air-Source Heat Pump Water Heaters (HPWHs) (<d:t24refnolink/>110.3(c)7)</d:b>
-                      </xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType== HeatPumpAirSource, this subsection is required</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="F22a_HeatPumpApplies" type="comp:HeatPumpApplies">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">Backup heat is required when inlet air is unconditioned unless the compressor cut-off temperature is below the Heating Winter Median of Extremes for the closest location listed in Table 2-3 from Reference Joint Appendix JA2. </xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">This row is always displayed if the subsection is triggered  User input;  
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="F22Heading" minOccurs="0">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">
+                              <d:b>Air-Source Heat Pump Water Heaters (HPWHs) (<d:t24refnolink/>110.3(c)7)</d:b>
+                            </xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType== HeatPumpAirSource, this subsection is required</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="F22a_HeatPumpApplies" type="comp:HeatPumpApplies">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">Backup heat is required when inlet air is unconditioned unless the compressor cut-off temperature is below the Heating Winter Median of Extremes for the closest location listed in Table 2-3 from Reference Joint Appendix JA2. </xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">This row is always displayed if the subsection is triggered  User input;  
 If checked  result = true; else result = false.</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="F22b_ASHPWHVentilation" type="comp:ASHPWHVentilation">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">Consumer integrated HPWHs shall meet one of the following ventilation requirements:</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">This row is always displayed if the subsection is triggered  
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="F22b_ASHPWHVentilation" type="comp:ASHPWHVentilation">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">Consumer integrated HPWHs shall meet one of the following ventilation requirements:</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">This row is always displayed if the subsection is triggered  
 User selects from dropdown; </xsd:documentation>
-                    </xsd:annotation>
+                          </xsd:annotation>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
                   </xsd:element>
                 </xsd:sequence>
               </xsd:complexType>
@@ -1612,7 +1616,7 @@ End If</xsd:documentation>
                             <xsd:documentation source="FieldText"/>
                             <xsd:documentation source="AdditionalRequirements">Heat Pump Water Heater (New Construction and Additions Only - <d:t24refnolink/>170.2(d)2A)</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">
-If B01b_PlumbingProjectScope == NewSystem And F08_WaterHeaterType == NonNEEAIndividualHeatPumpWH
+If B01a_PlumbingProjectScope == NewSystem And F08_WaterHeaterType == NonNEEAIndividualHeatPumpWH
    User input; 
 Else  
    Result = false and row is grayed out;  
@@ -1979,53 +1983,53 @@ End If</xsd:documentation>
                 </xsd:sequence>
               </xsd:complexType>
             </xsd:element>
-            <xsd:element name="G13ToG15Heading" minOccurs="0">
+            <xsd:element name="MandatoryPipeAllOccupancies" minOccurs="0">
               <xsd:annotation>
-                <xsd:documentation source="FieldText"/>
-                <xsd:documentation source="AdditionalRequirements">
+                <xsd:documentation source="FieldText">
                   <d:b>Mandatory Pipe Insulation All Occupancies - <d:t24refnolink/>120.3, <d:t24refnolink/>160.4 </d:b>
                 </xsd:documentation>
               </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="G13ToG15_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">
+                  <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="G13ToG15_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">System Name</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
 Result = F03_WaterHeatingSystemName
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                    <xsd:element name="G13_DwellingUnitsPipeInsulationComplies" type="comp:DwellingUnitsPipeInsulationComplies">
-                      <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">For systems serving dwelling units, pipe insulation must meet the minimum insulation requirements in Table 160.4-A (see blow) except:<d:l t="*"><d:list>  Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration. Piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall abut securely against all framing members </d:list><d:list>  Piping installed in interior or exterior walls shall not be required to have pipe insulation if all of the requirements are met for compliance with Quality Insulation Installation (QII) as specified in the Reference Residential Appendix RA3.5. </d:list><d:list> Piping surrounded with a minimum of 1 inch of wall insulation, 2 inches of crawlspace insulation, or 4 inches of attic insulation, shall not be required to have pipe insulation.</d:list></d:l></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits Or IndividualDwellingUnits  user input;  If checked result = true; else result = false.</xsd:documentation>
-                      </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element name="G13_NotApplicableMessage">
-                      <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="CalculationsAndRules">If NO  row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits Or IndividualDwellingUnits 
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:choice maxOccurs="1">
+                          <xsd:element name="G13_DwellingUnitsPipeInsulationComplies" type="comp:DwellingUnitsPipeInsulationComplies">
+                            <xsd:annotation>
+                              <xsd:documentation source="FieldText"/>
+                              <xsd:documentation source="AdditionalRequirements">For systems serving dwelling units, pipe insulation must meet the minimum insulation requirements in Table 160.4-A (see blow) except:<d:l t="*"><d:list>  Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration. Piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall abut securely against all framing members </d:list><d:list>  Piping installed in interior or exterior walls shall not be required to have pipe insulation if all of the requirements are met for compliance with Quality Insulation Installation (QII) as specified in the Reference Residential Appendix RA3.5. </d:list><d:list> Piping surrounded with a minimum of 1 inch of wall insulation, 2 inches of crawlspace insulation, or 4 inches of attic insulation, shall not be required to have pipe insulation.</d:list></d:l></xsd:documentation>
+                              <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits Or IndividualDwellingUnits  user input;  If checked result = true; else result = false.</xsd:documentation>
+                            </xsd:annotation>
+                          </xsd:element>
+                          <xsd:element name="G13_NotApplicableMessage">
+                            <xsd:annotation>
+                              <xsd:documentation source="FieldText"/>
+                              <xsd:documentation source="CalculationsAndRules">If NO  row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralDwellingUnits Or IndividualDwellingUnits 
 result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
-                      </xsd:annotation>
-                      <xsd:simpleType>
-                        <xsd:restriction base="comp:NotApplicableMessage">
-                          <xsd:enumeration value="BlankGrayedOut"/>
-                        </xsd:restriction>
-                      </xsd:simpleType>
-                    </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                    <xsd:element name="G14_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies">
-                      <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">For systems serving nonresidential spaces, pipe insulation for the following applications is specified to comply with Table 120.3-A1 or Table 120.3-A2 (see below) per <d:t24refnolink/>120.3: <d:l t="*"><d:list> Recirculating system piping, including supply and return piping of the water heater </d:list><d:list> The first 8 ft of hot and cold outlet piping, including between storage tank and heat trap, for a nonrecirculating storage system </d:list><d:list> Pipes that are externally heated </d:list></d:l></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralNonresSpaces Or IndividualNonresSpaces 
+                            </xsd:annotation>
+                            <xsd:simpleType>
+                              <xsd:restriction base="comp:NotApplicableMessage">
+                                <xsd:enumeration value="BlankGrayedOut"/>
+                              </xsd:restriction>
+                            </xsd:simpleType>
+                          </xsd:element>
+                        </xsd:choice>
+                        <xsd:choice maxOccurs="1">
+                          <xsd:element name="G14_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies">
+                            <xsd:annotation>
+                              <xsd:documentation source="FieldText"/>
+                              <xsd:documentation source="AdditionalRequirements">For systems serving nonresidential spaces, pipe insulation for the following applications is specified to comply with Table 120.3-A1 or Table 120.3-A2 (see below) per <d:t24refnolink/>120.3: <d:l t="*"><d:list> Recirculating system piping, including supply and return piping of the water heater </d:list><d:list> The first 8 ft of hot and cold outlet piping, including between storage tank and heat trap, for a nonrecirculating storage system </d:list><d:list> Pipes that are externally heated </d:list></d:l></xsd:documentation>
+                              <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralNonresSpaces Or IndividualNonresSpaces 
 user input: 
 End If
  
@@ -2037,31 +2041,34 @@ Mandatory Measure Triggers:
 If result == true And G15_PipeInsulationProtectionComplies == true
 MM120_3_MeasureApplies  = true and is displayed 
 End If</xsd:documentation>
-                      </xsd:annotation>
-                    </xsd:element>
-                    <xsd:element name="G14_NotApplicableMessage">
-                      <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="CalculationsAndRules">If no row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralNonresSpaces Or IndividualNonresSpaces 
+                            </xsd:annotation>
+                          </xsd:element>
+                          <xsd:element name="G14_NotApplicableMessage">
+                            <xsd:annotation>
+                              <xsd:documentation source="FieldText"/>
+                              <xsd:documentation source="CalculationsAndRules">If no row in section B has B02New_WaterHeatingSystem Or  B02Altered_WaterHeatingSystem == CentralNonresSpaces Or IndividualNonresSpaces 
 result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
-                      </xsd:annotation>
-                      <xsd:simpleType>
-                        <xsd:restriction base="comp:NotApplicableMessage">
-                          <xsd:enumeration value="BlankGrayedOut"/>
-                        </xsd:restriction>
-                      </xsd:simpleType>
-                    </xsd:element>
-                  </xsd:choice>
-                  <xsd:element name="G15_PipeInsulationProtectionComplies" type="comp:PipeInsulationProtectionComplies">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">Per <d:t24refnolink/>120.3(b)/ <d:t24refnolink/>160.4(f), pipe and appurtenance insulation shall be protected from damage, including that due to sunlight, moisture, equipment maintenance, and wind.  Insulation exposed to weather shall be installed with a cover suitable for outdoor service.  Pipe insulation buried below grade must be installed in a water proof and non-crushable casing or sleeve.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; else result = false  End If
+                            </xsd:annotation>
+                            <xsd:simpleType>
+                              <xsd:restriction base="comp:NotApplicableMessage">
+                                <xsd:enumeration value="BlankGrayedOut"/>
+                              </xsd:restriction>
+                            </xsd:simpleType>
+                          </xsd:element>
+                        </xsd:choice>
+                        <xsd:element name="G15_PipeInsulationProtectionComplies" type="comp:PipeInsulationProtectionComplies">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">Per <d:t24refnolink/>120.3(b)/ <d:t24refnolink/>160.4(f), pipe and appurtenance insulation shall be protected from damage, including that due to sunlight, moisture, equipment maintenance, and wind.  Insulation exposed to weather shall be installed with a cover suitable for outdoor service.  Pipe insulation buried below grade must be installed in a water proof and non-crushable casing or sleeve.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; else result = false  End If
  
 Mandatory Measure Triggers:  
 Multi-field triggers:  See G14_NonresPipeInsulationComplies CalculationsAndRules for trigger values from this field</xsd:documentation>
-                    </xsd:annotation>
+                          </xsd:annotation>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
                   </xsd:element>
                 </xsd:sequence>
               </xsd:complexType>
