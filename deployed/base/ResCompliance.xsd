@@ -10697,11 +10697,13 @@
   <xsd:simpleType name="InstantaneousIsolationValves">
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="ReqNA">Not Applicable</dtyp:displayterm>
         <dtyp:displayterm value="ReqNo">No</dtyp:displayterm>
         <dtyp:displayterm value="ReqYes">Yes</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
+      <xsd:enumeration value="ReqNA"/>
       <xsd:enumeration value="ReqNo"/>
       <xsd:enumeration value="ReqYes"/>
     </xsd:restriction>
@@ -11226,13 +11228,11 @@
   <xsd:simpleType name="IsolationValves">
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
-        <dtyp:displayterm value="ReqNA">Not Applicable</dtyp:displayterm>
         <dtyp:displayterm value="ReqNo">No</dtyp:displayterm>
         <dtyp:displayterm value="ReqYes">Yes</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
-      <xsd:enumeration value="ReqNA"/>
       <xsd:enumeration value="ReqNo"/>
       <xsd:enumeration value="ReqYes"/>
     </xsd:restriction>

@@ -606,8 +606,7 @@ Or
 Bpv01d_NoContiguousAccess == true
 Or
 Bpv01e_SnowloadException == true
-Or
-Bpv01g_FloorAreaException == true
+
 
  BSolarReady is REQUIRED</xsd:documentation>
               </xsd:annotation>
@@ -710,15 +709,11 @@ End If</xsd:documentation>
             <xsd:element name="Bpv" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Compliance with Solar Photovoltaic (PV) Requirements in <d:t24refnolink/>170.2(f)</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">This subsection is required If A04_WholeBuildingOccupancy == HotelMotel, HighRiseResidential, GroceryStoreBuilding, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, RetailBuilding, SchoolBuilding, Warehouse, LibraryBuilding, MedicalClinicBuilding, RestaurantBuilding, ReligiousFacilityBuilding, EventsExhibits, or SportsRecreation
-And A05_RoofConstRangeSolar == NewRoofLTE533ft2 Or NewRoofGT533ft2
-And A04_WholeBuildingOccupancy is NOT AllOthersBuildings
-
-Or 
-If A04_WholeBuildingOccupancy == AllOthersBuildings AND another A04_WholeBuildingOccupancy == HotelMotel, HighRiseResidential, GroceryStoreBuilding, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, RetailBuilding, SchoolBuilding, Warehouse, LibraryBuilding, MedicalClinicBuilding, RestaurantBuilding, ReligiousFacilityBuilding, EventsExhibits, or SportsRecreation
-And A05_RoofConstRangeSolar == NewRoofLTE533ft2 Or NewRoofGT533ft2
-
-If this subsection is required,  one and only one field can be checked with a result == true and it is the only field that is displayed in the final report.   Fields are evaluated in the order they occur in the schema and once a field is evaluated as true and displayed as checked, remaining fields are set to unchecked, result == false and not displayed.</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">
+This subsection is required If A05_RoofConstRangeSolar == NewRoofLTE533ft2 Or NewRoofGT533ft2 
+And 
+A04a_LocalJurisdiction == LocalAuthorityNA
+</xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>
                 <xsd:sequence>
@@ -727,7 +722,7 @@ If this subsection is required,  one and only one field can be checked with a re
                       <xsd:documentation source="FieldText">Provided PV system sized per <d:t24refnolink/>170.2(f)</xsd:documentation>
                       <xsd:documentation source="AdditionalRequirements">The project has included an installed PV system per requirements in <d:t24refnolink/>170.2(f) as documented in Table J.</xsd:documentation>
                       <xsd:documentation source="CalculationsAndRules">Calculated field: In Section_J
-If Pv10_ DesignSize  GTE Pv05_PV_MinSizeSARA
+If Pv15_PV_DesignSize GTE Pv14_PV_Total_MinSizeSARA 
 result = true
 Else result = false
 End If</xsd:documentation>
@@ -758,7 +753,7 @@ End If</xsd:documentation>
 If Bpv01a_SystemIncludesPV == true Or  Bpv01c_RequiredLT1_8kW == true
 result = false
 Else (evaluating values from J)
-If Pv12_SolarAccessRoofArea  LT 80
+If all Pv12_SolarAccessRoofArea instances are LT 80
 result = true
 Else result = false
 End If
@@ -2174,10 +2169,10 @@ result = Pv08_RoofArea - Pv09_RoofArea70PercentSolarAccess - Pv11_RoofAreaOccupi
                       <xsd:documentation source="FieldText">Min Capacity of PV System Required (kWdc)</xsd:documentation>
                       <xsd:documentation source="CalculationsAndRules">Calculated field:
 If Pv06_RoofSlope == LT212
-Result = ((Pv11_SolarAccessRoofArea x 14)/1000)
+Result = ((Pv12_SolarAccessRoofArea x 14)/1000)
 
 Else If Pv06_RoofSlope == GTE212
-Result = ((Pv11_SolarAccessRoofArea x 18)/1000)</xsd:documentation>
+Result = ((Pv12_SolarAccessRoofArea x 18)/1000)</xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
                 </xsd:sequence>
@@ -2189,7 +2184,7 @@ Result = ((Pv11_SolarAccessRoofArea x 18)/1000)</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">Calculated field:
 If (Sum All (Pv05_PV_MinSizeSARA)) or (Sum All (Pv13_PV_MinSizeSARA)) LT 4
    result = 0 
-Else If Pv05_PV_MinSizeSARA LT Pv13_PV_MinSizeSARA
+Else If (Sum All (Pv05_PV_MinSizeSARA)) or (Sum All (Pv13_PV_MinSizeSARA))
    result = Pv05_PV_MinSizeSARA
 Else
    result = Pv13_PV_MinSizeSARA

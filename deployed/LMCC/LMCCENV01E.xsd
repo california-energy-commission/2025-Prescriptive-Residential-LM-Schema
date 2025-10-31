@@ -3683,12 +3683,7 @@ Else If FSIPS08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters te
                                     <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">If FSIPS08_UfactorSpecSource == JA4Other Or ApprovedSoftware this row is grayed out; 
 Else If FSIPS08_UfactorSpecSource == JA4Tables And FSIPS13_ConstructionSpecificationMethod != RValue  user selects from list: 
-R0ci display term None, 
-R2ci display term R-2, 
-R4ci display term R-4, 
-R5ci display term R-5, 
-R7ci display term R-7, 
-R8ci display term R-8</xsd:documentation>
+</xsd:documentation>
                                   </xsd:annotation>
                                   <xsd:simpleType>
                                     <xsd:restriction base="env:ContinuousInsulationNR">
@@ -3717,8 +3712,7 @@ End if
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText">Continuous Insulation per Design</xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">
-If FSIPS04_Status == ExistingAlteration And  FSIPS05_RoofInsulationException  != NoExceptionApplies 
-Or FSIPS05_RoofInsulationException !=  MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue 
+If FSIPS05_RoofInsulationException == RoofRecoat
    result = BlankGrayedOut stored in NotApplicableMessage
 End if
 </xsd:documentation>
@@ -4604,7 +4598,9 @@ Else result = UFactor and cannot be changed by user</xsd:documentation>
                                 <xsd:element name="Fspan12_NotApplicableMessage">
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText"/>
-                                    <xsd:documentation source="CalculationsAndRules">If Fspan04_Status == ExistingAlteration And  Fspan05_RoofInsulationException  != NoExceptionApplies result = BlankGrayedOut</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">
+If FSpan05_RoofInsulationException == RoofRecoat
+   result = BlankGrayedOut</xsd:documentation>
                                   </xsd:annotation>
                                   <xsd:simpleType>
                                     <xsd:restriction base="comp:NotApplicableMessage">
@@ -19749,13 +19745,10 @@ End If</xsd:documentation>
                                             <xsd:annotation>
                                               <xsd:documentation source="FieldText"/>
                                               <xsd:documentation source="CalculationsAndRules">
-If Kskyperf06_TopLevelOccupancy == LowRiseResidential
-   list restricted to AllNew, ReplaceSkyMF, AddSky16PlusMF and NewSky16MF
-Else If Kskyperf05_FenestrationProductType == SkylightTubular
+If Kskyperf05_FenestrationProductType == SkylightTubular
    Show AddGT50ft2, AddLTE50ft2, and AllNew as options
-Else 
-   User selects status value with the appropriate occupancy type from list:
-AllNew display term New, AddGT50ft2 display term  Alt. (Add/Replacement <d:gt/> 50ft<d:sup>2</d:sup>), AddLTE50ft2 display term  Alt. (Add/Replacement  <d:lte/> 50ft<d:sup>2</d:sup>), NewSky16MF display term <d:lte/> 16 ft<d:sup>2</d:sup> new skylight per dwelling unit, ReplaceSkyMF display term Alt. (Replacement) and AddSky16PlusMF display term Alt. (Adding <d:gt/> 16 ft<d:sup>2</d:sup>)</xsd:documentation>
+Else
+   User selects status value with the appropriate occupancy type from list:  AllNew display term New, AddGT50ft2 display term  Alt. (Add/Replacement <d:gt/> 50ft<d:sup>2</d:sup>), AddLTE50ft2 display term  Alt. (Add/Replacement  <d:lte/> 50ft<d:sup>2</d:sup>), NewSky16MF display term <d:lte/> 16 ft<d:sup>2</d:sup> new skylight per dwelling unit, ReplaceSkyMF display term Alt. (Replacement) and AddSky16PlusMF display term Alt. (Adding <d:gt/> 16 ft<d:sup>2</d:sup>)</xsd:documentation>
                                               <xsd:appinfo source="displayterm">
                                                 <dtyp:displayterm value="AddGT50ft2">Alt. (Add/Replacement <d:gt/> 50ft<d:sup>2</d:sup>) </dtyp:displayterm>
                                                 <dtyp:displayterm value="AddLTE50ft2">Alt. (Add/Replacement <d:lte/> 50ft<d:sup>2</d:sup>)</dtyp:displayterm>
