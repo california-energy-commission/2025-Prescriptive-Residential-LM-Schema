@@ -13104,7 +13104,6 @@
         <dtyp:displayterm value="MultifamilyLightingNA">NA: MF Complying w <d:t24refnolink/>160.5(a)</dtyp:displayterm>
         <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by Health or Life Safety Statute/Ordinance/Regulation</dtyp:displayterm>
         <dtyp:displayterm value="OutdoorTheaterNA">NA: Outdoor Theater</dtyp:displayterm>
-        <dtyp:displayterm value="ParkingLuminaireLT78NA">NA: Parking Lot each Luminaire <d:lt/> 78 Watts</dtyp:displayterm>
         <dtyp:displayterm value="PublicRoadNA">NA: Lighting for Public Roadways</dtyp:displayterm>
         <dtyp:displayterm value="RegulatedNA">NA: Regulated by FAA or Coast Guard</dtyp:displayterm>
         <dtyp:displayterm value="SignageNA">NA: Signage</dtyp:displayterm>
@@ -13130,7 +13129,6 @@
       <xsd:enumeration value="MultifamilyLightingNA"/>
       <xsd:enumeration value="NotPermittedNA"/>
       <xsd:enumeration value="OutdoorTheaterNA"/>
-      <xsd:enumeration value="ParkingLuminaireLT78NA"/>
       <xsd:enumeration value="PublicRoadNA"/>
       <xsd:enumeration value="RegulatedNA"/>
       <xsd:enumeration value="SignageNA"/>
