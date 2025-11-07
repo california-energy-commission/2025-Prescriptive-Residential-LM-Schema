@@ -197,15 +197,6 @@ Else result = false
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B06e_ProjectHasPoolSpa" type="comp:ProjectHasPoolSpa" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Pool / Spa</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input
-If checked result = true
-Else result = false
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
@@ -2124,327 +2115,77 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="TablePool" minOccurs="0">
+                  <xsd:element name="ElectricKit" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">[d:b]Pools &amp; Spa [/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required If B06e_ProjectHasPoolSpa == true</xsd:documentation>
+                        <xsd:documentation source="FieldText">[d:b]Electric Ready Commercial Kitchens[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules"></xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="Pool01cc_SystemDescription" type="comp:SystemDescription" >
+                                    <xsd:element name="ElectricKit01cc_ComponentName" type="comp:ComponentName" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Pool/Spa Description</xsd:documentation>
+                                          <xsd:documentation source="FieldText">System Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User Input</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="ElectricKit01_InstalledSameAsCC" type="comp:InstalledSameAsCC"  minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="ElectricKit02cc_KitchenERComplies" type="comp:KitchenERComplies" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Decicated Branch Wiring</xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:[d:l t="*"][d:list] a) The branch circuit conductors shall be rated at 50 amps minimum.[/d:list][d:list] b) The electrical service panel shall have a minimum capacity of 800 connected amps. [/d:list][/d:l]</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If Pool01_SystemDescription IsPresent
-result = Pool01_SystemDescription
+If ElectricReadyKitchen02_KitchenERComplies IsPresent
+result = ElectricReadyKitchen02_KitchenERComplies
 End If</xsd:documentation>
-                                          <xsd:appinfo source="CIsrc">
-                                             <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool01_SystemDescription</dtyp:srcSchema>
-                                          </xsd:appinfo>
+                                       <xsd:appinfo source="CIsrc">
+                                          <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen02_KitchenERComplies</dtyp:srcSchema>
+                                       </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Pool01_InMyScope" type="comp:InMyScope" >
+                                    <xsd:element name="ElectricKit02_KitchenERComplies" type="comp:KitchenERComplies" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Decicated Branch Wiring</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If ElectricKit01_InstalledSameAsCC is True
+   result = ElectricKit02cc_KitchenERComplies
+
+Else user selects from dropdown
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="PoolScopeChoice" >
+                                    <xsd:element name="ElectricKit03cc_KitchenERComplies" type="comp:KitchenERComplies" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If ElectricReadyKitchen03_KitchenERComplies IsPresent
+result = ElectricReadyKitchen03_KitchenERComplies
+End If</xsd:documentation>
+                                       <xsd:appinfo source="CIsrc">
+                                          <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen03_KitchenERComplies</dtyp:srcSchema>
+                                       </xsd:appinfo>
                                        </xsd:annotation>
-                                       <xsd:complexType>
-                                          <xsd:choice >
-                                             <xsd:element name="PoolScopeNA_NotApplicableMessage" >
-                                                <xsd:annotation>
-                                                   <xsd:documentation source="FieldText"></xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">If Pool01_InMyScope == false
-result = BlankGrayedOut for Pool04cc_PoolSpaRequirements-Pool07cc_PoolSpaRequirements and Pool02-Pool07_PoolSpaRequirements As-built fields are blank and grayed out 
-End If</xsd:documentation>
-                                                </xsd:annotation>
-                                                <xsd:simpleType>
-                                                   <xsd:restriction base="comp:NotApplicableMessage">
-                                                      <xsd:enumeration value="BlankGrayedOut"/>
-                                                   </xsd:restriction>
-                                                </xsd:simpleType>
-                                             </xsd:element>
-                                             <xsd:element name="PoolScope" >
-                                                <xsd:annotation>
-                                                   <xsd:documentation source="FieldText"></xsd:documentation>
-                                                </xsd:annotation>
-                                                <xsd:complexType>
-                                                   <xsd:sequence>
-                                                      <xsd:element name="Pool01_InstalledSameAsCC" type="comp:InstalledSameAsCC"  minOccurs="0">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Pool02" minOccurs="0">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If Pool03_PoolSpaRequirements IsPresent
-result = Pool03_PoolSpaRequirements
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool03_PoolSpaRequirements</dtyp:srcSchema>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Pool03" minOccurs="0">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">On/Off Control</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If Pool04_PoolSpaRequirements IsPresent
-result = Pool04_PoolSpaRequirements
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool04_PoolSpaRequirements</dtyp:srcSchema>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Pool04cc_PoolSpaRequirements" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Instructions &amp; Covers</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If Pool05_PoolSpaRequirements IsPresent
-result = Pool05_PoolSpaRequirements
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool05_PoolSpaRequirements</dtyp:srcSchema>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                         <xsd:simpleType>
-                                                            <xsd:restriction base="comp:PoolSpaRequirements">
-                                                               <xsd:enumeration value="CoverProvided"/>
-                                                               <xsd:enumeration value="NotHeatedNA"/>
-                                                            </xsd:restriction>
-                                                         </xsd:simpleType>
-                                                      </xsd:element>
-                                                      <xsd:element name="Pool04_PoolSpaRequirements" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Instructions &amp; Covers</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If Pool01_InstalledSameAsCC == True
-result = Pool04cc_PoolSpaRequirements
-Else
-User selects from list
-End If
-End If</xsd:documentation>
-                                                         </xsd:annotation>
-                                                         <xsd:simpleType>
-                                                            <xsd:restriction base="comp:PoolSpaRequirements">
-                                                               <xsd:enumeration value="CoverProvided"/>
-                                                               <xsd:enumeration value="NotHeatedNA"/>
-                                                            </xsd:restriction>
-                                                         </xsd:simpleType>
-                                                      </xsd:element>
-                                                      <xsd:element name="Pool05cc_PoolSpaRequirements" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Electric Resistance Heating</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If Pool06_PoolSpaRequirements IsPresent
-result = Pool06_PoolSpaRequirements
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool06_PoolSpaRequirements</dtyp:srcSchema>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                         <xsd:simpleType>
-                                                            <xsd:restriction base="comp:PoolSpaRequirements">
-                                                               <xsd:enumeration value="FullyInsulated"/>
-                                                               <xsd:enumeration value="NoElectResistanceHeat"/>
-                                                               <xsd:enumeration value="SolarRecoveredEnergy"/>
-                                                            </xsd:restriction>
-                                                         </xsd:simpleType>
-                                                      </xsd:element>
-                                                      <xsd:element name="Pool05_PoolSpaRequirements" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Electric Resistance Heating</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If Pool01_InstalledSameAsCC == True
-result = Pool05cc_PoolSpaRequirements
-Else
-User selects from list
-End If
-End If</xsd:documentation>
-                                                         </xsd:annotation>
-                                                         <xsd:simpleType>
-                                                            <xsd:restriction base="comp:PoolSpaRequirements">
-                                                               <xsd:enumeration value="FullyInsulated"/>
-                                                               <xsd:enumeration value="NoElectResistanceHeat"/>
-                                                               <xsd:enumeration value="SolarRecoveredEnergy"/>
-                                                            </xsd:restriction>
-                                                         </xsd:simpleType>
-                                                      </xsd:element>
-                                                      <xsd:element name="Pool06cc_PoolSpaRequirements" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Piping</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If Pool07_PoolSpaRequirements IsPresent
-result = Pool07_PoolSpaRequirements
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool07_PoolSpaRequirements</dtyp:srcSchema>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                         <xsd:simpleType>
-                                                            <xsd:restriction base="comp:PoolSpaRequirements">
-                                                               <xsd:enumeration value="FutureSolarConnections"/>
-                                                               <xsd:enumeration value="FutureSolarPiping"/>
-                                                            </xsd:restriction>
-                                                         </xsd:simpleType>
-                                                      </xsd:element>
-                                                      <xsd:element name="Pool06_PoolSpaRequirements" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Piping</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If Pool01_InstalledSameAsCC == True
-result = Pool06cc_PoolSpaRequirements
-Else
-User selects from list
-End If
-End If</xsd:documentation>
-                                                         </xsd:annotation>
-                                                         <xsd:simpleType>
-                                                            <xsd:restriction base="comp:PoolSpaRequirements">
-                                                               <xsd:enumeration value="FutureSolarConnections"/>
-                                                               <xsd:enumeration value="FutureSolarPiping"/>
-                                                            </xsd:restriction>
-                                                         </xsd:simpleType>
-                                                      </xsd:element>
-                                                      <xsd:element name="Pool07cc_PoolSpaRequirements" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Pool Directional Inlets &amp; Pump Control</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If Pool08_PoolSpaRequirements IsPresent
-result = Pool08_PoolSpaRequirements
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool08_PoolSpaRequirements</dtyp:srcSchema>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                         <xsd:simpleType>
-                                                            <xsd:restriction base="comp:PoolSpaRequirements">
-                                                               <xsd:enumeration value="PoolInletsPump"/>
-                                                               <xsd:enumeration value="SpaNA"/>
-                                                            </xsd:restriction>
-                                                         </xsd:simpleType>
-                                                      </xsd:element>
-                                                      <xsd:element name="Pool07_PoolSpaRequirements" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Pool Directional Inlets &amp; Pump Control</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If Pool01_InstalledSameAsCC == True
-result = Pool07cc_PoolSpaRequirements
-Else
-User selects from list
-End If
-End If</xsd:documentation>
-                                                         </xsd:annotation>
-                                                         <xsd:simpleType>
-                                                            <xsd:restriction base="comp:PoolSpaRequirements">
-                                                               <xsd:enumeration value="PoolInletsPump"/>
-                                                               <xsd:enumeration value="SpaNA"/>
-                                                            </xsd:restriction>
-                                                         </xsd:simpleType>
-                                                      </xsd:element>
-                                                   </xsd:sequence>
-                                                </xsd:complexType>
-                                             </xsd:element>
-                                          </xsd:choice>
-                                       </xsd:complexType>
                                     </xsd:element>
-                                    <xsd:element name="Pool08_ComplianceResultCI" type="comp:ComplianceResultCI" >
+                                    <xsd:element name="ElectricKit03_KitchenERComplies" type="comp:KitchenERComplies" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Pool/Spa Compliance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If any user input field is blank
-result = TableIncomplete
-Else If Pool01_InMyScope == false 
-result = NotInScope
-  
-Else If
-Pool04cc_PoolSpaRequirements == Pool04_PoolSpaRequirements
-And
-Pool05cc_PoolSpaRequirements == Pool05_PoolSpaRequirements
-And
-Pool06cc_PoolSpaRequirements == Pool06_PoolSpaRequirements
-And
-Pool07cc_PoolSpaRequirements == Pool07_PoolSpaRequirements
-result = ExactMatch
-Else
-result = EqualBetter
+                                          <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If ElectricKit01_InstalledSameAsCC is True
+   result = ElectricKit03cc_KitchenERComplies
+
+Else user selects from dropdown
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
-                           </xsd:element>
-                        </xsd:sequence>
-                     </xsd:complexType>
-                  </xsd:element>
-                  <xsd:element name="PoolSingleTenant" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">[d:b]Additional Requirements for Pool/Spa Serving One Tenant  [/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required If B06e_ProjectHasPoolSpa == true</xsd:documentation>
-                        <xsd:appinfo source="CIsrc">
-                           <dtyp:srcSchema form="NRCCPRC01E" usage="reference">Pool02_PoolSpaService</dtyp:srcSchema>
-                        </xsd:appinfo>
-                     </xsd:annotation>
-                     <xsd:complexType>
-                        <xsd:sequence>
-                           <xsd:element name="Pool09" minOccurs="0">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">All pump flow rates shall be calculated using H = C x F[d:sup]2[/d:sup]
-WHERE:
-H is the total system head in feet of water
-F is the flow rate in gallons per minute (gpm)
-C is a coefficient based on the volume of the pool (0.0167 for pools less than or equal to 17,000 gallons and 0.0082 for pools greater than 17,000 gallons)</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="Pool10" minOccurs="0">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Filtration pumps shall be sized, or if programmable, shall be programmed, so that the filtration flow rate is not greater than the rate needed to turn over the pool water volume in 6 hours or 36 gpm, whichever is greater.</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="Pool11" minOccurs="0">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Pump motors used for filtration shall meet the applicable federal standard in 10 CFR 431.465.</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="Pool12" minOccurs="0">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Each auxiliary pool load shall be served by either separate pumps or the system shall be served by a multispeed pump if pump hp [d:gte/] 1.
-- Multispeed pumps shall have controls which default to the filtration flow rate when no auxiliary pool loads are operating; and 
-- For multispeed pumps, the controls shall default to the filtration flow rate setting within 24 hours and shall have an override capability for servicing.</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="Pool13" minOccurs="0">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">System Piping must meet the following requirements: 
-- A length of straight pipe that is greater than or equal to at least 4 pipe diameters shall be installed before the pump; and
-- Pool piping shall be sized so that the velocity of the water at maximum flow for auxiliary pool loads does not exceed 8 feet per second in the return line and 6 feet per second in the suction line; and 
-- All elbows shall be sweep elbows or of an elbow-type that has a pressure drop of less than the pressure drop of straight pipe with a length of 30 pipe diameters.</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="Pool14" minOccurs="0">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Filters shall be at least the size specified in NSF/ANSI 50 for public pool intended applications.</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="Pool15" minOccurs="0">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Minimum diameter of backwash valves shall be 2 inches or the diameter of the return pipe, whichever is greater.</xsd:documentation>
-                              </xsd:annotation>
                            </xsd:element>
                         </xsd:sequence>
                      </xsd:complexType>
