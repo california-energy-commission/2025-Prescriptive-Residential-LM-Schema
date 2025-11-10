@@ -1800,7 +1800,7 @@ Mandatory Measure Triggers:
 Multi-field triggers: See G01_AirReleaseValve CalculationsAndRules for trigger values from this field</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
-                        <xsd:element name="G04_IsolationValves" type="comp:IsolationValves">
+                        <xsd:element name="G04_IsolationValves">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">Isolation valves on both sides of the pump per <d:t24refnolink/>110.3(c)4D</xsd:documentation>
@@ -1809,6 +1809,9 @@ Multi-field triggers: See G01_AirReleaseValve CalculationsAndRules for trigger v
 Mandatory Measure Triggers:  
 Multi-field triggers: See G01_AirReleaseValve CalculationsAndRules for trigger values from this field</xsd:documentation>
                           </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:union memberTypes=" comp:IsolationValves comp:NotApplicableMessage"/>
+                          </xsd:simpleType>
                         </xsd:element>
                         <xsd:element name="G05_TankDrainPort" type="comp:TankDrainPort">
                           <xsd:annotation>
@@ -1830,7 +1833,7 @@ Mandatory Measure Triggers:
 Multi-field triggers: See G01_AirReleaseValve CalculationsAndRules for trigger values from this field</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
-                        <xsd:element name="G08_RecircLoopHP" type="comp:RecircLoopHP">
+                        <xsd:element name="G08_RecircLoopHP">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: For heat pump water heating systems, the hot water return from the recirculation loop shall connect to a recirculation loop tank and shall not directly connect to the primary heat pump water heater inlet or the primary thermal storage tanks per <d:t24refnolink/>170.2(d)2Aii.</xsd:documentation>
@@ -1840,8 +1843,11 @@ Else
    Row is grayed out
 End If</xsd:documentation>
                           </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:union memberTypes=" comp:RecircLoopHP comp:NotApplicableMessage"/>
+                          </xsd:simpleType>
                         </xsd:element>
-                        <xsd:element name="G09_RecircFuelHP" type="comp:RecircFuelHP">
+                        <xsd:element name="G09_RecircFuelHP">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: For heat pump water heating systems, the fuel source for the recirculation loop tank shall be electricity per <d:t24refnolink/>170.2(d)2Aiii.</xsd:documentation>
@@ -1851,8 +1857,11 @@ Else
    Row is grayed out
 End If</xsd:documentation>
                           </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:union memberTypes=" comp:RecircFuelHP comp:NotApplicableMessage"/>
+                          </xsd:simpleType>
                         </xsd:element>
-                        <xsd:element name="G09_RecircTemp" type="comp:RecircTemp">
+                        <xsd:element name="G09_RecircTemp">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: The recirculation loop tank temperature setpoint shall be at least 10°F lower than the primary thermal storage tank temperature setpoint - <d:t24refnolink/>170.2(d)2Av</xsd:documentation>
@@ -1865,8 +1874,11 @@ Else
    Row is grayed out
 End If</xsd:documentation>
                           </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:union memberTypes=" comp:RecircTemp comp:NotApplicableMessage"/>
+                          </xsd:simpleType>
                         </xsd:element>
-                        <xsd:element name="G10_PipingSize" type="comp:PipingSize">
+                        <xsd:element name="G10_PipingSize">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: All hot water distribution piping shall be sized in accordance with the California Plumbing Code Appendix M per <d:t24refnolink/>170.2(d)2C.</xsd:documentation>
@@ -1879,8 +1891,11 @@ Else
    Row is grayed out
 End If</xsd:documentation>
                           </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:union memberTypes=" comp:PipingSize comp:NotApplicableMessage"/>
+                          </xsd:simpleType>
                         </xsd:element>
-                        <xsd:element name="G11_RecircThermostat" type="comp:RecircThermostat">
+                        <xsd:element name="G11_RecircThermostat">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:A recirculation system with mechanical or digital thermostatic master mixing valve on each distribution supply and return loop and meet the requirements in Reference Appendix RA4.4, unless building has ≤ 8 dwelling units, per <d:t24refnolink/>170.2(d)2D.</xsd:documentation>
@@ -1893,8 +1908,11 @@ Else
    Row is grayed out
 End If</xsd:documentation>
                           </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:union memberTypes=" comp:RecircThermostat comp:NotApplicableMessage"/>
+                          </xsd:simpleType>
                         </xsd:element>
-                        <xsd:element name="G12_PipingInsulation" type="comp:PipingInsulation">
+                        <xsd:element name="G12_PipingInsulation">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Requirement</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: Insulation for hot water pipes shall be field verified as specifid in Reference Appendix RA3.6.3 per <d:t24refnolink/>170.2(d)2E.</xsd:documentation>
@@ -1907,6 +1925,9 @@ Else
    Row is grayed out
 End If</xsd:documentation>
                           </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:union memberTypes=" comp:PipingInsulation comp:NotApplicableMessage"/>
+                          </xsd:simpleType>
                         </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>

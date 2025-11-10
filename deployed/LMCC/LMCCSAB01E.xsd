@@ -943,7 +943,7 @@ End If</xsd:documentation>
                   <xsd:documentation source="FieldText">Required Minimum DC Power Rating (Watts)</xsd:documentation>
                   <xsd:documentation source="CalculationsAndRules">Calculated field:  
 If Section_J IsPresent
-result = Pv05_PV_MinSizeSARA x 1000
+result = Pv14_PV_Total_MinSizeSARA x 1000
 End If</xsd:documentation>
                 </xsd:annotation>
               </xsd:element>
