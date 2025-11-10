@@ -737,7 +737,7 @@ Then
 If Lum07_NotApplicableMessage IsPresent Or Lum07_LuminairePowerByType ==  Lum07cc_LuminairePowerByType
 result = ExactMatch
  
-Else If Lum07_LuminairePowerByType IsPresent And Lum07_LuminairePowerByType GTE  Lum07cc_LuminairePowerByType
+Else If Lum07_LuminairePowerByType IsPresent And Lum07_LuminairePowerByType LT Lum07cc_LuminairePowerByType
 result = EqualBetter
 End If
 

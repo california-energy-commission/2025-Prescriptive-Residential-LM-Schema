@@ -7863,36 +7863,6 @@ Else
                                           </xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:choice>
-                                       <xsd:element name="Fg06_HeatRecoveryRequirements" type="hvac:HeatRecoveryRequirements">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">
-   If Fg06_HeatRecoveryRequired = true 
-      If Fg04_HeatingCapacity GT 500
-         result = TransferAndPreheat
-      Else
-         result = Transfer
-   Else result = BlankGrayedOut stored in Fg06_NotApplicableMessage
-                                             </xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="Fg06_NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">
-   If Fg06_HeatRecoveryRequired = false
-      result = BlankGrayedOut stored in Fg06_NotApplicableMessage
-   End If
-                                             </xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:NotApplicableMessage">
-                                                <xsd:enumeration value="BlankGrayedOut"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -8352,7 +8322,9 @@ Note - each enumeration can only be selected once per TableAllowance Row
                                                                                              <xsd:element name="H04_NotApplicableMessage">
                                                                                                 <xsd:annotation>
                                                                                                    <xsd:documentation source="FieldText">Component</xsd:documentation>
-                                                                                                   <xsd:documentation source="CalculationsAndRules">If  H04_FanPowerAllowanceDevice is not present
+                                                                                                   <xsd:documentation source="CalculationsAndRules">
+If  H04_FanPowerAllowanceDevice is not present
+Or If H00d_SystemZoning == (DOASZoneGT1kW or DOASZone) And UI Only question == Yes
 result = Blank grayed out stored in H04_NotApplicableMessage
 End if</xsd:documentation>
                                                                                                 </xsd:annotation>
@@ -8375,7 +8347,10 @@ End if</xsd:documentation>
                                                                                              <xsd:element name="H05_NotApplicableMessage" >
                                                                                                 <xsd:annotation>
                                                                                                    <xsd:documentation source="FieldText">Airflow through Component (%)</xsd:documentation>
-                                                                                                   <xsd:documentation source="CalculationsAndRules">If  H04_FanPowerAllowanceDevice == NoDevice result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
+                                                                                                   <xsd:documentation source="CalculationsAndRules">
+If  H04_FanPowerAllowanceDevice == NoDevice
+Or If H00d_SystemZoning == (DOASZoneGT1kW or DOASZone) And UI Only question == Yes
+result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
 End if</xsd:documentation>
                                                                                                 </xsd:annotation>
                                                                                                 <xsd:simpleType>
@@ -8399,7 +8374,9 @@ End If</xsd:documentation>
                                                                                              <xsd:element name="H06_NotApplicableMessage" >
                                                                                                 <xsd:annotation>
                                                                                                    <xsd:documentation source="FieldText">Water Gauge (w.g)</xsd:documentation>
-                                                                                                   <xsd:documentation source="CalculationsAndRules">If  H04_FanPowerAllowanceDevice == NoDevice Or != FiltersScrubbers, GasPhaseAirCleaner, BiosafetyCabinet, Or EvapCoolerAllowance 
+                                                                                                   <xsd:documentation source="CalculationsAndRules">
+If  H04_FanPowerAllowanceDevice == NoDevice Or != FiltersScrubbers, GasPhaseAirCleaner, BiosafetyCabinet, Or EvapCoolerAllowance 
+Or If H00d_SystemZoning == (DOASZoneGT1kW or DOASZone) And UI Only question == Yes
 result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
  
 Else user enters value
@@ -9236,7 +9213,10 @@ End If</xsd:documentation>
                                                                                              <xsd:element name="H07_NotApplicableMessage" >
                                                                                                 <xsd:annotation>
                                                                                                    <xsd:documentation source="FieldText">Component Allowance</xsd:documentation>
-                                                                                                   <xsd:documentation source="CalculationsAndRules">If  H04_FanPowerAllowanceDevice == NoDevice result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
+                                                                                                   <xsd:documentation source="CalculationsAndRules">
+If  H04_FanPowerAllowanceDevice == NoDevice 
+Or If H00d_SystemZoning == (DOASZoneGT1kW or DOASZone) And UI Only question == Yes 
+result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
 Else user enters value
 End if</xsd:documentation>
                                                                                                 </xsd:annotation>
@@ -11568,8 +11548,6 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Air Filtration per [d:t24refnolink/]120.1(c) [d:t24refnolink/]141.0(b)2 and [d:t24refnolink/]160.2(c)21 [d:sup]2[/d:sup]</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: 
-ProvidedAirFiltration display term Provided
-ProvidedNA display term NA: Not system type specified in Table J footnote 2
  
 Mandatory Measure Triggers:
 If result == ProvidedAirFiltration
@@ -11581,6 +11559,7 @@ End If</xsd:documentation>
                                           <xsd:restriction base="comp:AirFiltrationRequirements">
                                              <xsd:enumeration value="ProvidedAirFiltration"/>
                                              <xsd:enumeration value="ProvidedNA"/>
+                                             <xsd:enumeration value="EvaporativeCoolerNA"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -11607,7 +11586,7 @@ End If</xsd:documentation>
                                                       <xsd:element name="J09_VentilationSpaceFunction" type="com:VentilationSpaceFunction" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Occupancy Type[d:sup]4[/d:sup]</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">User selects from list  (see VentilationSpaceFunction in base schema NrPresCommon for list  of values and display terms)</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="J10_SpaceFloorArea" type="com:SpaceFloorArea" >
@@ -11648,14 +11627,50 @@ End If</xsd:documentation>
 If space has fixed seating
    result = fixed seating value
 Else
-   result = greater of: number specified by the designer or 15 * J10_SpaceFloorArea
+   result = greater of: number specified by the designer or ((J10_SpaceFloorArea/1000) * OccupantDensity)
+OccupantDensity is a lookup value determined by the below:
+If J09_VentilationSpaceFunction == AllOthersVent, AnimalImaging, AnimalOperating, AnimalRecovery, AnimalPreperation, AnimalProcedure, AnimalSurgery, AnimalNecropsy, BankLobby, BankVault, BarracksSleepingArea, DaycareSickRoom, GeneralManufacturingLightIndustrial, MiscComputerSpace, CorridorsResidential, LaundryRoom, DwellingUnitLaundryRoom, OfficeSpaceVent, PharmacyPrepArea, PhotoStudio, OfficeReception, Or TelephoneRoom
+   OccupantDensity = 5
+Else If J09_VentilationSpaceFunction == ClassroomArt, ClassroomAge5_18, ClassroomAge9_18, ClassroomComputer, ClassroomPostsecondary, MediaCenter, ScienceLab, Or CollegeLab
+   OccupantDensity = 25
+Else If J09_VentilationSpaceFunction == MultiuseAssembly, BarCocktailLounge, OfficeBreakRoom, FastfoodCafeteriaVent, GeneralCoffeeStation, ConferenceMeetingVent, AssemblyLobby, MainEntryOffice, LodgingAssembly, ClassroomPerformance, RestaurantDining, SportsSpectatorAreaVent, StagesStudios, SwimmingDeck, DataEntryTelephoneSpace, Or TransportWaiting
+   OccupantDensity = 33
+Else If J09_VentilationSpaceFunction == AudienceSeatingArea, LectureHall, Or ReligiousAssemblyArea
+   OccupantDensity = 71
+Else If J09_VentilationSpaceFunction == BarberShop, BeautyNailSalon, LaundryCoinOperated, MallCommon, MuseumChildrenAssembly, MuseumAssembly, PetShop, RetailSales, Or Supermarket
+   OccupantDensity = 17
+Else If J09_VentilationSpaceFunction == ArenasVent, AerobicsRoom, WeightRoom, LibraryAssembly, SwimmingPool, Or WoodMetalShop
+   OccupantDensity = 10
+Else If J09_VentilationSpaceFunction == GamblingArea Or GameArcadesVent
+   OccupantDensity = 45
+Else If J09_VentilationSpaceFunction == DanceFloor
+   OccupantDensity = 100
+Else If J09_VentilationSpaceFunction == Courtroom Or LegislativeChambers
+   OccupantDensity = 13
+Else If J09_VentilationSpaceFunction == DaycareToAge4
+   OccupantDensity = 14
+Else If J09_VentilationSpaceFunction == BedroomLivingRoom Or FoodServiceKitchen
+   OccupantDensity = 3
+Else If J09_VentilationSpaceFunction == BowlingAlleySeatingVent
+   OccupantDensity = 7
+Else If J09_VentilationSpaceFunction == StorageOccupiableDryMaterials, StorageOccupiableLiquids, ShippingReceiving, Or WorkshopSortingPacking
+   OccupantDensity = 2
+Else If J09_VentilationSpaceFunction == MiscWarehouse
+   OccupantDensity = 1
+Else
+   OccupantDensity = 0
+End If
                                                                </xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                          <xsd:element name="J12_NotApplicableMessage" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText"># of people [d:sup]5[/d:sup]</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules"></xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">
+If J09_VentilationSpaceFunction == NoApplicableSpaceVent
+   result = BlankGrayedOut
+End If
+                                                               </xsd:documentation>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="comp:NotApplicableMessage">

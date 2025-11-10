@@ -736,7 +736,7 @@ End If</xsd:documentation>
 If Bpv01a_SystemIncludesPV == true  
 result = false
 Else (evaluating values from J)
-If Pv05_PV_MinSizeSARA LT 4.0
+If Pv14_PV_Total_MinSizeSARA LT 4.0
 result = true
 Else result = false
 End If
@@ -2188,10 +2188,10 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
                 <xsd:documentation source="CalculationsAndRules">Calculated field:
 If (Sum All (Pv05_PV_MinSizeSARA)) or (Sum All (Pv13_PV_MinSizeSARA)) LT 4
    result = 0 
-Else If (Sum All (Pv05_PV_MinSizeSARA)) or (Sum All (Pv13_PV_MinSizeSARA))
-   result = Pv05_PV_MinSizeSARA
+Else If (Sum All (Pv05_PV_MinSizeSARA)) LT (Sum All (Pv13_PV_MinSizeSARA))
+   result = Sum All Pv05_PV_MinSizeSARA
 Else
-   result = Pv13_PV_MinSizeSARA
+   result = Sum All Pv13_PV_MinSizeSARA
                         </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
