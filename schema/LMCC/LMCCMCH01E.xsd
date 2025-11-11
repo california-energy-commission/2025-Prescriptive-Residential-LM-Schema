@@ -8275,7 +8275,9 @@ End If</xsd:documentation>
                                                                         <xsd:element name="HTableAllowanceNA_NotApplicableMessage" >
                                                                            <xsd:annotation>
                                                                               <xsd:documentation source="FieldText"></xsd:documentation>
-                                                                              <xsd:documentation source="CalculationsAndRules">If H00d_SystemZoning == DOASZone
+                                                                              <xsd:documentation source="CalculationsAndRules">
+If H00d_SystemZoning == DOASZone
+Or If H00d_SystemZoning == (DOASZoneGT1kW or DOASZone) And UI Only question == Yes
 result = BlankGrayedOut for all fields in TableAllowance H04 - H07
 End If</xsd:documentation>
                                                                            </xsd:annotation>
@@ -9240,12 +9242,9 @@ End if</xsd:documentation>
                                                                   <xsd:element name="H08_FanAllowance" type="comp:FanAllowance" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Fan Allowance (watt/cfm)[d:sup]3[/d:sup]</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">Calculated field: If H00d_SystemZoning == DOASZone
-result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
-Else  
- for H01 Sum All rows (H07_FanDeviceAllowance x H05_FanDevicePctFlow) 
- 
-End if</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules"> 
+For H01 Sum All rows (H07_FanDeviceAllowance x H05_FanDevicePctFlow) 
+</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
                                                                   <xsd:element name="H08_NotApplicableMessage" >
@@ -9460,7 +9459,7 @@ If H02_FanFunction == Supply Is Not Present in TableFanSystems Row
    SupplyFanBaseAllowance = 0
 Else If H02_FanFunction == Supply Is Present in TableFanSystems Row
    If H00i_ServingFloors = true
-      If H00d_SystemZoning = MultiZoneVAV
+      If H00d_SystemZoning = MultiZoneVAV Or (DOASZoneGT1kW And UI Only question == No)
          If H00f_FanSystemFlowCapacity LTE 5000
             SupplyFanBaseAllowance = 0.508
          Else If H00f_FanSystemFlowCapacity LTE 10000
@@ -9481,7 +9480,7 @@ Else If H02_FanFunction == Supply Is Present in TableFanSystems Row
       End If
    End If
 Else If H00i_ServingFloors = false
-   If H00d_SystemZoning = MultiZoneVAV
+   If H00d_SystemZoning = MultiZoneVAV Or (DOASZoneGT1kW And UI Only question == No)
       If H00f_FanSystemFlowCapacity LTE 5000
          SupplyFanBaseAllowance = 0.395
       Else If H00f_FanSystemFlowCapacity LTE 10000
@@ -9531,7 +9530,7 @@ ExhaustFanBaseAllowance is assigned as follows:
 If H02_FanFunction == Exhaust Or Relief Or Return Or Transfer Is Not Present in TableFanSystems Row
    ExhuastFanBaseAllowance = 0
 Else If H02_FanFunction == Exhaust Or Relief Or Return Or Transfer Is Present in TableFanSystems Row
-   If H00d_SystemZoning = MultiZoneVAV
+   If H00d_SystemZoning = MultiZoneVAV Or (DOASZoneGT1kW And UI Only question == No)
       If H00f_FanSystemFlowCapacity LTE 5000
          ExhuastFanBaseAllowance = 0.221
       Else If H00f_FanSystemFlowCapacity LTE 10000
