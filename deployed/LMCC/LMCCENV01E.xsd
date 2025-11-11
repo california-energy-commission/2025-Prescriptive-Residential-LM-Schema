@@ -19206,11 +19206,11 @@ Else If Kvertperf23_FenestrationPanes == DoubleWithSpacers Or DoublePaneDivided 
 End If
  
 Else If Kvertperf23_FenestrationPanes == DoublePane 
-If Kvertperf05_FenestrationProductType == OperableWindow result = 0.66; 
+If Kvertperf05_FenestrationProductType == OperableWindow Or OperableWindowMF result = 0.66; 
 Else If Kvertperf05_FenestrationProductType == FixedWindow Or FixedWindowMF Or StoreFront Or DemisingWallFen Or CurtainWall result = 0.55;  
 End If
 Else If Kvertperf23_FenestrationPanes == DoubleWithSpacers Or DoublePaneDivided
-If Kvertperf05_FenestrationProductType == OperableWindow result = 0.71; 
+If Kvertperf05_FenestrationProductType == OperableWindow Or OperableWindowMF result = 0.71; 
 Else If Kvertperf05_FenestrationProductType == FixedWindow Or StoreFront Or DemisingWallFen Or CurtainWall  Or FixedWindowMF result = 0.60;  
 End If
 End If
@@ -19222,7 +19222,7 @@ Else If Kvertperf23_FenestrationPanes == DoublePane result = 1.06;
 Else If Kvertperf23_FenestrationPanes == DoubleWithSpacers Or DoublePaneDivided result = 1.11;
 End If
  
-Else If Kvertperf05_FenestrationProductType == OperableWindow  Then 
+Else If Kvertperf05_FenestrationProductType == OperableWindow Or OperableWindowMF Then 
 If Kvertperf23_FenestrationPanes == SinglePane result =0.99; 
 Else If Kvertperf23_FenestrationPanes == DoublePane result = 0.58;
 Else If Kvertperf23_FenestrationPanes == DoubleWithSpacers Or DoublePaneDivided result = 0.63;
@@ -19264,7 +19264,7 @@ End If</xsd:documentation>
  
 Switch (Kvertperf22_FenestrationFramingNR) 
 case MetalFraming:  
-If Kvertperf05_FenestrationProductType == OperableWindow  Then 
+If Kvertperf05_FenestrationProductType == OperableWindow Or OperableWindowMF Then 
  
 If Kvertperf24_GlazingTint == ClearGlazing 
 If Kvertperf23_FenestrationPanes == SinglePane result = 0.80; 
@@ -19280,7 +19280,7 @@ Else If Kvertperf23_FenestrationPanes == DoublePane,  DoubleWithSpacers Or Doubl
 End If
 End If
  
-Else If Kvertperf05_FenestrationProductType == FixedWindow, GlazedDoor, CurtainWall, Or StoreFront Then 
+Else If Kvertperf05_FenestrationProductType == FixedWindow, FixedWindowMF, GlazedDoor, CurtainWall, Or StoreFront Then 
 If Kvertperf24_GlazingTint == ClearGlazing 
 If Kvertperf23_FenestrationPanes == SinglePane result = 0.83; 
 Else If Kvertperf23_FenestrationPanes == DoublePane,  DoubleWithSpacers Or DoublePaneDivided
@@ -19299,12 +19299,12 @@ End If
 case MetalFramingWithThermalBreak: 
 If Kvertperf23_FenestrationPanes == DoublePane,  DoubleWithSpacers Or DoublePaneDivided
  Then 
-If Kvertperf05_FenestrationProductType == OperableWindow  
+If Kvertperf05_FenestrationProductType == OperableWindow  Or OperableWindowMF 
 If Kvertperf24_GlazingTint == ClearGlazing result = 0.63; 
 Else If Kvertperf24_GlazingTint == TintedGlazing result = 0.53; 
 End If
  
-Else If Kvertperf05_FenestrationProductType ==  FixedWindow, GlazedDoor, CurtainWall, Or StoreFront 
+Else If Kvertperf05_FenestrationProductType ==  FixedWindow, FixedWindowMF, GlazedDoor, CurtainWall, Or StoreFront 
 If Kvertperf24_GlazingTint == ClearGlazing result = 0.69; 
 Else If Kvertperf24_GlazingTint == TintedGlazing result = 0.57;  
 End If
@@ -19312,7 +19312,7 @@ End If
 End If
  
 case NonMetalFraming:  
-If Kvertperf05_FenestrationProductType == OperableWindow  Then 
+If Kvertperf05_FenestrationProductType == OperableWindow Or OperableWindowMF Then 
 If Kvertperf24_GlazingTint == ClearGlazing 
 If Kvertperf23_FenestrationPanes == SinglePane result =0.74; 
 Else If Kvertperf23_FenestrationPanes == DoublePane,  DoubleWithSpacers Or DoublePaneDivided
@@ -19326,7 +19326,7 @@ Else If Kvertperf23_FenestrationPanes == DoublePane,  DoubleWithSpacers Or Doubl
  result = 0.53; 
 End If
  
-Else If Kvertperf05_FenestrationProductType ==  FixedWindow, GlazedDoor, CurtainWall, Or StoreFront  Then 
+Else If Kvertperf05_FenestrationProductType ==  FixedWindow, FixedWindowMF, GlazedDoor, CurtainWall, Or StoreFront  Then 
 If Kvertperf24_GlazingTint == ClearGlazing 
 If Kvertperf23_FenestrationPanes == SinglePane result = 0.76; 
 Else If Kvertperf23_FenestrationPanes == DoublePane,  DoubleWithSpacers Or DoublePaneDivided

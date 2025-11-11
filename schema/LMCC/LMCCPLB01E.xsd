@@ -1194,7 +1194,7 @@ result = (SUM (F11 Rated Efficiency for the row where F08_WaterHeaterType == Ins
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="F06_NotApplicableMessage " >
+                                       <xsd:element name="F06_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Capacity-weighted Average Efficiency %</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F04_ExceptionsToPrescReqsDHW != ExceptionsNonApply
@@ -2410,7 +2410,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If B02New_WaterHeatingSystem != IndividualDwellingUnits or CentralDwellingUnits Or Any F08_WaterHeaterType != InstantaneousConsumer or StorageResDutyCommercial result = ReqYes, else result = ReqNA</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="TableI_Individual" >
+                  <xsd:element name="TableI_Individual" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Gas/Propane Water Heaters Serving Individual Dwelling Units - [d:t24refnolink/]160.9(e)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules"> Triggered if I01a_ElectricReadyScope = ReqYes </xsd:documentation>
@@ -2451,7 +2451,7 @@ Dropdown options (only the one that is selected shows up):
                         </xsd:sequence>   
                      </xsd:complexType>
                   </xsd:element>
-                   <xsd:element name="TableI_Multiple" >
+                   <xsd:element name="TableI_Multiple" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Gas/Propane Water Heaters Serving Multiple Dwelling Units - [d:t24refnolink/]160.9(f)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules"> Triggered if I01b_ElectricReadyScope = ReqYes </xsd:documentation>
