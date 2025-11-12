@@ -4569,8 +4569,7 @@ user enters text
                                   <xsd:annotation>
                                     <xsd:documentation source="FieldText"/>
                                     <xsd:documentation source="CalculationsAndRules">
-If Fspan04_Status == ExistingAlteration And  Fspan05_RoofInsulationException  != NoExceptionApplies
-Or Fspan05_RoofInsulationException != MechanicalEquipmentOnRoof Or RecoverAboveDeckRvalue
+If Fspan05_RoofInsulationException == RoofRecoat
 result = BlankGrayedOut
 </xsd:documentation>
                                   </xsd:annotation>
