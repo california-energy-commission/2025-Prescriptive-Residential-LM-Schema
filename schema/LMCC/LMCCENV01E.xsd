@@ -19199,8 +19199,8 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="FieldText">VT</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">Calculated field: 
 If Kvertperf21_WindowProjecting == true result = 0.53; 
-Else If Kvertperf05_FenestrationProductType == OperableWindow result = 0.67; 
-Else If Kvertperf05_FenestrationProductType == FixedWindow Or GlazedDoor
+Else If Kvertperf05_FenestrationProductType == OperableWindow Or OperableWindowMF result = 0.67; 
+Else If Kvertperf05_FenestrationProductType == FixedWindow Or FixedWindowMF Or GlazedDoor
  result = 0.77; 
 Else If Kvertperf05_FenestrationProductType == Storefront Or  CurtainWall  result = 0.88;
 End If</xsd:documentation>
