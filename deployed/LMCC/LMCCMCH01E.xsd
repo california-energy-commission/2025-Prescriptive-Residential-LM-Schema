@@ -8572,499 +8572,499 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If H02_FanFunction == Supply use this choice
  Switch (H04_FanPowerAllowanceDevice)
   
-case MERV13_16Upstream:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.136
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.114
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.105
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.139
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.120
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.107
-End If
-End If
+   case MERV13_16Upstream:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.136
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.114
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.105
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.139
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.120
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.107
+         End If
+      End If
  
-case MERV13_16Downstream:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.225
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.188
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.176
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.231
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.197
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.177
-End If
-End If
+   case MERV13_16Downstream:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.225
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.188
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.176
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.231
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.197
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.177
+         End If
+      End If
  
-case MERV16GreaterOrHEPA:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.335
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.280
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.265
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.342
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.292
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.264
-End If
-End If
+   case MERV16GreaterOrHEPA:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.335
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.280
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.265
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.342
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.292
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.264
+         End If
+      End If
  
-case HydronicHeatAllowance:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.046
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.048
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.052
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.046
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.050
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.054
-End If
-End If
+   case HydronicHeatAllowance:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.046
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.048
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.052
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.046
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.050
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.054
+         End If
+      End If
  
-case ElectHeatAllowance:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.046
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.038
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.035
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.046
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.040
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.036
-End If
-End If
+   case ElectHeatAllowance:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.046
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.038
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.035
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.046
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.040
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.036
+         End If
+      End If
  
-case GasHeatAllowance:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.069
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.057
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.070
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.058
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.060
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.072
-End If
-End If
+   case GasHeatAllowance:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.069
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.057
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.070
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.058
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.060
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.072
+         End If
+      End If
  
-case CoilDXorHP:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.135
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.114
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.105
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.139
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.120
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.107
-End If
-End If
+   case CoilDXorHP:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.135
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.114
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.105
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.139
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.120
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.107
+         End If
+      End If
  
-case DesiccantAllowance:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.157
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.132
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.123
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.163
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.139
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.124
-End If
-End If
+   case DesiccantAllowance:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.157
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.132
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.123
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.163
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.139
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.124
+         End If
+      End If
  
-case CoilReheat:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.045
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.038
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.035
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.046
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.040
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.036
-End If
-End If
+   case CoilReheat:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.045
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.038
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.035
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.046
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.040
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.036
+         End If
+      End If
  
-case EvapCoolerAllowance:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.224 x H06_FanDevicePressureDrop
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.188 x H06_FanDevicePressureDrop
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.176 x H06_FanDevicePressureDrop
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.231 x H06_FanDevicePressureDrop
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.197 x H06_FanDevicePressureDrop
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.177 x H06_FanDevicePressureDrop
-End If
-End If
+   case EvapCoolerAllowance:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.224 x H06_FanDevicePressureDrop
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.188 x H06_FanDevicePressureDrop
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.176 x H06_FanDevicePressureDrop
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.231 x H06_FanDevicePressureDrop
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.197 x H06_FanDevicePressureDrop
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.177 x H06_FanDevicePressureDrop
+         End If
+      End If
  
-case AllOASystem:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.0
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.0
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.0
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.070
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.100
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.107
-End If
-End If
+   case AllOASystem:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.0
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.0
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.0
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.070
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.100
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.107
+         End If
+      End If
  
-case ERR_50ToLT_55:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.135
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.114
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.105
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.139
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.120
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.107
-End If
-End If
+   case ERR_50ToLT_55:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.135
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.114
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.105
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.139
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.120
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.107
+         End If
+      End If
  
-case ERR_55ToLT_60:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.160
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.134
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.124
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.165
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.141
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.126
-End If
-End If
+   case ERR_55ToLT_60:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.160
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.134
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.124
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.165
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.141
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.126
+         End If
+      End If
  
-case ERR_60ToLT_65:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.184
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.155
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.144
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.190
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.163
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.146
-End If
-End If
+   case ERR_60ToLT_65:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.184
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.155
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.144
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.190
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.163
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.146
+         End If
+      End If
  
-case ERR_65ToLT_70:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.208
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.175
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.163
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.215
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.184
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.165
-End If
-End If
+   case ERR_65ToLT_70:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.208
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.175
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.163
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.215
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.184
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.165
+         End If
+      End If
  
-case ERR_70ToLT_75:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.232
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.196
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.183
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.240
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.205
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.184
-End If
-End If
+   case ERR_70ToLT_75:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.232
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.196
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.183
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.240
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.205
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.184
+         End If
+      End If
  
-case ERR_75ToLT_80:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.257
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.216
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.202
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.264
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.226
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.203
-End If
-End If
+   case ERR_75ToLT_80:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.257
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.216
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.202
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.264
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.226
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.203
+         End If
+      End If
  
-case ERR_GTE_80
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.281
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.236
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.222
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.289
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.247
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.222
-End If
-End If
+   case ERR_GTE_80
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.281
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.236
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.222
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.289
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.247
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.222
+         End If
+      End If
  
-case CoilRunaroundLoop:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.135
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.114
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.105
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.139
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.120
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.107
-End If
-End If
+   case CoilRunaroundLoop:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.135
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.114
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.105
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.139
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.120
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.107
+         End If
+      End If
  
-case GasPhaseAirCleaner:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.224 x H06_FanDevicePressureDrop
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.188 x H06_FanDevicePressureDrop
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.176 x H06_FanDevicePressureDrop
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.231 x H06_FanDevicePressureDrop
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.197 x H06_FanDevicePressureDrop
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.177 x H06_FanDevicePressureDrop
-End If
-End If
+   case GasPhaseAirCleaner:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.224 x H06_FanDevicePressureDrop
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.188 x H06_FanDevicePressureDrop
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.176 x H06_FanDevicePressureDrop
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.231 x H06_FanDevicePressureDrop
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.197 x H06_FanDevicePressureDrop
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.177 x H06_FanDevicePressureDrop
+         End If
+      End If
  
-case EconReturnDamper:  case AirBlender:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.045
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.038
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.035
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.046
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.040
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.036
-End If
-End If
+   case EconReturnDamper:  case AirBlender:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.045
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.038
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.035
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.046
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.040
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.036
+         End If
+      End If
  
-case SoundAttenuation:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.034
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.029
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.026
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.035
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.030
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.027
-End If
-End If
+   case SoundAttenuation:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.034
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.029
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.026
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.035
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.030
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.027
+         End If
+      End If
  
-case TermUnitFanLT1kW:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = - 0.100
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = - 0.100
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = - 0.10
-0End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result =  - 0.100
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = - 0.100
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result =  - 0.100
-End If
-End If
+   case TermUnitFanLT1kW:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = - 0.100
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = - 0.100
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = - 0.100
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result =  - 0.100
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = - 0.100
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result =  - 0.100
+         End If
+      End If
  
-case LowTurnDown1ZoneVAV:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.000
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.000
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.000
-0End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result =   0.070
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.100
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result =  0.089
-End If
-End If
+   case LowTurnDown1ZoneVAV:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.000
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.000
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.000
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result =   0.070
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.100
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result =  0.089
+         End If
+      End If
  
-case ReplaceSupply:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.135
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.114
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.105
-0End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result =   0.139
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.120
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result =  0.107
-End If
-End If
+   case ReplaceSupply:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.135
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.114
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.105
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result =   0.139
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.120
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result =  0.107
+         End If
+      End If
  
-case ReplaceSupplyAdapterCurb:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.033
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.033
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.043
-0End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result =   0.000
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.000
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result =  0.000
-End If
-End If
+   case ReplaceSupplyAdapterCurb:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.033
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.033
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.043
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result =   0.000
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.000
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result =  0.000
+         End If
+      End If
  
 End Switch</xsd:documentation>
                                                             </xsd:annotation>
@@ -9075,310 +9075,310 @@ End Switch</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If H02_FanFunction != Supply use this choice
  
  Switch (H04_FanPowerAllowanceDevice)
-case FilterAnyMERV:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.046
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.041
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.036
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.046
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.041
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.035
-End If
-End If
+   case FilterAnyMERV:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.046
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.041
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.036
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.046
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.041
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.035
+         End If
+      End If
   
-case ERR_50ToLT_55:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.139
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.120
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.107
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.139
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.123
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.109
-End If
-End If
+   case ERR_50ToLT_55:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.139
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.120
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.107
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.139
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.123
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.109
+         End If
+      End If
  
-case ERR_55ToLT_60:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.165
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.42
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.126
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.165
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.144
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.128
-End If
-End If
+   case ERR_55ToLT_60:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.165
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.42
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.126
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.165
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.144
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.128
+         End If
+      End If
  
-case ERR_60ToLT_65:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.190
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.163
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.146
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.191
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.166
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.148
-End If
-End If
+   case ERR_60ToLT_65:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.190
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.163
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.146
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.191
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.166
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.148
+         End If
+      End If
  
-case ERR_65ToLT_70:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.215
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.184
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.165
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.216
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.188
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.167
-End If
-End If
+   case ERR_65ToLT_70:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.215
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.184
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.165
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.216
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.188
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.167
+         End If
+      End If
  
-case ERR_70ToLT_75:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.240
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.206
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.184
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.241
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.209
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.186
-End If
-End If
+   case ERR_70ToLT_75:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.240
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.206
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.184
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.241
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.209
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.186
+         End If
+      End If
  
-case ERR_75ToLT_80:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.265
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.227
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.203
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.266
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.231
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.205
-End If
-End If
+   case ERR_75ToLT_80:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.265
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.227
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.203
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.266
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.231
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.205
+         End If
+      End If
  
-case ERR_GTE_80
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.289
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.248
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.222
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.291
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.252
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.225
-End If
-End If
+   case ERR_GTE_80
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.289
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.248
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.222
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.291
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.252
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.225
+         End If
+      End If
  
-case CoilRunaroundLoop:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.139
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.120
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.107
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.139
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.123
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.109
-End If
-End If
+   case CoilRunaroundLoop:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.139
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.120
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.107
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.139
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.123
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.109
+         End If
+      End If
  
-case PressureMaintained:  case AirflowControl:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.116
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.100
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.089
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0116
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.102
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.091
-End If
-End If
+   case PressureMaintained:  case AirflowControl:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.116
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.100
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.089
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0116
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.102
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.091
+         End If
+      End If
  
-case BiosafetyCabinet: case FiltersScrubbers:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.231 x H06_FanDevicePressureDrop
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.198 x H06_FanDevicePressureDrop
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.177 x H06_FanDevicePressureDrop
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.232 x H06_FanDevicePressureDrop
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.202 x H06_FanDevicePressureDrop
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.179 x H06_FanDevicePressureDrop
-End If
-End If
+   case BiosafetyCabinet: case FiltersScrubbers:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.231 x H06_FanDevicePressureDrop
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.198 x H06_FanDevicePressureDrop
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.177 x H06_FanDevicePressureDrop
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.232 x H06_FanDevicePressureDrop
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.202 x H06_FanDevicePressureDrop
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.179 x H06_FanDevicePressureDrop
+         End If
+      End If
  
-case SoundAttenuation:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.035
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.030
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.027
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.035
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.031
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.028
-End If
-End If
+   case SoundAttenuation:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.035
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.030
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.027
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.035
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.031
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.028
+         End If
+      End If
  
-case ReplaceReturnExhaust:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.070
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.061
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.054
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.070
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.062
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.055
-End If
-End If
+   case ReplaceReturnExhaust:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.070
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.061
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.054
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.070
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.062
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.055
+         End If
+      End If
  
-case ReplaceReturnExhaustAdapterCurb:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.016
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.017
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.022
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.000
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.000
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.000
-End If
-End If
+   case ReplaceReturnExhaustAdapterCurb:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.016
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.017
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.022
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.000
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.000
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.000
+         End If
+      End If
 
-case HealthcareFacility:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.231
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.198
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.177
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result = 0.232
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result = 0.202
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result = 0.179
-End If
-End If
+   case HealthcareFacility:
+      If H00d_SystemZoning == MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.231
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.198
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.177
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+         If H00f_FanSystemFlowCapacity LTE 5000
+            result = 0.232
+         Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+            result = 0.202
+         Else  If H00f_FanSystemFlowCapacity GT 10000 
+            result = 0.179
+         End If
+      End If
 End Switch
  
 If A03_WholeBuildingOccupancy includes HospitalBuilding   // assign special allowance from Table 140.4-B
-f H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-result += 0.231
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result += 0.198
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result += 0.177
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-result += 0.232
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-result += 0.202
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-result += 0.179
-End If
-End If</xsd:documentation>
+   If H00d_SystemZoning == MultiZoneVAV
+      If H00f_FanSystemFlowCapacity LTE 5000
+         result += 0.231
+      Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+         result += 0.198
+      Else  If H00f_FanSystemFlowCapacity GT 10000 
+         result += 0.177
+      End If
+   Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
+      If H00f_FanSystemFlowCapacity LTE 5000
+         result += 0.232
+      Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+         result += 0.202
+      Else  If H00f_FanSystemFlowCapacity GT 10000 
+         result += 0.179
+      End If
+   End If</xsd:documentation>
                                                             </xsd:annotation>
                                                             </xsd:element>
                                                             <xsd:element name="H07_NotApplicableMessage">
@@ -9636,7 +9636,7 @@ Else If H02_FanFunction == Supply Is Present in TableFanSystems Row
          Else If H00f_FanSystemFlowCapacity GT 10000
             SupplyFanBaseAllowance = 0.501
          End If
-      Else If H00d_SystemZoning == AllOtherZoneTypes
+      Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
          If H00f_FanSystemFlowCapacity LTE 5000
             SupplyFanBaseAllowance = 0.349
          Else If H00f_FanSystemFlowCapacity LTE 10000
@@ -9657,7 +9657,7 @@ Else If H00i_ServingFloors = false
       Else If H00f_FanSystemFlowCapacity GT 10000
          SupplyFanBaseAllowance = 0.413
       End If
-   Else If H00d_SystemZoning == AllOtherZoneTypes
+   Else If H00d_SystemZoning == AllOtherZoneTypes Or DOASZone Or DOASZoneGT1kW
       If H00f_FanSystemFlowCapacity LTE 5000
          SupplyFanBaseAllowance = 0.232
       Else If H00f_FanSystemFlowCapacity LTE 10000
