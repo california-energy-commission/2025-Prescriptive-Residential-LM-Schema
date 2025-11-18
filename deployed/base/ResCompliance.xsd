@@ -11650,6 +11650,33 @@
     <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="IsSolarZoneInterconnectionPathwaysIncluded">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="IsSolarZoneElectricPanelRatingMet">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="IsSolarZoneElectricPanelReservedAndLabeled">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+  </xsd:simpleType>
   <xsd:simpleType name="IsSolarZoneSubAreaSmallDimension5ftPlus">
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
@@ -12927,6 +12954,26 @@
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="xsd:date">
+      </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MeetsJA11">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+        <dtyp:displayterm value="false">No</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MeetsJA12">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+        <dtyp:displayterm value="false">No</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="MeteringCapabilitiesAsBuilt">

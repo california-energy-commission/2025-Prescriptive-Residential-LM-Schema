@@ -46,7 +46,7 @@
             <xsd:element name="Report" type="xsd:base64Binary"/>
             <xsd:element name="ReportMMB" type="xsd:base64Binary" minOccurs="0"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220901"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250101"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="LMCISAB01E"/>
       </xsd:complexType>
    </xsd:element>
@@ -477,7 +477,25 @@ End If</xsd:documentation>
                                           </xsd:simpleType>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="Zone04_ComplianceResultCI" type="comp:ComplianceResultCI" >
+                                    <xsd:element name="Zone04_IsSolarZoneInterconnectionPathwaysIncluded" type="comp:IsSolarZoneInterconnectionPathwaysIncluded" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Location reserved for inverters and metering and a pathway reserved for routing of conduit from solar zone to point of interconnection?</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User Input</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Zone05_IsSolarZoneElectricPanelRatingMet" type="comp:IsSolarZoneElectricPanelRatingMet" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Main electrical service panel has a minimum busbar rating of 200 amps?</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User Input</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Zone06_IsSolarZoneElectricPanelReservedAndLabeled" type="comp:IsSolarZoneElectricPanelReservedAndLabeled" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Main electrical service panel has a reserved space for the installation of a circuit breaker for future solar electric installation that is labeled?</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User Input</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Zone07_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Solar Zone Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -509,6 +527,12 @@ End If</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
+                           <xsd:element name="Pv_MeetsJA11" type="comp:MeetsJA11">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">The system meets the installation requirements of Joint Appendix JA11.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="TablePV" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
@@ -975,6 +999,7 @@ result = SUM(Pv01_PV_SystemTotalRatedPowerDC)</xsd:documentation>
 result = TableIncomplete
 Else If PV11_PV_SystemPowerOutput LT PV12cc_PV_DesignSize
 Or PVRow_ComplianceResultsCI == MayNotComply
+Or Pv_MeetsJA11 == false
 result = MayNotComply
 Else If PV11_PV_SystemPowerOutput GT PV12cc_PV_DesignSize
 And PVRow_ComplianceResultsCI == EqualBetter Or PVRow_ComplianceResultsCI == ExactMatch
@@ -989,11 +1014,17 @@ result = ExactMatch</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="TableBat" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">[d:b]Battery Storage System [/d:b]</xsd:documentation>
+                        <xsd:documentation source="FieldText">[d:b]Battery Energy Storage System [/d:b]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This section is required If B01k_ProjectHasBatteryStorage == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
+                           <xsd:element name="Bat_MeetsJA12" type="comp:MeetsJA12">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">The system meets the installation requirements of Joint Appendix JA12.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
@@ -1038,7 +1069,7 @@ result = ExactMatch</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Bat03cc_BatteryCapacity" type="hvac:BatteryCapacity" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Rated Energy Capacity of Battery (kWh)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Rated Usable Energy Capacity of BESS (kWh)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If parent LMCC_SAB
 If Pv08_BatteryCapacity
 result = Pv08_BatteryCapacity
@@ -1054,7 +1085,7 @@ End If</xsd:documentation>
                                        </xsd:element>
                                        <xsd:element name="Bat03cc_NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Rated Energy Capacity of Battery (kWh)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Rated Usable Energy Capacity of BESS (kWh)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If parent LMCC_SAB
 If Pv08_BatteryCapacity NotPresent
 result = BlankGrayedOut
@@ -1073,7 +1104,7 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Bat03_BatteryCapacity" type="hvac:BatteryCapacity" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Rated Energy Capacity of Battery (kWh)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Rated Usable Energy Capacity of BESS (kWh)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Bat01_InstalledSameAsCC == true
 result = Bat03cc_BatteryCapacity
 Else If Bat01_InstalledSameAsCC == false
@@ -1083,7 +1114,7 @@ End If</xsd:documentation>
                                        </xsd:element>
                                        <xsd:element name="Bat03_NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Rated Energy Capacity of Battery (kWh)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Rated Usable Energy Capacity of BESS (kWh)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Bat03cc_NotApplicableMessage IsPresent
 If Bat01_InstalledSameAsCC == true
 result = Bat03cc_NotApplicableMessage
@@ -1186,41 +1217,74 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Bat06cc_SeePlansMessage" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Charging Efficiency</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">result = SeePlans</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:SeePlansMessage">
-                                             <xsd:enumeration value="SeePlans"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="Bat06_ChargingEfficiency" type="hvac:ChargingEfficiency" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Charging Efficiency</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Bat06cc_ChargeDischargeEfficiency" type="hvac:ChargeDischargeEfficiency" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Single Charge-Discharge AC Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If parent LMCC_SAB
+If  Bat03_ChargeDischargeEfficiency IsPresent
+result = Bat03_ChargeDischargeEfficiency
+Else If parent CC_PRF
+result = Bat07_ChargeDischargeEfficiency
+End If</xsd:documentation>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="LMCCSAB1E"  usage="copy">Bat03_ChargeDischargeEfficiency</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCPRF01E"  usage="copy">Bat07_ChargeDischargeEfficiency</dtyp:srcSchema>
+                                             </xsd:appinfo>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Bat06cc_NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Single Charge-Discharge AC Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If parent LMCC_SAB
+If  Bat03_ChargeDischargeEfficiency NotPresent
+result = BlankGrayedOut
+Else If parent CC-PRF
+If Bat07_NotApplicableMessage isPresent
+result = Bat07_NotApplicableMessage
+End If
+End If</xsd:documentation>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="LMCCSAB1E"  usage="reference">Bat03_ChargeDischargeEfficiency</dtyp:srcSchema>
+                                             </xsd:appinfo>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Bat06_ChargeDischargeEfficiency" type="hvac:ChargeDischargeEfficiency" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Single Charge-Discharge AC Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Bat01_InstalledSameAsCC == true
+If Bat06cc_ChargeDischargeEfficiency IsPresent
+result = Bat06cc_ChargeDischargeEfficiency
+End If
+Else If Bat01_InstalledSameAsCC == false
+User input
+End If
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Bat06_NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Single Charge-Discharge AC Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Bat06cc_NotApplicableMessage IsPresent
+If Bat01_InstalledSameAsCC == true
+result = Bat06cc_NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="Bat07cc_SeePlansMessage" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Discharging Efficiency</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">result = SeePlans</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:SeePlansMessage">
-                                             <xsd:enumeration value="SeePlans"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="Bat07_DischargingEfficiency" type="hvac:DischargingEfficiency" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Discharging Efficiency</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Bat08cc_SeePlansMessage" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Battery System Certified by CEC?</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">result = SeePlans</xsd:documentation>
@@ -1231,13 +1295,13 @@ End If</xsd:documentation>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="Bat08_IsBatterySystemCertified" type="comp:IsBatterySystemCertified" >
+                                    <xsd:element name="Bat07_IsBatterySystemCertified" type="comp:IsBatterySystemCertified" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Battery System Certified by CEC?</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Bat09_ComplianceResultCI" type="comp:ComplianceResultCI" >
+                                    <xsd:element name="Bat08_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Battery Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -1257,6 +1321,7 @@ Else If Bat03cc_BatteryCapacity GT Bat03_BatteryCapacity Or
 Bat05CC_BatteryControl == AdvancedDR and Bat05_BatteryControl == Basic or TOU 
 Or Bat05CC_BatteryControl == RankedDayDR and Bat05_BatteryControl == Basic or TOU 
 Or Bat05CC_BatteryControl == TOU and Bat05_BatteryControl == Basic
+Or Bat_MeetsJA12 == false
 result = MayNotComply
 End If</xsd:documentation>
                                        </xsd:annotation>
@@ -1574,7 +1639,7 @@ End If</xsd:documentation>
                            <xsd:element name="Tstat01cc_IsProjectSmartTstatPlusEE_Measure" type="comp:IsProjectSmartTstatPlusEE_Measure" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">All thermostats in each dwelling unit comply with the following requirements form Title 24, Part 6 [d:t24refnolink/]110.12(a) and all requirements in Joint Appendix 5: [d:l t="#"][d:list]All demand responsive controls shall be either: [/d:list] [d:l t="A"][d:list]A certified OpenADR 2.0a or OpenADR 2.0b Virtual End Node (VEN), as specified under Clause 11, Conformance, in the applicable OpenADR 2.0 specification; or [/d:list][d:list]Certified by the manufacturer as being capable of responding to a demand response signal from a certified OpenADR 2.0b Virtual End Node by automatically implementing the control functions requested by the Virtual End Node for the equipment it controls.[/d:list][/d:l] [d:list] All demand responsive controls shall be capable of communicating using one or more of the following: Wi-Fi, ZigBee, BACnet, Ethernet, or hard-wiring.[/d:list][d:list]Demand responsive controls may incorporate and use additional protocols beyond those specified in Sections 110.12(a)1 and 2.[/d:list][d:list]When communications are disabled or unavailable, all demand responsive controls shall continue to perform all other control functions provided by the control.[/d:list][/d:l]</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">All thermostats in each dwelling unit comply with the following requirements form Title 24, Part 6 [d:t24refnolink/]110.12(a) and all requirements in Joint Appendix 5: [d:l t="#"][d:list]All demand responsive controls shall be either: [/d:list] [d:l t="A"][d:list]A certified OpenADR 2.0a or OpenADR 2.0b Virtual End Node (VEN), as specified under Clause 11, Conformance, in the applicable OpenADR 2.0 specification; or a certified Baseline Profile Open ADR 3.0 Virtual End Node; or [/d:list][d:list]Certified to the Energy Commission as being capable of responding to a demand response signal from a certified OpenADR 2.0b or a certified Baseline Profile OpenADR 3.0 Virtual End Node by automatically implementing the control functions requested by the Virtual End Node for the equipment it controls.[/d:list][/d:l] [d:list] All demand responsive controls shall be capable of communicating using one or more of the following: Wi-Fi, ZigBee, BACnet, Ethernet, or hard-wiring.[/d:list][d:list]Demand responsive controls may incorporate and use additional protocols beyond those specified in Sections 110.12(a)1 and 2.[/d:list][d:list]When the demand response signal is disabled or unavailable, all demand responsive controls shall continue to perform all other control functions provided by the control.[/d:list][/d:l]</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If CC-PRF 
 result = true And static text in AdditionalRequirements is displayed
 Else If CC-SAB parent
