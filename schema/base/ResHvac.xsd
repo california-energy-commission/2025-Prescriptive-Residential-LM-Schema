@@ -6851,7 +6851,7 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="TransferAndPreheat">Heat Recovery Systems Shall:
 <d:l t="*"><d:list>Transferring the lesser of the following from spaces in cooling to spaces in heating:</d:list>
-<d:list>25% of thje peak heat rejection of the cooling system</d:list>
+<d:list>25% of the peak heat rejection of the cooling system</d:list>
 <d:list>25% of design capacity of all service water heating systems + design capacity of all space heating systems</d:list>
 <d:list>Heat or preheat the service water heating to the smaller of:</d:list>
 <d:list>30% of the peak heat rejection of the cooling system; or</d:list>

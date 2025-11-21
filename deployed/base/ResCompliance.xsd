@@ -9018,7 +9018,7 @@
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="MinEfficiency">Must meet Federal Minimum Requirements</dtyp:displayterm>
-        <dtyp:displayterm value="IfApplicable">If pplicable, must meet Federal Minimum Requirements</dtyp:displayterm>
+        <dtyp:displayterm value="IfApplicable">If applicable, must meet Federal Minimum Requirements</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstantPermissive">

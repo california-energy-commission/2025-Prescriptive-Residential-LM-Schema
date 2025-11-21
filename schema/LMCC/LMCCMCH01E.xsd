@@ -7863,8 +7863,40 @@ Else
                                           </xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="Fg07_HeatRecoveryRequirements" type="hvac:HeatRecoveryRequirements">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">
+If Fg06_HeatRecoveryRequired == true And Fg04_HeatingCapacity GTE 500 kBTU
+   result = TransferAndPreheat
+Else If Fg06_HeatRecoveryRequired == true And Fg04_HeatingCapacity LT 500 kBTU
+   result = Transfer
+                                          </xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Fg07_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">
+If Fg06_HeatRecoveryRequired == false
+   result = BlankGrayedOut
+                                          </xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="FFootnote1" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]1[/d:sup] FOOTNOTES: Excluding systems expected to operate less than 5 hours per week. [/d:i]</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="FFootnote2" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]2[/d:sup] FOOTNOTES: If the design includes capacity for future cooling systems, then assume 20% of future systems serve high load spaces. [/d:i]</xsd:documentation>
+                              </xsd:annotation>
                            </xsd:element>
                         </xsd:sequence>
                      </xsd:complexType>
