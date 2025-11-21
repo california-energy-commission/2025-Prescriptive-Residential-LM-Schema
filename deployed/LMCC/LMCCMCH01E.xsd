@@ -13537,8 +13537,8 @@ End If</xsd:documentation>
                         <xsd:element name="M12_TowerTargetCycles" type="hvac:TowerTargetCycles">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Target Tower Cycles</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">Calculated value:
- result = (LOG(M08_MAlkalinity * M11_TowerTargetCycles * 0.9 * 1.219) + 2.19) /0.55</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
+User input</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="M13_MaximumCycles" type="hvac:MaximumCycles">
@@ -13547,13 +13547,14 @@ End If</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">
 result =  Largest (
    (2970/M07_TowerConductivity),
-   (1845/M11a_Chlorides),
+   (1845/M11_DissolvedSolids),
    (540/M08_MAlkalinity),
    (450/M08a_MAlkalinitySteel),
-   (540/M10_MagnesiumHardness),
-   (270/M11b_Sulfates),
-   (225/M11c_Silica),
-   (135/M12_TowerTargetCycles)
+   (540/M09_CalciumHardness),
+   (270/M11a_Chlorides),
+   (225/M11b_Sulfates),
+   (135/M11c_Silica),
+   (10^((LOG(M08_MAlkalinity*0.9+1.219)-0.061105*LOG(M07_TowerConductivity+0.8)+0.55*LOG(M09_CalciumHardness+M08_MAlkalinity)+0.0050325*M06_TowerSkinTempMax-5.95)/2.088895))
 )
 </xsd:documentation>
                           </xsd:annotation>
