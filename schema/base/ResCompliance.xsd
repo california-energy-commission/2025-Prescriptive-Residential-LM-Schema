@@ -14708,8 +14708,8 @@
             <dtyp:displayterm value="GarageLT60NA">NA: Garage General Ltg [d:lt/] 60W</dtyp:displayterm>
             <dtyp:displayterm value="GlazingLT24Ft2NA">NA: Rm [d:lt/] 24sf Glazing</dtyp:displayterm>
             <dtyp:displayterm value="Included">Included</dtyp:displayterm>
-            <dtyp:displayterm value="NA_LTE40PctPreAltLP">NA:  [d:lte/] 40 % lower compared to pre-alteration LP</dtyp:displayterm>
-            <dtyp:displayterm value="NA_LTE80PctAllowedLP">NA:  [d:lte/] 80 % LP (alt only)</dtyp:displayterm>
+            <dtyp:displayterm value="NA_LTE40PctPreAltLP">NA: [d:lte/] 40 % lower compared to pre-alteration LP</dtyp:displayterm>
+            <dtyp:displayterm value="NA_LTE80PctAllowedLP">NA: [d:lte/] 80 % Lighting Power (alterations only)</dtyp:displayterm>
             <dtyp:displayterm value="NA_NotDaylit">NA: Not daylit zone</dtyp:displayterm>
             <dtyp:displayterm value="OverhangRatioNA">NA: Overhang (Exception 2 to 130.1(d))</dtyp:displayterm>
             <dtyp:displayterm value="PrimaryLT120NA">NA: General Ltg [d:lt/] 75W</dtyp:displayterm>
@@ -18294,15 +18294,15 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AutomaticTimerSwitch">Auto. Time Switch</dtyp:displayterm>
-            <dtyp:displayterm value="BuildingLevelShutOffControl">See Building Level</dtyp:displayterm>
+            <dtyp:displayterm value="BuildingLevelShutOffControl">See Building Level (Shut-off control requirements are met at the building level)</dtyp:displayterm>
             <dtyp:displayterm value="CountdownTimerSwitch">Countdown Timer in closet [d:lt/] 70 sq ft or server aisle</dtyp:displayterm>
             <dtyp:displayterm value="ElecEquipRoomNA">NA: Elec. equip. rm</dtyp:displayterm>
             <dtyp:displayterm value="EMCS">EMCS</dtyp:displayterm>
             <dtyp:displayterm value="HealthcareNA">NA: Licensed Healthcare</dtyp:displayterm>
             <dtyp:displayterm value="NA24x7Operation">NA: 24 hour/365 day</dtyp:displayterm>
             <dtyp:displayterm value="OccupancySensor">Occupancy Sensor</dtyp:displayterm>
-            <dtyp:displayterm value="PartialOffShutOffControl">Partial Off</dtyp:displayterm>
-            <dtyp:displayterm value="PartialOnShutOffControl">Partial On</dtyp:displayterm>
+            <dtyp:displayterm value="PartialOffShutOffControl">Partial Off [d:t24refnolink/]130.1(c)/[d:t24refnolink/]160.5(b)4C</dtyp:displayterm>
+            <dtyp:displayterm value="PartialOnShutOffControl">Partial On [d:t24refnolink/]130.1(c)/[d:t24refnolink/]160.5(b)4C</dtyp:displayterm>
             <dtyp:displayterm value="Vacancy">Vacancy Sensor</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>

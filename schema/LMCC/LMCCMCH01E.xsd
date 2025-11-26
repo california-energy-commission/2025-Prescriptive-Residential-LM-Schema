@@ -13725,7 +13725,10 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-05-A - Air Economizer, DOAS, HRV, &amp; ERV Controls</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;  
  
-If H00h_FanSystemEconomizerType  == FixedTemperature, FixedEnthalpy, DifferentialTemperature Or  DifferentialEnthalpy  result = true  display term selected Yes radio button
+If H00h_FanSystemEconomizerType  == FixedTemperature, FixedEnthalpy, DifferentialTemperature Or  DifferentialEnthalpy  
+Or Hdwell09_EnergyHeatRecoveryVent == ProvidesERV or ProvidesHRV
+Or F02_HvacSystemType == DedicatedOAS
+result = true  display term selected Yes radio button
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -14201,6 +14204,114 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="Nrca19b_RequireNRCAMch20" type="comp:RequireNRCAMch20" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCA-MCH-20b-A  Multi-Family Dwelling Kitchen Exhaust</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false; 
+ 
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOccupancy == HighRiseResidential Or  LowRiseResidential  
+result = true display term selected Yes radio button
+End If
+ 
+Mandatory Measure Triggers:
+If result == true
+DUMM120_1b2B_MeasureApplies = true and is displayed
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca19b_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca19b_RequireNRCAMch20 == true; this field is loaded with systems/spaces that satisfy this condition:
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOcccupancy ==  HighRiseResidential Or LowRiseResidential  
+load value in J19_SpaceName in TableVentMF
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca19b_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca19b_RequireNRCAMch20 == true; this field is displayed and loaded with a string that concatenates systems/spaces from Nrca19_SystemFieldVerified</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca19ba_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca19c_RequireNRCAMch20" type="comp:RequireNRCAMch20" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCA-MCH-20c-A  Multi-Family IAQ Ventilation System</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false; 
+ 
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOccupancy == HighRiseResidential Or  LowRiseResidential  
+result = true display term selected Yes radio button
+End If
+ 
+Mandatory Measure Triggers:
+If result == true
+DUMM120_1b2B_MeasureApplies = true and is displayed
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca19c_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca19c_RequireNRCAMch20 == true; this field is loaded with systems/spaces that satisfy this condition:
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOcccupancy ==  HighRiseResidential Or LowRiseResidential  
+load value in J19_SpaceName in TableVentMF
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca19c_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca19c_RequireNRCAMch20 == true; this field is displayed and loaded with a string that concatenates systems/spaces from Nrca19_SystemFieldVerified</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca19ca_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca19d_RequireNRCAMch20" type="comp:RequireNRCAMch20" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCA-MCH-20d-A Dwelling Ventilation - HRV-ERV</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false; 
+ 
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOccupancy == HighRiseResidential Or  LowRiseResidential  
+result = true display term selected Yes radio button
+End If
+ 
+Mandatory Measure Triggers:
+If result == true
+DUMM120_1b2B_MeasureApplies = true and is displayed
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca19d_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca19d_RequireNRCAMch20 == true; this field is loaded with systems/spaces that satisfy this condition:
+If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOcccupancy ==  HighRiseResidential Or LowRiseResidential  
+load value in J19_SpaceName in TableVentMF
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca19d_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca19d_RequireNRCAMch20 == true; this field is displayed and loaded with a string that concatenates systems/spaces from Nrca19_SystemFieldVerified</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca19da_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="Nrca20_RequireNRCAMch21" type="comp:RequireNRCAMch21" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
@@ -14344,13 +14455,13 @@ End If</xsd:documentation>
                   <xsd:element name="LmcvBeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i] Selections have been made based on information provided in previous tables of this document.  If any selection needs to be changed, please explain why in Table E Additional Remarks.  These documents must be completed by a HERS Rater and provided to the building inspector during construction.  The final documents must be created by a HERS Provider's registry, but drafts can be found online at https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2022-building-energy-efficiency-3  [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i] Selections have been made based on information provided in previous tables of this document.  If any selection needs to be changed, please explain why in Table E Additional Remarks.  These documents must be completed by a ECC Rater and provided to the building inspector during construction.  The final documents must be created by a ECC Provider's registry, but drafts can be found online at https://www.energy.ca.gov/programs-and-topics/programs/energy-code-compliance-program/ecc-providers-energy-code-compliance  [/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Lmcv05_RequireLMCVMch21" type="comp:RequireLMCVMch21" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-21-H Duct location verification  [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-21-H Duct location verification  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Default result = false</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -14378,7 +14489,7 @@ End If</xsd:documentation>
                <xsd:element name="Lmcv06_RequireLMCVMch22" type="comp:RequireLMCVMch22" >
                   <xsd:annotation>
                      <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                     <xsd:documentation source="AdditionalRequirements">LMCV-MCH-22-H Fan Efficacy  [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
+                     <xsd:documentation source="AdditionalRequirements">LMCV-MCH-22-H Fan Efficacy  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                      <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false. 
 If H00e_SystemZoning == SingleDwellingUnit
 result = true  
@@ -14411,7 +14522,7 @@ End If</xsd:documentation>
                <xsd:element name="Lmcv07_RequireLMCVMch23" type="comp:RequireLMCVMch23" >
                   <xsd:annotation>
                      <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                     <xsd:documentation source="AdditionalRequirements">LMCV-MCH-23-H Airflow rate  [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
+                     <xsd:documentation source="AdditionalRequirements">LMCV-MCH-23-H Airflow rate  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                      <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false. 
 If H00e_SystemZoning == SingleDwellingUnit
 result = true  
@@ -14444,7 +14555,7 @@ End If</xsd:documentation>
                   <xsd:element name="Lmcv02_RequireLMCVMch24H" type="comp:RequireLMCVMch24H" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-24 Enclosure Air Leakage Worksheet  [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-24 Enclosure Air Leakage Worksheet  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false.
  
   If J19a_IsVentSystemContinuous == true
@@ -14476,7 +14587,7 @@ End If</xsd:documentation>
                <xsd:element name="Lmcv08_RequireLMCVMch25" type="comp:RequireLMCVMch25" >
                   <xsd:annotation>
                      <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                     <xsd:documentation source="AdditionalRequirements">LMCV-MCH-25-H Refrigerant charge verification  [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
+                     <xsd:documentation source="AdditionalRequirements">LMCV-MCH-25-H Refrigerant charge verification  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                      <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false. 
 If H00e_SystemZoning == SingleDwellingUnit And
 A02_ClimateZoneNumber == 2 Or InRange(8,15)
@@ -14510,7 +14621,7 @@ End If</xsd:documentation>
                <xsd:element name="Lmcv09_RequireLMCVMch26" type="comp:RequireLMCVMch26" >
                   <xsd:annotation>
                      <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                     <xsd:documentation source="AdditionalRequirements">LMCV-MCH-26-H Rated space conditioning system equipment verification  [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
+                     <xsd:documentation source="AdditionalRequirements">LMCV-MCH-26-H Rated space conditioning system equipment verification  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                      <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false. 
 If F02_HvacSystemType == UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR Or HeatPumpDualFuel
 result = true
@@ -14543,7 +14654,7 @@ End If</xsd:documentation>
                   <xsd:element name="Lmcv03_RequireLMCVMch27H" type="comp:RequireLMCVMch27H" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-27 High-rise Residential [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-27 High-rise Residential [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false.
  
  If  J26b_BathroomVentIAQ == true 
@@ -14575,7 +14686,7 @@ End If</xsd:documentation>
                <xsd:element name="Lmcv10_RequireLMCVMch28" type="comp:RequireLMCVMch28" >
                   <xsd:annotation>
                      <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                     <xsd:documentation source="AdditionalRequirements">LMCV-MCH-28-H Return Duct Design and Air Filter Grille Device Sizing  [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
+                     <xsd:documentation source="AdditionalRequirements">LMCV-MCH-28-H Return Duct Design and Air Filter Grille Device Sizing  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                      <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false. 
 End If</xsd:documentation>
                   </xsd:annotation>
@@ -14604,7 +14715,7 @@ End If</xsd:documentation>
                <xsd:element name="Lmcv11_RequireLMCVMch29" type="comp:RequireLMCVMch29" >
                   <xsd:annotation>
                      <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                     <xsd:documentation source="AdditionalRequirements">LMCV-MCH-29-H  Duct Surface Area Reduction; Buried Ducts Compliance Credit  [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
+                     <xsd:documentation source="AdditionalRequirements">LMCV-MCH-29-H  Duct Surface Area Reduction; Buried Ducts Compliance Credit  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                      <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false. 
 End If</xsd:documentation>
                   </xsd:annotation>
@@ -14633,7 +14744,7 @@ End If</xsd:documentation>
                   <xsd:element name="Lmcv04_RequireLMCVMch32H" type="comp:RequireLMCVMch32H" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-32 Local Mechanical Exhaust  [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-32 Local Mechanical Exhaust  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false.
  
  If J26a_BathroomIAQ, J26b_BathroomVentIAQ Or J26c_KitchenHoodRange == true  result = true display term selected Yes radio button
@@ -14664,7 +14775,7 @@ End If</xsd:documentation>
                      <xsd:element name="Lmcv12_RequireLMCVMch33" type="comp:RequireLMCVMch33" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                           <xsd:documentation source="AdditionalRequirements">LMCV-MCH-33 Variable Capacity Heat Pump Compliance Credit  [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">LMCV-MCH-33 Variable Capacity Heat Pump Compliance Credit  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false.
    End If</xsd:documentation>
                         </xsd:annotation>
