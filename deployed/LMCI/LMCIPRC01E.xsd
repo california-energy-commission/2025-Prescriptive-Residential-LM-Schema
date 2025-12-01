@@ -2082,29 +2082,64 @@ End If</xsd:documentation>
                                         </xsd:simpleType>
                                       </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="Hoods06cc_KitchenExhaustHoodFlow" type="com:KitchenExhaustHoodFlow">
-                                      <xsd:annotation>
-                                        <xsd:documentation source="FieldText">Hood Exhaust Rate CFM</xsd:documentation>
-                                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Hoods06cc_KitchenExhaustHoodFlow" type="com:KitchenExhaustHoodFlow">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Hood Exhaust Rate CFM</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If Ne07_KitchenExhaustHoodFlow IsPresent
 result = Ne07_KitchenExhaustHoodFlow
 End If
 End If</xsd:documentation>
-                                        <xsd:appinfo source="CIsrc">
-                                          <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Ne07_KitchenExhaustHoodFlow</dtyp:srcSchema>
-                                        </xsd:appinfo>
-                                      </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Hoods06_KitchenExhaustHoodFlow" type="com:KitchenExhaustHoodFlow">
-                                      <xsd:annotation>
-                                        <xsd:documentation source="FieldText">Hood Exhaust Rate CFM</xsd:documentation>
-                                        <xsd:documentation source="CalculationsAndRules">If Hoods01_InstalledSameAcc == true
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Ne07_KitchenExhaustHoodFlow</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Hoods06cc_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Hood Exhaust Rate CFM</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Ne06_NotApplicableMessage IsPresent
+result = Ne06_NotApplicableMessage
+End If
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Ne06_NotApplicableMessage</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="Hoods06_KitchenExhaustHoodFlow" type="com:KitchenExhaustHoodFlow">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Hood Exhaust Rate CFM</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Hoods01_InstalledSameAcc == true
 result = Hoods06cc_KitchenExhaustHoodFlow
 Else 
 User input
 End If</xsd:documentation>
-                                      </xsd:annotation>
-                                    </xsd:element>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Hoods06_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Hood Exhaust Rate CFM</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Hoods06cc_NotApplicableMessage IsPresent
+result = Hoods06cc_NotApplicableMessage
+End If</xsd:documentation>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
                                   </xsd:sequence>
                                 </xsd:complexType>
                               </xsd:element>
@@ -2131,9 +2166,9 @@ And
 Hoods06_KitchenExhaustHoodFlow == Hoods06cc_KitchenExhaustHoodFlow
 result = ExactMatch
 Else If
-Hoods05_KitchenExhaustHoodLength IsPresent  Hoods05_KitchenExhaustHoodLength LTE Hoods05cc_KitchenExhaustHoodLength
+Hoods05_NotApplicableMessage IsPresent Or Hoods05_KitchenExhaustHoodLength LTE Hoods05cc_KitchenExhaustHoodLength
 And 
-Hoods06_KitchenExhaustHoodFlow LTE Hoods06cc_KitchenExhaustHoodFlow
+Hoods06_NotApplicableMessage isPresent Or Hoods06_KitchenExhaustHoodFlow LTE Hoods06cc_KitchenExhaustHoodFlow
 result = EqualBetter
 Else If
 Hoods03_KitchenExhaustHoodStyle IsPfesent And Hoods03_KitchenExhaustHoodStyle != Hoods03cc_KitchenExhaustHoodStyle
@@ -2175,7 +2210,7 @@ End If</xsd:documentation>
                         </xsd:element>
                         <xsd:element name="ElectricKit02cc_KitchenERComplies" type="comp:KitchenERComplies">
                           <xsd:annotation>
-                            <xsd:documentation source="FieldText">Decicated Branch Wiring</xsd:documentation>
+                            <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
                             <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricReadyKitchen02_KitchenERComplies IsPresent
@@ -2188,7 +2223,7 @@ End If</xsd:documentation>
                         </xsd:element>
                         <xsd:element name="ElectricKit02_KitchenERComplies" type="comp:KitchenERComplies">
                           <xsd:annotation>
-                            <xsd:documentation source="FieldText">Decicated Branch Wiring</xsd:documentation>
+                            <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricKit01_InstalledSameAsCC is True
    result = ElectricKit02cc_KitchenERComplies
