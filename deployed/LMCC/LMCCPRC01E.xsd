@@ -643,6 +643,8 @@ result = true display term Yes;
 Else If Nv02, Nv03, Nv04, Nv05 NotNull 
 AND If Ne01a, Ne01b, Ne02, Ne03, Ne04, Ne05, Ne06  NotNull 
 AND for all rows where both are present If Ne07_KitchenExhaustHoodFlow LTE Ne08_ExhaustMaxFlowPerHoodLF 
+AND ElectricReadyKitchen02_NotApplicableMessage IsPresent or ElectricReadyKitchen02_KitchenERComplies == true
+AND ElectricReadyKitchen03_NotApplicableMessage IsPresent or ElectricReadyKitchen03_KitchenERComplies == true
 result = true display term Yes; 
 Else result = false display term No
 End If</xsd:documentation>

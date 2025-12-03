@@ -527,12 +527,6 @@ End If</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Pv_MeetsJA11" type="comp:MeetsJA11">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText">The system meets the installation requirements of Joint Appendix JA11.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
                            <xsd:element name="TablePV" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
@@ -542,6 +536,12 @@ End If</xsd:documentation>
                                     <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                                        <xsd:complexType>
                                           <xsd:sequence>
+                                             <xsd:element name="Pv_MeetsJA11" type="comp:MeetsJA11">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">The system meets the installation requirements of Joint Appendix JA11.</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
                                              <xsd:element name="PvRowLabel" minOccurs="0">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">As-built Conditions</xsd:documentation>
@@ -1020,15 +1020,15 @@ result = ExactMatch</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Bat_MeetsJA12" type="comp:MeetsJA12">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText">The system meets the installation requirements of Joint Appendix JA12.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
+                                    <xsd:element name="Bat_MeetsJA12" type="comp:MeetsJA12">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">The system meets the installation requirements of Joint Appendix JA12.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:element name="Bat01cc_SeePlansMessage" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Manufacturer</xsd:documentation>
