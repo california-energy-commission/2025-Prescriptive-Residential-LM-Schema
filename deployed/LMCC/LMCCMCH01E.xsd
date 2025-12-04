@@ -4592,7 +4592,7 @@ End If
                                           <xsd:union memberTypes="hvac:FederalMinimumEfficiency hvac:CoolEfficiencyMinVRF"/>
                                         </xsd:simpleType>
                                       </xsd:element>
-                                      <xsd:element name="Fa08_CoolEfficiencyMinUnitAC" type="hvac:FederalMinimumEfficiency">
+                                      <xsd:element name="Fa08_CoolEfficiencyMinUnitAC">
                                         <xsd:annotation>
                                           <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">
@@ -4616,6 +4616,9 @@ Else if F03_ UnitaryCondensersAC == AirCooledSplit1PhaseAC And SizeRangeUnitaryC
    End If
 End If</xsd:documentation>
                                         </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:union memberTypes="hvac:FederalMinimumEfficiency hvac:CoolEfficiencyMinUnitAC"/>
+                                        </xsd:simpleType>
                                       </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
@@ -8032,7 +8035,7 @@ Else
                         </xsd:element>
                         <xsd:element name="Fg07_HeatRecoveryRequirements" type="hvac:HeatRecoveryRequirements">
                           <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="FieldText">Heat Recovery Systems Shall:<d:l t="*"><d:list>Transferring the lesser of the following from spaces in cooling to spaces in heating:<d:l t="*"><d:list>25% of the peak heat rejection of the cooling system</d:list><d:list>25% of design capacity of all service water heating systems + design capacity of all space heating systems</d:list></d:l></d:list><d:list>Heat or preheat the service water heating to the smaller of:<d:l t="*"><d:list>30% of the peak heat rejection of the cooling system; or</d:list><d:list>30% of design capacity of all service water heating systems</d:list></d:l></d:list></d:l></xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">
 If Fg06_HeatRecoveryRequired == true And Fg04_HeatingCapacity GTE 500 kBTU
    result = TransferAndPreheat
@@ -11603,7 +11606,7 @@ DwellingUnitNA display term NA: dwelling unit</xsd:documentation>
                         <xsd:element name="I10_ControlSystemDDC" type="hvac:ControlSystemDDC">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Direct Digital Control (DDC) per <d:t24refnolink/>110.12</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">User selects from list: ProvidesDDC, SingleZoneNA</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="I11_HeatPumpDefrost" type="hvac:HeatPumpDefrost">
@@ -13590,7 +13593,7 @@ result =  Largest (
    (270/M11a_Chlorides),
    (225/M11b_Sulfates),
    (135/M11c_Silica),
-   (10^((LOG(M08_MAlkalinity*0.9+1.219)-0.061105*LOG(M07_TowerConductivity+0.8)+0.55*LOG(M09_CalciumHardness+M08_MAlkalinity)+0.0050325*M06_TowerSkinTempMax-5.95)/2.088895))
+   (10^((LOG(M08_MAlkalinity*0.9*1.219)-0.061105*LOG(M07_TowerConductivity*0.8)+0.55*LOG(M09_CalciumHardness*M08_MAlkalinity)+0.0050325*M06_TowerSkinTempMax-5.95)(-1/2.038895)))
 )
 </xsd:documentation>
                           </xsd:annotation>
