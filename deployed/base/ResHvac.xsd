@@ -2121,7 +2121,6 @@
         <dtyp:displayterm value="DwellingUnitNA">NA: DwellingUnit</dtyp:displayterm>
         <dtyp:displayterm value="EMCS">EMCS</dtyp:displayterm>
         <dtyp:displayterm value="HealthcareNA">NA: Healthcare only</dtyp:displayterm>
-        <dtyp:displayterm value="HighriseResNA">NA: HRR dwelling unit</dtyp:displayterm>
         <dtyp:displayterm value="OccupancySensor">Occ. Sensor</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
@@ -2133,7 +2132,6 @@
       <xsd:enumeration value="DwellingUnitNA"/>
       <xsd:enumeration value="EMCS"/>
       <xsd:enumeration value="HealthcareNA"/>
-      <xsd:enumeration value="HighriseResNA"/>
       <xsd:enumeration value="OccupancySensor"/>
     </xsd:restriction>
   </xsd:simpleType>

@@ -8452,7 +8452,7 @@ End If</xsd:documentation>
                                               <xsd:annotation>
                                                 <xsd:documentation source="FieldText">Fan Type</xsd:documentation>
                                                 <xsd:documentation source="CalculationsAndRules">If H00d_SystemZoning != DOASZone
-User selects from list: Supply, Relief, Return, Exhaust, OtherFanFunction</xsd:documentation>
+User selects from list</xsd:documentation>
                                               </xsd:annotation>
                                             </xsd:element>
                                             <xsd:element name="H02_NotApplicableMessage">
@@ -9828,7 +9828,7 @@ End If</xsd:documentation>
                           </xsd:element>
                           <xsd:element name="H13_NotApplicableMessage">
                             <xsd:annotation>
-                              <xsd:documentation source="FieldText">Fan System Electrical Output (kW)</xsd:documentation>
+                              <xsd:documentation source="FieldText">Fan System Electrical Input Power (kW)</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">If H00e_SystemZoning == MultiDwellingUnits Or SingleDwellingUnit
 result = BlankGrayedOut
 End If</xsd:documentation>
@@ -11495,7 +11495,7 @@ End If</xsd:documentation>
                         </xsd:element>
                         <xsd:element name="I04_ThermostatType">
                           <xsd:annotation>
-                            <xsd:documentation source="FieldText">hermostats <d:line1/> <d:t24refnolink/>110.2(b) &amp;amp; (c)<d:sup>1</d:sup>, <d:t24refnolink/>120.2(a) <d:t24refnolink/>160.3(a)2A or <d:t24refnolink/>160.3(b)8 or <d:t24refnolink/>141.0(b)2E &amp;amp; <d:t24refnolink/>180.2(b)2</xsd:documentation>
+                            <xsd:documentation source="FieldText">Thermostats <d:line1/> <d:t24refnolink/>110.2(b) &amp;amp; (c)<d:sup>1</d:sup>, <d:t24refnolink/>120.2(a) <d:t24refnolink/>160.3(a)2A or <d:t24refnolink/>160.3(b)8 or <d:t24refnolink/>141.0(b)2E &amp;amp; <d:t24refnolink/>180.2(b)2</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">User selects from list: 
  
 Mandatory Measure Triggers:
