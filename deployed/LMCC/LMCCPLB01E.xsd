@@ -712,7 +712,7 @@ End If</xsd:documentation>
                         <xsd:element name="B03cAltered_ProjectHasControls" type="comp:ProjectHasControls" minOccurs="0">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Controls</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">In the current row If B01a_PluB01b_PlumbingProjectScopembingProjectScope == AlteredSystem, this field is required.  User input; If checked result = true; else result = false</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">In the current row If B01b_PlumbingProjectScope == AlteredSystem, this field is required.  User input; If checked result = true; else result = false</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                       </xsd:sequence>

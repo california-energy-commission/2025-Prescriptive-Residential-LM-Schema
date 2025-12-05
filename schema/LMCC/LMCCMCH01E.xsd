@@ -5254,7 +5254,7 @@ End If</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:EfficiencyType">
-                                             <xsd:enumeration value="ISMRE"/>
+                                             <xsd:enumeration value="ISMRE2"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -5265,7 +5265,7 @@ End If</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:EfficiencyType">
-                                             <xsd:enumeration value="ISCOP"/>
+                                             <xsd:enumeration value="ISCOP2"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -7866,6 +7866,7 @@ Else
                                           </xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:choice maxOccurs="1">
                                     <xsd:element name="Fg07_HeatRecoveryRequirements" type="hvac:HeatRecoveryRequirements">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heat Recovery Systems Shall:[d:l t="*"][d:list]Transferring the lesser of the following from spaces in cooling to spaces in heating:[d:l t="*"][d:list]25% of the peak heat rejection of the cooling system[/d:list][d:list]25% of design capacity of all service water heating systems + design capacity of all space heating systems[/d:list][/d:l][/d:list][d:list]Heat or preheat the service water heating to the smaller of:[d:l t="*"][d:list]30% of the peak heat rejection of the cooling system; or[/d:list][d:list]30% of design capacity of all service water heating systems[/d:list][/d:l][/d:list][/d:l]</xsd:documentation>
@@ -7886,6 +7887,7 @@ If Fg06_HeatRecoveryRequired == false
                                           </xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
