@@ -8304,7 +8304,6 @@
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="ElectricWaterHeaterReplacement">Table F indicates an electric water heater is being used to replace existing electric resistance water heater.</dtyp:displayterm>
         <dtyp:displayterm value="StateBuilding">Tables A and  B indicate the project is a new State building.  This requires 60% of energy for service water heating from site solar energy or recovered energy per <d:t24ref h="110.3(c)6"/>.</dtyp:displayterm>
-        <dtyp:displayterm value="UseLMCCMCH01E">Table B indicates a combined hydronic system will be used to comply with title 24, Part 6.  These systems shall be documented on the LMCC-MCH-01E compliance document.</dtyp:displayterm>
         <dtyp:displayterm value="UseLMCCSAB01E">Table B indicates a solar water heating system will be used to comply with title 24, Part 6.  These systems shall be documented on the LMCC-SAB-01E compliance document.</dtyp:displayterm>
         <dtyp:displayterm value="UserChangedSelectionInCI">Selections made in Certificates of Installation Table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
         <dtyp:displayterm value="UserChangedSelectionInCV">Selections made in Certificates of VerificationTable  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>

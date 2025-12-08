@@ -787,15 +787,6 @@ D03_ExceptionalConditionMessageCCPLBE += UseLMCCSAB01E And display this alert
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B_Alert2" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b][d:i]Note: If combined hydronic water heating systems are used in conjunction with domestic only systems to meet the water heating needs of the building, document the domestic only systems on this compliance document. [/d:i][/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If any row in section B has B02New_WaterHeatingSystem Or B02Altered_WaterHeatingSystem == CombinedHydronic 
-D03_ExceptionalConditionMessageCCPLBE += UseLMCCMCH01E And display this alert 
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="BEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
@@ -847,18 +838,6 @@ End If</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If Section_F NotPresent 
 result = BlankGrayedOut stored in NotApplicableMessage; 
   
-Else 
-If  In Section_F TableSystems IsPresent then in all rows where these fields are present
-If   F05_IsEfficiencyCapWeightedAvg  == false Then 
-If (F11_ThermalEfficiency GTE F12_ThermalEfficiencyMinimum 
-Or F11_EfficiencyAFUE GTE F12_EfficiencyMinimumValueAFUE  
-Or F11_UniformEnergyFactor GTE F12_MinimumRequiredUEF)
-result = true display term Yes; 
-Else result = false display term No
-End If
- 
-Else If F05_IsEfficiencyCapWeightedAvg == true And F06_EfficiencyCapWeightedAvg GTE 90%
- 
 If (F11_ThermalEfficiency GTE F12_ThermalEfficiencyMinimum 
 Or F11_EfficiencyAFUE GTE F12_EfficiencyMinimumValueAFUE  
 Or F11_UniformEnergyFactor GTE F12_MinimumRequiredUEF)
@@ -918,7 +897,7 @@ If G01_AirReleaseValve, G02_BackflowCheckValve,  G03_HoseBibb,  G04_IsolationVal
 And G10_HeatPumpDistRequirement != ReqHeatPumpNo 
 And G11_IndividualSysDistRequirement != ReqDWHRCZ16No  
 And G15_IndividualSysDistRequirement  != ReqDemandRecircNo
-And G16_DwellingUnitsPipeInsulationComplies != false
+And G13_DwellingUnitsPipeInsulationComplies != false
 And G14_NonresPipeInsulationComplies != false 
 And G15_PipeInsulationProtectionComplies != false then 
 result = true; 
@@ -1589,7 +1568,8 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">[d:b]Air-Source Heat Pump Water Heaters (HPWHs) ([d:t24refnolink/]110.3(c)7)[/d:b]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType== HeatPumpAirSource, this subsection is required</xsd:documentation>
                      </xsd:annotation>
-                  </xsd:element>
+                     <xsd:complexType>
+                     <xsd:sequence>
                   <xsd:element name="F22a_HeatPumpApplies" type="comp:HeatPumpApplies" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
@@ -1605,6 +1585,9 @@ If checked  result = true; else result = false.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This row is always displayed if the subsection is triggered  
 User selects from dropdown; </xsd:documentation>
                      </xsd:annotation>
+                  </xsd:element>
+                  </xsd:sequence>
+                  </xsd:complexType>
                   </xsd:element>
                   </xsd:sequence>
                   </xsd:complexType>
@@ -1706,7 +1689,7 @@ If checked result = true; else result = false.</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">A solar water-heating system meeting the installation criteria specified in Reference Residential Appendix RA4 and with a minimum solar savings fraction of 0.20 in Climate Zones 1 through 9 or a minimum solar savings fraction of 0.35 in Climate Zones 10 through 16 - [d:t24refnolink/]170.2(d)2Bi. This system should be documented on the NRCC-SAB form OR</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If F25Gas_EquipmentTypeApplies == false
+                                 <xsd:documentation source="CalculationsAndRules">If F22Gas_EquipmentTypeApplies  == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -1719,7 +1702,7 @@ End If</xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">A solar water-heating system meeting the installation criteria specified in Reference Residential Appendix RA4 and with a minimum solar savings fraction of 0.15 in Climate Zones 1 through 9 or a minimum solar savings fraction of 0.30 in Climate Zones 10 through 16 - [d:t24refnolink/]170.2(d)2Bii. This system should be documented on the NRCC-SAB form.
 
 AND, a drain water heat recovery system that is field verified as specified in the Reference Appendix RA3.6.9.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If F25Gas_EquipmentTypeApplies == false
+                                 <xsd:documentation source="CalculationsAndRules">If F22Gas_EquipmentTypeApplies  == false
 result = ReqNA and row is grayed out;  
 Else
 User checks Yes result = ReqYes Or No  result = ReqNo 
@@ -2589,8 +2572,7 @@ End If</xsd:documentation>
                                     <xsd:element name="Pool06_PoolSpaRequirements">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Covers</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: CoverProvided display term Heated outdoor pools/spas must include cover and weatherproof instruction for proper care of when cover is used
-            NotHeatedNA display term NA: Pool/spa not heated</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="comp:PoolSpaRequirements">
