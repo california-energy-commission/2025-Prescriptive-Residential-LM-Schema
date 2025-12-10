@@ -32,7 +32,7 @@
         <xsd:element name="Report" type="xsd:base64Binary"/>
         <xsd:element name="ReportMMB" type="xsd:base64Binary" minOccurs="0"/>
       </xsd:sequence>
-      <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220901"/>
+      <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20250901"/>
       <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="LMCIPLBE"/>
     </xsd:complexType>
   </xsd:element>

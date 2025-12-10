@@ -1725,7 +1725,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_G" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">[d:b]G. DOMESTIC HOT WATER DISTRIBUTION SYSTEM[/d:b]</xsd:documentation>
+               <xsd:documentation source="FieldText">[d:b]DOMESTIC HOT WATER DISTRIBUTION SYSTEM[/d:b]</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Section G is required if any row in section B has B03bNew_ProjectHasDistribution == true Or B03bAltered_ProjectHasDistribution == true
  
  
@@ -2239,7 +2239,7 @@ Multi-field triggers:  See G14_NonresPipeInsulationComplies CalculationsAndRules
          </xsd:element>
          <xsd:element name="Section_H" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">[d:b]H. DOMESTIC HOT WATER CONTROLS - [d:t24refnolink/]110.3, [d:t24refnolink/]120.9, [d:t24refnolink/]160.4(d), [d:t24refnolink/]170.2(d), [d:t24refnolink/]180.1(b)3 [/d:b]</xsd:documentation>
+               <xsd:documentation source="FieldText">[d:b]DOMESTIC HOT WATER CONTROLS - [d:t24refnolink/]110.3, [d:t24refnolink/]120.9, [d:t24refnolink/]160.4(d), [d:t24refnolink/]170.2(d), [d:t24refnolink/]180.1(b)3 [/d:b]</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Section H is required if any row in section B has B03cNew_ProjectHasControls == true Or B03cAltered_ProjectHasControls == true
  
 Mandatory Measure Triggers:
@@ -2355,7 +2355,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_I" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">[d:b] I. ELECTRIC READY BUILDINGS [/d:b]</xsd:documentation>
+               <xsd:documentation source="FieldText">[d:b]ELECTRIC READY BUILDINGS [/d:b]</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required if A03_WholeBuildingOccupancy == HighRiseResidential</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2491,7 +2491,7 @@ End If</xsd:documentation>
          </xsd:element>   
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">[d:b]J. Pool &amp; SPAs[/d:b]</xsd:documentation>
+               <xsd:documentation source="FieldText">[d:b]Pool &amp; SPAs[/d:b]</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">If  B02New_WaterHeatingSystem or B02Altered_WaterHeatingSystem == PoolSpa
 this section is required
 End If</xsd:documentation>
@@ -2584,9 +2584,7 @@ End If</xsd:documentation>
                                     <xsd:element name="Pool07_PoolSpaRequirements">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating Equipment</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list:  NoElectResistanceHeat display term No electrical resistance heating used
-            FullyInsulated display term Listed package units with fully insulated enclosures, and with tight-fitting covers that are insulated to at least R-6
-            SolarRecoveredEnergy display term Pools/spas where greater or equal to 60% of annual heating energy is from site solar energy or recovered energy</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list </xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="comp:PoolSpaRequirements">
@@ -2808,7 +2806,7 @@ End If</xsd:documentation>
          </xsd:element>  
          <xsd:element name="Section_Lmci" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">K. DECLARATION OF REQUIRED CERTIFICATES OF INSTALLATION</xsd:documentation>
+               <xsd:documentation source="FieldText">DECLARATION OF REQUIRED CERTIFICATES OF INSTALLATION</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2873,7 +2871,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_Lmca" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">L. DECLARATION OF REQUIRED CERTIFICATES OF ACCEPTANCE</xsd:documentation>
+               <xsd:documentation source="FieldText">DECLARATION OF REQUIRED CERTIFICATES OF ACCEPTANCE</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -2889,7 +2887,7 @@ End If</xsd:documentation>
          </xsd:element>
          <xsd:element name="Section_Lmcv" minOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">M. DECLARATION OF REQUIRED CERTIFICATES OF VERIFICATION</xsd:documentation>
+               <xsd:documentation source="FieldText">DECLARATION OF REQUIRED CERTIFICATES OF VERIFICATION</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

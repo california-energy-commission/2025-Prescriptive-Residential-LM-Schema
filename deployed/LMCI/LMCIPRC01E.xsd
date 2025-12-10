@@ -2170,98 +2170,106 @@ End If</xsd:documentation>
                       <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="ElectricKit02cc_KitchenERComplies" type="comp:KitchenERComplies">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                  <xsd:choice maxOccurs="1">
+                    <xsd:element name="ElectricKit02cc_KitchenERComplies" type="comp:KitchenERComplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricReadyKitchen02_KitchenERComplies IsPresent
 result = ElectricReadyKitchen02_KitchenERComplies
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen02_KitchenERComplies</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit02cc_NotApplicableMessage" type="comp:NotApplicableMessage">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                        <xsd:appinfo source="CIsrc">
+                          <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen02_KitchenERComplies</dtyp:srcSchema>
+                        </xsd:appinfo>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="ElectricKit02cc_NotApplicableMessage" type="comp:NotApplicableMessage">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricReadyKitchen02_NotApplicableMessage IsPresent
 result = ElectricReadyKitchen02_NotApplicableMessage
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen02_KitchenERComplies</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit02_KitchenERComplies" type="comp:KitchenERComplies">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                        <xsd:appinfo source="CIsrc">
+                          <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen02_KitchenERComplies</dtyp:srcSchema>
+                        </xsd:appinfo>
+                      </xsd:annotation>
+                    </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                    <xsd:element name="ElectricKit02_KitchenERComplies" type="comp:KitchenERComplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricKit01_InstalledSameAsCC is True
    result = ElectricKit02cc_KitchenERComplies
 
 Else user selects from dropdown
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit02_NotApplicableMessage" type="comp:NotApplicableMessage">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="ElectricKit02_NotApplicableMessage" type="comp:NotApplicableMessage">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricKit01_InstalledSameAsCC is True
    result = ElectricKit02cc_NotApplicableMessage
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit03cc_KitchenERComplies" type="comp:KitchenERComplies">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                      </xsd:annotation>
+                    </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                    <xsd:element name="ElectricKit03cc_KitchenERComplies" type="comp:KitchenERComplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricReadyKitchen03_KitchenERComplies IsPresent
 result = ElectricReadyKitchen03_KitchenERComplies
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen03_KitchenERComplies</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit03cc_NotApplicableMessage" type="comp:NotApplicableMessage">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
-                      <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                        <xsd:appinfo source="CIsrc">
+                          <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen03_KitchenERComplies</dtyp:srcSchema>
+                        </xsd:appinfo>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="ElectricKit03cc_NotApplicableMessage" type="comp:NotApplicableMessage">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricReadyKitchen03_NotApplicableMessage IsPresent
 result = ElectricReadyKitchen03_NotApplicableMessage
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen03_NotApplicableMessage</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit03_KitchenERComplies" type="comp:KitchenERComplies">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                        <xsd:appinfo source="CIsrc">
+                          <dtyp:srcSchema form="NRCCPRC01E" usage="copy">ElectricReadyKitchen03_NotApplicableMessage</dtyp:srcSchema>
+                        </xsd:appinfo>
+                      </xsd:annotation>
+                    </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                    <xsd:element name="ElectricKit03_KitchenERComplies" type="comp:KitchenERComplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricKit01_InstalledSameAsCC is True
    result = ElectricKit03cc_KitchenERComplies
 
 Else user selects from dropdown
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="ElectricKit03_NotApplicableMessage" type="comp:NotApplicableMessage">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="ElectricKit03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
 If ElectricKit01_InstalledSameAsCC is True
    result = ElectricKit03cc_NotApplicableMessage
 End If</xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
+                      </xsd:annotation>
+                    </xsd:element>
+                  </xsd:choice>
                   <xsd:element name="ElectricKit04_ComplianceResultCI " type="comp:ComplianceResultCI">
                     <xsd:annotation>
                       <xsd:documentation source="FieldText">Electric Kitchen Compliance</xsd:documentation>

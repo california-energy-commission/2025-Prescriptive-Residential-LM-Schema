@@ -7976,9 +7976,7 @@ For any result   D03_ExceptionalConditionMessageCCMCHE += ElectricHeatExceptionI
             </xsd:element>
             <xsd:element name="TableMechanicalHeatRecovery" minOccurs="0">
               <xsd:annotation>
-                <xsd:documentation source="FieldText">
-                  <d:b>Mechanical Heat Recovery</d:b>
-                </xsd:documentation>
+                <xsd:documentation source="FieldText"><d:b>Mechanical Heat Recovery</d:b><d:t24refnolink/>140.4(s)</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">If B01aProjectHasHeatingAirSystem Or B01b_ProjectHasCoolingAirSystem Or B02a_ProjectHasWaterEconomizer Or B02d_ProjectHasCoolingTowers Or B02e_ProjectHasChillers Or B02f_ProjectHasBoilers Or B03b_ProjectHasElectricHeat == true
 TableMechanicalHeatRecovery is required
 </xsd:documentation>

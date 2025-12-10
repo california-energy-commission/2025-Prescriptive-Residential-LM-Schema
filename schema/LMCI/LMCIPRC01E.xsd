@@ -2138,6 +2138,7 @@ End If</xsd:documentation>
                                           <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:choice maxOccurs="1">
                                     <xsd:element name="ElectricKit02cc_KitchenERComplies" type="comp:KitchenERComplies" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
@@ -2164,6 +2165,8 @@ End If</xsd:documentation>
                                        </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
                                     <xsd:element name="ElectricKit02_KitchenERComplies" type="comp:KitchenERComplies" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Dedicated Branch Wiring</xsd:documentation>
@@ -2184,6 +2187,8 @@ If ElectricKit01_InstalledSameAsCC is True
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
                                     <xsd:element name="ElectricKit03cc_KitchenERComplies" type="comp:KitchenERComplies" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
@@ -2210,6 +2215,8 @@ End If</xsd:documentation>
                                        </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
                                     <xsd:element name="ElectricKit03_KitchenERComplies" type="comp:KitchenERComplies" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Electrical Panel Sizing</xsd:documentation>
@@ -2230,6 +2237,7 @@ If ElectricKit01_InstalledSameAsCC is True
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="ElectricKit04_ComplianceResultCI " type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Electric Kitchen Compliance</xsd:documentation>
