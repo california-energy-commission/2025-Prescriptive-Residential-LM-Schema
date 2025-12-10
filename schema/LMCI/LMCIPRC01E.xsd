@@ -179,11 +179,6 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Elevator Ventilation Controls</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B02c_ProjectHasCommercialKitchen" type="comp:ProjectHasCommercialKitchen" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Commercial Kitchen</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="B06_Subheading" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Specialty</xsd:documentation>

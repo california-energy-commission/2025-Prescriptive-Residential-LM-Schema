@@ -3012,8 +3012,6 @@ Else If Fscs05_WholeBuildingOccupancy == Warehouse
       List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
    Else
       List all values
-Else
-      List all values
 Else If Fscs03_SystemZoning == MultiZone
    If Fscs05_WholeBuildingOccupancy ==  OfficeBuilding Or (Fscs05_WholeBuildingOccupancy == SchoolBuilding And A02_ClimateZoneNumber == InRange(1,5) or InRange(8,16)
    And A04_TotalConditionedFloorArea + A05_TotalUnconditionedFloorArea LT 150,000
@@ -4282,7 +4280,7 @@ End Switch</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">
-If F02_HvacSystemType == HeatPumpAC use this choice:  
+If F02_HvacSystemType == HeatPumpAC or RoomAC_HP use this choice:  
    result1 = FederalMinimum
 End if</xsd:documentation>
                                                             </xsd:annotation>

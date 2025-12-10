@@ -6845,7 +6845,7 @@
 <d:l t="*"><d:list>Transferring the lesser of the following from spaces in cooling to spaces in heating:</d:list><d:list>25% of thje peak heat rejection of the cooling system</d:list><d:list>25% of design capacity of all service water heating systems + design capacity of all space heating systems</d:list></d:l></dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
-    <xsd:restriction base="xsd:boolean">
+    <xsd:restriction base="xsd:string">
       </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="HeatRejectionCapacityUnits">
