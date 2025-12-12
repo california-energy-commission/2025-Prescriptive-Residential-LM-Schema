@@ -6860,7 +6860,7 @@
 <d:list>25% of design capacity of all service water heating systems + design capacity of all space heating systems</d:list></d:l></dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="xsd:EnumerationConstant">
+      <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="TransferAndPreheat"/>
          <xsd:enumeration value="Transfer"/>
       </xsd:restriction>

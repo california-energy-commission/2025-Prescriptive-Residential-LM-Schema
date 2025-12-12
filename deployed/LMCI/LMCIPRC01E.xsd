@@ -2265,7 +2265,7 @@ End If</xsd:documentation>
                       </xsd:annotation>
                     </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="ElectricKit04_ComplianceResultCI " type="comp:ComplianceResultCI">
+                  <xsd:element name="ElectricKit04_ComplianceResultCI" type="comp:ComplianceResultCI">
                     <xsd:annotation>
                       <xsd:documentation source="FieldText">Electric Kitchen Compliance</xsd:documentation>
                       <xsd:documentation source="CalculationsAndRules">If any user input field is blank

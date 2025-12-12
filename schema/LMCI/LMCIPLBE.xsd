@@ -2004,21 +2004,39 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Pool02" minOccurs="0">
+                                                      <xsd:element name="Pool02CC" minOccurs="0">
                                                          <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
+                                                            <xsd:documentation source="FieldText">Pool/Spa Service Type</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
-If Pool03_PoolSpaRequirements IsPresent
-result = Pool03_PoolSpaRequirements
+If Pool02_PoolSpaService IsPresent
+result = Pool02_PoolSpaService
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="NRCCPLB01E" usage="copy">Pool03_PoolSpaRequirements</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="NRCCPLB01E" usage="copy">Pool02_PoolSpaService</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Pool03" minOccurs="0">
+                                                      <xsd:element name="Pool02" minOccurs="0">
                                                          <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">On/Off Control</xsd:documentation>
+                                                            <xsd:documentation source="FieldText">Pool/Spa Service Type</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
+If Pool01_InstalledSameAsCC == True
+result = Pool02CC
+Else
+User selects from list
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:PoolSpaService">
+                                                               <xsd:enumeration value="MultipleUsers"/>
+                                                               <xsd:enumeration value="Public"/>
+                                                               <xsd:enumeration value="SingleTenant"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Pool03CC" minOccurs="0">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">On/Off Controls</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 If Pool04_PoolSpaRequirements IsPresent
 result = Pool04_PoolSpaRequirements
@@ -2028,9 +2046,26 @@ End If</xsd:documentation>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
+                                                      <xsd:element name="Pool03" minOccurs="0">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">On/Off Controls</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
+If Pool01_InstalledSameAsCC == True
+result = Pool03CC
+Else
+User selects from list
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:PoolSpaRequirements">
+                                                            <xsd:enumeration value="NotHeatedNA" />
+                                                            <xsd:enumeration value="OnOffSwitchProvided" />
+                                                         </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
                                                       <xsd:element name="Pool04cc_PoolSpaRequirements" >
                                                          <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Instructions &amp; Covers</xsd:documentation>
+                                                            <xsd:documentation source="FieldText">Instructions</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 If Pool05_PoolSpaRequirements IsPresent
 result = Pool05_PoolSpaRequirements
@@ -2041,14 +2076,13 @@ End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:PoolSpaRequirements">
-                                                               <xsd:enumeration value="CoverProvided"/>
-                                                               <xsd:enumeration value="NotHeatedNA"/>
+                                                               <xsd:enumeration value="Instructions" />
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:element name="Pool04_PoolSpaRequirements" >
                                                          <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Instructions &amp; Covers</xsd:documentation>
+                                                            <xsd:documentation source="FieldText">Instructions</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 If Pool01_InstalledSameAsCC == True
 result = Pool04cc_PoolSpaRequirements
@@ -2059,14 +2093,13 @@ End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:PoolSpaRequirements">
-                                                               <xsd:enumeration value="CoverProvided"/>
-                                                               <xsd:enumeration value="NotHeatedNA"/>
+                                                               <xsd:enumeration value="Instructions" />
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
-                                                      <xsd:element name="Pool05cc_PoolSpaRequirements" >
+                                                      <xsd:element name="Pool04acc_PoolSpaRequirements" >
                                                          <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Electric Resistance Heating</xsd:documentation>
+                                                            <xsd:documentation source="FieldText">Covers</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 If Pool06_PoolSpaRequirements IsPresent
 result = Pool06_PoolSpaRequirements
@@ -2077,18 +2110,17 @@ End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:PoolSpaRequirements">
-                                                               <xsd:enumeration value="FullyInsulated"/>
-                                                               <xsd:enumeration value="NoElectResistanceHeat"/>
-                                                               <xsd:enumeration value="SolarRecoveredEnergy"/>
+                                                               <xsd:enumeration value="CoverProvided" />
+                                                               <xsd:enumeration value="CoverNA" />
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
-                                                      <xsd:element name="Pool05_PoolSpaRequirements" >
+                                                      <xsd:element name="Pool04a_PoolSpaRequirements" >
                                                          <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Electric Resistance Heating</xsd:documentation>
+                                                            <xsd:documentation source="FieldText">Covers</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 If Pool01_InstalledSameAsCC == True
-result = Pool05cc_PoolSpaRequirements
+result = Pool04acc_PoolSpaRequirements
 Else
 User selects from list
 End If
@@ -2096,15 +2128,14 @@ End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:PoolSpaRequirements">
-                                                               <xsd:enumeration value="FullyInsulated"/>
-                                                               <xsd:enumeration value="NoElectResistanceHeat"/>
-                                                               <xsd:enumeration value="SolarRecoveredEnergy"/>
+                                                               <xsd:enumeration value="CoverProvided" />
+                                                               <xsd:enumeration value="CoverNA" />
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
-                                                      <xsd:element name="Pool06cc_PoolSpaRequirements" >
+                                                      <xsd:element name="Pool05cc_PoolSpaRequirements" >
                                                          <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Piping</xsd:documentation>
+                                                            <xsd:documentation source="FieldText">Heating Equipment</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 If Pool07_PoolSpaRequirements IsPresent
 result = Pool07_PoolSpaRequirements
@@ -2115,6 +2146,93 @@ End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:PoolSpaRequirements">
+                                                               <xsd:enumeration value="NoElectResistanceHeat"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Pool05_PoolSpaRequirements" >
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Heating Equipment</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
+If Pool01_InstalledSameAsCC == True
+result = Pool05cc_PoolSpaRequirements
+Else
+User selects from list
+End If
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:PoolSpaRequirements">
+                                                               <xsd:enumeration value="NoElectResistanceHeat"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Pool05acc_PoolSpaRequirements" >
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Heating Source Sizing</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
+If Pool08_PoolSpaRequirements IsPresent
+result = Pool08_PoolSpaRequirements
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPLB01E" usage="copy">Pool08_PoolSpaRequirements</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:PoolSpaRequirements">
+                                                               <xsd:enumeration value="SurfaceArea"/>
+                                                               <xsd:enumeration value="Sizing"/>
+                                                               <xsd:enumeration value="Renewables"/>
+                                                               <xsd:enumeration value="SupplementaryHeater"/>
+                                                               <xsd:enumeration value="Director"/>
+                                                               <xsd:enumeration value="1104Exempt1"/>
+                                                               <xsd:enumeration value="1104Exempt2"/>
+                                                               <xsd:enumeration value="1104Exempt3"/>
+                                                               <xsd:enumeration value="1104Exempt4"/>
+                                                               <xsd:enumeration value="1104Exempt5"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Pool05a_PoolSpaRequirements" >
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Heating Source Sizing</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
+If Pool01_InstalledSameAsCC == True
+result = Pool05acc_PoolSpaRequirements
+Else
+User selects from list
+End If
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:PoolSpaRequirements">
+                                                               <xsd:enumeration value="SurfaceArea"/>
+                                                               <xsd:enumeration value="Sizing"/>
+                                                               <xsd:enumeration value="Renewables"/>
+                                                               <xsd:enumeration value="SupplementaryHeater"/>
+                                                               <xsd:enumeration value="Director"/>
+                                                               <xsd:enumeration value="1104Exempt1"/>
+                                                               <xsd:enumeration value="1104Exempt2"/>
+                                                               <xsd:enumeration value="1104Exempt3"/>
+                                                               <xsd:enumeration value="1104Exempt4"/>
+                                                               <xsd:enumeration value="1104Exempt5"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Pool06cc_PoolSpaRequirements" >
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Piping</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
+If Pool09_PoolSpaRequirements IsPresent
+result = Pool09_PoolSpaRequirements
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPLB01E" usage="copy">Pool09_PoolSpaRequirements</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:PoolSpaRequirements">
+                                                               <xsd:enumeration value="CoverNA" />
                                                                <xsd:enumeration value="FutureSolarConnections"/>
                                                                <xsd:enumeration value="FutureSolarPiping"/>
                                                             </xsd:restriction>
@@ -2133,6 +2251,7 @@ End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:PoolSpaRequirements">
+                                                               <xsd:enumeration value="CoverNA" />
                                                                <xsd:enumeration value="FutureSolarConnections"/>
                                                                <xsd:enumeration value="FutureSolarPiping"/>
                                                             </xsd:restriction>
@@ -2142,11 +2261,11 @@ End If</xsd:documentation>
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Pool Directional Inlets &amp; Pump Control</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
-If Pool08_PoolSpaRequirements IsPresent
-result = Pool08_PoolSpaRequirements
+If Pool10_PoolSpaRequirements IsPresent
+result = Pool10_PoolSpaRequirements
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="NRCCPLB01E" usage="copy">Pool08_PoolSpaRequirements</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="NRCCPLB01E" usage="copy">Pool10_PoolSpaRequirements</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
@@ -2189,7 +2308,9 @@ Else If Pool01_InMyScope == false
 result = NotInScope
   
 Else If
-Pool04cc_PoolSpaRequirements == Pool04_PoolSpaRequirements
+Pool02CC == Pool02
+And
+Pool04acc_PoolSpaRequirements == Pool04a_PoolSpaRequirements
 And
 Pool05cc_PoolSpaRequirements == Pool05_PoolSpaRequirements
 And
