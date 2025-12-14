@@ -2035,7 +2035,7 @@ End If</xsd:documentation>
                                   <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                 </xsd:annotation>
                               </xsd:element>
-                              <xsd:element name="Pool02CC" minOccurs="0">
+                              <xsd:element name="Pool02cc_PoolSpaService" minOccurs="0">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">Pool/Spa Service Type</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
@@ -2047,12 +2047,12 @@ End If</xsd:documentation>
                                   </xsd:appinfo>
                                 </xsd:annotation>
                               </xsd:element>
-                              <xsd:element name="Pool02" minOccurs="0">
+                              <xsd:element name="Pool02_PoolSpaService" minOccurs="0">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">Pool/Spa Service Type</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 If Pool01_InstalledSameAsCC == True
-result = Pool02CC
+result = Pool02cc_PoolSpaService
 Else
 User selects from list
 End If</xsd:documentation>
@@ -2065,7 +2065,7 @@ End If</xsd:documentation>
                                   </xsd:restriction>
                                 </xsd:simpleType>
                               </xsd:element>
-                              <xsd:element name="Pool03CC" minOccurs="0">
+                              <xsd:element name="Pool03cc_PoolSpaRequirements" minOccurs="0">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">On/Off Controls</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
@@ -2077,12 +2077,12 @@ End If</xsd:documentation>
                                   </xsd:appinfo>
                                 </xsd:annotation>
                               </xsd:element>
-                              <xsd:element name="Pool03" minOccurs="0">
+                              <xsd:element name="Pool03_PoolSpaRequirements" minOccurs="0">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">On/Off Controls</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 If Pool01_InstalledSameAsCC == True
-result = Pool03CC
+result = Pool03cc_PoolSpaRequirements
 Else
 User selects from list
 End If</xsd:documentation>
@@ -2339,11 +2339,13 @@ Else If Pool01_InMyScope == false
 result = NotInScope
   
 Else If
-Pool02CC == Pool02
+Pool02cc_PoolSpaService == Pool02_PoolSpaService
+And
+Pool03cc_PoolSpaRequirements == Pool03_PoolSpaRequirements
 And
 Pool04acc_PoolSpaRequirements == Pool04a_PoolSpaRequirements
 And
-Pool05cc_PoolSpaRequirements == Pool05_PoolSpaRequirements
+Pool05acc_PoolSpaRequirements == Pool05a_PoolSpaRequirements
 And
 Pool06cc_PoolSpaRequirements == Pool06_PoolSpaRequirements
 And
