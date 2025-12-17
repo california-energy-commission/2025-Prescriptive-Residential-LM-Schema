@@ -1110,21 +1110,24 @@ End If</xsd:documentation>
                             </xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
-                        <xsd:element name="DHW01cc_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                        <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="DHW01cc_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText">System Name</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = F03_WaterHeatingSystemName</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="DHWreq02cc_StorageTankInsulation" type="comp:StorageTankInsulation">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Unfired storage tank insulation shall have Internal + External <d:gte/>R-16 OR External <d:gte/>R-12. Label required per <d:t24refnolink/>110.3(c)3</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="DHWreq02cc_StorageTankInsulation" type="comp:StorageTankInsulation">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Unfired storage tank insulation shall have Internal + External <d:gte/>R-16 OR External <d:gte/>R-12. Label required per <d:t24refnolink/>110.3(c)3</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If F18_StorageTankInsulation IsPresent
 result = F18_StorageTankInsulation
 End If
@@ -1138,16 +1141,16 @@ Display static text in AdditionalRequirements
 Else
 Do not display static text 
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">F18_StorageTankInsulation</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="DHWreq04cc_InstantaneousIsolationValves" type="comp:InstantaneousIsolationValves">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Isolation valves for instantaneous water heater with input rating <d:gt/>6.8 kBTUH or 2 kW has been specified per <d:t24refnolink/>110.3(c)6</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">F18_StorageTankInsulation</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="DHWreq04cc_InstantaneousIsolationValves" type="comp:InstantaneousIsolationValves">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Isolation valves for instantaneous water heater with input rating <d:gt/>6.8 kBTUH or 2 kW has been specified per <d:t24refnolink/>110.3(c)6</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If F20_InstantaneousIsolationValves
 IsPresent
 result = F20_InstantaneousIsolationValves
@@ -1161,16 +1164,16 @@ Display static text in AdditionalRequirements
 Else
 Do not display static text 
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">F20_InstantaneousIsolationValves</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="DHWreq05cc_HeatPumpApplies" type="comp:HeatPumpApplies">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Backup heat is required when inlet air is unconditioned unless the compressor cut-off temperature is below the Heating Winter Median of Extremes for the closest location listed in Table 2-3 from Reference Joint Appendix JA2.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">F20_InstantaneousIsolationValves</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="DHWreq05cc_HeatPumpApplies" type="comp:HeatPumpApplies">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Backup heat is required when inlet air is unconditioned unless the compressor cut-off temperature is below the Heating Winter Median of Extremes for the closest location listed in Table 2-3 from Reference Joint Appendix JA2.</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If F22a_HeatPumpApplies
 IsPresent
 result = F22a_HeatPumpApplies
@@ -1184,52 +1187,55 @@ Display static text in AdditionalRequirements
 Else
 Do not display static text 
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">F22a_HeatPumpApplies</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="DHWreq06cc_ASHPWHVentilation" type="comp:ASHPWHVentilation">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Consumer integrated HPWHs shall meet the following requirement:</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">F22a_HeatPumpApplies</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="DHWreq06cc_ASHPWHVentilation" type="comp:ASHPWHVentilation">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Consumer integrated HPWHs shall meet the following requirement:</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If F22b_ASHPWHVentilation
 IsPresent
 result = F22b_ASHPWHVentilation
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">F22b_ASHPWHVentilation</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="DHWreq07cc_CenralHPWHRequirement" type="comp:CenralHPWHRequirement">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText">The primary storage tank temperature setpoint shall be at least 135<d:deg/>F - <d:t24refnolink/>170.2(d)2Aiv.</xsd:documentation>
-                            <xsd:documentation source="AdditionalRequirements"/>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">F22b_ASHPWHVentilation</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="DHWreq07cc_CenralHPWHRequirement" type="comp:CenralHPWHRequirement">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText">The primary storage tank temperature setpoint shall be at least 135<d:deg/>F - <d:t24refnolink/>170.2(d)2Aiv.</xsd:documentation>
+                                  <xsd:documentation source="AdditionalRequirements"/>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If F22HP2_CenralHPWHRequirement
 IsPresent
 result = F22HP2_CenralHPWHRequirement
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">F22HP2_CenralHPWHRequirement</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="DHWreq08cc_CenralHPWHRequirement" type="comp:CenralHPWHRequirement">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText">The minimum heat pump water heater compressor cut-off temperature shall be equal to or lower than 40<d:deg/>F ambient air temperature.</xsd:documentation>
-                            <xsd:documentation source="AdditionalRequirements"/>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">F22HP2_CenralHPWHRequirement</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="DHWreq08cc_CenralHPWHRequirement" type="comp:CenralHPWHRequirement">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText">The minimum heat pump water heater compressor cut-off temperature shall be equal to or lower than 40<d:deg/>F ambient air temperature.</xsd:documentation>
+                                  <xsd:documentation source="AdditionalRequirements"/>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If F22HP3_CenralHPWHRequirement
 IsPresent
 result = F22HP3_CenralHPWHRequirement
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">F22HP3_CenralHPWHRequirement</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">F22HP3_CenralHPWHRequirement</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
                         </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
@@ -1263,21 +1269,24 @@ End If</xsd:documentation>
                     </xsd:annotation>
                     <xsd:complexType>
                       <xsd:sequence>
-                        <xsd:element name="Dist01cc_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                        <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="Dist01cc_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText">System Name</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = F03_WaterHeatingSystemName</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist01cc_AirReleaseValve" type="comp:AirReleaseValve">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Automatic Air release valve no more that 4 feet from pump or vertical pump installation</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist01cc_AirReleaseValve" type="comp:AirReleaseValve">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Automatic Air release valve no more that 4 feet from pump or vertical pump installation</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G01_AirReleaseValve
 End If
 If  result == ReqYes, 
@@ -1285,17 +1294,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G01_AirReleaseValve</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist02cc_BackflowCheckValve" type="comp:BackflowCheckValve">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Check valve or similar located between recirculation pump and water heating equipment to prevent backflow</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G01_AirReleaseValve</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist02cc_BackflowCheckValve" type="comp:BackflowCheckValve">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Check valve or similar located between recirculation pump and water heating equipment to prevent backflow</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G02_BackflowCheckValve
 End If
 If  result == ReqYes, 
@@ -1303,17 +1312,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G02_BackflowCheckValve</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist03cc_HoseBibb" type="comp:HoseBibb">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Hose bibb installed between pump and equipment and isolation valve between hose bibb and equipment</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G02_BackflowCheckValve</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist03cc_HoseBibb" type="comp:HoseBibb">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Hose bibb installed between pump and equipment and isolation valve between hose bibb and equipment</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G03_HoseBibb
 End If
 If  result == ReqYes, 
@@ -1321,17 +1330,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G03_HoseBibb</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist04cc_IsolationValves" type="comp:IsolationValves">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Isolation valves on both sides of the pump</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G03_HoseBibb</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist04cc_IsolationValves" type="comp:IsolationValves">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Isolation valves on both sides of the pump</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G04_IsolationValves
 End If
 If  result == ReqYes, 
@@ -1339,17 +1348,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G04_IsolationValves</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist05cc_TankDrainPort" type="comp:TankDrainPort">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Cold water and recirculation loop piping is not connected to the hot water storage tank drain port</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G04_IsolationValves</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist05cc_TankDrainPort" type="comp:TankDrainPort">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Cold water and recirculation loop piping is not connected to the hot water storage tank drain port</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G05_TankDrainPort
 End If
 If  result == ReqYes, 
@@ -1357,17 +1366,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G05_TankDrainPort</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist06cc_ColdWaterCheckValve" type="comp:ColdWaterCheckValve">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Check valve installed on cold water supply between hot water system and next closest tee on cold water supply</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G05_TankDrainPort</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist06cc_ColdWaterCheckValve" type="comp:ColdWaterCheckValve">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Check valve installed on cold water supply between hot water system and next closest tee on cold water supply</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G06_ColdWaterCheckValve
 End If
 If  result == ReqYes, 
@@ -1375,17 +1384,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G06_ColdWaterCheckValve</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist07acc_RecircLoopHP" type="comp:RecircLoopHP">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:  For heat pump water heating systems, the hot water return from the recirculation loop shall connect to a recirculation loop tank and shall not directly connect to the primary heat pump water heater inlet or the primary thermal storage tanks per <d:t24refnolink/>170.2(d)2Aii</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G06_ColdWaterCheckValve</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist07acc_RecircLoopHP" type="comp:RecircLoopHP">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:  For heat pump water heating systems, the hot water return from the recirculation loop shall connect to a recirculation loop tank and shall not directly connect to the primary heat pump water heater inlet or the primary thermal storage tanks per <d:t24refnolink/>170.2(d)2Aii</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G08_RecircLoopHP
 End If
 If  result == ReqYes, 
@@ -1393,17 +1402,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G08_RecircLoopHP</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist07bcc_RecircFuelHP" type="comp:RecircFuelHP">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:  For heat pump water heating systems, the fuel source for the recirculation loop tank shall be electricity per <d:t24refnolink/>170.2(d)2Aii.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G08_RecircLoopHP</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist07bcc_RecircFuelHP" type="comp:RecircFuelHP">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:  For heat pump water heating systems, the fuel source for the recirculation loop tank shall be electricity per <d:t24refnolink/>170.2(d)2Aii.</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G09_RecircFuelHP
 End If
 If  result == ReqYes, 
@@ -1411,17 +1420,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G09_RecircFuelHP</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist08bcc_RecircTemp" type="comp:RecircTemp">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: The recirculation loop tank temperature setpoint shall be at least 10°F lower than the primary thermal storage tank temperature setpoint per <d:t24refnolink/>170.2(d)2Aii.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G09_RecircFuelHP</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist08bcc_RecircTemp" type="comp:RecircTemp">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: The recirculation loop tank temperature setpoint shall be at least 10°F lower than the primary thermal storage tank temperature setpoint per <d:t24refnolink/>170.2(d)2Aii.</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G09_RecircTemp
 End If
 If  result == ReqYes, 
@@ -1429,17 +1438,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G09_RecircTemp</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist09bcc_PipingSize" type="comp:PipingSize">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: All hot water distribution piping shall be sized in accordance with the California Plumbing Code Appendix M per <d:t24refnolink/>170.2(d)2C.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G09_RecircTemp</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist09bcc_PipingSize" type="comp:PipingSize">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: All hot water distribution piping shall be sized in accordance with the California Plumbing Code Appendix M per <d:t24refnolink/>170.2(d)2C.</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G10_PipingSize
 End If
 If  result == ReqYes, 
@@ -1447,17 +1456,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G10_PipingSize</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist10bcc_RecircThermostat" type="comp:RecircThermostat">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:A recirculation system with mechanical or digital thermostatic master mixing valve on each distribution supply and return loop and meet the requirements in Reference Appendix RA4.4, unless building has ≤ 8 dwelling units, per <d:t24refnolink/>170.2(d)2D.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G10_PipingSize</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist10bcc_RecircThermostat" type="comp:RecircThermostat">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:A recirculation system with mechanical or digital thermostatic master mixing valve on each distribution supply and return loop and meet the requirements in Reference Appendix RA4.4, unless building has ≤ 8 dwelling units, per <d:t24refnolink/>170.2(d)2D.</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G11_RecircThermostat
 End If
 If  result == ReqYes, 
@@ -1465,11 +1474,14 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G11_RecircThermostat</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G11_RecircThermostat</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
                         </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
@@ -1489,28 +1501,31 @@ Else If CC-PRF parent this subsection is NOT displayed or required</xsd:document
                     </xsd:annotation>
                     <xsd:complexType>
                       <xsd:sequence>
-                        <xsd:element name="Dist08a_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                        <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="Dist08a_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText">System Name</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = F03_WaterHeatingSystemName</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist08Note" minOccurs="0">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Single 240 volt heat pump water heaters serving dwelling units must also include systems with:</xsd:documentation>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:choice maxOccurs="1">
-                          <xsd:element name="Dist08acc_HeatPumpDistRequirement" type="comp:HeatPumpDistRequirement">
-                            <xsd:annotation>
-                              <xsd:documentation source="FieldText"/>
-                              <xsd:documentation source="AdditionalRequirements">Compact hot water distribution system as specified in  Reference Appendix RA4.4.16 in climate zone 1 &amp;amp; 16; AND</xsd:documentation>
-                              <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist08Note" minOccurs="0">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Single 240 volt heat pump water heaters serving dwelling units must also include systems with:</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:choice maxOccurs="1">
+                                <xsd:element name="Dist08acc_HeatPumpDistRequirement" type="comp:HeatPumpDistRequirement">
+                                  <xsd:annotation>
+                                    <xsd:documentation source="FieldText"/>
+                                    <xsd:documentation source="AdditionalRequirements">Compact hot water distribution system as specified in  Reference Appendix RA4.4.16 in climate zone 1 &amp;amp; 16; AND</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G10_HeatPumpDistRequirement
 Else result = ReqHeatPumpCompact
 End If
@@ -1519,17 +1534,17 @@ static text in AdditionalRequirements is displayed
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                              <xsd:appinfo source="CIsrc">
-                                <dtyp:srcSchema form="CCPLB01E" usage="copy">G10_HeatPumpDistRequirement</dtyp:srcSchema>
-                                <dtyp:srcSchema form="CCPRF01E" usage="value">ReqHeatPumpCompact</dtyp:srcSchema>
-                              </xsd:appinfo>
-                            </xsd:annotation>
-                          </xsd:element>
-                          <xsd:element name="Dist08bcc_HeatPumpDistRequirement" type="comp:HeatPumpDistRequirement">
-                            <xsd:annotation>
-                              <xsd:documentation source="FieldText"/>
-                              <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS rater per Reference Appendix RA3.6.9.in climate zone 16</xsd:documentation>
-                              <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                    <xsd:appinfo source="CIsrc">
+                                      <dtyp:srcSchema form="CCPLB01E" usage="copy">G10_HeatPumpDistRequirement</dtyp:srcSchema>
+                                      <dtyp:srcSchema form="CCPRF01E" usage="value">ReqHeatPumpCompact</dtyp:srcSchema>
+                                    </xsd:appinfo>
+                                  </xsd:annotation>
+                                </xsd:element>
+                                <xsd:element name="Dist08bcc_HeatPumpDistRequirement" type="comp:HeatPumpDistRequirement">
+                                  <xsd:annotation>
+                                    <xsd:documentation source="FieldText"/>
+                                    <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS rater per Reference Appendix RA3.6.9.in climate zone 16</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G10_HeatPumpDistRequirement
 Else result = ReqHeatPumpDWHR
  
@@ -1537,18 +1552,18 @@ If  result == ReqHeatPumpDWHR Or  ReqHeatPumpCompactDWHR  static text in Additio
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                              <xsd:appinfo source="CIsrc">
-                                <dtyp:srcSchema form="CCPLB01E" usage="reference">G10_HeatPumpDistRequirement</dtyp:srcSchema>
-                                <dtyp:srcSchema form="CCPRF01E" usage="value">ReqHeatPumpDWHR</dtyp:srcSchema>
-                              </xsd:appinfo>
-                            </xsd:annotation>
-                          </xsd:element>
-                        </xsd:choice>
-                        <xsd:element name="Dist09cc_IndividualSysDistRequirement" type="comp:IndividualSysDistRequirement">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS Rater per Reference Appendix RA3.6.9 in climate zone 16.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                    <xsd:appinfo source="CIsrc">
+                                      <dtyp:srcSchema form="CCPLB01E" usage="reference">G10_HeatPumpDistRequirement</dtyp:srcSchema>
+                                      <dtyp:srcSchema form="CCPRF01E" usage="value">ReqHeatPumpDWHR</dtyp:srcSchema>
+                                    </xsd:appinfo>
+                                  </xsd:annotation>
+                                </xsd:element>
+                              </xsd:choice>
+                              <xsd:element name="Dist09cc_IndividualSysDistRequirement" type="comp:IndividualSysDistRequirement">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS Rater per Reference Appendix RA3.6.9 in climate zone 16.</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G11_IndividualSysDistRequirement
 Else result = ReqDWHRCZ16
  
@@ -1557,17 +1572,17 @@ static text in AdditionalRequirements is displayed
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G11_IndividualSysDistRequirement</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqDWHRCZ16</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist10cc_IndividualSysDistRequirement" type="comp:IndividualSysDistRequirement">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">For recirculation distribution systems serving individual dwelling units, only Demand Recirculation Systems with manual on/off control as specified in the Reference Appendix RA4.4.9 shall be used.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G11_IndividualSysDistRequirement</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqDWHRCZ16</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist10cc_IndividualSysDistRequirement" type="comp:IndividualSysDistRequirement">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">For recirculation distribution systems serving individual dwelling units, only Demand Recirculation Systems with manual on/off control as specified in the Reference Appendix RA4.4.9 shall be used.</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G12_IndividualSysDistRequirement
 Else result = ReqDemandRecirc
  
@@ -1575,11 +1590,14 @@ If  result == ReqDemandRecirc, static text in AdditionalRequirements is displaye
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G12_IndividualSysDistRequirement</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqDemandRecirc</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G12_IndividualSysDistRequirement</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">ReqDemandRecirc</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
                         </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
@@ -1592,11 +1610,14 @@ End If</xsd:documentation>
                     </xsd:annotation>
                     <xsd:complexType>
                       <xsd:sequence>
-                        <xsd:element name="Dist11_DwellingUnitsPipeInsulationComplies" type="comp:DwellingUnitsPipeInsulationComplies">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">For systems serving dwelling units and common areas, pipe insulation must meet the minimum insulation requirements in Table 160.4-A (see below) except: <d:l t="*"><d:list>  Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration. Piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall abut securely against all framing members </d:list><d:list>  Piping installed in interior or exterior walls shall not be required to have pipe insulation if all of the requirements are met for compliance with Quality Insulation Installation (QII) as specified in the Reference Residential Appendix RA3.5. </d:list><d:list> Piping surrounded with a minimum of 1 inch of wall insulation, 2 inches of crawlspace insulation, or 4 inches of attic insulation, shall not be required to have pipe insulation.</d:list></d:l></xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                        <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="Dist11_DwellingUnitsPipeInsulationComplies" type="comp:DwellingUnitsPipeInsulationComplies">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">For systems serving dwelling units and common areas, pipe insulation must meet the minimum insulation requirements in Table 160.4-A (see below) except: <d:l t="*"><d:list>  Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration. Piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall abut securely against all framing members </d:list><d:list>  Piping installed in interior or exterior walls shall not be required to have pipe insulation if all of the requirements are met for compliance with Quality Insulation Installation (QII) as specified in the Reference Residential Appendix RA3.5. </d:list><d:list> Piping surrounded with a minimum of 1 inch of wall insulation, 2 inches of crawlspace insulation, or 4 inches of attic insulation, shall not be required to have pipe insulation.</d:list></d:l></xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If G13_DwellingUnitsPipeInsulationComplies IsPresent
 result = G13_DwellingUnitsPipeInsulationComplies
 Else If G13_NotApplicableMessage IsPresent
@@ -1610,28 +1631,28 @@ static text in AdditionalRequirements is displayed
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G13_DwellingUnitsPipeInsulationComplies</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPLB01E" usage="reference">G13_NotApplicableMessage</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">true</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist12a_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G13_DwellingUnitsPipeInsulationComplies</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPLB01E" usage="reference">G13_NotApplicableMessage</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">true</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist12a_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText">System Name</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = F03_WaterHeatingSystemName</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist12_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">For systems serving nonresidential spaces, pipe insulation for the following applications must comply with the following: <d:l t="*"><d:list> Recirculating system piping, including supply and return piping of the water heater </d:list><d:list> The first 8 ft of hot and cold outlet piping, including between storage tank and heat trap, for a nonrecirculating storage system </d:list><d:list> Pipes that are externally heated </d:list></d:l></xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist12_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">For systems serving nonresidential spaces, pipe insulation for the following applications must comply with the following: <d:l t="*"><d:list> Recirculating system piping, including supply and return piping of the water heater </d:list><d:list> The first 8 ft of hot and cold outlet piping, including between storage tank and heat trap, for a nonrecirculating storage system </d:list><d:list> Pipes that are externally heated </d:list></d:l></xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If G14_NonresPipeInsulationComplies IsPresent
 result = G14_NonresPipeInsulationComplies
 Else If G14_NotApplicableMessage IsPresent
@@ -1645,18 +1666,18 @@ static text in AdditionalRequirements is displayed
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G14_NonresPipeInsulationComplies</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPLB01E" usage="reference">G14_NotApplicableMessage</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">true</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist13_PipeInsulationProtectionComplies" type="comp:PipeInsulationProtectionComplies">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Insulation shall be protected from damage, including that due to sunlight, moisture, equipment maintenance, and wind. Insulation exposed to weather shall be installed with a cover suitable for outdoor service per  <d:t24refnolink/>120.3(b)/  <d:t24refnolink/>160.4(f). Pipe insulation buried below grade must be installed in a water proof and non-crushable casing or sleeve.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G14_NonresPipeInsulationComplies</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPLB01E" usage="reference">G14_NotApplicableMessage</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">true</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist13_PipeInsulationProtectionComplies" type="comp:PipeInsulationProtectionComplies">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Insulation shall be protected from damage, including that due to sunlight, moisture, equipment maintenance, and wind. Insulation exposed to weather shall be installed with a cover suitable for outdoor service per  <d:t24refnolink/>120.3(b)/  <d:t24refnolink/>160.4(f). Pipe insulation buried below grade must be installed in a water proof and non-crushable casing or sleeve.</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If G15_PipeInsulationProtectionComplies IsPresent
 result = G15_PipeInsulationProtectionComplies
 Else If G15_NotApplicableMessage IsPresent
@@ -1670,18 +1691,18 @@ static text in AdditionalRequirements is displayed
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G15_PipeInsulationProtectionComplies</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPLB01E" usage="reference">G15_NotApplicableMessage</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">true</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="Dist14_PipingInsulation" type="comp:PipingInsulation">
-                          <xsd:annotation>
-                            <xsd:documentation source="FieldText"/>
-                            <xsd:documentation source="AdditionalRequirements">Insulation for hot water pipes shall be field verified as specifid in Reference Appendix RA3.6.3 per <d:t24refnolink/>170.2(d)2E.</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G15_PipeInsulationProtectionComplies</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPLB01E" usage="reference">G15_NotApplicableMessage</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">true</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                              <xsd:element name="Dist14_PipingInsulation" type="comp:PipingInsulation">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="AdditionalRequirements">Insulation for hot water pipes shall be field verified as specifid in Reference Appendix RA3.6.3 per <d:t24refnolink/>170.2(d)2E.</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If G12_PipingInsulation IsPresent
 result = G12_PipingInsulation
 Else If CC-PRF parent
@@ -1693,11 +1714,14 @@ static text in AdditionalRequirements is displayed
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                            <xsd:appinfo source="CIsrc">
-                              <dtyp:srcSchema form="CCPLB01E" usage="copy">G12_PipingInsulation</dtyp:srcSchema>
-                              <dtyp:srcSchema form="CCPRF01E" usage="value">true</dtyp:srcSchema>
-                            </xsd:appinfo>
-                          </xsd:annotation>
+                                  <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E" usage="copy">G12_PipingInsulation</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E" usage="value">true</dtyp:srcSchema>
+                                  </xsd:appinfo>
+                                </xsd:annotation>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
                         </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
@@ -1810,11 +1834,14 @@ End If</xsd:documentation>
                       </xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Ctrl01cc_TempControlsCertification" type="comp:TempControlsCertification">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">Manufacturers must certify that service water-heating systems shall be equipped with automatic temperature controls capable of adjustment from the lowest to the highest acceptable temperature settings for the intended use as listed in Table 3, Chapter 50 of the ASHRAE Handbook, HVAC Applications Volume or Table 613.1 of the California Plumbing Code for healthcare facilities.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                  <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="Ctrl01cc_TempControlsCertification" type="comp:TempControlsCertification">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">Manufacturers must certify that service water-heating systems shall be equipped with automatic temperature controls capable of adjustment from the lowest to the highest acceptable temperature settings for the intended use as listed in Table 3, Chapter 50 of the ASHRAE Handbook, HVAC Applications Volume or Table 613.1 of the California Plumbing Code for healthcare facilities.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = H01_TempControlsCertification
 Else If CC-PRF parent
 result == ReqYes
@@ -1824,17 +1851,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="CCPLB01E" usage="copy">H01_TempControlsCertification</dtyp:srcSchema>
-                        <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Ctrl02cc_OutletTempControls" type="comp:OutletTempControls">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">On systems that have a total capacity greater than 167,000 Btu/hr, outlets that require higher than service water temperatures as listed- in the ASHRAE Handbook, Applications Volume, shall have separate remote heaters, heat exchangers, or boosters to supply the outlet with the higher temperature unless covered by California Plumbing Code Section 613.0.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCPLB01E" usage="copy">H01_TempControlsCertification</dtyp:srcSchema>
+                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Ctrl02cc_OutletTempControls" type="comp:OutletTempControls">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">On systems that have a total capacity greater than 167,000 Btu/hr, outlets that require higher than service water temperatures as listed- in the ASHRAE Handbook, Applications Volume, shall have separate remote heaters, heat exchangers, or boosters to supply the outlet with the higher temperature unless covered by California Plumbing Code Section 613.0.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result == H02_OutletTempControls
 Else If CC-PRF parent
 result == ReqYes
@@ -1844,17 +1871,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="CCPLB01E" usage="copy">H02_OutletTempControls</dtyp:srcSchema>
-                        <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Ctrl03cc_CirculatingPumpControls" type="comp:CirculatingPumpControls">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">Controls for circulating pumps or electrical heat trace systems are capable of automatically turning off the system unless system serves healthcare facility.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCPLB01E" usage="copy">H02_OutletTempControls</dtyp:srcSchema>
+                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Ctrl03cc_CirculatingPumpControls" type="comp:CirculatingPumpControls">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">Controls for circulating pumps or electrical heat trace systems are capable of automatically turning off the system unless system serves healthcare facility.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = H03_CirculatingPumpControls
 Else If CC-PRF parent
 result == ReqYes
@@ -1864,17 +1891,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="CCPLB01E" usage="copy">H03_CirculatingPumpControls</dtyp:srcSchema>
-                        <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Ctrl04cc_MultipleUnitsPumpControls" type="comp:MultipleUnitsPumpControls">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">For recirculation systems serving multiple dwelling units, design includes a mechanical or digital thermostatic master mixing valve on each distribution supply and return loop per <d:t24refnolink/>170.2(d) or <d:t24refnolink/>180.1(b)3 for additions.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCPLB01E" usage="copy">H03_CirculatingPumpControls</dtyp:srcSchema>
+                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Ctrl04cc_MultipleUnitsPumpControls" type="comp:MultipleUnitsPumpControls">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">For recirculation systems serving multiple dwelling units, design includes a mechanical or digital thermostatic master mixing valve on each distribution supply and return loop per <d:t24refnolink/>170.2(d) or <d:t24refnolink/>180.1(b)3 for additions.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = H04_MultipleUnitsPumpControls
 Else If CC-PRF parent
 result == ReqYes
@@ -1884,17 +1911,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="CCPLB01E" usage="copy">H04_MultipleUnitsPumpControls</dtyp:srcSchema>
-                        <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Ctrl05cc_SingleUnitOnOffControls" type="comp:SingleUnitOnOffControls">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">For recirculation systems serving individual dwelling units, design includes manual on/off controls as specified in Title 24, Part 6 Reference Appendix RA 4.4.9 per <d:t24refnolink/>170.2(d)</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCPLB01E" usage="copy">H04_MultipleUnitsPumpControls</dtyp:srcSchema>
+                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Ctrl05cc_SingleUnitOnOffControls" type="comp:SingleUnitOnOffControls">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">For recirculation systems serving individual dwelling units, design includes manual on/off controls as specified in Title 24, Part 6 Reference Appendix RA 4.4.9 per <d:t24refnolink/>170.2(d)</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = H05_SingleUnitOnOffControls
 Else If CC-PRF parent
 result == ReqYes
@@ -1904,17 +1931,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="CCPLB01E" usage="copy">H05_SingleUnitOnOffControls</dtyp:srcSchema>
-                        <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Ctrl06cc_BoilerAirShutOffReq" type="comp:BoilerAirShutOffReq">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">Combustion air positive shut-off shall be provided per  <d:t24refnolink/>160.4(3).on all newly installed commercial boilers as follows: <d:l t="*"><d:list> Boilers with input capacity <d:gte/> 2.5 MMBtu/h, in which the boiler is designed to operate with a nonpositive vent static pressure </d:list><d:list>Boilers where one stack serves two or more boilers with a total combined input capacity per stack of 2.5 MMBtu/h.</d:list></d:l></xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCPLB01E" usage="copy">H05_SingleUnitOnOffControls</dtyp:srcSchema>
+                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Ctrl06cc_BoilerAirShutOffReq" type="comp:BoilerAirShutOffReq">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">Combustion air positive shut-off shall be provided per  <d:t24refnolink/>160.4(3).on all newly installed commercial boilers as follows: <d:l t="*"><d:list> Boilers with input capacity <d:gte/> 2.5 MMBtu/h, in which the boiler is designed to operate with a nonpositive vent static pressure </d:list><d:list>Boilers where one stack serves two or more boilers with a total combined input capacity per stack of 2.5 MMBtu/h.</d:list></d:l></xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = H06_BoilerAirShutOffReq
 Else If CC-PRF parent
 result == ReqYes
@@ -1924,17 +1951,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="CCPLB01E" usage="copy">H06_BoilerAirShutOffReq</dtyp:srcSchema>
-                        <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Ctrl07cc_BoilerFanMotorReq" type="comp:BoilerFanMotorReq">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">Boiler combustion air fans with motor <d:gte/> 10 hp shall meet one of the following <d:l t="*"><d:list>  The fan motor shall be driven by a variable speed drive OR </d:list><d:list> The fan motor shall include controls that limit the fan motor demand to <d:lte/>30% of the total design wattage at 50% of the design air volume.</d:list></d:l></xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCPLB01E" usage="copy">H06_BoilerAirShutOffReq</dtyp:srcSchema>
+                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Ctrl07cc_BoilerFanMotorReq" type="comp:BoilerFanMotorReq">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">Boiler combustion air fans with motor <d:gte/> 10 hp shall meet one of the following <d:l t="*"><d:list>  The fan motor shall be driven by a variable speed drive OR </d:list><d:list> The fan motor shall include controls that limit the fan motor demand to <d:lte/>30% of the total design wattage at 50% of the design air volume.</d:list></d:l></xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = H07_BoilerFanMotorReq
 Else If CC-PRF parent
 result == ReqYes
@@ -1944,17 +1971,17 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="CCPLB01E" usage="copy">H07_BoilerFanMotorReq</dtyp:srcSchema>
-                        <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="Ctrl08cc_BoilerStackGasReq" type="comp:BoilerStackGasReq">
-                    <xsd:annotation>
-                      <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">Newly installed boilers with an input capacity <d:gte/> 5MMBtu/h and a steady state full-load combustion efficiency <d:lt/> 90% shall maintain excess (stack-gas) oxygen concentrations <d:lte/>  5% by volume on a dry basis over firing rates of 20-100%. Combustion air volume shall be controlled with respect to firing rate or flue gas oxygen concentration. Use of a common gas and combustion air control linkage or jack shaft is prohibited.</xsd:documentation>
-                      <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCPLB01E" usage="copy">H07_BoilerFanMotorReq</dtyp:srcSchema>
+                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Ctrl08cc_BoilerStackGasReq" type="comp:BoilerStackGasReq">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                            <xsd:documentation source="AdditionalRequirements">Newly installed boilers with an input capacity <d:gte/> 5MMBtu/h and a steady state full-load combustion efficiency <d:lt/> 90% shall maintain excess (stack-gas) oxygen concentrations <d:lte/>  5% by volume on a dry basis over firing rates of 20-100%. Combustion air volume shall be controlled with respect to firing rate or flue gas oxygen concentration. Use of a common gas and combustion air control linkage or jack shaft is prohibited.</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = H08_BoilerStackGasReq
 Else If CC-PRF parent
 result == ReqYes
@@ -1964,11 +1991,14 @@ Display static text in AdditionalRequirements
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                      <xsd:appinfo source="CIsrc">
-                        <dtyp:srcSchema form="CCPLB01E" usage="copy">H08_BoilerStackGasReq</dtyp:srcSchema>
-                        <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
-                      </xsd:appinfo>
-                    </xsd:annotation>
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCPLB01E" usage="copy">H08_BoilerStackGasReq</dtyp:srcSchema>
+                              <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
                   </xsd:element>
                 </xsd:sequence>
               </xsd:complexType>
