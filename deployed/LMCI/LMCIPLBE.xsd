@@ -1116,8 +1116,7 @@ End If</xsd:documentation>
                               <xsd:element name="DHW01cc_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-result = F03_WaterHeatingSystemName</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
                                     <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
                                   </xsd:appinfo>
@@ -1641,8 +1640,7 @@ End If</xsd:documentation>
                               <xsd:element name="Dist12a_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-result = F03_WaterHeatingSystemName</xsd:documentation>
+                                  <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
                                     <dtyp:srcSchema form="CCMCH01E" usage="copy">F03_WaterHeatingSystemName</dtyp:srcSchema>
                                   </xsd:appinfo>

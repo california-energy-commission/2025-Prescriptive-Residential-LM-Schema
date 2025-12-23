@@ -4014,7 +4014,7 @@ End If</xsd:documentation>
                               <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">
 If F05_HeatingDesignCapacity GTE 1  And If F02_HvacSystemType == FurnaceUnitHeater for Fa01
-   result = FederalMinimumEfficiency
+   result = FederalMinimum
 End If</xsd:documentation>
                             </xsd:annotation>
                           </xsd:element>
@@ -4024,7 +4024,7 @@ End If</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">
 If F05_HeatingDesignCapacity GTE 1  And If F02_HvacSystemType ==  UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR for Fa01 
    If F03_UnitaryHeatPumps == WaterSourceHP  
-      result = FederalMinimumEfficiency
+      result = FederalMinimum
    
    Else If F03_UnitaryHeatPumps == GroundSourceBrineToWaterHP 
       result = 2.5; 
@@ -4047,13 +4047,13 @@ If F05_HeatingDesignCapacity GTE 1  And If F02_HvacSystemType ==  UnitaryHeatPum
          Else If F03_UnitaryHeatPumps == AirCooledSplitConstrainedHP Or AirCooledPkgConstrainedHP 
             result = 6.3;  
          Else If F03_UnitaryHeatPumps == AirCooledSplit1PhaseHP 
-            result = FederalMinimumEfficiency;  
+            result = FederalMinimum;  
          Else If F03_UnitaryHeatPumps == AirCooledSmallDuctHighVelocityHP 
             result = 6.1;  
          End If
       case GTE65000AndLT135000: 
          If Fa03_TemperatureRatingCondition == Fdb47Fwb43 
-            result = FederalMinimumEfficiency 
+            result = FederalMinimum 
          Else 
             result = 2.25; 
       case GTE135000AndLT240000 
@@ -4093,19 +4093,19 @@ If F05_HeatingDesignCapacity GTE 1  And If F02_HvacSystemType == VariableRefrige
             result =7.7 (HSPF2);  
          Else If Fa02_SizeRangeVariableRefrigerantFlow == GTE65000AndLT135000 
             If Fa03_TemperatureRatingCondition == Fdb47Fwb43 
-               result = FederalMinimumEfficiency
+               result = FederalMinimum
             Else If Fa03_TemperatureRatingCondition == Fdb17Fwb15 
                result = 2.25 (COP); 
             End If
          Else If Fa02_SizeRangeVariableRefrigerantFlow == GTE135000AndLT240000 Or GTE240000
             If Fa03_TemperatureRatingCondition == Fdb47Fwb43 
-               result = FederalMinimumEfficiency 
+               result = FederalMinimum 
             Else If Fa03_TemperatureRatingCondition == Fdb17Fwb15 
                result = 2.05 (COP);  
             End If
          End If
       case: WaterSourceVRF
-            result = FederalMinimumEfficiency
+            result = FederalMinimum
       case: GroundWaterSourceVRF 
          If Fa02_SizeRangeVariableRefrigerantFlow == LT135000 
             result = 3.6 (COP); 
@@ -4129,20 +4129,20 @@ Else If F05_HeatingDesignCapacity GTE 1  And If F02_HvacSystemType == VariableRe
             result =7.7 (HSPF2);  
          Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE65000AndLT135000 
             If Fa03_TemperatureRatingCondition == Fdb47Fwb43 
-               result = FederalMinimumEfficiency
+               result = FederalMinimum
             Else If Fa03_TemperatureRatingCondition == Fdb17Fwb15 
                result = 2.25 (COP); 
             End If
          Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000AndLT240000 Or GTE240000
             If Fa03_TemperatureRatingCondition == Fdb47Fwb43 
-               result = FederalMinimumEfficiency
+               result = FederalMinimum
             Else If Fa03_TemperatureRatingCondition == Fdb17Fwb15 
                result = 2.05 (COP);  
             End If
          End If
       
       case: WaterSourceVRF 
-         result = FederalMinimumEfficiency
+         result = FederalMinimum
       End If
       case: GroundWaterSourceVRF 
          If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT135000 
@@ -9921,7 +9921,7 @@ End If</xsd:documentation>
                         <xsd:element name="Hdwell02_SystemCount" type="hvac:SystemCount">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Qty</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">result - H00b_HvacSystemCount;</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">result - H00b_SystemCount;</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:element name="Hdwell03_SystemZoning">
@@ -10149,7 +10149,7 @@ End If</xsd:documentation>
                             <xsd:annotation>
                               <xsd:documentation source="FieldText">Qty</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">If Hexhaust07_HeatRecoveryExemptions == NoExemptApply 
-result - H00b_HvacSystemCount;</xsd:documentation>
+result - H00b_SystemCount;</xsd:documentation>
                             </xsd:annotation>
                           </xsd:element>
                           <xsd:element name="Hexhaust02_NotApplicableMessage">
