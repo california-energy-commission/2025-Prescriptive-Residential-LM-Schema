@@ -771,7 +771,7 @@ End If</xsd:documentation>
 If Bpv01a_SystemIncludesPV == true  
 result = false
 Else (evaluating values from J)
-If Pv14_PV_Total_MinSizeSARA LT 4.0
+If Pv14_PV_Total_MinSizeSARA or Pv05_PV_MinSizeSARA LT 4.0
 result = true
 Else result = false
 End If
