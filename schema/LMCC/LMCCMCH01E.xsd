@@ -6351,7 +6351,7 @@ End If_</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Fd02_ChillerType" type="hvac:ChillerType" >
+                                    <xsd:element name="Fd02_ChillerType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list:
@@ -6361,8 +6361,25 @@ End If_</xsd:documentation>
                                              <dtyp:displayterm value="Reciprocating"> Water Cooled: Reciprocating</dtyp:displayterm>
                                              <dtyp:displayterm value="Centrifugal"> Water Cooled: Centrifugal</dtyp:displayterm>
                                           </xsd:appinfo>
-                                          
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                             <xsd:restriction base="hvac:ChillerType">
+                                                   <xsd:enumeration value="AirWaterHeatPump"/>
+                                                   <xsd:enumeration value="AbsorptionDoubleEffectDirectFired"/>
+                                                   <xsd:enumeration value="AbsorptionDoubleEffectIndirectFired"/>
+                                                   <xsd:enumeration value="AbsorptionSingleEffect"/>
+                                                   <xsd:enumeration value="AbsorptionSingleEffectWater"/>
+                                                   <xsd:enumeration value="AirCooledWithCondenser"/>
+                                                   <xsd:enumeration value="AirCooledWithOutCondenser"/>
+                                                   <xsd:enumeration value="AirSourceHeatPump"/>
+                                                   <xsd:enumeration value="Centrifugal"/>
+                                                   <xsd:enumeration value="GasEngineDriven"/>
+                                                   <xsd:enumeration value="HeatRecoveryChillerPositiveDisplacement"/>
+                                                   <xsd:enumeration value="HeatRecoveryChillerCentrifugal"/>
+                                                   <xsd:enumeration value="PositiveDisplacement"/>
+                                                   <xsd:enumeration value="Reciprocating"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Fd03_Count" type="hvac:Count" >
                                        <xsd:annotation>
@@ -6423,7 +6440,7 @@ End If
                                        <xsd:element name="Fd05_ChillerExceptionPathB" type="comp:ChillerExceptionPathB" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Chiller Efficiency "Path B" Exception per [d:t24refnolink/]140.4(i) &amp; [d:t24refnolink/]170.2(c)g</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Fd02_ChillerType != AirSourceHeatPump, HeatRecoveryChillerPositiveDisplacement or HeatRecoveryChillerCentrifugal
+                                             <xsd:documentation source="CalculationsAndRules">If Fd02_ChillerType != AirSourceHeatPump, HeatRecoveryChillerPositiveDisplacement or HeatRecoveryChillerCentrifugal or AirWaterHeatPump
 User selects from list: 
 NoExceptionTaken display term No Exception Taken, 
 EfficiencyException1 display term 1. Electrical service [d:gt/] 600V, 
@@ -6446,7 +6463,7 @@ End If</xsd:documentation>
                                        <xsd:element name="Fd05_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Leaving Hot Water Temperature (F)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Fd02_ChillerType == AirSourceHeatPump, HeatRecoveryChillerPositiveDisplacement or HeatRecoveryChillerCentrifugal
+                                             <xsd:documentation source="CalculationsAndRules">If Fd02_ChillerType == AirSourceHeatPump, HeatRecoveryChillerPositiveDisplacement or HeatRecoveryChillerCentrifugal or AirWaterHeatPump
 BlankGrayedOut stored in Fd04a_NotApplicableMessage
 End If
                                              </xsd:documentation>
@@ -7262,7 +7279,7 @@ Else result = BlankGrayedOut stored in Fd08a_NotApplicableMessage</xsd:documenta
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText"></xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">Use this choice 
-If  Fd05_ChillerExceptionPathB == EfficiencyException5  
+If  Fd05_ChillerExceptionPathB == EfficiencyException5 or Fd02_ChillerType == AirWaterHeatPump  
 End If
 </xsd:documentation>
                                                 </xsd:annotation>
