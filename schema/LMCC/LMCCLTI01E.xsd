@@ -3352,7 +3352,7 @@ Else If Ic02_SpaceFunction NotNull Switch (Ic02_SpaceFunction)
 case AuditoriumArea: case BeautySalonArea:  case FinancialTransactionsArea:   case HospitalPatientRoom: case LobbyMainEntry: case LowVisionCorridorArea: case MuseumRestoration:    result = 0.70; 
 case AutoRepairArea: case HospitalMedicalSupply:   case LoungeBreakRoom: result = 0.55;  
  
-case ClassroomLectureTrainingVocationalArea:  case CommercialIndustrialStorageArea:  case ExhibitMuseumArea: case  GeneralCommercialIndustrialWorkAreaLowBay: case HospitalImaging:  case OfficeGreaterThan250Ft:  case RetailFittingRoom:  case Stairwell: case MallAndAtria:    result = 0.60;  
+case ClassroomLectureTrainingVocationalArea:  case CommercialIndustrialStorageArea: case CommercialIndustrialStorageShipping: case ExhibitMuseumArea: case  GeneralCommercialIndustrialWorkAreaLowBay: case HospitalImaging:  case OfficeGreaterThan250Ft:  case RetailFittingRoom:  case Stairwell: case MallAndAtria:    result = 0.60;  
  
 case LibraryReadingArea: case LowVisionStairwell:  case LowVisionDiningArea: LowVisionWaitingArea: case HospitalNursery: case TheaterPerformance:   result = 0.80;  
  

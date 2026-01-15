@@ -4783,6 +4783,203 @@ End If</xsd:documentation>
                 </xsd:sequence>
               </xsd:complexType>
             </xsd:element>
+            <xsd:element name="TableMechanicalHeatRecovery" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">
+                  <d:b>Mechanical Heat Recovery</d:b>
+                </xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
+If Section_F IsPresent and in it TableMechanicalHeatRecovery IsPresent
+This table is REQUIRED
+End If
+
+Else If CC-PRF Parent
+If TableHtRecovery IsPresent
+This table is REQUIRED
+End If</xsd:documentation>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="HeatRecovery01cc_HeatRecoveryName">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If CC-MCH parent 
+result = Fg01_HeatRecoveryName
+End If
+
+Else If CC-PRF parent 
+Result = SeePlans
+
+The result is displayed in both the Per C of C and As-built conditions</xsd:documentation>
+                            <xsd:appinfo source="CIsrc">
+                              <dtyp:srcSchema form="CCMCH01E" usage="copy">Fg01_HeatRecoveryName</dtyp:srcSchema>
+                            </xsd:appinfo>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:union memberTypes="hvac:HeatRecoveryName comp:SeePlansMessage"/>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="HeatRecovery01_InMyScope" type="comp:InMyScope">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No.
+If result == false HeatRecovery02cc-HeatRecovery03cc and HeatRecovery02-HeatRecovery03 As-built fields are blank and grayed out
+End If</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="HeatRecoveryScopeChoice">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText"/>
+                          </xsd:annotation>
+                          <xsd:complexType>
+                            <xsd:choice>
+                              <xsd:element name="HeatRecoveryScopeNA_NotApplicableMessage">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                  <xsd:documentation source="CalculationsAndRules">If HeatRecovery01_InMyScope == false
+result = HeatRecovery02cc-HeatRecovery03cc and HeatRecovery02-HeatRecovery03  As-built fields are blank and grayed out 
+End If</xsd:documentation>
+                                </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:restriction base="comp:NotApplicableMessage">
+                                    <xsd:enumeration value="BlankGrayedOut"/>
+                                  </xsd:restriction>
+                                </xsd:simpleType>
+                              </xsd:element>
+                              <xsd:element name="HeatRecoveryInScope">
+                                <xsd:annotation>
+                                  <xsd:documentation source="FieldText"/>
+                                </xsd:annotation>
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element name="HeatRecovery01_InstalledSameAsCC" type="comp:InstalledSameAsCC" minOccurs="0">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as value on in the Top cell Or false if installed is different than the value in Top cell</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="HeatRecovery02cc_HeatRecoveryRequired">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">
+If CC-MCH is parent and Fg06_HeatRecoveryRequired IsPresent
+result = Fg06_HeatRecoveryRequired
+
+Else If CC-PRF parent 
+Result = SeePlans
+                                                            </xsd:documentation>
+                                        <xsd:appinfo source="CIsrc">
+                                          <dtyp:srcSchema form="CCMCH01E" usage="copy">Fg06_HeatRecoveryRequired</dtyp:srcSchema>
+                                        </xsd:appinfo>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:union memberTypes="hvac:HeatRecoveryRequired comp:SeePlansMessage"/>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="HeatRecovery02_HeatRecoveryRequired">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">If CC-MCH is parent
+If HeatRecovery01_InstalledSameAsCC == true
+result = HeatRecovery02cc_HeatRecoveryRequired
+Else If HeatRecovery01_InstalledSameAsCC == false
+User input
+End if
+
+Else If CC-PRF parent 
+Result = SeePlans
+</xsd:documentation>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:union memberTypes="hvac:HeatRecoveryRequired comp:SeePlansMessage"/>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="HeatRecovery03cc_HeatRecoveryRequirements">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText"> </xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">
+If CC-MCH parent and Fg07_HeatRecoveryRequirements IsPresent
+result = Fg07_HeatRecoveryRequirements
+
+Else If CC-PRF parent 
+Else result = SeePlans</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCMCH01E" usage="copy">Fg07_HeatRecoveryRequirements</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:union memberTypes="hvac:HeatRecoveryRequirements comp:SeePlansMessage"/>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                      <xsd:element name="HeatRecovery03cc_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText"/>
+                                          <xsd:documentation source="CalculationsAndRules">
+If CC-MCH parent and Fg07_HeatRecoveryRequirements IsPresent
+result = Fg07_HeatRecoveryRequirements
+
+Else If CC-PRF parent 
+result = BlankGrayedOut</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                      <xsd:element name="HeatRecovery03_HeatRecoveryRequirements" type="hvac:HeatRecoveryRequirements">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText"> </xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">
+If HeatRecovery01_InstalledSameAsCC == true
+result = HeatRecovery03cc_HeatRecoveryRequirements
+Else If HeatRecovery01_InstalledSameAsCC == false
+User input
+End if</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCMCH01E" usage="copy">Fg07_HeatRecoveryRequirements</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="HeatRecovery03_NotApplicableMessage">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText"/>
+                                          <xsd:documentation source="CalculationsAndRules">
+If HeatRecovery01_InstalledSameAsCC == true and HeatRecovery03cc_NotApplicableMessage
+result = HeatRecovery03cc_NotApplicableMessage
+</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:restriction base="comp:NotApplicableMessage">
+                                            <xsd:enumeration value="BlankGrayedOut"/>
+                                          </xsd:restriction>
+                                        </xsd:simpleType>
+                                      </xsd:element>
+                                    </xsd:choice>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:choice>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
             <xsd:element name="TableHeatRejection" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">

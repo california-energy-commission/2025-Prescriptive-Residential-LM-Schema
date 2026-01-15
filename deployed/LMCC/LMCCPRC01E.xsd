@@ -1703,7 +1703,7 @@ D03_ExceptionalConditionMessageCCPRCE += UserChangedSelectionInCI</xsd:documenta
             <xsd:element name="Lmci01_RequireLMCIPrc01E" type="comp:RequireLMCIPrc01E">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">NRCI-PRC-01-E - Covered Process</xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">LMCI-PRC-E - Covered Process</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">Calculated Boolean value based on user input in previous sections of this form. By default result = true display term Yes represented as a radio button.  If user changes this value to false display term No represented as a radio button, an explanation is required in Section E Additional Remarks.</xsd:documentation>
               </xsd:annotation>
             </xsd:element>

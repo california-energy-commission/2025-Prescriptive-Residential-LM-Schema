@@ -388,29 +388,22 @@ End If</xsd:documentation>
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Space Type</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">
-If CC-PLB parent
-   If F08_WaterHeaterType == InstantaneousConsumer Or StorageConsumer Or StorageResDutyCommercial Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or StorageConsumerElectric Or NonNEEAIndividualHeatPumpWH Or NEEAIndividualHeatPumpWH Or TableTopElectric
-      result = false
-   Else 
-      result = true
+If CC-PLB parent and F02_WaterHeaterSpaceType IsPresent
+      result = F02_WaterHeaterSpaceType
+End If
 Else If CC-PRF parent
    If WaterMF03_CentralSystem IsPresent
       result = WaterMF03_CentralSystem
    Else
       result = BlankGrayedOut
 End If</xsd:documentation>
-                                                                     <xsd:appinfo source="displayterm">
-                                                                        <dtyp:displayterm value="true">Central</dtyp:displayterm>
-                                                                        <dtyp:displayterm value="false">Individual</dtyp:displayterm>
-                                                                     </xsd:appinfo>
-                                                                     
                                                                      <xsd:appinfo source="CIsrc">
-                                                                        <dtyp:srcSchema form="CCPLB01E"  usage="reference">F08_WaterHeaterType</dtyp:srcSchema>
+                                                                        <dtyp:srcSchema form="CCPLB01E"  usage="reference">F02_WaterHeaterSpaceType</dtyp:srcSchema>
                                                                         <dtyp:srcSchema form="CCPRF01E"  usage="reference">WaterMF03_CentralSystem</dtyp:srcSchema>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
                                                                   <xsd:simpleType>
-                                                                     <xsd:union memberTypes="hvac:CentralSystem comp:NotApplicableMessage"/>
+                                                                     <xsd:union memberTypes="hvac:WaterHeaterSpaceType comp:NotApplicableMessage"/>
                                                                   </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:element name="DHW03_CentralSystem">
@@ -421,14 +414,9 @@ result = DHW03cc_CentralSystem
 Else
 User input
 End If</xsd:documentation>
-                                                                     <xsd:appinfo source="displayterm">
-                                                                        <dtyp:displayterm value="true">Central</dtyp:displayterm>
-                                                                        <dtyp:displayterm value="false">Individual</dtyp:displayterm>
-                                                                     </xsd:appinfo>
-                                                                     
                                                                   </xsd:annotation>
                                                                   <xsd:simpleType>
-                                                                     <xsd:union memberTypes="hvac:CentralSystem comp:NotApplicableMessage"/>
+                                                                     <xsd:union memberTypes="hvac:WaterHeaterSpaceType comp:NotApplicableMessage"/>
                                                                   </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:choice maxOccurs="1">
@@ -2372,23 +2360,47 @@ End If</xsd:documentation>
                            <xsd:element name="Pool09" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">All pump flow rates shall be calculated using H = C x F[d:sup]2[/d:sup]
-WHERE:
-H is the total system head in feet of water
-F is the flow rate in gallons per minute (gpm)
-C is a coefficient based on the volume of the pool (0.0167 for pools less than or equal to 17,000 gallons and 0.0082 for pools greater than 17,000 gallons)</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Dedicated-purpose pool pumps and replacement dedicated-purpose pump motors subject to State or Federal appliance standards shall be listed in the Commission's directory of certified equipment.
+[d:l t="*"][d:list]Dedicated-purpose pool pumps shall meet 20 CCR § 1605.1(g)(7) of the Appliance Efficiency Regulations. 
+[/d:list][d:list]Replacement dedicated-purpose pool pumpmotors shall meet 20 CCR § 1605.3 of the Appliance Efficiency Regulations.[/d:list][/d:l]</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If Pool11_PoolSpaOneTenantReqs IsPresent
+result = Pool11_PoolSpaOneTenantReqs
+End If </xsd:documentation>
                               </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                    <xsd:enumeration value="PumpFlowRate" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
                            </xsd:element>
                            <xsd:element name="Pool10" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Filtration pumps shall be sized, or if programmable, shall be programmed, so that the filtration flow rate is not greater than the rate needed to turn over the pool water volume in 6 hours or 36 gpm, whichever is greater.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If Pool13_PoolSpaOneTenantReqs IsPresent
+result = Pool13_PoolSpaOneTenantReqs
+End If </xsd:documentation>
                               </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="FiltrationPumpSize" />
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
                            </xsd:element>
                            <xsd:element name="Pool11" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Pump motors used for filtration shall meet the applicable federal standard in 10 CFR 431.465.</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Dedicated-purpose pool pumps with more than one speed shall have: 
+[d:l t="*"][d:list]Multispeed pumps shall have controls which default to the filtration flow rate when no auxiliary pool loads are operating; and 
+[/d:list][d:list]Controls shall default to the filtration flow rate setting within 24 hours and shall have an override capability for servicing.[/d:list][/d:l]</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If Pool14_PoolSpaOneTenantReqs IsPresent
+result = Pool14_PoolSpaOneTenantReqs
+End If </xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="Pool12" minOccurs="0">
@@ -2398,6 +2410,13 @@ C is a coefficient based on the volume of the pool (0.0167 for pools less than o
 - Multispeed pumps shall have controls which default to the filtration flow rate when no auxiliary pool loads are operating; and 
 - For multispeed pumps, the controls shall default to the filtration flow rate setting within 24 hours and shall have an override capability for servicing.</xsd:documentation>
                               </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="AuxPoolLoad" />
+                                    <xsd:enumeration value="PoolReqNA" />
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
                            </xsd:element>
                            <xsd:element name="Pool13" minOccurs="0">
                               <xsd:annotation>
@@ -2406,19 +2425,49 @@ C is a coefficient based on the volume of the pool (0.0167 for pools less than o
 - A length of straight pipe that is greater than or equal to at least 4 pipe diameters shall be installed before the pump; and
 - Pool piping shall be sized so that the velocity of the water at maximum flow for auxiliary pool loads does not exceed 8 feet per second in the return line and 6 feet per second in the suction line; and 
 - All elbows shall be sweep elbows or of an elbow-type that has a pressure drop of less than the pressure drop of straight pipe with a length of 30 pipe diameters.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If Pool15_PoolSpaOneTenantReqs IsPresent
+result = Pool15_PoolSpaOneTenantReqs
+End If </xsd:documentation>
                               </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="PoolPiping" />
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
                            </xsd:element>
                            <xsd:element name="Pool14" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Filters shall be at least the size specified in NSF/ANSI 50 for public pool intended applications.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If Pool16_PoolSpaOneTenantReqs IsPresent
+result = Pool16_PoolSpaOneTenantReqs
+End If </xsd:documentation>
                               </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="FilterSize" />
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
                            </xsd:element>
                            <xsd:element name="Pool15" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Minimum diameter of backwash valves shall be 2 inches or the diameter of the return pipe, whichever is greater.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If Pool17_PoolSpaOneTenantReqs IsPresent
+result = Pool17_PoolSpaOneTenantReqs
+End If </xsd:documentation>
                               </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="BackwashValves" />
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
                            </xsd:element>
                         </xsd:sequence>
                      </xsd:complexType>

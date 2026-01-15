@@ -1214,37 +1214,14 @@ Multi-field triggers: See B03aAltered_ProjectHasEquipment  CalculationsAndRules 
                                         </xsd:restriction>
                                       </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                      <xsd:element name="F09_WaterHeaterTankVolume" type="hvac:WaterHeaterTankVolume">
-                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == BoilerCommercialGTE1MMBtu, StorageCommercial Or StorageCommercialElectric Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or BoilerResDutyCommercial Or InstantaneousCommercial
+                                    <xsd:element name="F09_WaterHeaterTankVolume" type="hvac:WaterHeaterTankVolume">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == BoilerCommercialGTE1MMBtu, StorageCommercial Or StorageCommercialElectric Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or BoilerResDutyCommercial Or InstantaneousCommercial
 User enters value; which is stored in F09_WaterHeaterTankVolume 
 End If</xsd:documentation>
-                                        </xsd:annotation>
-                                      </xsd:element>
-                                      <xsd:element name="F09_WaterHeaterVolume" type="hvac:WaterHeaterVolume">
-                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If  F08_WaterHeaterType == InstantaneousConsumer Or  InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or StorageConsumer Or StorageConsumerElectric Or StorageResDutyCommercial Or TableTopElectric
-User enters value; which is stored in F09_WaterHeaterVolume
-End If</xsd:documentation>
-                                        </xsd:annotation>
-                                      </xsd:element>
-                                      <xsd:element name="F09_NotApplicableMessage">
-                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH or NEEAIndividualHeatPumpWH or NonNEEAIndividualHeatPumpWH
- result = BlankGrayedOut stored in NotApplicableMessage
-End If</xsd:documentation>
-                                        </xsd:annotation>
-                                        <xsd:simpleType>
-                                          <xsd:restriction base="comp:NotApplicableMessage">
-                                            <xsd:enumeration value="BlankGrayedOut"/>
-                                          </xsd:restriction>
-                                        </xsd:simpleType>
-                                      </xsd:element>
-                                    </xsd:choice>
+                                      </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                       <xsd:element name="F10a_WaterHeaterCapacityRated" type="hvac:WaterHeaterCapacityRated">
                                         <xsd:annotation>
