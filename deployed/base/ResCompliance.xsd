@@ -14592,7 +14592,7 @@
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="NotHeated">Pool/spa not heated</dtyp:displayterm>
-        <dtyp:displayterm value="Heated">NA: Spa</dtyp:displayterm>
+        <dtyp:displayterm value="Heated">Pool/spa heated</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">

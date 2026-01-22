@@ -4121,18 +4121,33 @@ case TunableWhiteLuminaires: result = 0.10;
 case VideoConferencing: result = 1.00; 
 case LowVisionMainEntryTransition: result = 0.95; 
 case ValuableDisplay: result = 0.5 ;
-case Wall106A: result = 2.0 ;
-case Wall107A: result = 2.35 ;
-case Wall14A: result = 2.66 ;
 case Floor106A: result = 0.30 ;
 case Floor107A: result = 0.35 ;
 case Floor14A: result = 0.40 ;
-case Wall106B: result = 1.25 ;
-case Wall107B: result = 1.5 ;
-case Wall14B: result = 1.7 ;
 case Floor106B: result = 0.45 ;
 case Floor107B: result = 0.52 ;
 case Floor14B: result = 0.6 ;
+case Floor106C: result = 0.6 ;
+case Floor107C: result = 0.7 ;
+case Floor14C: result = 0.8 ;
+case Floor106D: result = 0.45 ;
+case Floor107D: result = 0.52 ;
+case Floor14D: result = 0.6 ;
+case General10A: result = 0.25 ;
+case General10B: result = 0.1 ;
+End Switch</xsd:documentation>
+                                              </xsd:annotation>
+                                            </xsd:element>
+                                            <xsd:element name="Jc04Wall_AdditionalAllowedLPD" type="comp:AdditionalAllowedLPD">
+                                              <xsd:annotation>
+                                                <xsd:documentation source="FieldText">Allowed Density (W/ft<d:sup>2</d:sup> or W/lf or W/unit)</xsd:documentation>
+                                                <xsd:documentation source="CalculationsAndRules">Calculated field:  Assigned results are W/ft2 stored in AdditionalAllowedLPD  Switch (Jc03_ AreaCategoryAdditionalAllowanceType) 
+case Wall106A: result = 2.0 ;
+case Wall107A: result = 2.35 ;
+case Wall14A: result = 2.66 ;
+case Wall106B: result = 1.25 ;
+case Wall107B: result = 1.5 ;
+case Wall14B: result = 1.7 ;
 case Wall106C: result = 0.3 ;
 case Wall107C: result = 3.5 ;
 case Wall14C: result = 4.0 ;
@@ -4142,14 +4157,6 @@ case Wall14D: result = 8.8 ;
 case Wall106E: result = 9.5 ;
 case Wall107E: result = 11.2 ;
 case Wall14E: result = 12.7 ;
-case Floor106C: result = 0.6 ;
-case Floor107C: result = 0.7 ;
-case Floor14C: result = 0.8 ;
-case Floor106D: result = 0.45 ;
-case Floor107D: result = 0.52 ;
-case Floor14D: result = 0.6 ;
-case General10A: result = 0.25 ;
-case General10B: result = 0.1 ;
 End Switch</xsd:documentation>
                                               </xsd:annotation>
                                             </xsd:element>
@@ -4187,6 +4194,12 @@ End Switch</xsd:documentation>
                                               <xsd:annotation>
                                                 <xsd:documentation source="FieldText">Ltg Area, Length or ATM/Mirror  (ft<d:sup>2</d:sup>, lf or #)</xsd:documentation>
                                                 <xsd:documentation source="CalculationsAndRules">If Jc04_AdditionalAllowedLPD NotNull User enters floor area;</xsd:documentation>
+                                              </xsd:annotation>
+                                            </xsd:element>
+                                            <xsd:element name="Jc05_WallLength" type="com:WallLength">
+                                              <xsd:annotation>
+                                                <xsd:documentation source="FieldText">Ltg Area, Length or ATM/Mirror  (ft<d:sup>2</d:sup>, lf or #)</xsd:documentation>
+                                                <xsd:documentation source="CalculationsAndRules">If Jc04Wall_AdditionalAllowedLPD NotNull User enters wall length;</xsd:documentation>
                                               </xsd:annotation>
                                             </xsd:element>
                                             <xsd:element name="Jc05_BoardLightingLength" type="lit:BoardLightingLength">

@@ -4879,7 +4879,7 @@ Result = SeePlans
                                         <xsd:union memberTypes="hvac:HeatRecoveryRequired comp:SeePlansMessage"/>
                                       </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="HeatRecovery02_HeatRecoveryRequired">
+                                    <xsd:element name="HeatRecovery02_HeatRecoveryRequired" type="hvac:HeatRecoveryRequired">
                                       <xsd:annotation>
                                         <xsd:documentation source="FieldText">Simultaneous Mechanical Heat Recovery</xsd:documentation>
                                         <xsd:documentation source="CalculationsAndRules">If CC-MCH is parent
@@ -4888,14 +4888,8 @@ result = HeatRecovery02cc_HeatRecoveryRequired
 Else If HeatRecovery01_InstalledSameAsCC == false
 User input
 End if
-
-Else If CC-PRF parent 
-Result = SeePlans
 </xsd:documentation>
                                       </xsd:annotation>
-                                      <xsd:simpleType>
-                                        <xsd:union memberTypes="hvac:HeatRecoveryRequired comp:SeePlansMessage"/>
-                                      </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                       <xsd:element name="HeatRecovery03cc_HeatRecoveryRequirements">
@@ -4906,7 +4900,7 @@ If CC-MCH parent and Fg07_HeatRecoveryRequirements IsPresent
 result = Fg07_HeatRecoveryRequirements
 
 Else If CC-PRF parent 
-Else result = SeePlans</xsd:documentation>
+result = SeePlans</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                             <dtyp:srcSchema form="CCMCH01E" usage="copy">Fg07_HeatRecoveryRequirements</dtyp:srcSchema>
                                           </xsd:appinfo>
@@ -4919,13 +4913,11 @@ Else result = SeePlans</xsd:documentation>
                                         <xsd:annotation>
                                           <xsd:documentation source="FieldText"/>
                                           <xsd:documentation source="CalculationsAndRules">
-If CC-MCH parent and Fg07_HeatRecoveryRequirements IsPresent
-result = Fg07_HeatRecoveryRequirements
-
-Else If CC-PRF parent 
-result = BlankGrayedOut</xsd:documentation>
+If CC-MCH parent and Fg07_NotApplicableMessage IsPresent
+result = Fg07_NotApplicableMessage
+</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
-                                            <dtyp:srcSchema form="CCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
+                                            <dtyp:srcSchema form="CCMCH01E" usage="copy">Fg07_NotApplicableMessage</dtyp:srcSchema>
                                           </xsd:appinfo>
                                         </xsd:annotation>
                                         <xsd:simpleType>
@@ -4973,6 +4965,24 @@ result = HeatRecovery03cc_NotApplicableMessage
                               </xsd:element>
                             </xsd:choice>
                           </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="HeatRecovery04_ComplianceResultCI" type="comp:ComplianceResultCI">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">Equipment Compliance</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+result = TableIncomplete  
+Else If HeatRecovery01_InMyScope == false 
+result = NotInScope
+
+Else If HeatRecovery02_HeatRecoveryRequired  == HeatRecovery02cc_HeatRecoveryRequired
+And HeatRecovery03_HeatRecoveryRequirements == HeatRecovery03cc_HeatRecoveryRequirements
+result = ExactMatch
+
+Else 
+result = EqualBetter
+End If
+</xsd:documentation>
+                          </xsd:annotation>
                         </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
@@ -8151,6 +8161,7 @@ End If</xsd:documentation>
                                                 <xsd:enumeration value="EquipmentException"/>
                                                 <xsd:enumeration value="SetbackPlusDR"/>
                                                 <xsd:enumeration value="SetbackThermostat"/>
+                                                <xsd:enumeration value="ModulatingCompressorSpeed"/>
                                               </xsd:restriction>
                                             </xsd:simpleType>
                                           </xsd:union>
@@ -8197,6 +8208,7 @@ End If</xsd:documentation>
                                             <xsd:enumeration value="EquipmentException"/>
                                             <xsd:enumeration value="SetbackPlusDR"/>
                                             <xsd:enumeration value="SetbackThermostat"/>
+                                            <xsd:enumeration value="ModulatingCompressorSpeed"/>
                                           </xsd:restriction>
                                         </xsd:simpleType>
                                       </xsd:element>
@@ -8624,6 +8636,33 @@ result = Ctrl08cc_NotApplicableMessage</xsd:documentation>
                                         </xsd:simpleType>
                                       </xsd:element>
                                     </xsd:choice>
+                                    <xsd:element name="Ctrl09cc_HeatPumpDefrost">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Heat Pump Defrost</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
+result = I11_HeatPumpDefrost
+Else If CC-PRF parent
+Result = SeePlans </xsd:documentation>
+                                        <xsd:appinfo source="CIsrc">
+                                          <dtyp:srcSchema form="CCMCH01E" usage="copy">I11_HeatPumpDefrost</dtyp:srcSchema>
+                                        </xsd:appinfo>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:union memberTypes="hvac:HeatPumpDefrost comp:SeePlansMessage"/>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Ctrl09_HeatPumpDefrost" type="hvac:HeatPumpDefrost">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Heat Pump Defrost</xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">If Ctrl09cc_HeatPumpDefrost IsPresent 
+If Ctrl01_InstalledSameAsCC == true
+result = Ctrl09cc_HeatPumpDefrost
+Else If Ctrl01_InstalledSameAsCC == false
+user input
+End If
+End If</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:element>
                                   </xsd:sequence>
                                 </xsd:complexType>
                               </xsd:element>
@@ -9379,34 +9418,6 @@ End If</xsd:documentation>
                                         <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as value on in the Top cell Or false if installed is different than the value in Top cell</xsd:documentation>
                                       </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Ventres02cc_OA_SpaceRequiredMin">
-                                      <xsd:annotation>
-                                        <xsd:documentation source="FieldText">Outside Air CFM <d:sup>1</d:sup></xsd:documentation>
-                                        <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
-result = J23_OA_SpaceRequiredMin
-Else If CC-PRF parent
-result = VentRes04_VentSystemOA
-Else result = SeePlans
-End If</xsd:documentation>
-                                        <xsd:appinfo source="CIsrc">
-                                          <dtyp:srcSchema form="CCMCH01E" usage="copy">J23_OA_SpaceRequiredMin</dtyp:srcSchema>
-                                          <dtyp:srcSchema form="CCPRF01E" usage="copy">VentRes04_VentSystemOA</dtyp:srcSchema>
-                                        </xsd:appinfo>
-                                      </xsd:annotation>
-                                      <xsd:simpleType>
-                                        <xsd:union memberTypes="com:OA_SpaceRequiredMin comp:SeePlansMessage"/>
-                                      </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="Ventres02_OA_SpaceRequiredMin" type="com:OA_SpaceRequiredMin">
-                                      <xsd:annotation>
-                                        <xsd:documentation source="FieldText">Outside Air CFM <d:sup>1</d:sup></xsd:documentation>
-                                        <xsd:documentation source="CalculationsAndRules">If Ventres01_InstalledSameAsCC == true
-result = Ventres02cc_OA_SpaceRequiredMin but user can change value
-Else If Ventres01_InstalledSameAsCC == false
-User input
-End If</xsd:documentation>
-                                      </xsd:annotation>
-                                    </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                       <xsd:element name="Ventres03cc_VentilationPerSpace">
                                         <xsd:annotation>
@@ -9681,16 +9692,12 @@ Else If Ventres01_InMyScope == false
 result = NotInScope
  
 Else If 
-Ventres02_OA_SpaceRequiredMin LT Ventres02cc_OA_SpaceRequiredMin 
-Or 
 Ventres03_VentilationPerSpace IsPresent And Ventres03_VentilationPerSpace  LT Ventres03cc_VentilationPerSpace 
 Or
 Ventres04_ExhaustPerSpace IsPresent And Ventres04_ExhaustPerSpace  LT Ventres04cc_ExhaustPerSpace
 result = MayNotComply
  
 Else If  
-Ventres02_OA_SpaceRequiredMin  == Ventres02cc_OA_SpaceRequiredMin 
-And
 Ventres03_NotApplicableMessage IsPresent Or  Ventres03_VentilationPerSpace  == Ventres03cc_VentilationPerSpace 
 And
 Ventres04_ExhaustPerSpace  == Ventres04cc_ExhaustPerSpace 
@@ -9700,8 +9707,7 @@ And
 Ventres06_NotApplicableMessage IsPresent Or  Ventres06_AirFiltrationRequirements  == Ventres06cc_AirFiltrationRequirements Or Ventres06cc_AirFiltrationRequirements == SeePlans
 result = ExactMatch
  
-Else If  Ventres02_OA_SpaceRequiredMin  GTE Ventres02cc_OA_SpaceRequiredMin 
-And
+Else If  
 Ventres03_VentilationPerSpace IsPresent And  Ventres03_VentilationPerSpace  GTE Ventres03cc_VentilationPerSpace 
 And
 Ventres04_ExhaustPerSpace  GTE Ventres04cc_ExhaustPerSpace

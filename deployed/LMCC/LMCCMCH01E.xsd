@@ -4038,19 +4038,8 @@ If F05_HeatingDesignCapacity GTE 1  And If F02_HvacSystemType ==  UnitaryHeatPum
       result == 0.72; 
    Else Switch (Fa02_ SizeRangeUnitaryHeatPumps) 
       case LT65000:  
-         If F03_UnitaryHeatPumps == AirCooledPkg1PhaseHP 
-            result = 6.7;  
-         Else If F03_UnitaryHeatPumps == AirCooledSplit3PhaseHP  
-            result = 8.2;  
-         Else If F03_UnitaryHeatPumps ==  AirCooledPkg3PhaseHP  
-            result = 8.0;  
-         Else If F03_UnitaryHeatPumps == AirCooledSplitConstrainedHP Or AirCooledPkgConstrainedHP 
-            result = 6.3;  
-         Else If F03_UnitaryHeatPumps == AirCooledSplit1PhaseHP 
+         If F03_UnitaryHeatPumps == AirCooledPkg1PhaseHP, AirCooledSplit3PhaseHP,  AirCooledPkg3PhaseHP, AirCooledSplitConstrainedHP, AirCooledPkgConstrainedHP, AirCooledSplit1PhaseHP Or AirCooledSmallDuctHighVelocityHP 
             result = FederalMinimum;  
-         Else If F03_UnitaryHeatPumps == AirCooledSmallDuctHighVelocityHP 
-            result = 6.1;  
-         End If
       case GTE65000AndLT135000: 
          If Fa03_TemperatureRatingCondition == Fdb47Fwb43 
             result = FederalMinimum 

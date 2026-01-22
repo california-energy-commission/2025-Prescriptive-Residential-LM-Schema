@@ -1643,8 +1643,6 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If G15_PipeInsulationProtectionComplies IsPresent
 result = G15_PipeInsulationProtectionComplies
-Else If G15_NotApplicableMessage IsPresent
-result = false
 Else If CC-PRF parent
 result = true
 End If
@@ -2352,12 +2350,12 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">[d:b]Additional Requirements for Pool/Spa Serving One Tenant  [/d:b]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This table is required If Pool02_PoolSpaService == SingleTenant</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
-                           <dtyp:srcSchema form="NRCCPRC01E" usage="reference">Pool02_PoolSpaService</dtyp:srcSchema>
+                           <dtyp:srcSchema form="NRCCPLB01E" usage="reference">Pool02_PoolSpaService</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Pool09" minOccurs="0">
+                           <xsd:element name="Pool09_PoolSpaOneTenantReqs" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Dedicated-purpose pool pumps and replacement dedicated-purpose pump motors subject to State or Federal appliance standards shall be listed in the Commission's directory of certified equipment.
@@ -2367,6 +2365,9 @@ End If</xsd:documentation>
 If Pool11_PoolSpaOneTenantReqs IsPresent
 result = Pool11_PoolSpaOneTenantReqs
 End If </xsd:documentation>
+                              <xsd:appinfo source="CIsrc">
+                                 <dtyp:srcSchema form="NRCCPLB01E" usage="copy">Pool11_PoolSpaOneTenantReqs</dtyp:srcSchema>
+                              </xsd:appinfo>
                               </xsd:annotation>
                               <xsd:simpleType>
                                  <xsd:restriction base="comp:PoolSpaOneTenantReqs">
@@ -2375,7 +2376,7 @@ End If </xsd:documentation>
                                  </xsd:restriction>
                               </xsd:simpleType>
                            </xsd:element>
-                           <xsd:element name="Pool10" minOccurs="0">
+                           <xsd:element name="Pool10_PoolSpaOneTenantReqs" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Filtration pumps shall be sized, or if programmable, shall be programmed, so that the filtration flow rate is not greater than the rate needed to turn over the pool water volume in 6 hours or 36 gpm, whichever is greater.</xsd:documentation>
@@ -2383,6 +2384,9 @@ End If </xsd:documentation>
 If Pool13_PoolSpaOneTenantReqs IsPresent
 result = Pool13_PoolSpaOneTenantReqs
 End If </xsd:documentation>
+                              <xsd:appinfo source="CIsrc">
+                                 <dtyp:srcSchema form="NRCCPLB01E" usage="copy">Pool13_PoolSpaOneTenantReqs</dtyp:srcSchema>
+                              </xsd:appinfo>
                               </xsd:annotation>
                               <xsd:simpleType>
                                  <xsd:restriction base="comp:PoolSpaOneTenantReqs">
@@ -2391,7 +2395,7 @@ End If </xsd:documentation>
                                  </xsd:restriction>
                               </xsd:simpleType>
                            </xsd:element>
-                           <xsd:element name="Pool11" minOccurs="0">
+                           <xsd:element name="Pool11_PoolSpaOneTenantReqs" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Dedicated-purpose pool pumps with more than one speed shall have: 
@@ -2401,14 +2405,9 @@ End If </xsd:documentation>
 If Pool14_PoolSpaOneTenantReqs IsPresent
 result = Pool14_PoolSpaOneTenantReqs
 End If </xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="Pool12" minOccurs="0">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Each auxiliary pool load shall be served by either separate pumps or the system shall be served by a multispeed pump if pump hp [d:gte/] 1.
-- Multispeed pumps shall have controls which default to the filtration flow rate when no auxiliary pool loads are operating; and 
-- For multispeed pumps, the controls shall default to the filtration flow rate setting within 24 hours and shall have an override capability for servicing.</xsd:documentation>
+                              <xsd:appinfo source="CIsrc">  
+                                 <dtyp:srcSchema form="NRCCPLB01E" usage="copy">Pool14_PoolSpaOneTenantReqs</dtyp:srcSchema>
+                              </xsd:appinfo>
                               </xsd:annotation>
                               <xsd:simpleType>
                                  <xsd:restriction base="comp:PoolSpaOneTenantReqs">
@@ -2418,7 +2417,7 @@ End If </xsd:documentation>
                                  </xsd:restriction>
                               </xsd:simpleType>
                            </xsd:element>
-                           <xsd:element name="Pool13" minOccurs="0">
+                           <xsd:element name="Pool13_PoolSpaOneTenantReqs" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">System Piping must meet the following requirements: 
@@ -2429,6 +2428,9 @@ End If </xsd:documentation>
 If Pool15_PoolSpaOneTenantReqs IsPresent
 result = Pool15_PoolSpaOneTenantReqs
 End If </xsd:documentation>
+                              <xsd:appinfo source="CIsrc">  
+                                 <dtyp:srcSchema form="NRCCPLB01E" usage="copy">Pool15_PoolSpaOneTenantReqs</dtyp:srcSchema>
+                              </xsd:appinfo>
                               </xsd:annotation>
                               <xsd:simpleType>
                                  <xsd:restriction base="comp:PoolSpaOneTenantReqs">
@@ -2437,7 +2439,7 @@ End If </xsd:documentation>
                                  </xsd:restriction>
                               </xsd:simpleType>
                            </xsd:element>
-                           <xsd:element name="Pool14" minOccurs="0">
+                           <xsd:element name="Pool14_PoolSpaOneTenantReqs" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Filters shall be at least the size specified in NSF/ANSI 50 for public pool intended applications.</xsd:documentation>
@@ -2445,6 +2447,9 @@ End If </xsd:documentation>
 If Pool16_PoolSpaOneTenantReqs IsPresent
 result = Pool16_PoolSpaOneTenantReqs
 End If </xsd:documentation>
+                              <xsd:appinfo source="CIsrc">  
+                                 <dtyp:srcSchema form="NRCCPLB01E" usage="copy">Pool16_PoolSpaOneTenantReqs</dtyp:srcSchema>
+                              </xsd:appinfo>
                               </xsd:annotation>
                               <xsd:simpleType>
                                  <xsd:restriction base="comp:PoolSpaOneTenantReqs">
@@ -2453,7 +2458,7 @@ End If </xsd:documentation>
                                  </xsd:restriction>
                               </xsd:simpleType>
                            </xsd:element>
-                           <xsd:element name="Pool15" minOccurs="0">
+                           <xsd:element name="Pool15_PoolSpaOneTenantReqs" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Minimum diameter of backwash valves shall be 2 inches or the diameter of the return pipe, whichever is greater.</xsd:documentation>
@@ -2461,6 +2466,9 @@ End If </xsd:documentation>
 If Pool17_PoolSpaOneTenantReqs IsPresent
 result = Pool17_PoolSpaOneTenantReqs
 End If </xsd:documentation>
+                              <xsd:appinfo source="CIsrc">  
+                                 <dtyp:srcSchema form="NRCCPLB01E" usage="copy">Pool17_PoolSpaOneTenantReqs</dtyp:srcSchema>
+                              </xsd:appinfo>
                               </xsd:annotation>
                               <xsd:simpleType>
                                  <xsd:restriction base="comp:PoolSpaOneTenantReqs">
