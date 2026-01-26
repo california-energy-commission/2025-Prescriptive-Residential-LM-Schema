@@ -8974,10 +8974,9 @@
     <xsd:annotation>
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="ControlledHorticultureNA">NA: Controlled Environment Horticulture</dtyp:displayterm>
-        <dtyp:displayterm value="DOAS">NA: DOAS</dtyp:displayterm>
+        <dtyp:displayterm value="DOAS">NA: DOAS with EAHR</dtyp:displayterm>
         <dtyp:displayterm value="HasSpecialOutsideAirFiltration">NA: Special OA filtration</dtyp:displayterm>
         <dtyp:displayterm value="HasWatersideEconomizer">Waterside Economizer</dtyp:displayterm>
-        <dtyp:displayterm value="HighRiseResHotelMotel">NA: Multifamily/hotel/motel</dtyp:displayterm>
         <dtyp:displayterm value="LowRiseResidentialNA">NA: Multifamily</dtyp:displayterm>
         <dtyp:displayterm value="LT54kBtuPerHrAlteredNA">NA: Altered other than packaged AC or HP <d:lt/>54 kBtu/h</dtyp:displayterm>
         <dtyp:displayterm value="LTE33kBtuPerHrCooling">NA: <d:lte/>33 kBtu/h cooling</dtyp:displayterm>
@@ -8992,7 +8991,6 @@
       <xsd:enumeration value="DOAS"/>
       <xsd:enumeration value="HasSpecialOutsideAirFiltration"/>
       <xsd:enumeration value="HasWatersideEconomizer"/>
-      <xsd:enumeration value="HighRiseResHotelMotel"/>
       <xsd:enumeration value="LowRiseResidentialNA"/>
       <xsd:enumeration value="LT54kBtuPerHrAlteredNA"/>
       <xsd:enumeration value="LTE33kBtuPerHrCooling"/>
