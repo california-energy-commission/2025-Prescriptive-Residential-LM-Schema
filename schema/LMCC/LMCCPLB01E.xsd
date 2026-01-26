@@ -1333,6 +1333,12 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">Result = IfApplicable</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
+                                                         <xsd:element name="F14_WaterHeaterSpaceType" type="hvac:WaterHeaterSpaceType">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">result = F02_WaterHeaterSpaceType</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
                                                    </xsd:sequence>
                                                 </xsd:complexType>
                                              </xsd:element>

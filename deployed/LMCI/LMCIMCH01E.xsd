@@ -255,6 +255,15 @@ Else result = false  and item is unchecked
 End If</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
+            <xsd:element name="B01m_ProjectHasHeatRecovery" type="comp:ProjectHasHeatRecovery">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Mechanical Heat Recovery</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">User input. 
+If user selects this item result = true and item is checked 
+Else result = false  and item is unchecked 
+End If</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -4788,15 +4797,7 @@ End If</xsd:documentation>
                 <xsd:documentation source="FieldText">
                   <d:b>Mechanical Heat Recovery</d:b>
                 </xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
-If Section_F IsPresent and in it TableMechanicalHeatRecovery IsPresent
-This table is REQUIRED
-End If
-
-Else If CC-PRF Parent
-If TableHtRecovery IsPresent
-This table is REQUIRED
-End If</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">This table is required If B01m_ProjectHasHeatRecovery == true</xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>
                 <xsd:sequence>
