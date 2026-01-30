@@ -7251,15 +7251,11 @@
    <xsd:simpleType name="EnergyHeatRecoveryVent">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="ContinuousOperationFan">NA: Continuously operating supply/exhaust</dtyp:displayterm>
-            <dtyp:displayterm value="CZ3to10NA">NA: CZ 3-10</dtyp:displayterm>
             <dtyp:displayterm value="ProvidesERV">ERV Provided</dtyp:displayterm>
             <dtyp:displayterm value="ProvidesHRV">HRV Provided</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="ContinuousOperationFan"/>
-         <xsd:enumeration value="CZ3to10NA"/>
          <xsd:enumeration value="ProvidesERV"/>
          <xsd:enumeration value="ProvidesHRV"/>
       </xsd:restriction>
@@ -12517,7 +12513,6 @@
             <dtyp:displayterm value="CutoffLtgZone0">NA: Ltg Zone LZ-0</dtyp:displayterm>
             <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by Health or Life Safety Statute/Ordinance/Regulation</dtyp:displayterm>
             <dtyp:displayterm value="Part11">NA: Exception in Section 5.106.8 of Part 11</dtyp:displayterm>
-            <dtyp:displayterm value="Per1407">NA: Exception in Section 140.7(a)</dtyp:displayterm>
             <dtyp:displayterm value="ReplacePoleMountNA">NA: Replacement of pole-mounted per [d:t24refnolink/]130.2(b) /[d:t24refnolink/]160.5(c)</dtyp:displayterm>
             <dtyp:displayterm value="ResControlledNA">NA: Controlled by dwelling unit/guest rm</dtyp:displayterm>
             <dtyp:displayterm value="RightOfWayNA">NA: Illuminate public right-of-way</dtyp:displayterm>

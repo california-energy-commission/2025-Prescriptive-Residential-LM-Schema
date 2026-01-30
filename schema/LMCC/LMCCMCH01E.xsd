@@ -8135,7 +8135,7 @@ End If</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="H00e_SystemZoning" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Serving Dwelling Units</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Serving Dwelling Units?</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list MultiDwellingUnits, SingleDwellingUnit, NotServingDwellingUnit</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -9887,12 +9887,30 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="Hdwell09_EnergyHeatRecoveryVent" type="comp:EnergyHeatRecoveryVent" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">ERV/HRV</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from dropdown list</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Hdwell09_EnergyHeatRecoveryVent" type="comp:EnergyHeatRecoveryVent" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">ERV/HRV</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+   If A02_ClimateZoneNumber == 1, 2, 11, 12, 13, 14, or 16
+   User selects from dropdown list</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Hdwell09_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">ERV/HRV</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">
+   If A02_ClimateZoneNumber != 1, 2, 11, 12, 13, 14, or 16
+   result = BlankGrayedOut stored in NotApplicableMessage
+                                             </xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                                <xsd:restriction base="comp:NotApplicableMessage">
+                                                   <xsd:enumeration value="BlankGrayedOut"/>
+                                                </xsd:restriction>
+                                             </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Hdwell10_SensibleRecoveryEfficiency" type="hvac:SensibleRecoveryEfficiency" >
                                           <xsd:annotation>
@@ -12773,7 +12791,7 @@ End If</xsd:documentation>
                   <xsd:element name="TableDuctSealing" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Duct Leakage Testing[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required If B03d_ProjectHasDuctwork == true;</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If B01j_ProjectHasDuctwork == true and Duct01cc_DuctSystems has one or more duct systems</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -13317,11 +13335,16 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="M10_MagnesiumHardness" type="hvac:MagnesiumHardness" >
+                                    <xsd:element name="M10_MagnesiumHardness">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Magnesium Hardness</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Field always BlankGrayedOut</xsd:documentation>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="M11_DissolvedSolids" type="hvac:DissolvedSolids" >
                                        <xsd:annotation>
@@ -13358,7 +13381,7 @@ User input</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Maximum Achievable Cycles of Concentration</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">
-result =  Largest (
+result =  Smallest (
    (2970/M07_TowerConductivity),
    (1845/M11_DissolvedSolids),
    (540/M08_MAlkalinity),
@@ -15052,7 +15075,7 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Q03h_DocLocationTowerFlowMeter" type="comp:DocLocationTowerFlowMeter" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Open and Closed Circuit Cooling Towers Flow Meter with analog output per [d:t24refnolink/]110.2(e)3</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Open and Closed Circuit Cooling Towers Flow Meter with analog output per [d:t24refnolink/]110.2(e)4</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If TableHeatRejection IsPresent because B02a_ProjectHasWaterEconomizer Or B02d_ProjectHasCoolingTowers == true
 User enters string for plan or construction document location of this mandatory measure
 End If</xsd:documentation>

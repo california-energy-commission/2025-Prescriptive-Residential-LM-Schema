@@ -2153,7 +2153,7 @@ End If</xsd:documentation>
             <xsd:element name="ElectricKit" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">
-                  <d:b>Electric Ready Commercial Kitchens</d:b>
+                  <d:b>Electric Ready Quick-service and Institutional Commercial Kitchens</d:b>
                 </xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">This table is required when B01c_ProjectHasCommercialKitchen == true</xsd:documentation>
               </xsd:annotation>

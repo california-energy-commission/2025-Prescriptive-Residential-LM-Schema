@@ -8692,6 +8692,8 @@ And
 Ctrl07_NotApplicableMessage IsPresent Or  Ctrl07_ControlSystemWindows  == Ctrl07cc_ControlSystemWindows 
 And
 Ctrl08_NotApplicableMessage IsPresent Or Ctrl08_ControlSystemDDC == Ctrl08cc_ControlSystemDDC
+And
+Ctrl09_HeatPumpDefrost == Ctrl09cc_HeatPumpDefrost
  
  
 result = ExactMatch
@@ -8712,6 +8714,8 @@ Ctrl06_ControlSystemTempReset IsPresent And  Ctrl06_ControlSystemTempReset  != C
 Or
 Ctrl07_ControlSystemWindows IsPresent And  Ctrl07_ControlSystemWindows  != Ctrl07cc_ControlSystemWindows   
 Ctrl08_ControlSystemDDC IsPresent Or Ctrl08_ControlSystemDDC != Ctrl08cc_ControlSystemDDC
+Or 
+Ctrl09_HeatPumpDefrost IsPresent And Ctrl09_HeatPumpDefrost != Ctrl09cc_HeatPumpDefrost
  
 D03_ExceptionalConditionMessageCIMCHE += SysControlsNoMatch
 End If</xsd:documentation>
@@ -10409,7 +10413,7 @@ This subsection only reports data from the prescriptive CC.</xsd:documentation>
                   <xsd:element name="Duct_BeginNote1" minOccurs="0">
                     <xsd:annotation>
                       <xsd:documentation source="FieldText"/>
-                      <xsd:documentation source="AdditionalRequirements">The following duct systems require duct leakage testing by a certified Mechanical Acceptance Test Technician or a HERS rater. <d:line2/>Learn more about the Acceptance Testing Program on the Energy Commission website here: https://www.energy.ca.gov/programs-and-topics/programs/acceptance-test-technician-certification-provider-program.  <d:line2/>Learn more about the HERS Program on the Energy Commission website here: https://www.energy.ca.gov/programs-and-topics/programs/home-energy-rating-system-hers-program</xsd:documentation>
+                      <xsd:documentation source="AdditionalRequirements">The following duct systems require duct leakage testing by a certified Mechanical Acceptance Test Technician or a ECC rater. <d:line2/>Learn more about the Acceptance Testing Program on the Energy Commission website here: https://www.energy.ca.gov/programs-and-topics/programs/acceptance-test-technician-certification-provider-program.  <d:line2/>Learn more about the ECC Program on the Energy Commission website here: https://www.energy.ca.gov/programs-and-topics/programs/energy-code-compliance-program</xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Duct01cc_DuctSystems" type="comp:DuctSystems" maxOccurs="unbounded">
@@ -10477,7 +10481,7 @@ End If</xsd:documentation>
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:i>There are no Acceptance Tests or HERS verifications indicated on the permitted Certificate of Compliance related to the systems or materials documented on this Certificate of Installation.</d:i>
+                  <d:i>There are no Acceptance Tests or ECC verifications indicated on the permitted Certificate of Compliance related to the systems or materials documented on this Certificate of Installation.</d:i>
                 </xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">If at least one RequireXXCAxxx == true, Or at least one RequireXXCVxxx == true
 the static text in AdditionalRequirements IS NOT DISPLAYED  
@@ -10489,7 +10493,7 @@ the static text in AdditionalRequirements the only thing displayed after the Sec
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:i>The following Acceptance Tests and HERS Verifications related to the systems or materials documented on this Certificate of Installation have been indicated on the permitted Certificate of Compliance as being required to comply with Title 24, Part 6. </d:i>
+                  <d:i>The following Acceptance Tests and ECC Verifications related to the systems or materials documented on this Certificate of Installation have been indicated on the permitted Certificate of Compliance as being required to comply with Title 24, Part 6. </d:i>
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -11674,7 +11678,7 @@ End If</xsd:documentation>
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:i> HERS verifications must be completed by a HERS Rater and LMCV forms completed through an approved HERS Provider database.  The Certificate of Verification  forms indicated below will be required by the Authority Having Jurisdiction to demonstrate compliance.  </d:i>
+                  <d:i> ECC verifications must be completed by a ECC Rater and LMCV forms completed through an approved ECC Provider database.  The Certificate of Verification  forms indicated below will be required by the Authority Having Jurisdiction to demonstrate compliance.  </d:i>
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -11734,7 +11738,7 @@ End If</xsd:documentation>
             <xsd:element name="G22_RequireLMCVMch24H" type="comp:RequireLMCVMch24H">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-24 Enclosure Air Leakage Worksheet <d:i> NOTE: Must be completed by a HERS Rater </d:i></xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-24 Enclosure Air Leakage Worksheet <d:i> NOTE: Must be completed by a ECC Rater </d:i></xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
 result = Nrcv02_RequireNRCVMch24H  
 If result == true 
@@ -11788,7 +11792,7 @@ End If</xsd:documentation>
             <xsd:element name="G23_RequireLMCVMch27H" type="comp:RequireLMCVMch27H">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-27 High-rise Residential <d:i> NOTE: Must be completed by a HERS Rater </d:i></xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-27 High-rise Residential <d:i> NOTE: Must be completed by a ECC Rater </d:i></xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
 result = Nrcv03_RequireNRCVMch27H  
 If result == true 
@@ -11841,7 +11845,7 @@ End If</xsd:documentation>
             <xsd:element name="G24_RequireLMCVMch32H" type="comp:RequireLMCVMch32H">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-32 Local Mechanical Exhaust <d:i> NOTE: Must be completed by a HERS Rater </d:i></xsd:documentation>
+                <xsd:documentation source="AdditionalRequirements">NRCV-MCH-32 Local Mechanical Exhaust <d:i> NOTE: Must be completed by a ECC Rater </d:i></xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
 result = Nrcv04_RequireNRCVMch32H  
 If result == true 
