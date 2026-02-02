@@ -1584,7 +1584,7 @@ End If</xsd:documentation>
       </xsd:element>
       <xsd:element name="ERCommercialKitchen" minOccurs="0">
         <xsd:annotation>
-          <xsd:documentation source="FieldText">Electric Ready Commercial Kitchens <d:t24refnolink/>120.6(k)</xsd:documentation>
+          <xsd:documentation source="FieldText">Electric Ready Quick-service and Institutional Commercial Kitchens <d:t24refnolink/>120.6(k)</xsd:documentation>
           <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HospitalBuilding
 this section does not apply
 Else If  B01_ProjectHasCommercialKitchen == true
@@ -1598,7 +1598,7 @@ End If</xsd:documentation>
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:i>This table includes electrical system requirements that must be met when using gas or propane in newly constructed commercial kitchens to demonstrate compliance with <d:t24refnolink/>120.6(k).</d:i>
+                  <d:i>This table includes electrical system requirements that must be met when using gas or propane in newly constructed quick-service and institutional commercial kitchens to demonstrate compliance with <d:t24refnolink/>120.6(k).</d:i>
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -1628,9 +1628,15 @@ End If</xsd:documentation>
                       <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false;</xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="ElectricReadyKitchen01_KitchenNonQuickService" type="comp:KitchenNonQuickService">
+                    <xsd:annotation>
+                      <xsd:documentation source="FieldText">Not a quick-service or institutional commercial kitchen</xsd:documentation>
+                      <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false;</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="ElectricReadyKitchen_SubHeading02to03" minOccurs="0">
                     <xsd:annotation>
-                      <xsd:documentation source="FieldText">Mandatory requirements for commercial kitchens</xsd:documentation>
+                      <xsd:documentation source="FieldText">Mandatory requirements for quick-service and institutional commercial kitchens</xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
@@ -1645,7 +1651,7 @@ End If</xsd:documentation>
                       <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Includes a dedicated branch circuit wiring and outlet accessible to cookline appliances and meets the following requirements:<d:l t="*"><d:list> a) The branch circuit conductors shall be rated at 50 amps minimum.</d:list><d:list> b) The electrical service panel shall have a minimum capacity of 800 connected amps. </d:list></d:l></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare  user input;  If checked result = true; else result = false.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare or ElectricReadyKitchen01_KitchenNonQuickService result = BlankGrayedOut</xsd:documentation>
                       </xsd:annotation>
                       <xsd:simpleType>
                         <xsd:restriction base="comp:NotApplicableMessage">
@@ -1666,7 +1672,7 @@ End If</xsd:documentation>
                       <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">The electrical service panel shall be sized to accommodate an additional either 208v or 240v 50-amp breaker.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare  user input;  If checked result = true; else result = false.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If any row in section N has ElectricReadyKitchen01_KitchenAllElectric or ElectricReadyKitchen01_KitchenWithinHealthcare or ElectricReadyKitchen01_KitchenNonQuickService result = BlankGrayedOut </xsd:documentation>
                       </xsd:annotation>
                       <xsd:simpleType>
                         <xsd:restriction base="comp:NotApplicableMessage">
