@@ -7070,6 +7070,7 @@ End If
 End If
 Else If FenSky02cc_FenestrationProductType == ChromogenicFen 
 Or FenVert02cc_FenestrationProductType == ChromogenicFen
+Or FenVert02cc_FenestrationProductType == GlazedDoorMF
 result = BlankGrayedOut
 Else If CC-PRF parent
 If Fen02c_NotApplicableMessage IsPresent
