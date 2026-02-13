@@ -6738,6 +6738,23 @@ Else result = SeePlans</xsd:documentation>
                                           <xsd:union memberTypes="hvac:FanPower comp:SeePlansMessage"/>
                                         </xsd:simpleType>
                                       </xsd:element>
+                                      <xsd:element name="Fan05cc_MotorBHP">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fan Electrical Input Power (BHP)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PRF parent 
+If Fan01cc_FanSystemName is from FanExh01_HvacSystemName
+If FanExh05_MotorBHP  IsPresent
+result = FanExh05_MotorBHP
+Else result = SeePlans
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                            <dtyp:srcSchema form="CCPRF01E" usage="copy">FanExh05_MotorBHP</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                          <xsd:union memberTypes="hvac:MotorBHP comp:SeePlansMessage"/>
+                                        </xsd:simpleType>
+                                      </xsd:element>
                                       <xsd:element name="Fan05cc_FanPowerPerFlow">
                                         <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fan Electrical Input Power (kW)</xsd:documentation>
@@ -6784,6 +6801,18 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If Fan05cc_FanPower IsPresent
 If Fan01_InstalledSameAsCC == true
 result = Fan05cc_FanPower
+Else If Fan01_InstalledSameAsCC == false
+User input
+End If
+End If</xsd:documentation>
+                                        </xsd:annotation>
+                                      </xsd:element>
+                                      <xsd:element name="Fan05_MotorBHP" type="hvac:MotorBHP">
+                                        <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fan Electrical Input Power (BHP)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Fan05cc_MotorBHP  IsPresent
+If Fan01_InstalledSameAsCC == true
+result = Fan05cc_MotorBHP 
 Else If Fan01_InstalledSameAsCC == false
 User input
 End If
