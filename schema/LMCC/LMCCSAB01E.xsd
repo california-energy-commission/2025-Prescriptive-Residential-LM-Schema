@@ -635,7 +635,7 @@ End If</xsd:documentation>
  
 This subsection is required  as follows:
 
-If Bpv Is not required and NotPresent
+If Bpv Is not required and NotPresent and A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2
 BSolarReady is REQUIRED
 Else If Bpv Is required and IsPresent And 
 If Bpv01c_RequiredLT1_8kW == true
@@ -816,7 +816,7 @@ End If</xsd:documentation>
                   <xsd:element name="Bdhw" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance with Solar Thermal Water Heating Requirements in [d:t24refnolink/]170.2(d)2Bii (Multifamiily and hotel/ motel occupancies only)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required if user has indicated in UI a gas/propane central water heating system</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required if A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2 And A04_WholeBuildingOccupancy == HighRiseResidential Or HotelMotel</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -1359,7 +1359,7 @@ result = NotApplicableBat display term Not Applicable</xsd:documentation>
          <xsd:element name="Section_F" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">ALLOCATED SOLAR ZONE</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Section F is required if B01a_IsProjectAllocatedSolarZone == true</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Section F is required if B01a_IsProjectAllocatedSolarZone == true And A05_RoofConstRangeSolar != AddAltRoofLTE2000ft2</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

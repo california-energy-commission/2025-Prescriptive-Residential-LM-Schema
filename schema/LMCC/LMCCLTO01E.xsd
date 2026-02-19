@@ -1322,7 +1322,7 @@ End If</xsd:documentation>
                   <xsd:element name="FTotals08_LightingPowerInstalledTotal" type="comp:LightingPowerInstalledTotal" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Total Design Watts:[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated Value: result = SUM All ( F08_ LuminairePowerByType)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated Value: result = SUM All (F08_LuminairePowerByType where F06_LuminaireStatus != ExistingUnchanged)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="FNote1" minOccurs="0">
