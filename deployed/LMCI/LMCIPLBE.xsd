@@ -1158,19 +1158,21 @@ End If</xsd:documentation>
                                   </xsd:appinfo>
                                 </xsd:annotation>
                               </xsd:element>
-                              <xsd:element name="DHWreq05cc_HeatPumpApplies" type="comp:HeatPumpApplies">
+                              <xsd:element name="DHWreq05cc_HeatPumpApplies">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText"/>
                                   <xsd:documentation source="AdditionalRequirements">Backup heat is required when inlet air is unconditioned unless the compressor cut-off temperature is below the Heating Winter Median of Extremes for the closest location listed in Table 2-3 from Reference Joint Appendix JA2.</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F22a_HeatPumpApplies
-IsPresent
+If F22a_HeatPumpApplies IsPresent
 result = F22a_HeatPumpApplies
+Else
+result = BlankGrayedOut
 End If
+
 Else If CC-PRF parent
-result = ReqYes
- 
+result = ReqYes 
 End If
+
 If result == ReqYes 
 Display static text in AdditionalRequirements
 Else
@@ -1180,20 +1182,27 @@ End If</xsd:documentation>
                                     <dtyp:srcSchema form="CCPLB01E" usage="copy">F22a_HeatPumpApplies</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="comp:HeatPumpApplies comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
-                              <xsd:element name="DHWreq06cc_ASHPWHVentilation" type="comp:ASHPWHVentilation">
+                              <xsd:element name="DHWreq06cc_ASHPWHVentilation">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText"/>
                                   <xsd:documentation source="AdditionalRequirements">Consumer integrated HPWHs shall meet the following requirement:</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F22b_ASHPWHVentilation
-IsPresent
+If F22b_ASHPWHVentilation IsPresent
 result = F22b_ASHPWHVentilation
+Else
+result = BlankGrayedOut
 End If</xsd:documentation>
                                   <xsd:appinfo source="CIsrc">
                                     <dtyp:srcSchema form="CCPLB01E" usage="copy">F22b_ASHPWHVentilation</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="comp:ASHPWHVentilation comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
                               <xsd:element name="DHWreq07cc_CenralHPWHRequirement" type="comp:CenralHPWHRequirement">
                                 <xsd:annotation>
@@ -1325,7 +1334,7 @@ End If</xsd:documentation>
                                   </xsd:appinfo>
                                 </xsd:annotation>
                               </xsd:element>
-                              <xsd:element name="Dist04cc_IsolationValves" type="comp:IsolationValves">
+                              <xsd:element name="Dist04cc_IsolationValves">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText"/>
                                   <xsd:documentation source="AdditionalRequirements">Isolation valves on both sides of the pump</xsd:documentation>
@@ -1342,8 +1351,11 @@ End If</xsd:documentation>
                                     <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="comp:IsolationValves comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
-                              <xsd:element name="Dist05cc_TankDrainPort" type="comp:TankDrainPort">
+                              <xsd:element name="Dist05cc_TankDrainPort">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText"/>
                                   <xsd:documentation source="AdditionalRequirements">Cold water and recirculation loop piping is not connected to the hot water storage tank drain port</xsd:documentation>
@@ -1360,8 +1372,11 @@ End If</xsd:documentation>
                                     <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="comp:TankDrainPort comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
-                              <xsd:element name="Dist06cc_ColdWaterCheckValve" type="comp:ColdWaterCheckValve">
+                              <xsd:element name="Dist06cc_ColdWaterCheckValve">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText"/>
                                   <xsd:documentation source="AdditionalRequirements">Check valve installed on cold water supply between hot water system and next closest tee on cold water supply</xsd:documentation>
@@ -1378,8 +1393,11 @@ End If</xsd:documentation>
                                     <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="comp:ColdWaterCheckValve comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
-                              <xsd:element name="Dist07acc_RecircLoopHP" type="comp:RecircLoopHP">
+                              <xsd:element name="Dist07acc_RecircLoopHP">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText"/>
                                   <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:  For heat pump water heating systems, the hot water return from the recirculation loop shall connect to a recirculation loop tank and shall not directly connect to the primary heat pump water heater inlet or the primary thermal storage tanks per <d:t24refnolink/>170.2(d)2Aii</xsd:documentation>
@@ -1396,8 +1414,11 @@ End If</xsd:documentation>
                                     <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="comp:RecircLoopHP comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
-                              <xsd:element name="Dist07bcc_RecircFuelHP" type="comp:RecircFuelHP">
+                              <xsd:element name="Dist07bcc_RecircFuelHP">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText"/>
                                   <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:  For heat pump water heating systems, the fuel source for the recirculation loop tank shall be electricity per <d:t24refnolink/>170.2(d)2Aii.</xsd:documentation>
@@ -1414,8 +1435,11 @@ End If</xsd:documentation>
                                     <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="comp:RecircFuelHP comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
-                              <xsd:element name="Dist08bcc_RecircTemp" type="comp:RecircTemp">
+                              <xsd:element name="Dist08bcc_RecircTemp">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText"/>
                                   <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: The recirculation loop tank temperature setpoint shall be at least 10°F lower than the primary thermal storage tank temperature setpoint per <d:t24refnolink/>170.2(d)2Aii.</xsd:documentation>
@@ -1432,8 +1456,11 @@ End If</xsd:documentation>
                                     <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="comp:RecircTemp comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
-                              <xsd:element name="Dist09bcc_PipingSize" type="comp:PipingSize">
+                              <xsd:element name="Dist09bcc_PipingSize">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText"/>
                                   <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY: All hot water distribution piping shall be sized in accordance with the California Plumbing Code Appendix M per <d:t24refnolink/>170.2(d)2C.</xsd:documentation>
@@ -1450,8 +1477,11 @@ End If</xsd:documentation>
                                     <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="comp:PipingSize comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
-                              <xsd:element name="Dist10bcc_RecircThermostat" type="comp:RecircThermostat">
+                              <xsd:element name="Dist10bcc_RecircThermostat">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText"/>
                                   <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:A recirculation system with mechanical or digital thermostatic master mixing valve on each distribution supply and return loop and meet the requirements in Reference Appendix RA4.4, unless building has ≤ 8 dwelling units, per <d:t24refnolink/>170.2(d)2D.</xsd:documentation>
@@ -1468,6 +1498,9 @@ End If</xsd:documentation>
                                     <dtyp:srcSchema form="CCPRF01E" usage="value">ReqYes</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="comp:RecircThermostat comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
                             </xsd:sequence>
                           </xsd:complexType>
@@ -1684,7 +1717,7 @@ End If</xsd:documentation>
                                   </xsd:appinfo>
                                 </xsd:annotation>
                               </xsd:element>
-                              <xsd:element name="Dist14_PipingInsulation" type="comp:PipingInsulation">
+                              <xsd:element name="Dist14_PipingInsulation">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText"/>
                                   <xsd:documentation source="AdditionalRequirements">Insulation for hot water pipes shall be field verified as specifid in Reference Appendix RA3.6.3 per <d:t24refnolink/>170.2(d)2E.</xsd:documentation>
@@ -1705,6 +1738,9 @@ End If</xsd:documentation>
                                     <dtyp:srcSchema form="CCPRF01E" usage="value">true</dtyp:srcSchema>
                                   </xsd:appinfo>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="comp:PipingInsulation comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
                             </xsd:sequence>
                           </xsd:complexType>
