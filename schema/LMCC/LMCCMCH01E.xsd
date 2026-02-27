@@ -10535,7 +10535,7 @@ Else
 result = HeatCoolRequired
 End If
 
-Else If A02_ClimateZoneNumber == 2, 11, 12, 13, 14, 15, Or 16
+Else If A02_ClimateZoneNumber == 2, 12, 13, 14, 15, Or 16
 If Hexhaust04_AirflowDesignRate LT 5000
 result = HeatCoolNotRequired
 Else If Hexhaust07_HeatRecoveryExemptions == CZ15HeatingNA
@@ -10604,7 +10604,7 @@ Else
 result = HeatCoolRequired
 End If
 
-Else If A02_ClimateZoneNumber == 2, 13, 14, 15, Or 16
+Else If A02_ClimateZoneNumber == 2, 12, 13, 14, 15, Or 16
 If Hexhaust04_AirflowDesignRate LT 3000
 result = HeatCoolNotRequired
 Else If Hexhaust07_HeatRecoveryExemptions == CZ15HeatingNA
