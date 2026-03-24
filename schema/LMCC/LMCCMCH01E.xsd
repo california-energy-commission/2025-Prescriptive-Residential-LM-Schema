@@ -4720,13 +4720,13 @@ If F03_VariableRefrigerantFlow == AirConditionerVRF
    If F03_VariableRefrigerantFlow == AirCooledHP_VRF  
       Switch (Fa02_SizeRangeUnitaryCondensersAC) 
          case GTE65000AndLT135000: 
-            result1 = 11.0 (EER) and result2 = 14.6 (IEER); 
+            result1 = 10.3 (EER) and result2 = FederalMinimum (IEER); 
  
          case GTE135000AndLT240000: 
-            result1 = 10.6 (EER) and result2 = 13.9 (IEER); 
+            result1 = 9.9 (EER) and result2 = FederalMinimum (IEER); 
  
          case GTE240000: 
-            result1 = 9.5 (EER) and result2 = 12.7 (IEER);   
+            result1 = 9.1 (EER) and result2 = FederalMinimum (IEER);   
       End Switch
  
    Else If F03_VariableRefrigerantFlow == WaterSourceVRF  
@@ -4759,13 +4759,13 @@ If F03VRFHeatRecovery_VariableRefrigerantFlow == AirConditionerVRF
 If F03VRFHeatRecovery_VariableRefrigerantFlow == AirCooledHP_VRF  
    Switch (Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow) 
       case GTE65000AndLT135000: 
-         result1 = 10.8 (EER) and result2 = 14.4 (IEER); 
+         result1 = 10.1 (EER) and result2 = FederalMinimum (IEER); 
  
       case GTE135000AndLT240000: 
-         result1 = 10.4 (EER) and result2 = 13.7 (IEER); 
+         result1 = 9.7 (EER) and result2 = FederalMinimum (IEER); 
  
       case GTE240000: 
-         result1 = 9.3 (EER) and result2 = 12.5 (IEER);   
+         result1 = 8.9 (EER) and result2 = FederalMinimum (IEER);   
    End Switch
  
 Else If F03VRFHeatRecovery_VariableRefrigerantFlow == WaterSourceVRF  
