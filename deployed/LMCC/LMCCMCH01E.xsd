@@ -11942,16 +11942,30 @@ End If
                                           <xsd:documentation source="FieldText">Required Min OA CFM</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If J09_VentilationSpaceFunction == UnoccupiedSpace or Freezer or NoApplicableSpaceVent
    result = BlankGrayedOut
-Else If J09_VentilationSpaceFunction == MultiuseAssembly
-   result = Largest (( 0.50 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
-Else If J09_VentilationSpaceFunction == BarCocktailLounge, PetShop, Supermarket Or RetailSales
-   result = Largest (( 0.20 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
-Else If J09_VentilationSpaceFunction == BarberShop Or BeautyNailSalon
-   result = Largest (( 0.40 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
-Else If J09_VentilationSpaceFunction == LaundryCoinOperated
-   result = Largest (( 0.30 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
-Else 
-   result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
+Else If J16a_DemandControlVent == ProvidedDCV
+   If J09_VentilationSpaceFunction == MultiuseAssembly
+      result = 0.50 x J10_SpaceFloorArea
+   Else If J09_VentilationSpaceFunction == BarCocktailLounge, PetShop, Supermarket Or RetailSales
+      result = 0.20 x J10_SpaceFloorArea
+   Else If J09_VentilationSpaceFunction == BarberShop Or BeautyNailSalon
+      result = 0.40 x J10_SpaceFloorArea
+   Else If J09_VentilationSpaceFunction == LaundryCoinOperated
+      result = 0.30 x J10_SpaceFloorArea
+   Else 
+      result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
+End If
+Else If J16a_DemandControlVent == NotRequiredDCV or SpaceExhaustNA or AreaOccupancyNA or NoLocalExhaustNA
+   If J09_VentilationSpaceFunction == MultiuseAssembly
+      result = Largest (( 0.50 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
+   Else If J09_VentilationSpaceFunction == BarCocktailLounge, PetShop, Supermarket Or RetailSales
+      result = Largest (( 0.20 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
+   Else If J09_VentilationSpaceFunction == BarberShop Or BeautyNailSalon
+      result = Largest (( 0.40 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
+   Else If J09_VentilationSpaceFunction == LaundryCoinOperated
+      result = Largest (( 0.30 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
+   Else 
+      result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
+End If
 </xsd:documentation>
                                         </xsd:annotation>
                                       </xsd:element>
@@ -12193,9 +12207,9 @@ End If</xsd:documentation>
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:i><d:sup>6</d:sup><d:t24refnolink/>120.2(e)3 requires systems serving rooms that are required by <d:t24refnolink/>130.1(c) to have lighting occupancy sensing controls to also have occupancy sensing zone controls for ventilation.  Examples of spaces which require lighting occupancy sensors include offices 250ft<d:sup>2</d:sup> or smaller, multipurpose rooms less than 1,000 ft<d:sup>2</d:sup>, classrooms, conference rooms, restrooms, aisles and open areas in warehouses, library book stack aisles, corridors, stairwells, parking garages, and loading and unloading zones, unless excepted by <d:t24refnolink/>130.1(c). </d:i>
+                  <d:i><d:sup>6</d:sup><d:t24refnolink/>Upon detection of sensor failure, the system shall provide a signal which resets to supply the minimum quantity of outside air to levels required by Section 120.1(c)3.</d:i>
                 </xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
+                <xsd:documentation source="CalculationsAndRules">If J13_OA_SpaceRequiredMin IsPresent
 this footnote should be displayed
 Else this footnote should NOT be displayed
 End If</xsd:documentation>
@@ -12205,7 +12219,19 @@ End If</xsd:documentation>
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:i><d:sup>6</d:sup>Air classification and recirculation limitations of air shall be based on the air classification as listed in Table 120.1-A or Table 120.1-C, and in accordance with the requirements of Sections <d:t24refnolink/>120.1(g)1 through 4</d:i>
+                  <d:i><d:sup>7</d:sup><d:t24refnolink/>120.2(e)3 requires systems serving rooms that are required by <d:t24refnolink/>130.1(c) to have lighting occupancy sensing controls to also have occupancy sensing zone controls for ventilation.  Examples of spaces which require lighting occupancy sensors include offices 250ft<d:sup>2</d:sup> or smaller, multipurpose rooms less than 1,000 ft<d:sup>2</d:sup>, classrooms, conference rooms, restrooms, aisles and open areas in warehouses, library book stack aisles, corridors, stairwells, parking garages, and loading and unloading zones, unless excepted by <d:t24refnolink/>130.1(c). </d:i>
+                </xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
+this footnote should be displayed
+Else this footnote should NOT be displayed
+End If</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="JFootnote8" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText"/>
+                <xsd:documentation source="AdditionalRequirements">
+                  <d:i><d:sup>8</d:sup>Air classification and recirculation limitations of air shall be based on the air classification as listed in Table 120.1-A or Table 120.1-C, and in accordance with the requirements of Sections <d:t24refnolink/>120.1(g)1 through 4</d:i>
                 </xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules"/>
               </xsd:annotation>
@@ -13630,7 +13656,7 @@ result =  Smallest (
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Complies</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">
-If M12_TowerTargetCycles LT M13_MaximumCycles)
+If M12_TowerTargetCycles GTE M13_MaximumCycles)
    result = true
 Else 
    result = false
