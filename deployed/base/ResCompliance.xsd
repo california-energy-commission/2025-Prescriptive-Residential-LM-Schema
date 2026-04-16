@@ -7248,11 +7248,13 @@
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="ProvidesERV">ERV Provided</dtyp:displayterm>
         <dtyp:displayterm value="ProvidesHRV">HRV Provided</dtyp:displayterm>
+        <dtyp:displayterm value="NABalanced">NA: Not a balanced system</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
       <xsd:enumeration value="ProvidesERV"/>
       <xsd:enumeration value="ProvidesHRV"/>
+      <xsd:enumeration value="NABalanced"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="EnergySumMargin">

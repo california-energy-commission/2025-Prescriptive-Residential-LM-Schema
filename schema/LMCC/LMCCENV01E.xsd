@@ -17256,7 +17256,7 @@ MM110_6a2to4_MeasureApplies = true and is displayed</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i] This table demonstrates compliance with prescriptive exterior door requirements in [d:t24refnolink/]140.3(a)7/ [d:t24refnolink/]170.2(a)4 for new construction or additions. Doors which are being replaced (alterations) do not need to be documented in this table because there are no Title 24, Part 6 requirements that apply.  Exterior doors separate conditioned space from unconditioned space or from ambient air.  Doors that are more than 25% glass in area are considered Glazed Doors and should be documented on Table K with fenestration per Table B.  [/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="TableJdoors" >
+                  <xsd:element name="TableJdoors" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Exterior Opaque Doors[/d:b]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This subsection is required If B02AddDoor_ComponentApplies  Or B02NewDoor_ComponentApplies == true Or B02AltDoor_ComponentApplies == true</xsd:documentation>
@@ -17432,7 +17432,7 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="TableJVestibules" >
+                  <xsd:element name="TableJVestibules" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Vestibules[/d:b]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This subsection is required If B02NewVestibule_ComponentApplies == true</xsd:documentation>

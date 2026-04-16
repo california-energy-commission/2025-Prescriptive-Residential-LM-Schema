@@ -2040,7 +2040,11 @@ If Fdfhp07a (min effic) And Fdfhp08a (design effic)  != BlankGrayedOut Or Federa
 If Fdfhp07b (min effic) And Fdfhp08b (design effic)  != BlankGrayedOut Or FederalMinimum Then Fdfhp07b GTE Fdfhp08b And 
 If Fdfhp10a (min effic) And Fdfhp11a (design effic)  != BlankGrayedOut Or FederalMinimum Then Fdfhp10a GTE Fdfhp11aTable1DryEquipment
  
- 
+Condition 10
+If TableMechanicalHeatRecovery IsPresent  Then for every row 
+fields Fg01-Fg07 have data;  
+
+
 If all conditions are true
 Then result = true display term Yes;
 Else If any of the conditions are not true
@@ -2237,7 +2241,8 @@ And J18_DoesSystemVentialtionComply == true
  
 And If TableVentMF IsPresent
 If J19 - J29 If ! BlankGrayedOut have data
-And all instances of J28_IsVentSystemBalanced == true or BlankGrayedOut And J29_DoesVentMeetRequiredOA == true
+And If J20a_Status == New then all instances of J28_IsVentSystemBalanced == true 
+And all instances of J29_DoesVentMeetRequiredOA == true
  
 result = true
 Else
@@ -9892,7 +9897,7 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">ERV/HRV</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">
-   If A02_ClimateZoneNumber == 1, 2, 11, 12, 13, 14, or 16
+If H00c_Status == New and A02_ClimateZoneNumber == 1, 2, 4, 11, 12, 13, 14, or 16
    User selects from dropdown list</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -9900,7 +9905,7 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">ERV/HRV</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">
-   If A02_ClimateZoneNumber != 1, 2, 11, 12, 13, 14, or 16
+If H00c_Status == Alteration or A02_ClimateZoneNumber != 1, 2, 4, 11, 12, 13, 14, or 16
    result = BlankGrayedOut stored in NotApplicableMessage
                                              </xsd:documentation>
                                           </xsd:annotation>
@@ -11555,14 +11560,16 @@ End If</xsd:documentation>
                      <xsd:element name="J03_NaturalVentComplies" type="comp:NaturalVentComplies" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Check the box if the project is using natural ventilation in any nonresidential spaces to meet required ventilation rates per [d:t24refnolink/]120.1(c)2.</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false.  
+                           <xsd:documentation source="CalculationsAndRules">
+If J02a_NonResHotelMotelIncluded == true
+   User input: If checked result = true; Else result = false.  
 If result = true  D03_ExceptionalConditionMessageCCMCHE += NaturalVentilationInJ</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="J03_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Check the box if the project is using natural ventilation in any nonresidential spaces to meet required ventilation rates per [d:t24refnolink/]120.1(c)2.</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == true
+                           <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == true or J02a_NonResHotelMotelIncluded == false
 result = BlankGrayedOut
 End If</xsd:documentation>
                         </xsd:annotation>
@@ -12057,6 +12064,18 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="J20a_Status" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System Status</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:Status">
+                                          <xsd:enumeration value="New"/>
+                                          <xsd:enumeration value="Alteration"/>
+                                       </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
                                     <xsd:element name="J20To23ColumnHeading" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Mechanical Ventilation Required per [d:t24refnolink/]170.2(c)3B &amp; [d:t24refnolink/]160.2(b)2</xsd:documentation>
@@ -12180,10 +12199,10 @@ this field is NOT required and NOT displayed
  
 Else If J02b_DwellingUnitsIncluded == false
 this field is NOT required and NOT displayed
- 
-Else  If J19a_IsVentSystemContinuous == true
-result = BlankGrayedOut stored in NotApplicableMessage 
- 
+
+Else if J20a_Status == Alteration 
+this field is NOT required and NOT displayed
+
 Else
 Calculated value: For all rows 
 If ((J24_VentilationPerSpace - J25_ExhaustPerSpace) /  J24_VentilationPerSpace) LTE 0.2 
@@ -12815,7 +12834,7 @@ End If</xsd:documentation>
                   <xsd:element name="TableDuctSealing" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Duct Leakage Testing[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required If B01j_ProjectHasDuctwork == true and Duct01cc_DuctSystems has one or more duct systems</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If B03d_ProjectHasDuctwork == true and L10e_DuctLeakageTestRequired has one or more duct systems</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>

@@ -17412,7 +17412,7 @@ MM110_6a2to4_MeasureApplies = true and is displayed</xsd:documentation>
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="TableJdoors">
+            <xsd:element name="TableJdoors" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">
                   <d:b>Exterior Opaque Doors</d:b>
@@ -17588,7 +17588,7 @@ End If</xsd:documentation>
                 </xsd:sequence>
               </xsd:complexType>
             </xsd:element>
-            <xsd:element name="TableJVestibules">
+            <xsd:element name="TableJVestibules" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">
                   <d:b>Vestibules</d:b>
