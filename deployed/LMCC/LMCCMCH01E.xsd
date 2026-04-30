@@ -11637,6 +11637,19 @@ DwellingUnitNA display term NA: dwelling unit</xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
+                        <xsd:element name="I11a_LibraryVersion">
+                          <xsd:annotation>
+                            <xsd:documentation source="FieldText">JA18 Guideline 36 Library Version</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">
+If I10_ControlSystemDDC == ProvidesDDC
+   Open for user input;
+Else 
+   Result = BlankGrayedOut</xsd:documentation>
+                          </xsd:annotation>
+                          <xsd:simpleType>
+                            <xsd:union memberTypes="hvac:LibraryVersion comp:NotApplicableMessage"/>
+                          </xsd:simpleType>
+                        </xsd:element>
                         <xsd:element name="I11_HeatPumpDefrost" type="hvac:HeatPumpDefrost">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Heat Pump Defrost per <d:t24refnolink/>160.3(b)7</xsd:documentation>

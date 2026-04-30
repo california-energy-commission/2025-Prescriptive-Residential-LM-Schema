@@ -3309,7 +3309,10 @@ End If</xsd:documentation>
                                              <xsd:element name="Ic06a_AreaCategoryAdditionalAllowance" type="comp:AreaCategoryAdditionalAllowance" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Area Category</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">User input.  If selected, Section J is required.</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">
+If Ic02_SpaceFunction != AllOthersSpace 
+   User input  
+If selected, Section J is required.</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
                                              <xsd:choice>

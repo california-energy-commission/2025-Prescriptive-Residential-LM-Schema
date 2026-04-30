@@ -7413,6 +7413,15 @@
       <xsd:enumeration value="Boost"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="LibraryVersion">
+    <xsd:annotation>
+      <xsd:appinfo source="displaytermType">
+        <dtyp:displayterm>JA18 Guideline 36 Library Version</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:token">
+      </xsd:restriction>
+  </xsd:simpleType>
   <xsd:simpleType name="LoopTankBrandModel">
     <xsd:restriction base="xsd:token">
       </xsd:restriction>
