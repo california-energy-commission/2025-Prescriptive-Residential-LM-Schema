@@ -10188,6 +10188,7 @@
             <dtyp:displayterm value="GTE15_800">[d:gte/]15.800</dtyp:displayterm>
             <dtyp:displayterm value="GTE16_100">[d:gte/]16.100</dtyp:displayterm>
             <dtyp:displayterm value="GTE15_010">[d:gte/]15.010</dtyp:displayterm>
+            <dtyp:displayterm value="GTE15_010">[d:gte/]15.300</dtyp:displayterm>
             <dtyp:displayterm value="GTE13_020">[d:gte/]13.020</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -10197,6 +10198,7 @@
          <xsd:enumeration value="GTE15_800"/>
          <xsd:enumeration value="GTE16_100"/>
          <xsd:enumeration value="GTE15_010"/>
+         <xsd:enumeration value="GTE15_300"/>
          <xsd:enumeration value="GTE13_020"/>
       </xsd:restriction>
    </xsd:simpleType>
