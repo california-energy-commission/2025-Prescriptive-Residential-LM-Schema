@@ -10188,7 +10188,7 @@
             <dtyp:displayterm value="GTE15_800">[d:gte/]15.800</dtyp:displayterm>
             <dtyp:displayterm value="GTE16_100">[d:gte/]16.100</dtyp:displayterm>
             <dtyp:displayterm value="GTE15_010">[d:gte/]15.010</dtyp:displayterm>
-            <dtyp:displayterm value="GTE15_010">[d:gte/]15.300</dtyp:displayterm>
+            <dtyp:displayterm value="GTE15_300">[d:gte/]15.300</dtyp:displayterm>
             <dtyp:displayterm value="GTE13_020">[d:gte/]13.020</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
