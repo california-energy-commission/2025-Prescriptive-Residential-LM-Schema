@@ -8983,7 +8983,7 @@
             <dtyp:displayterm value="LowRiseResidentialNA">NA: Multifamily</dtyp:displayterm>
             <dtyp:displayterm value="LT54kBtuPerHrAlteredNA">NA: Altered other than packaged AC or HP [d:lt/]54 kBtu/h</dtyp:displayterm>
             <dtyp:displayterm value="LTE33kBtuPerHrCooling">NA: [d:lte/]33 kBtu/h cooling</dtyp:displayterm>
-            <dtyp:displayterm value="MeetsEfficiencyTable140_4A">NA: Efficiency per Table 140.4-F</dtyp:displayterm>
+            <dtyp:displayterm value="MeetsEfficiencyTable140_4A">NA: Efficiency per Table 140.4-F/Table 170.2-F</dtyp:displayterm>
             <dtyp:displayterm value="ServingComputerRoom">See CC-PRC for details</dtyp:displayterm>
             <dtyp:displayterm value="IncreasesTDV">NA: Increases Overall TDV Energy Use</dtyp:displayterm>
             <dtyp:displayterm value="MultizonePackages">NA: Systems Complying with multizone space conditioning requirements of 140.4(a)3ai or ii</dtyp:displayterm>

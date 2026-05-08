@@ -8636,16 +8636,16 @@ End If
 End If
 
 case ResidentialNR  (display term Multifamily Attic Roof (Option C))
-If G05_RoofSlope == LowSlope 
-If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15
-result = 75
-Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
-result = 75
-End If
+   If G05_RoofSlope == LowSlope 
+      If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15
+         result = 75
+      Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
+         result = 75
+   End If
 Else If G05_RoofSlope == SteepSlope
-If G03_Status == New And A03_ClimateZoneNumber == InRange(10,15)
+   If G03_Status == New And A03_ClimateZoneNumber == InRange(10,15)
 result = 16
-Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
+Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15) 
 result = 16
 End If
 End If
@@ -8699,7 +8699,22 @@ Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 1, 2, 3, 5
 result = BlankGrayedOut
 End If
 End If
- 
+
+case ResidentialNR  (display term Multifamily Attic Roof (Option C))
+If G05_RoofSlope == LowSlope 
+If G03_Status == New And A03_ClimateZoneNumber == InRange(1,12) or 14 or 16
+result = BlankGrayedOut
+Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 1 or 3 or 5 or 16
+result = BlankGrayedOut
+End If
+Else If G05_RoofSlope == SteepSlope
+If G03_Status == New And A03_ClimateZoneNumber == InRange(1,9) or 16
+result = BlankGrayedOut
+Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 1, 2, 3, 5, 6, 7, Or 16
+result = BlankGrayedOut
+End If
+End If
+
 case OtherOccupancy  (display term Multifamily Non-Attic Roof)
 If G05_RoofSlope == LowSlope 
 If G03_Status == New And A03_ClimateZoneNumber == InRange (1, 8) Or 12 Or 16
