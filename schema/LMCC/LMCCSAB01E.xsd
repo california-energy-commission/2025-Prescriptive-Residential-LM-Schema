@@ -643,8 +643,8 @@ Or
 Bpv01d_NoContiguousAccess == true
 Or
 Bpv01e_SnowloadException == true
-
-
+Or
+Bpv0h_PerfTradeOffException == true
  BSolarReady is REQUIRED</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
@@ -807,6 +807,17 @@ If result == true
 BSolarReady subsection is triggered
 Else If result == false 
 Section_J is triggered 
+End If</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Bpv0h_PerfTradeOffException" type="comp:PerfTradeOffException" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">PV and Battery Storage features are supported within the NRCC/LMCC-PRF-E form provided for this project as not required. Because of this, the NRCC/LMCC-SAB-E is required to support the mandatory solar readiness requirements for the project.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input
+If result == true 
+BSolarReady subsection is triggered
+Else If result == false And Bpv0e_SnowLoadException And Bpv0f_MultiTenantException == false 
+Section_J is triggered  
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -1963,7 +1974,7 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">PHOTOVOLTAIC (PV) SYSTEMS</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if Bpv01e_SnowLoadException == false And A04a_LocalJurisdiction == LocalAuthorityNA</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if Bpv01e_SnowLoadException == false And Bpv0h_PerfTradeOffException == false And A04a_LocalJurisdiction == LocalAuthorityNA</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

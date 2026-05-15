@@ -3921,10 +3921,14 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
 If Opaq06_InsulationRValue IsPresent
 result = Opaq06_InsulationRValue
-End If
+
+Else if Opaq06ext_InsulationRValue IsPresent
+result = Opaq06ext_InsulationRValue
+
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq06int_InsulationRValue</dtyp:srcSchema>
+                                            <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq06ext_InsulationRValue</dtyp:srcSchema>
                                           </xsd:appinfo>
                                         </xsd:annotation>
                                       </xsd:element>

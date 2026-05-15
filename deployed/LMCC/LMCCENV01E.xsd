@@ -1812,9 +1812,18 @@ End If
 If result == true continue evaluation: 
  
 If Kvertperf02_UseInAreaWeightedAveSHGC == false 
-If Kvertperf11b_SHGC_Limit GTE Kvertperf12b_SHGC result = true; 
-Else result = false;  
-End If 
+   If Kvertperf27_ConstructedShadingType == Overhang
+      If Kvertperf11b_SHGC_Limit GTE Kvertperf32_RSHGC 
+         result = true; 
+      Else 
+         result = false;  
+   End If      
+   Else 
+      If Kvertperf11b_SHGC_Limit GTE Kvertperf12b_SHGC 
+         result = true; 
+      Else 
+         result = false;  
+   End If 
 Else If Kvertperf02_UseInAreaWeightedAveSHGC == true 
 If KCalcVertSHGC05_DoesAreaWeightAvgComplySHGC == true result = true; 
 else result = false;  
