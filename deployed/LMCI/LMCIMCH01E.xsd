@@ -9711,6 +9711,61 @@ End If</xsd:documentation>
                                         </xsd:simpleType>
                                       </xsd:element>
                                     </xsd:choice>
+                                    <xsd:element name="Ventres06bcc_CompartmentalizationTest">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Compartmentalization Test <d:sup>4</d:sup></xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
+result = J28a_CompartmentalizationTest
+Else If CC-PRF parent
+result = SeePlans
+End If</xsd:documentation>
+                                        <xsd:appinfo source="CIsrc">
+                                          <dtyp:srcSchema form="CCMCH01E" usage="copy">J28a_CompartmentalizationTest</dtyp:srcSchema>
+                                        </xsd:appinfo>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:union>
+                                          <xsd:simpleType>
+                                            <xsd:restriction base="comp:CompartmentalizationTest">
+                                              <xsd:enumeration value="CompRequired"/>
+                                            </xsd:restriction>
+                                          </xsd:simpleType>
+                                          <xsd:simpleType>
+                                            <xsd:restriction base="comp:NotApplicableMessage"/>
+                                          </xsd:simpleType>
+                                          <xsd:simpleType>
+                                            <xsd:restriction base="comp:SeePlansMessage"/>
+                                          </xsd:simpleType>
+                                        </xsd:union>
+                                      </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Ventres06b_CompartmentalizationTest">
+                                      <xsd:annotation>
+                                        <xsd:documentation source="FieldText">Compartmentalization Test <d:sup>4</d:sup></xsd:documentation>
+                                        <xsd:documentation source="CalculationsAndRules">If Ventres06cc_AirFiltrationRequirements IsPresent
+If Ventres01_InstalledSameAsCC == true
+result = Ventres06bcc_CompartmentalizationTest  but user can change value
+Else If Ventres01_InstalledSameAsCC == false
+User input
+End If 
+End If</xsd:documentation>
+                                      </xsd:annotation>
+                                      <xsd:simpleType>
+                                        <xsd:union>
+                                          <xsd:simpleType>
+                                            <xsd:restriction base="comp:CompartmentalizationTest">
+                                              <xsd:enumeration value="CompRequired"/>
+                                            </xsd:restriction>
+                                          </xsd:simpleType>
+                                          <xsd:simpleType>
+                                            <xsd:restriction base="comp:NotApplicableMessage"/>
+                                          </xsd:simpleType>
+                                          <xsd:simpleType>
+                                            <xsd:restriction base="comp:SeePlansMessage"/>
+                                          </xsd:simpleType>
+                                        </xsd:union>
+                                      </xsd:simpleType>
+                                    </xsd:element>
                                   </xsd:sequence>
                                 </xsd:complexType>
                               </xsd:element>
@@ -9776,7 +9831,15 @@ End If</xsd:documentation>
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:i><d:sup>3</d:sup> Air filtration requirements apply to the following three system types per <d:t24refnolink/>120.1(c)1A: space conditioning systems utilizing ducts to supply air to occupiable space; supply-only ventilation systems providing outside air to occupiable space; supply side of balanced ventilation systems including heat recovery and energy recovery ventilation systems providing outside air to occupiable space. </d:i>
+                  <d:i><d:sup>3</d:sup> Air filtration requirements apply to the following three system types per <d:t24refnolink/>160.2(b)1: space conditioning systems utilizing ducts to supply air to occupiable space; supply-only ventilation systems providing outside air to occupiable space; supply side of balanced ventilation systems including heat recovery and energy recovery ventilation systems providing outside air to occupiable space. </d:i>
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="VentresFootnote4" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText"/>
+                <xsd:documentation source="AdditionalRequirements">
+                  <d:i><d:sup>4</d:sup> The air leakage rate shall not exceed 0.3 cubic feet per minute at 50 Pa (0.2 inch water) per ft2 of dwelling unit envelope surface area, verified per RA3.8 or NA2.3. </d:i>
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>

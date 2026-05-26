@@ -2395,6 +2395,16 @@
     <xsd:restriction base="dtyp:ObjectNamePermissive">
       </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="CompartmentalizationTest">
+    <xsd:annotation>
+      <xsd:appinfo source="displayterm">
+        <dtyp:displayterm value="CompRequired">0.3 CFM50/ft2 Required</dtyp:displayterm>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="dtyp:EnumerationConstantPermissive">
+      <xsd:enumeration value="CompRequired"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:simpleType name="CompartmentalizationLeakageTargetCFM50">
     <xsd:annotation>
       <xsd:documentation>This is the dwelling unit compartmentalization  target air leakage rate CFM at 50 Pa  Units: ft3 per min</xsd:documentation>

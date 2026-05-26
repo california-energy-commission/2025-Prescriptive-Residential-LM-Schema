@@ -9920,13 +9920,14 @@ If H00c_Status == Alteration or A02_ClimateZoneNumber != 1, 2, 4, 11, 12, 13, 14
                                        <xsd:element name="Hdwell10_SensibleRecoveryEfficiency" type="hvac:SensibleRecoveryEfficiency" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Design Sensible Recovery/Effectiveness</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input integer percent value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If H00c_Status == New
+User input integer percent value</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="Hdwell10_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Design Sensible Recovery/Effectiveness</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Calcualted field:  If Hdwell09_EnergyHeatRecoveryVent != ProvidesERV And  != ProvidesHRV
+                                             <xsd:documentation source="CalculationsAndRules">Calcualted field:  If Hdwell09_EnergyHeatRecoveryVent != ProvidesERV And  != ProvidesHRV or H00c_Status == Alteration
 result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -9941,7 +9942,7 @@ End If</xsd:documentation>
                                        <xsd:element name="Hdwell11_SensibleRecoveryEfficiency" type="hvac:SensibleRecoveryEfficiency" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Required Sensible Recovery/Effectiveness [d:t24refnolink/]170.2(c)3Biv</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Calculated field:  If Hdwell09_EnergyHeatRecoveryVent == ProvidesERV Or ProvidesHRV
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field:  If Hdwell09_EnergyHeatRecoveryVent == ProvidesERV Or ProvidesHRV and H00c_Status == New
 result = 67%
 Else 
 result = BlankGrayedOut stored in NotApplicableMessage
@@ -9951,7 +9952,7 @@ End If</xsd:documentation>
                                        <xsd:element name="Hdwell11_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Required Sensible Recovery/Effectiveness [d:t24refnolink/]170.2(c)3Biv</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Calcualted field:  If Hdwell09_EnergyHeatRecoveryVent != ProvidesERV And  != ProvidesHRV
+                                             <xsd:documentation source="CalculationsAndRules">Calcualted field:  If Hdwell09_EnergyHeatRecoveryVent != ProvidesERV And  != ProvidesHRV or H00c_Status == Alteration
 result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -12197,6 +12198,19 @@ End If</xsd:documentation>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
+                                    <xsd:element name="J28a_CompartmentalizationTest" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Compartmentalization Test [d:sup]5[/d:sup] </xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">
+If J20a_Status == New 
+   result = CompRequired
+Else 
+   result = BlankGrayedOut</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                             <xsd:union memberTypes="comp:CompartmentalizationTest comp:NotApplicableMessage"/>
+                                          </xsd:simpleType>
+                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -12296,7 +12310,7 @@ End If</xsd:documentation>
                   <xsd:element name="JFootnoteHiRes3" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]3[/d:sup] Air filtration requirements apply to the following three system types per [d:t24refnolink/]120.1(c)1A: space conditioning systems utilizing ducts to supply air to occupiable space; supply-only ventilation systems providing outside air to occupiable space; supply side of balanced ventilation systems including heat recovery and energy recovery ventilation systems providing outside air to occupiable space. [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]3[/d:sup] Air filtration requirements apply to the following three system types per [d:t24refnolink/]160.2(b)1: space conditioning systems utilizing ducts to supply air to occupiable space; supply-only ventilation systems providing outside air to occupiable space; supply side of balanced ventilation systems including heat recovery and energy recovery ventilation systems providing outside air to occupiable space. [/d:i]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
 this footnote should be displayed
 Else this footnote should NOT be displayed
@@ -12307,6 +12321,16 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]4[/d:sup] A balanced ventilation system provides ventilation airflow to each dwelling-unit at a rate equal to or greater than the required minimum rate, but not more than twenty percent. [/d:i]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
+this footnote should be displayed
+Else this footnote should NOT be displayed
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="JFootnoteHiRes5" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]5[/d:sup] Compartmentalization testing per [d:t24refnolink/]160.2(b)2Aivb2  is required for all new multifamily attached dwelling units; leakage shall not exceed 0.3 CFM50/ft² of envelope surface area, verified per RA3.8 or NA2.3. [/d:i]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
 this footnote should be displayed
 Else this footnote should NOT be displayed
