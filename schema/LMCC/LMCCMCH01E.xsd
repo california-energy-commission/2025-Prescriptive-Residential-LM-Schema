@@ -6105,12 +6105,11 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">Calculated Field: 
 If Fc04_BoilerRatedInput  LT 300000 
 Switch (Fc02_BoilerType) 
-case: HotWaterGas 
-result = .82 display term 82% AFUE; 
-case: HotWaterOil result = .84 display term 84% AFUE  
-case: SteamGas result = .80 display term 80% AFUE
-case: SteamGasNotNaturalDraft result = .80 display term 80% AFUE 
-case: SteamOil result = .82 display term 82% AFUE
+case: HotWaterGas result = .84 display term 84% AFUE; 
+case: HotWaterOil result = .86 display term 86% AFUE  
+case: SteamGas result = .82 display term 82% AFUE
+case: SteamGasNotNaturalDraft result = .82 display term 82% AFUE 
+case: SteamOil result = .85 display term 85% AFUE
 End Switch
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -6122,30 +6121,22 @@ End If</xsd:documentation>
 Switch (Fc02_BoilerType) 
 case: HotWaterGas
 If Fc04_BoilerRatedInput GTE 300000 And LTE 2500000 
-result = .84 display term 84% Et;  
+   result = .80 display term 80% Et;  
 End If
  
 case: HotWaterOil 
 If Fc04_BoilerRatedInput GTE 300000 And LTE 2500000 
-result = .87 display term 87% Et; 
+   result = .82 display term 82% Et; 
 End If
  
 case SteamGas:  case SteamGasNotNaturalDraft:  
-If Fc04_BoilerRatedInput GTE 300000 And LTE 2500000 
- result = .81 display term 81% Et  
-Else If Fc04_BoilerRatedInput  GT 2500000 And LT 10000000 
-result = .81 display term 82% Et  
-Else If Fc04_BoilerRatedInput  GT 10000000
-result = .79 display term 79% Et  
+If Fc04_BoilerRatedInput GTE 300000 
+   result = .79 display term 79% Et  
 End If
  
 case: SteamOil 
-If Fc04_BoilerRatedInput GTE 300000 And LTE 2500000  
- result = .84 display term 84% Et  
-Else If Fc04_BoilerRatedInput  GT 2500000 And LT 10000000 
-result = .85 display term 85% Et  
-Else If Fc04_BoilerRatedInput  GT 10000000
-result = .81 display term 81% Et  
+If Fc04_BoilerRatedInput GTE 300000 
+   result = .81 display term 81% Et  
 End If
 End Switch</xsd:documentation>
                                                             </xsd:annotation>
@@ -6157,17 +6148,13 @@ End Switch</xsd:documentation>
 Switch (Fc02_BoilerType) 
  
 case: HotWaterGas 
-If Fc04_BoilerRatedInput GT 2500000 And LT 10000000 
-result = .85 display term 85% Ec 
-Else If Fc04_BoilerRatedInput GT 10000000 
-result = .82 display term 82% Ec
+If Fc04_BoilerRatedInput GT 2500000 
+   result = .82 display term 82% Ec
 End If
  
  case: HotWaterOil  
-If Fc04_BoilerRatedInput GT 2500000 And LT 10000000 
-result = .88 display term 88% Ec 
-Else If Fc04_BoilerRatedInput  GT 10000000 
-result = .84 display term 84% Ec
+If Fc04_BoilerRatedInput GT 2500000 
+   result = .84 display term 84% Ec
 End If
 End Switch</xsd:documentation>
                                                             </xsd:annotation>
@@ -14358,8 +14345,9 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-20c-A  Multi-Family IAQ Ventilation System</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false; 
  
-If B01c_ProjectHasVentilation == true AND A03All_WholeBuildingOccupancy == HighRiseResidential Or  LowRiseResidential  
-result = true display term selected Yes radio button
+If B01c_ProjectHasVentilation == true Or J28a_CompartmentalizationTest == CompRequired 
+AND A03All_WholeBuildingOccupancy == HighRiseResidential Or  LowRiseResidential  
+   result = true display term selected Yes radio button
 End If
  
 Mandatory Measure Triggers:
@@ -14429,8 +14417,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-21-A  Multi-Family Enclosure Leakage</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;
- 
- If J28_IsVentSystemBalanced == false 
+If J28_IsVentSystemBalanced == false Or J28a_CompartmentalizationTest == CompRequired 
 result = true display term selected Yes radio button
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -14667,10 +14654,10 @@ End If</xsd:documentation>
                   <xsd:element name="Lmcv02_RequireLMCVMch24H" type="comp:RequireLMCVMch24H" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-24 Enclosure Air Leakage Worksheet  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-24-H Enclosure Air Leakage Worksheet  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false.
  
-  If J19a_IsVentSystemContinuous == true
+  If J19a_IsVentSystemContinuous == true Or J28a_CompartmentalizationTest == CompRequired 
     result = true display term selected Yes radio button
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -14680,7 +14667,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Lmcv02_RequireLMCVMch24H == true; this field is loaded with systems/spaces that satisfy this condition:
  
-If J19a_IsVentSystemContinuous == true 
+If J19a_IsVentSystemContinuous == true Or J28a_CompartmentalizationTest == CompRequired 
 load all values in J19_SpaceName
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -14766,10 +14753,10 @@ End If</xsd:documentation>
                   <xsd:element name="Lmcv03_RequireLMCVMch27H" type="comp:RequireLMCVMch27H" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-27 High-rise Residential [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-27-H High-rise Residential [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false.
  
- If  J26b_BathroomVentIAQ == true 
+ If  J26b_BathroomVentIAQ == true Or J28a_CompartmentalizationTest == CompRequired 
  result = true display term selected Yes radio button
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -14779,7 +14766,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Lmcv03_RequireLMCVMch27H == true; this field is loaded with systems/spaces that satisfy this condition:
  
- If J26b_BathroomVentIAQ == true 
+ If J26b_BathroomVentIAQ == true Or J28a_CompartmentalizationTest == CompRequired 
 load value in corresponding J19_SpaceName
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -14856,7 +14843,7 @@ End If</xsd:documentation>
                   <xsd:element name="Lmcv04_RequireLMCVMch32H" type="comp:RequireLMCVMch32H" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-32 Local Mechanical Exhaust  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">LMCV-MCH-32-H Local Mechanical Exhaust  [d:i] NOTE: Must be completed by a ECC Rater [/d:i]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false.
  
  If J26a_BathroomIAQ, J26b_BathroomVentIAQ Or J26c_KitchenHoodRange == true  result = true display term selected Yes radio button

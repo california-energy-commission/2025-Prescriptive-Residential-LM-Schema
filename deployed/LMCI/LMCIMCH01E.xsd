@@ -11685,10 +11685,10 @@ End If</xsd:documentation>
             <xsd:element name="G20a_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Systems To Be Field Verified</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If G21_RequireNRCAMch22A == false Or NRCC-PRF is parent 
+                <xsd:documentation source="CalculationsAndRules">If G20a_RequireNRCAMch22A == false Or NRCC-PRF is parent 
 this field is not required and nothing is displayed
  
-Else If  G21_RequireNRCAMch22A  == true And NRCC-MCH is parent
+Else If  G20a_RequireNRCAMch22A  == true And NRCC-MCH is parent
 result = NRCC-MCH   Nrca21_SystemFieldVerified and it is displayed
 End If</xsd:documentation>
                 <xsd:appinfo source="CIsrc">
@@ -11699,10 +11699,10 @@ End If</xsd:documentation>
             <xsd:element name="G20a_SystemsToFieldVerify" type="comp:SystemsToFieldVerify" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation source="FieldText">Systems To Be Field Verified</xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">If G21_RequireNRCAMch22A == false Or NRCC-PRF is parent 
+                <xsd:documentation source="CalculationsAndRules">If G20a_RequireNRCAMch22A == false Or NRCC-PRF is parent 
 this field is not required and nothing is displayed
  
-Else If G21_RequireNRCAMch22A == true And NRCC-MCH is parent
+Else If G20a_RequireNRCAMch22A == true And NRCC-MCH is parent
 result = NRCC-MCH   Nrca21_SystemsToFieldVerify and it is displayed
 End If</xsd:documentation>
                 <xsd:appinfo source="CIsrc">
