@@ -8285,6 +8285,7 @@
         <dtyp:displayterm value="UserChangedSelectionInCI">Selections made in the Certificates of Installation Table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
         <dtyp:displayterm value="UserChangedSelectionInCA">Selections made in the Certificates of Acceptance Table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
         <dtyp:displayterm value="UserChangedSelectionInCV">Selections made in Certificates of  Verification Table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
+        <dtyp:displayterm value="CAandCVOnlyOneRequired">Selections have been made in Table J that have triggered a Certificate of Acceptance and Certificate of Verification. However, only one of these is required, not both. If you are using an Acceptance Test Technician the Certificate of Acceptance is required. If you are using an ECC Rater the Certificate of Verification is required.</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
@@ -8302,6 +8303,7 @@
       <xsd:enumeration value="UserChangedSelectionInCI"/>
       <xsd:enumeration value="UserChangedSelectionInCA"/>
       <xsd:enumeration value="UserChangedSelectionInCV"/>
+      <xsd:enumeration value="CAandCVOnlyOneRequired"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="ExceptionalConditionMessageCCPLBE">

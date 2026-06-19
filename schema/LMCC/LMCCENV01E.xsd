@@ -1273,7 +1273,7 @@ If Fspan14_UfactorJA4Other IsPresent And Fspan14_UfactorJA4Other LTE Fspan13_Ins
  
 Or field beginning with Fspan14_UfactorJA4 that IsPresent is LTE Fspan13_InsulationUFactorLimit 
 And
-Fspan11_ContinuousInsulationNR IsPresent And == R10ci, R12ci, R15ci, R20ci, R25ci  Or R30ci
+Fspan11_ContinuousInsulationNR IsPresent And == R10ci, R12ci, R15ci, R17ci, R20ci, R23ci, R25ci  Or R30ci
 Or  Fspan11_ContinuousInsulationOther IsPresent And GTE 10
 result = true; Else result = false;
 End If

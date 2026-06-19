@@ -3345,14 +3345,25 @@ End If</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">Calculated value:  result = PRODUCT (Ic03_AllowedLPD, Ic04_SpaceFloorArea)</xsd:documentation>
                                 </xsd:annotation>
                               </xsd:element>
-                              <xsd:element name="Ic06a_AreaCategoryAdditionalAllowance" type="comp:AreaCategoryAdditionalAllowance">
+                              <xsd:element name="Ic06a_AreaCategoryAdditionalAllowance">
                                 <xsd:annotation>
                                   <xsd:documentation source="FieldText">Area Category</xsd:documentation>
                                   <xsd:documentation source="CalculationsAndRules">
-If Ic02_SpaceFunction != AllOthersSpace 
-   User input  
+If Ic02_SpaceFunction == AllOthersSpace, CommercialIndustrialStorageArea, CommercialIndustrialStorageAreaRefrigerated, CommercialIndustrialStorageShipping, CommercialIndustrialWarehouse, ComputerRoom, CopyRoom, 
+CorridorRestroomStairsSupportArea, DiningArea, ExerciseCenterGymnasiumArea, GeneralCommercialIndustrialWorkBuilding, HighRiseResidentialLivingSpace, HospitalExamTreatment, HospitalMedicalSupply, HospitalOperatingRoom, 
+HotelMotelGuestRoom, HousingPublicCommonAreaMultifamilyDormitory, HousingPublicCommonAreaSeniorHousing, KitchenCommercialFoodPreparation, KitchenetteResidentialKitchen, Laundry, LaundryCoinOperated, LibraryStacks, 
+LockerDressingRoom, LowVisionDiningAreaMF, LowVisionLobbyMainEntryMF, MedicalAndClinicalCare, OfficeOpenPlan, ParkingGarageAreaDaylightAdaptationZone, PoliceStationFireStation, RetailMallConcourse, RetailSalesArea, 
+SportsArenaSeatsGTE5000ClassI, SportsArenaSeatsLimitedClassIV, SportsArenaSeatsLT2000ClassIII, SportsArenaSeatsLT5000ClassII, StorageMF, TransportationFunction, TransportationFunctionConcourseBaggage, UnleasedTenantArea, 
+UnoccupiedExcludeInGrossFloorArea, UnoccupiedIncludeInGrossFloorArea, or WaitingArea 
+   result = BlankGrayedOut and not open for user input;
+Else
+   Open for User input;
+   
 If selected, Section J is required.</xsd:documentation>
                                 </xsd:annotation>
+                                <xsd:simpleType>
+                                  <xsd:union memberTypes="comp:AreaCategoryAdditionalAllowance comp:NotApplicableMessage"/>
+                                </xsd:simpleType>
                               </xsd:element>
                               <xsd:choice>
                                 <xsd:element name="Ic06b_AdditionalAllowanceForPAF" type="comp:AdditionalAllowanceForPAF">

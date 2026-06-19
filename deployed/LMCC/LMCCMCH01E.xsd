@@ -12406,7 +12406,7 @@ End If</xsd:documentation>
                             <xsd:documentation source="FieldText">Compartmentalization Test <d:sup>5</d:sup> </xsd:documentation>
                             <xsd:documentation source="CalculationsAndRules">
 If J20a_Status == New 
-   result = CompRequired
+   result = CompRequired and D03_ExceptionalConditionMessageCCMCHE += CAandCVOnlyOneRequired
 Else 
    result = BlankGrayedOut</xsd:documentation>
                           </xsd:annotation>
@@ -13756,7 +13756,7 @@ D03_ExceptionalConditionMessageCCMCHE += UserChangedSelectionInCI</xsd:documenta
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:i>Selections have been made based on information provided in previous tables of this document.  If any selection needs to be changed, please explain why in Table E Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online at https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2022-building-energy-efficiency-3 </d:i>
+                  <d:i>Selections have been made based on information provided in previous tables of this document.  If any selection needs to be changed, please explain why in Table E Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online at https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency-1 </d:i>
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -13968,7 +13968,7 @@ End If
               <xsd:annotation>
                 <xsd:documentation source="FieldText"/>
                 <xsd:documentation source="AdditionalRequirements">
-                  <d:i>Selections have been made based on information provided in previous tables of this document.  If any selection needs to be changed, please explain why in Table E Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online at https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2022-building-energy-efficiency-4 </d:i>
+                  <d:i>Selections have been made based on information provided in previous tables of this document.  If any selection needs to be changed, please explain why in Table E Additional Remarks.  These documents must be provided to the building inspector during construction and any with "-A" in the form name must be completed through an Acceptance Test Technician Certification Provider (ATTCP). For more information visit: http://www.energy.ca.gov/title24/attcp/providers.html and the drafts can be found online at https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency-1 </d:i>
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
