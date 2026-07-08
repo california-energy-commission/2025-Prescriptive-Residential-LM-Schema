@@ -3106,7 +3106,8 @@ BlankGrayedOut stored in Rscs13_NotApplicableMessage
                             <xsd:documentation source="CalculationsAndRules">
 If Fscs04_Status == Alteration Or Addition
    List all values
-
+Else If Fscs04_Status == New AND A08_ProjectScopeNR == ExistingAlteration
+   List all values
 Else If Fscs03_SystemZoning == SingleDwellingUnit Or MultiDwellingUnits
    If A02_ClimateZoneNumber == InRange(2,15)
       List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOAS

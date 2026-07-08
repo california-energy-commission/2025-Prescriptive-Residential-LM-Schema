@@ -17761,9 +17761,15 @@ End If</xsd:documentation>
                 <xsd:documentation source="FieldText">Indicate fenestration types included in the project: <d:sup>1</d:sup></xsd:documentation>
               </xsd:annotation>
             </xsd:element>
+            <xsd:element name="K01VerticalAltAdd_FenestrationTypeApplies" type="comp:FenestrationTypeApplies">
+              <xsd:annotation>
+                <xsd:documentation source="FieldText">Adding vertical fenestration as part of an alteration</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
             <xsd:element name="K01VerticalAlt_FenestrationTypeApplies" type="comp:FenestrationTypeApplies">
               <xsd:annotation>
-                <xsd:documentation source="FieldText">Vertical (alterations)</xsd:documentation>
+                <xsd:documentation source="FieldText">Replacing vertical fenestration as part of an alteration</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
@@ -17804,7 +17810,7 @@ End If</xsd:documentation>
                 <xsd:documentation source="FieldText">
                   <d:b>Vertical Fenestration and Glazed Doors- Total Building &amp;amp; West Facing Area (New Construction &amp;amp; Additions Only)</d:b>
                 </xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">This subsection is required If K01VerticalNew_FenestrationTypeApplies == true  Or K01GlazedDoors_FenestrationTypeApplies == true</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">This subsection is required If K01VerticalNew_FenestrationTypeApplies == true  Or K01GlazedDoors_FenestrationTypeApplies == true or K01VerticalAltAdd_FenestrationTypeApplies == true </xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>
                 <xsd:sequence>
