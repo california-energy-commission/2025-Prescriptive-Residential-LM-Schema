@@ -11961,7 +11961,7 @@ Else If J16a_DemandControlVent == ProvidedDCV
    Else If J09_VentilationSpaceFunction == LaundryCoinOperated
       result = 0.30 x J10_SpaceFloorArea
    Else 
-      result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
+      result = 0.15 x J10_SpaceFloorArea
 End If
 Else If J16a_DemandControlVent == NotRequiredDCV or SpaceExhaustNA or AreaOccupancyNA or NoLocalExhaustNA
    If J09_VentilationSpaceFunction == MultiuseAssembly
