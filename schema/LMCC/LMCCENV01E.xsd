@@ -2060,7 +2060,7 @@ Else result = DoesNotComply  display term DOES NOT COMPLY</xsd:documentation>
          <xsd:element name="Section_F" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">ROOF ASSEMBLY SCHEDULE</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If B02NewRoof_ComponentApplies, B02AddRoof_ComponentApplies Or B02AltRoof_ComponentApplies == true
+               <xsd:documentation source="CalculationsAndRules">This section is required If B02NewRoof_ComponentApplies, B02AddRoof_ComponentApplies Or B02AltRoof_ComponentApplies Or B02AltRoofmat_ComponentApplies == true
  
 Mandatory Measure Triggers:
 If this section is required 

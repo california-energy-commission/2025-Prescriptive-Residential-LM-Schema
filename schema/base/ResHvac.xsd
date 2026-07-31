@@ -10166,15 +10166,15 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="GTE10_100">[d:gte/]10.100</dtyp:displayterm>
             <dtyp:displayterm value="GTE9_700">[d:gte/]9.700</dtyp:displayterm>
-            <dtyp:displayterm value="GTE9_595">[d:gte/]9.595</dtyp:displayterm>
             <dtyp:displayterm value="GTE9_215">[d:gte/]9.215</dtyp:displayterm>
+            <dtyp:displayterm value="GTE5_595">[d:gte/]5.595</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="GTE10_100"/>
          <xsd:enumeration value="GTE9_700"/>
-         <xsd:enumeration value="GTE9_595"/>
          <xsd:enumeration value="GTE9_215"/>
+         <xsd:enumeration value="GTE5_595"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RangeMinEER_IPLV">
