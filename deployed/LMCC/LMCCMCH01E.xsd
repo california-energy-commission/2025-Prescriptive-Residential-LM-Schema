@@ -3927,6 +3927,10 @@ End if</xsd:documentation>
                               <xsd:documentation source="CalculationsAndRules">If F05_HeatingDesignCapacity GTE 1  
 use this choice.  Efficiency units for Heating mode result or list is as follows for value in Fa01_HvacSystemName: 
  
+If Fa05 == FederalMinimum
+user selects from list AFUE, CombustionEfficiency, COP, HSPF, HSPF2, ThermalEfficiency.
+The selected Fa04_EfficiencyType is used for both Fa05 minimum efficiency and Fa06 design efficiency.
+Else
 Switch (F02_HvacSystemType) 
 case  FurnaceUnitHeater: 
 If F03_FurnaceUnitHeater == FurnaceCentral Then
@@ -3984,6 +3988,7 @@ If F03_RoomAC_HP == RoomACHP_NoLouvers or RoomACHP_Louvers
 result = HSPF2
 End If
 End Switch
+End If
 End If</xsd:documentation>
                               <xsd:appinfo source="displayterm">
                                 <dtyp:displayterm value="CombustionEfficiency">Ec</dtyp:displayterm>
@@ -4347,7 +4352,11 @@ All results are for result1, the top cell and result2 bottom cell is blank</xsd:
                                     <xsd:element name="Fa07_EfficiencyType">
                                       <xsd:annotation>
                                         <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
-                                        <xsd:documentation source="CalculationsAndRules">User selects from Efficiency units for Cooling mode  for F02_HvacSystemType assigned to Fa01that only have one efficiency type.  
+                                        <xsd:documentation source="CalculationsAndRules">If Fa08 result1 == FederalMinimum
+user selects from list COP, EER, SCOP, SEER, SEER2.
+The selected Fa07_EfficiencyType result1 is used for both Fa08 minimum efficiency result1 and Fa09 design efficiency result1.
+Else
+User selects from Efficiency units for Cooling mode  for F02_HvacSystemType assigned to Fa01that only have one efficiency type.
  
 The type is stored in result1, the top displayed cell and the bottom cell is blank.  Calculated values:  
  
@@ -4399,7 +4408,8 @@ result1 SEER;
 Else  If F03VRFHeatRecovery_VariableRefrigerantFlow == GroundWaterSourceVRF Or GroundSourceVRF 
 result1 = EER; 
 End If
-End Switch</xsd:documentation>
+End Switch
+End If</xsd:documentation>
                                       </xsd:annotation>
                                       <xsd:simpleType>
                                         <xsd:restriction base="hvac:EfficiencyType">
@@ -4671,7 +4681,13 @@ EER  in result1 and SEER in result2 for the equipment</xsd:documentation>
                                     <xsd:element name="Fa07_EfficiencyType" minOccurs="2" maxOccurs="2">
                                       <xsd:annotation>
                                         <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
-                                        <xsd:documentation source="CalculationsAndRules">Two types are assigned for this choice as follows: 
+                                        <xsd:documentation source="CalculationsAndRules">For each result where the corresponding Fa08 minimum efficiency result == FederalMinimum,
+user selects the unit for that result from values that complete one of these supported result pairs:
+result1 = EER and result2 = IEER;
+result1 = EER and result2 = SEER;
+result1 = EER2 and result2 = SEER2.
+The selected Fa07_EfficiencyType result is used for both the corresponding Fa08 minimum efficiency and Fa09 design efficiency.
+For each result where the corresponding Fa08 minimum efficiency result != FederalMinimum, the type is assigned as follows:
 If F02_HvacSystemType == FurnaceAC 
 If F03_FurnaceAC == AirCooledSinglePkgAC_CentralFurnaceWeatherized1Phase Or AirCooledSplitAC_CentralFurnaceWeatherized1Phase 
 If Fa02_SizeRangeFurnaceAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
@@ -10150,17 +10166,21 @@ End If</xsd:documentation>
                 <xsd:documentation source="FieldText">
                   <d:b>H. EXHAUST AIR HEAT RECOVERY 140.4(q), 170.2(c)4O </d:b>
                 </xsd:documentation>
-                <xsd:documentation source="CalculationsAndRules">This table is required If B03c_ProjectHasFanSystems == true  And A02_ClimateZoneNumber != 6 And != 7</xsd:documentation>
+                <xsd:documentation source="CalculationsAndRules">This table is required If B03c_ProjectHasFanSystems == true And at least one TableFanSystems row has H00c_Status == New And A02_ClimateZoneNumber != 6 And != 7</xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>
                 <xsd:sequence>
                   <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:annotation>
+                      <xsd:documentation source="CalculationsAndRules">Create one row for each TableFanSystems row where H00c_Status == New</xsd:documentation>
+                    </xsd:annotation>
                     <xsd:complexType>
                       <xsd:sequence>
                         <xsd:element name="Hexhaust01_FanSystemName" type="hvac:FanSystemName">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Fan System Name</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">result = H00a_FanSystemName</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">For the corresponding TableFanSystems row where H00c_Status == New,
+result = H00a_FanSystemName</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                         <xsd:choice maxOccurs="1">
@@ -14165,7 +14185,10 @@ End If</xsd:documentation>
                 <xsd:documentation source="AdditionalRequirements">NRCA-MCH-08-A Valve Leakage Test</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;  
  
-If G05_PumpControlVF == HasVariableFlow 
+If at least one of the following conditions is true for a system that does not serve a healthcare facility:
+G05_PumpControlVF == HasVariableFlow;
+Fc08_BoilerIsolationValve == HasValve;
+Fd09_ChillerIsolationValve == HasValve.
 result = true display term selected Yes radio button
 End If</xsd:documentation>
               </xsd:annotation>
@@ -14175,7 +14198,12 @@ End If</xsd:documentation>
                 <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                 <xsd:documentation source="CalculationsAndRules">If Nrca07_RequireNRCAMch08A == true; this field loaded with systems/spaces that satisfy this condition:
  
-If G05_PumpControlVF == HasVariableFlow  load value in G01_PumpName
+If G05_PumpControlVF == HasVariableFlow And the pump does not serve a healthcare facility
+load value in G01_PumpName
+If Fc08_BoilerIsolationValve == HasValve And the boiler system does not serve a healthcare facility
+load value in Fc01_BoilerName
+If Fd09_ChillerIsolationValve == HasValve And the chiller system does not serve a healthcare facility
+load value in Fd01_ChillerName
 End If</xsd:documentation>
               </xsd:annotation>
             </xsd:element>
