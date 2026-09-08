@@ -318,7 +318,7 @@ End if</xsd:documentation>
                   </xsd:documentation>
                   <xsd:documentation source="CalculationsAndRules">If LMCC-ELC-E is included in scope And 
 A03_RequestedMMB == true And 
-A02_WholeBuildingOccupancy == HighRiseResidential Or HotelMotel 
+A02_WholeBuildingOccupancy == HotelMotel 
 this Mandatory Measures Noteblock is required 
  
 Else it is not required and nothing is captured or displayed
@@ -351,7 +351,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">CONTROLLED RECEPTACLES SHALL BE INSTALLED FOR AT LEAST ONE-HALF OF THE 120-VOLT RECEPTACLES IN EACH GUESTROOM. ELECTRIC CIRCUITS SERVING CONTROLLED RECEPTACLES SHALL HAVE CAPTIVE CARD KEY CONTROLS, OCCUPANCY SENSING CONTROLS, OR AUTOMATIC CONTROLS SO THE POWER IS SWITCHED OFF NO LONGER THAN 20 MINUTES AFTER GUESTROOM IS VACATED.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Section I is triggered because  A02_WholeBuildingOccupancy != HospitalBuilding  And B02_ElectricalServiceProjectScope == NewElectricalService Or ReplacementElectricalService Or ReplacementElectricalServiceNotMeter 
  
-And If A02_WholeBuildingOccupancy == HighRiseResidential Or HotelMotel 
+A02_WholeBuildingOccupancy == HotelMotel 
  
 result = true and FieldText and AdditionalRequirements static text is displayed in the report
 Else
@@ -371,7 +371,7 @@ End If</xsd:documentation>
                   </xsd:documentation>
                   <xsd:documentation source="CalculationsAndRules">If NRCC-ELC-E is included in scope And 
 A03_RequestedMMB == true And 
-A02_WholeBuildingOccupancy == MultiFamilyMixedUseLT4
+A02_WholeBuildingOccupancy == MultiFamilyMixedUseLT4 or MultiFamilyMixedUseLT4AddAlt
 this Mandatory Measures Noteblock is required 
  
 Else it is not required and nothing is captured or displayed

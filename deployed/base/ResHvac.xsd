@@ -13599,7 +13599,8 @@
         <dtyp:displayterm value="HeatPumpAirSource">Air Source Heat Pump Water Heater</dtyp:displayterm>
         <dtyp:displayterm value="HeatPumpWaterHeater">Non-air Source Heat Pump Water Heater</dtyp:displayterm>
         <dtyp:displayterm value="InstantaneousConsumer">Gas Instantaneous</dtyp:displayterm>
-        <dtyp:displayterm value="InstantaneousConsumerElectric">Electric Storage</dtyp:displayterm>
+        <dtyp:displayterm value="InstantaneousConsumerElectric">Consumer Electric Storage Water Heater</dtyp:displayterm>
+        <dtyp:displayterm value="StorageCommercialElectric">Commercial Electric Storage Water Heater</dtyp:displayterm>
         <dtyp:displayterm value="StorageConsumer">Electric Instantaneous</dtyp:displayterm>
         <dtyp:displayterm value="StorageResDutyCommercial">Gas Storage</dtyp:displayterm>
         <dtyp:displayterm value="NEEAIndividualHeatPumpWH">NEEA Heat Pump Water Heater </dtyp:displayterm>
@@ -13611,6 +13612,7 @@
       <xsd:enumeration value="HeatPumpWaterHeater"/>
       <xsd:enumeration value="InstantaneousConsumer"/>
       <xsd:enumeration value="InstantaneousConsumerElectric"/>
+      <xsd:enumeration value="StorageCommercialElectric"/>
       <xsd:enumeration value="StorageConsumer"/>
       <xsd:enumeration value="StorageResDutyCommercial"/>
       <xsd:enumeration value="NEEAIndividualHeatPumpWH"/>

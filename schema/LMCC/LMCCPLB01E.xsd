@@ -1247,6 +1247,7 @@ Multi-field triggers: See B03aAltered_ProjectHasEquipment  CalculationsAndRules 
                                                                <xsd:enumeration value="HeatPumpWaterHeater"/>
                                                                <xsd:enumeration value="InstantaneousConsumer"/>
                                                                <xsd:enumeration value="InstantaneousConsumerElectric"/>
+                                                               <xsd:enumeration value="StorageCommercialElectric"/>
                                                                <xsd:enumeration value="StorageConsumer"/>
                                                                <xsd:enumeration value="StorageResDutyCommercial"/>
                                                                <xsd:enumeration value="NEEAIndividualHeatPumpWH"/>
