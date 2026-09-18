@@ -1307,17 +1307,23 @@ End If</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Dry08acc_HeatRecovery" type="hvac:HeatRecovery" >
+                                                         <xsd:element name="Dry08acc_HeatRecovery">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Refrigerant Loop Heat Recovery</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-MCH parent and Fa06a_HeatRecovery IsPresent
 result = CC-MCH Fa06a_HeatRecovery 
+End If
 
-End If,</xsd:documentation>
+Else If CC-PRF parent 
+result = SeePlans
+End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fa06a_HeatRecovery</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                                 <xsd:union memberTypes="hvac:HeatRecovery comp:SeePlansMessage"/>
+                                                            </xsd:simpleType>
                                                          </xsd:element>
                                                          <xsd:element name="Dry08acc_NotApplicableMessage" >
                                                             <xsd:annotation>

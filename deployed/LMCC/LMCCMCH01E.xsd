@@ -3155,7 +3155,7 @@ Else If Fscs03_SystemZoning == MultiZone
    And A04_TotalConditionedFloorArea + A05_TotalUnconditionedFloorArea LT 150,000
    And A06_AboveGradeStoryCount LTE 5
       List: VariableRefrigerantFlowHeatRecovery, DedicatedOAS, AirWaterHeatPump, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, HeatPumpAC, RoomAC_HP
-      D03_ExceptionalConditionMessageCCMCHE += FanPowerIndexExceedsMaxInH; 
+      D03_ExceptionalConditionMessageCCMCHE += MultizonePackage; 
       End If
 Else
    List all values
@@ -4528,7 +4528,7 @@ If F02_HvacSystemType == VariableRefrigerantFlow use this choice.
  
 The value is stored in result1, the top displayed cell and the bottom cell is blank.  
  
-If F03_ VariableRefrigerantFlow == AirConditionerVRF 
+If F03_VariableRefrigerantFlow == AirConditionerVRF 
    If Fa02_SizeRangeVariableRefrigerantFlow == LT65000 
       result1 = FederalMinimum
    Else If Fa02_SizeRangeVariableRefrigerantFlow == LT135000
@@ -4538,21 +4538,30 @@ If F03_ VariableRefrigerantFlow == AirConditionerVRF
    Else If Fa02_SizeRangeVariableRefrigerantFlow == GTE240000
       result = 9.5
    End If
-Else if F03_ VariableRefrigerantFlow == AirCooledHP_VRF and Fa02_SizeRangeVariableRefrigerantFlow == LT65000 
-   result1 13.4 (SEER);
-                                                         
-Else  If F03_ VariableRefrigerantFlow == GroundWaterSourceVRF Then 
-If  Fa02_SizeRangeVariableRefrigerantFlow == LT135000 
-result1 = 16.2 (EER); 
-Else if Fa02_SizeRangeVariableRefrigerantFlow == GTE135000 
-result1 = 13.8 (EER); 
+
+Else if F03_VariableRefrigerantFlow == AirCooledHP_VRF 
+   If Fa02_SizeRangeVariableRefrigerantFlow == LT65000, 
+      result1 = 13.0 (SEER);
+   Else If Fa02_SizeRangeVariableRefrigerantFlow == GTE65000AndLT135000
+      result1 = 10.3 (EER);
+   Else If Fa02_SizeRangeVariableRefrigerantFlow == GTE135000AndLT240000
+      result1 = 10.0 (EER);
+   Else If Fa02_SizeRangeVariableRefrigerantFlow == GTE240000
+      result1 9.2 (EER);
+End If
+
+Else  If F03_VariableRefrigerantFlow == GroundWaterSourceVRF Then 
+   If  Fa02_SizeRangeVariableRefrigerantFlow == LT135000 
+      result1 = 16.2 (EER); 
+   Else if Fa02_SizeRangeVariableRefrigerantFlow == GTE135000 
+      result1 = 13.8 (EER); 
 End If
  
-Else  If F03_ VariableRefrigerantFlow == GroundSourceVRF Then 
-If  Fa02_SizeRangeVariableRefrigerantFlow == LT135000 
-result1 = 13.4 (EER); 
-Else if Fa02_SizeRangeVariableRefrigerantFlow == GTE135000 
-result1 = 11.0 (EER);
+Else  If F03_VariableRefrigerantFlow == GroundSourceVRF Then 
+   If  Fa02_SizeRangeVariableRefrigerantFlow == LT135000 
+      result1 = 13.4 (EER); 
+   Else if Fa02_SizeRangeVariableRefrigerantFlow == GTE135000 
+      result1 = 11.0 (EER);
 End If
 End If
 
@@ -4561,31 +4570,41 @@ Else If F02_HvacSystemType == VariableRefrigerantFlowHeatRecovery use this choic
  
 The value is stored in result1, the top displayed cell and the bottom cell is blank.  
  
-If F03_ VariableRefrigerantFlow == AirConditionerVRF 
-   If Fa02_SizeRangeVariableRefrigerantFlow == LT65000 
+If F03VRFHeatRecovery_VariableRefrigerantFlow == AirConditionerVRF 
+   If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT65000 
       result1 = FederalMinimum
-   Else If Fa02_SizeRangeVariableRefrigerantFlow == LT135000
+   Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT135000
       result = 10.3
-   Else If Fa02_SizeRangeVariableRefrigerantFlow == GTE135000AndLT240000
+   Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000AndLT240000
       result = 10.1
-   Else If Fa02_SizeRangeVariableRefrigerantFlow == GTE240000
+   Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE240000
       result = 9.3
    End If
-Else if F03_ VariableRefrigerantFlow == AirCooledHP_VRF and Fa02_SizeRangeVariableRefrigerantFlow == LT65000 
-   result1 13.4 (SEER);
+
+Else if F03VRFHeatRecovery_VariableRefrigerantFlow == AirCooledHP_VRF
+   If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT65000, 
+      result1 = 12.8 (SEER);
+   Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE65000AndLT135000
+      result1 = 10.1 (EER);
+   Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000AndLT240000
+      result1 = 9.7 (EER);
+   Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE240000
+      result1 8.9 (EER);
+End If
+
  
 Else  If F03VRFHeatRecovery_VariableRefrigerantFlow == GroundWaterSourceVRF Then 
-If  Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT135000 
-result1 = 16.0 (EER); 
-Else if Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000 
-result1 = 13.6 (EER); 
+   If  Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT135000 
+      result1 = 16.0 (EER); 
+   Else if Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000 
+      result1 = 13.6 (EER); 
 End If
  
 Else  If F03VRFHeatRecovery_VariableRefrigerantFlow == GroundSourceVRF Then 
-If  Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT135000 
-result1 = 13.2 (EER); 
-Else if Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000 
-result1 = 10.8 (EER);
+   If  Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT135000 
+      result1 = 13.2 (EER); 
+   Else if Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000 
+      result1 = 10.8 (EER);
 End If
 End If
 
