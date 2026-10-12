@@ -4710,7 +4710,6 @@
         <dtyp:displayterm value="NANotServingDwellingUnit">NA Heat Pump not serving dwelling units</dtyp:displayterm>
         <dtyp:displayterm value="NAClimateZone">NA: CZ 1, 6-10, 15 or 16</dtyp:displayterm>
         <dtyp:displayterm value="NAAlteredEquipment">NA: Altered Equipment</dtyp:displayterm>
-        <dtyp:displayterm value="NAMultifamily">NA: Multifamily Bldg</dtyp:displayterm>
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:restriction base="dtyp:EnumerationConstant">
@@ -4719,7 +4718,6 @@
       <xsd:enumeration value="NANotServingDwellingUnit"/>
       <xsd:enumeration value="NAClimateZone"/>
       <xsd:enumeration value="NAAlteredEquipment"/>
-      <xsd:enumeration value="NAMultifamily"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="HeatingCapacity">
