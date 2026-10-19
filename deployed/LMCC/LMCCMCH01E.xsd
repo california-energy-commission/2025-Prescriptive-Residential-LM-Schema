@@ -26,7 +26,7 @@
                 <xsd:annotation>
                   <xsd:documentation source="FieldText">
                     <d:b>
-                      <d:i>Space Conditioning Mandatory Measures:</d:i>
+                      <d:i>Nonresidential Space Conditioning Mandatory Measures:</d:i>
                     </d:b>
                   </xsd:documentation>
                   <xsd:documentation source="CalculationsAndRules">If LMCC-MCH-E is included in scope And 
@@ -43,7 +43,7 @@ End If</xsd:documentation>
                       <xsd:annotation>
                         <xsd:documentation source="FieldText">
                           <d:b>
-                            <d:i>2022 Nonresidential Energy Standards Compliance (Title 24, Part 6, Ch.1)</d:i>
+                            <d:i>2025 Nonresidential Energy Standards Compliance (Title 24, Part 6)</d:i>
                           </d:b>
                         </xsd:documentation>
                       </xsd:annotation>
@@ -75,7 +75,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">
                           <d:b><d:t24refnolink/>110.2(a) SPACE CONDITIONING EQUIPMENT EFFICIENCY</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">EQUIPMENT SHALL MEET APPLICABLE EFFICIENCY REQUIREMENTS IN TABLE 110.2-A THROUGH TABLE 110.2-N.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">EQUIPMENT SHALL MEET APPLICABLE EFFICIENCY REQUIREMENTS IN TABLE 110.2-A THROUGH TABLE 110.2-L.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Section F is required because 
 B01a_ProjectHasHeatingAirSystem == true Or B01b_ProjectHasCoolingAirSystem == true Or  B02a_ProjectHasWaterEconomizer == true Or B02d_ProjectHasCoolingTowers == true Or B02e_ProjectHasChillers == true Or 
 B02f_ProjectHasBoilers == true Or B03b_ProjectHasElectricHeat == true 
@@ -139,9 +139,9 @@ End if</xsd:documentation>
                     <xsd:element name="MM110_2b_MeasureApplies" type="comp:MeasureApplies">
                       <xsd:annotation>
                         <xsd:documentation source="FieldText">
-                          <d:b><d:t24refnolink/>110.2(b) HEAT PUMPS WITH SUPPLEMENTARY ELECTRIC RESISTANCE HEAT</d:b>
+                          <d:b><d:t24refnolink/>110.2(b) HEAT PUMPS WITH SUPPLEMENTARY HEATERS</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">HEAT PUMPS WITH SUPPLEMENTARY ELECTRIC RESISTANCE HEATERS SHALL HAVE CONTROLS THAT PREVENT SUPPLEMENTARY HEATER OPERATION WHEN THE HEATING LOAD CAN BE MET BY THE HEAT PUMP ALONE.  CUT-ON TEMPERATURE FOR COMPRESSION HEATING SHALL BE HIGHER THAN THAT FOR SUPPLEMENTARY HEATING.  CUT-OFF TEMPERATURE FOR COMPRESSION HEATING SHALL BE HIGHER THAN THAT FOR SUPPLEMENTARY HEATING.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">THE HEAT-PUMP HEATING CUT-ON TEMPERATURE MUST BE HIGHER THAN THE SUPPLEMENTARY-HEATING CUT-ON TEMPERATURE. <d:line1/>THE HEAT-PUMP HEATING CUT-OFF TEMPERATURE MUST BE HIGHER THAN THE SUPPLEMENTARY-HEATING CUT-OFF TEMPERATURE.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If  F02_HvacSystemType == UnitaryHeatPumps
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false nothing is displayed in the report
@@ -200,7 +200,7 @@ End if</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements"><d:b>EXCEPTION</d:b> TO <d:t24refnolink/>110.2(c) <d:b>APPLIES</d:b>:  
 
 GRAVITY GAS WALL AND/OR FLOOR HEATERS, GRAVITY ROOM HEATERS, NONCENTRAL ELECTRIC HEATERS, FIREPLACES OR DECORATIVE GAS APPLIANCES, WOOD STOVES, ROOM AIR CONDITIONERS, AND ROOM AIR-CONDITIONER HEAT PUMPS.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If MM110_2c_MeasureApplies == true
+                        <xsd:documentation source="CalculationsAndRules">If MM110_2c_MeasureApplies == true 
 user input
 Else
 result = false
@@ -229,7 +229,7 @@ End if</xsd:documentation>
                         <xsd:documentation source="FieldText">
                           <d:b><d:t24refnolink/>110.2(e) OPEN AND CLOSED CIRCUIT COOLING TOWERS</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">ALL OPEN AND CLOSED CIRCUIT COOLING TOWER INSTALLATIONS SHALL HAVE <d:l t="*"><d:list>CONDUCTIVITY OR FLOW-BASED CONTROLS THAT MAXIMIZE CYCLES OF  CONCENTRATION BASED ON WATER QUALITY CONDITIONS. </d:list><d:list>DOCUMENTATION OF MAXIMUM ACHIEVABLE CYCLES OF CONCENTRATION </d:list><d:list>FLOW METER WITH ANALOG OUTPUT FOR FLOW EITHER HARDWIRED OR AVAILABLE THROUGH A GATEWAY ON THE MAKEUP WATER LINE. </d:list><d:list>OVERFLOW ALARM TO PREVENT OVERFLOW OF THE SUMP IN CASE OF MAKEUP WATER VALVE FAILURE. </d:list><d:list>EFFICIENT DRIFT ELIMINATORS THAT ACHIEVE DRIFT REDUCTION TO 0.002% OF THE CIRCULATED WATER VOLUME FOR COUNTER-FLOW TOWERS AND 0.005% FOR CROSS-FLOW TOWERS. </d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ALL OPEN AND CLOSED CIRCUIT COOLING TOWER INSTALLATIONS SHALL HAVE <d:l t="*"><d:list>CONDUCTIVITY-BASED CONTROLS THAT MAXIMIZE CYCLES OF  CONCENTRATION BASED ON WATER QUALITY CONDITIONS. </d:list><d:list>DOCUMENTATION OF MAXIMUM ACHIEVABLE CYCLES OF CONCENTRATION </d:list><d:list>FLOW METER WITH ANALOG OUTPUT FOR FLOW EITHER HARDWIRED OR AVAILABLE THROUGH A GATEWAY ON THE MAKEUP WATER LINE. </d:list><d:list>OVERFLOW ALARM TO PREVENT OVERFLOW OF THE SUMP IN CASE OF MAKEUP WATER VALVE FAILURE. </d:list><d:list>EFFICIENT DRIFT ELIMINATORS THAT ACHIEVE DRIFT REDUCTION TO 0.002% OF THE CIRCULATED WATER VOLUME FOR COUNTER-FLOW TOWERS AND 0.005% FOR CROSS-FLOW TOWERS. </d:list><d:list>CONDUCTIVITY CONTROLS AND OVERFLOW ALARM SHALL BE VERIFIED ACCORDING TO NA 7.5.18. </d:list></d:l></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Fe02_HeatRejectionType == OpenTowerAxialFan Or OpenTowerAxialGTE900gpm Or 
 OpenTowerReplacementAxialGTE900gpm Or ClosedTowerAxialFan Or  OpenTowerCentrifugalFan Or ClosedTowerCentrifugalFan  
  
@@ -252,6 +252,18 @@ End If
  
 If result == true  FieldText and AdditionalRequirements static text is displayed in the report
 Else If result == false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM110_3c7_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.3(c)7 AIR-SOURCE HEAT PUMP WATER HEATERS (HPWHS)</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">HPWH SHALL MEET BACKUP HEAT REQUIREMENTS FOR SYSTEMS WHEN INLET AIR IS UNCONDITIONED, UNLESS THE COMPRESSOR CUT-OFF TEMPERATURE IS BELOW THE HEATING WINTER MEDIAN OF EXTREMES FOR THE CLOSEST LOCATION LISTED IN TABLE 2-3 FROM REFERENCE JOINT APPENDIX JA2. CONSUMER INTEGRATED HPWHS SHALL MEET ONE OF THE VENTILATION REQUIREMENTS LISTED IN <d:t24refnolink/>110.3(c)7B.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == AirWaterHeatPump
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
                       </xsd:annotation>
                     </xsd:element>
@@ -295,7 +307,7 @@ End if</xsd:documentation>
                     <xsd:element name="MM110_8c_MeasureApplies" type="comp:MeasureApplies">
                       <xsd:annotation>
                         <xsd:documentation source="FieldText">
-                          <d:b><d:t24refnolink/>110.8(c) INSULATING MATERIAL </d:b>
+                          <d:b><d:t24refnolink/>110.8(c) FLAME SPREAD RATING OF INSULATION </d:b>
                         </xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">ALL INSULATING MATERIALS SHALL BE INSTALLED IN COMPLIANCE WITH THE FLAME SPREAD RATING AND SMOKE DENSITY REQUIREMENTS OF THE CALIFORNIA BUILDING CODE.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Section L is required because B02c_ProjectHasSystemPiping == true Or B03d_ProjectHasDuctwork == true
@@ -310,7 +322,7 @@ End if</xsd:documentation>
                         <xsd:documentation source="FieldText">
                           <d:b><d:t24refnolink/>110.8(d) DUCTS </d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">IF INSULATION IS INSTALLED ON AN EXISTING SPACE-CONDITIONING DUCT, IT SHALL COMPLY WITH SECTION 604.0 OF THE CMC.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">IF INSULATION IS INSTALLED ON AN EXISTING SPACE-CONDITIONING DUCT, IT SHALL COMPLY WITH SECTION 605.0 OF THE CMC.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Section L is required because B02c_ProjectHasSystemPiping == true Or B03d_ProjectHasDuctwork == true
  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
@@ -347,7 +359,7 @@ End if</xsd:documentation>
                         <xsd:documentation source="FieldText">
                           <d:b><d:t24refnolink/>120.1(c)2 NATURAL VENTILATION  </d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">NATURALLY VENTILATED SPACES SHALL BE DESIGNED IN ACCORDANCE WITH <d:t24refnolink/>120.1(c)2A THROUGH <d:t24refnolink/>120.1(c)2C AND INCLUDE A MECHANICAL VENTILATION SYSTEMS DESIGNED IN ACCORDANCE WITH <d:t24refnolink/>120.1(c)3.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NATURALLY VENTILATED SPACES SHALL BE DESIGNED IN ACCORDANCE WITH <d:t24refnolink/>120.1(c)2A THROUGH <d:t24refnolink/>120.1(c)2D AND INCLUDE A MECHANICAL VENTILATION SYSTEMS DESIGNED IN ACCORDANCE WITH <d:t24refnolink/>120.1(c)3.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If  Section J is required because B01c_ProjectHasVentilation == true  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
@@ -393,7 +405,7 @@ End if</xsd:documentation>
                         <xsd:documentation source="FieldText">
                           <d:b><d:t24refnolink/>120.1(c)3 MECHANICAL VENTILATION  </d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">OCCUPIABLE SPACES SHALL BE VENTILATED WITH A MECHANICAL VENTILATION SYSTEM CAPABLE OF PROVIDING AN OUTDOOR AIRFLOW RATE (V<d:sub>Z</d:sub>) TO THE ZONE NO LESS THAN EQUATION 120.1-F.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">OCCUPIABLE SPACES SHALL BE VENTILATED WITH A MECHANICAL VENTILATION SYSTEM CAPABLE OF PROVIDING AN OUTDOOR AIRFLOW RATE (V<d:sub>Z</d:sub>) TO THE ZONE NO LESS THAN THE LARGER OF R<d:sub>P</d:sub> × P<d:sub>Z</d:sub> OR R<d:sub>A</d:sub> × A<d:sub>Z</d:sub> DESCRIBED IN <d:t24refnolink/>120.1(c)3A OR <d:t24refnolink/>120.1(c)3B.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If  Section J is required because B01c_ProjectHasVentilation == true  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
@@ -556,7 +568,7 @@ End if</xsd:documentation>
                         <xsd:documentation source="FieldText">
                           <d:b><d:t24refnolink/>120.1(d)4 DEMAND CONTROL VENTILATION DEVICES </d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">A. FOR EACH SYSTEM WITH DCV, AT LEAST ONE CO<d:sub>2</d:sub> SENSOR PER 10,000 FT2 SHALL BE INSTALLED IN EACH ROOM MEETING <d:t24refnolink/>120.1(d)3 CRITERIA. WHEN A ZONE OR A SPACE IS SERVED BY MORE THAN ONE SENSOR, A SIGNAL FROM ANY SENSOR SHALL TRIGGER AN INCREASE IN VENTILATION. <d:line2/>B. CO<d:sub>2</d:sub> SENSORS SHALL BE BETWEEN 3 AND 6 FT ABOVE THE FLOOR.  <d:line2/>C. DCV CONTROLS SHALL MAINTAIN CO<d:sub>2</d:sub> CONCENTRATIONS <d:lte/> 600 PPM PLUS THE OA CO<d:sub>2</d:sub> CONCENTRATION IN ALL ROOMS WITH CO<d:sub>2</d:sub> SENSORS. <d:line2/> D. OUTDOOR AIR CO<d:sub>2</d:sub> CONCENTRATION SHALL BE ASSUMED TO BE 400 PPM IF NO DIRECT MEASUREMENT, OR SHALL BE DYNAMICALLY MEASURED USING A CO<d:sub>2</d:sub> SENSOR LOCATED WITHIN 4 FT OF THE OUTDOOR AIR INTAKE.  <d:line2/>E. FOR SYSTEMS OPERATING DURING OCCUPANCY, CONTROLS SHALL MAINTAIN OA VENTILATION RATES NO LESS THAN: <d:line1/>THE RATE LISTED IN TABLE 120.1-A TIMES THE CONDITIONED FLOOR AREA FOR SPACES WITH CO<d:sub>2</d:sub> SENSORS, PLUS THE RATE REQUIRED BY <d:t24refnolink/>120.1(c)3 FOR OTHER SPACES SERVED BY THE SYSTEM, <d:line1/>OR  THE EXHAUST AIR RATE, WHICH EVER IS GREATER. <d:line2/>F. CO<d:sub>2</d:sub> SENSORS SHALL BE CERTIFIED BY THE MANUFACTURER TO MEET THE ACCURACY, CALIBRATION AND RESET REQUIREMENTS OF <d:t24refnolink/>120.1(d)4F. <d:line2/>G. THE CO<d:sub>2</d:sub> SENSOR READING FOR EACH ZONE SHALL BE DISPLAYED CONTINUOUSLY AND SHALL BE RECORDED ON SYSTEMS WITH DDC TO THE ZONE LEVEL.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A. FOR EACH SYSTEM WITH DCV, AT LEAST ONE CO<d:sub>2</d:sub> SENSOR PER 10,000 FT2 SHALL BE INSTALLED IN EACH ROOM MEETING <d:t24refnolink/>120.1(d)3 CRITERIA. WHEN A ZONE OR A SPACE IS SERVED BY MORE THAN ONE SENSOR, A SIGNAL FROM ANY SENSOR SHALL TRIGGER AN INCREASE IN VENTILATION. <d:line2/>B. CO<d:sub>2</d:sub> SENSORS SHALL BE BETWEEN 3 AND 6 FT ABOVE THE FLOOR.  <d:line2/>C. DCV CONTROLS SHALL MAINTAIN CO<d:sub>2</d:sub> CONCENTRATIONS <d:lte/> 600 PPM PLUS THE OA CO<d:sub>2</d:sub> CONCENTRATION IN ALL ROOMS WITH CO<d:sub>2</d:sub> SENSORS. <d:line2/> D. OUTDOOR AIR CO<d:sub>2</d:sub> CONCENTRATION SHALL BE ASSUMED TO BE 400 PPM IF NO DIRECT MEASUREMENT, OR SHALL BE DYNAMICALLY MEASURED USING A CO<d:sub>2</d:sub> SENSOR LOCATED WITHIN 4 FT OF THE OUTDOOR AIR INTAKE.  <d:line2/>E. FOR SYSTEMS OPERATING DURING OCCUPANCY, CONTROLS SHALL MAINTAIN OA VENTILATION RATES NO LESS THAN: <d:line1/>THE RATE LISTED IN EQUATION 120.1-F TIMES THE CONDITIONED FLOOR AREA FOR SPACES WITH CO<d:sub>2</d:sub> SENSORS, PLUS THE RATE REQUIRED BY <d:t24refnolink/>120.1(c)3 FOR OTHER SPACES SERVED BY THE SYSTEM, <d:line1/>OR  THE EXHAUST AIR RATE, WHICH EVER IS GREATER. <d:line2/>F. CO<d:sub>2</d:sub> SENSORS SHALL BE CERTIFIED BY THE MANUFACTURER TO MEET THE ACCURACY, CALIBRATION AND RESET REQUIREMENTS OF <d:t24refnolink/>120.1(d)4F. <d:line2/>G. THE CO<d:sub>2</d:sub> SENSOR READING FOR EACH ZONE SHALL BE DISPLAYED CONTINUOUSLY AND SHALL BE RECORDED ON SYSTEMS WITH DDC TO THE ZONE LEVEL.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If J16a_DemandControlVent == ProvidedDCV
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
@@ -583,9 +595,9 @@ End if</xsd:documentation>
                     <xsd:element name="MM120_1d5_MeasureApplies" type="comp:MeasureApplies">
                       <xsd:annotation>
                         <xsd:documentation source="FieldText">
-                          <d:b><d:t24refnolink/>120.1(d)5 OCCUPANT SENSOR VENTILATION CONTROLS</d:b>
+                          <d:b><d:t24refnolink/>120.1(d)5 OCCUPIED-STANDBY ZONE CONTROLS</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">WHEN REQUIRED BY THE <d:t24refnolink/> 120.2(e)3, OCCUPANT SENSORS SHALL BE USED TO REDUCE THE RATE OF OA FLOW WHEN OCCUPANTS ARE NOT PRESENT PER A AND B BELOW: <d:line1/>A. OCCUPANT SENSOR REQUIREMENTS: <d:l t="*"><d:list>SHALL HAVE SUITABLE COVERAGE AND PLACEMENT TO DETECT OCCUPANTS IN THE ENTIRE SPACE VENTILATED. IN 20 MINS OR LESS AFTER NO OCCUPANCY IS DETECTED BY ANY SENSORS COVERING THE ROOM, OCCUPANT SENSING CONTROLS SHALL INDICATE A ROOM IS VACANT.  </d:list><d:list>OCCUPANT SENSORS CONTROLLING LIGHTING, MAY ALSO CONTROL VENTILATION AS LONG AS THE LIGHTING AND VENTILATION CONTROL SIGNALS ARE INDEPENDENT OF EACH OTHER </d:list><d:list>SINGLE ZONES WITH MULTIPLE ROOMS SHALL HAVE AN OCCUPANCY SENSOR IN EACH ROOM, AND THE ZONE IS NOT CONSIDERED VACANT UNTIL ALL ROOMS IN THE ZONE ARE VACANT.</d:list></d:l> <d:line2/>B. ALLOW PRE-OCCUPANCY PURGE ONE HOUR PRIOR TO NORMAL SCHEDULED OCCUPANCY AS DESCRIBED IN <d:t24refnolink/>120.1(d)2.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">SPACE CONDITIONING ZONES SHALL INCLUDE OCCUPIED STANDBY CONTROLS COMPLYING WITH SECTION 120.1(D)5B WHEN ALL OF THE FOLLOWING ARE TRUE: <d:line1/>A. OCCUPANT SENSOR REQUIREMENTS: <d:l t="i"><d:list>ALL ROOMS SERVED BY THE ZONE ARE PERMITTED TO HAVE THEIR VENTILATION AIR REDUCED TO ZERO WHILE IN OCCUPIED-STANDBY MODE PER TABLE 120.1-A; AND </d:list><d:list>OCCUPANT SENSORS ARE REQUIRED BY SECTION 130.1(C)5 AND 6; AND </d:list><d:list>THE ZONE AND VENTILATION SYSTEM IS NOT SERVED BY PNEUMATIC CONTROLS.</d:list></d:l></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If J16b_OccupantSensorVent ==  ProvidedOccSensors 
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else  result = false and nothing is displayed in the report
@@ -598,7 +610,7 @@ End if</xsd:documentation>
                           <d:b><d:t24refnolink/>120.1(e) DUCTING FOR ZONAL HEATING AND COOLING UNITS </d:b>
                         </xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">WHERE A RETURN PLENUM IS USED TO DISTRIBUTE OUTDOOR AIR TO A ZONAL HEATING OR COOLING UNIT WHICH THEN SUPPLIES AIR TO A SPACE TO MEET <d:t24refnolink/>120.1(c)3, OUTDOOR AIR SHALL BE DUCTED TO DISCHARGE EITHER: <d:l t="*"><d:list>WITHIN 5 FEET OF THE UNIT </d:list><d:list>WITHIN 15 FEET OF THE UNIT, SUBSTANTIALLY TOWARD THE UNIT, AND AT A VELOCITY NOT LESS THAN 500 FEET PER MINUTE.</d:list></d:l></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If  J02a_NonResHotelMotelIncluded == true   Or J02b_HiRiseDwellingUnitsIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If  J02a_NonResHotelMotelIncluded == true   Or J02b_DwellingUnitsIncluded == true
  result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else  result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -620,7 +632,7 @@ End If</xsd:documentation>
                     <xsd:element name="MM120_1f1_MeasureApplies" type="comp:MeasureApplies">
                       <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements"><d:t24refnolink/>120.1(f)1 ALL MECHANICAL VENTILATION AND SPACE-CONDITIONING SYSTEMS SHALL BE DESIGNED WITH AND HAVE INSTALLED DUCTWORK, DAMPERS, AND CONTROLS TO ALLOW OA RATES TO BE OPERATED AT NO LESS THAN THE LARGER OF: 120.1(c)3 MINIMUMS OR THE RATE REQUIRED FOR MAKE-UP OF EXHAUST SYSTEMS FOR AN EXEMPT OR COVERED PROCESS, CONTROL OF ODORS, OR CONTAMINANT REMOVAL IN A SPACE.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:t24refnolink/>120.1(f)1 ALL MECHANICAL VENTILATION AND SPACE-CONDITIONING SYSTEMS SHALL BE DESIGNED WITH AND HAVE INSTALLED DUCTWORK, DAMPERS, AND CONTROLS TO ALLOW OA RATES TO BE OPERATED AT NO LESS THAN THE LARGER OF: 120.1(c)3 MINIMUMS OR THE RATE REQUIRED FOR MAKE-UP OF EXHAUST SYSTEMS FOR A COVERED OR NON-COVERED PROCESS, CONTROL OF ODORS, OR CONTAMINANT REMOVAL IN A SPACE.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If  Section J is required because B01c_ProjectHasVentilation == true  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
@@ -641,7 +653,7 @@ End if</xsd:documentation>
                       <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements"><d:t24refnolink/>120.1(f)3 MEASURED OA RATES OF CONSTANT VOLUME SYSTEMS SHALL BE TESTED TO CONFIRM THEIR ABILITY TO OPERATE WITHIN 10% OF THE DESIGN MINIMUM OUTSIDE AIR RATE.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If there is at least one row where H00d_SystemZoning == AllOtherZoneTypes 
+                        <xsd:documentation source="CalculationsAndRules">If there is at least one row where H00d_SystemZoning == AllOtherZoneTypes  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -899,7 +911,7 @@ End if</xsd:documentation>
                         <xsd:documentation source="FieldText">
                           <d:b><d:t24refnolink/>120.2(e)3 OCCUPANT SENSORS FOR SPACE-CONDITIONING SYSTEMS </d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">WHERE THE SYSTEM PROVIDING SPACE CONDITIONING ALSO PROVIDES THE VENTILATION REQUIRED BY <d:t24refnolink/>120.1 AND INCLUDES OCCUPANT SENSOR VENTILATION CONTROLS AS SPECIFIED IN SECTION 120.1(d)5, THE OCCUPANT SENSING ZONE CONTROLS SHALL ADDITIONALLY COMPLY WITH THE FOLLOWING: <d:l t="*"><d:list> IN 5 MINUTES OR LESS AFTER ENTERING OCCUPIED-STANDBY MODE AS DESCRIBED IN SECTION 120.1(d). <d:l t="*"><d:list>AUTOMATICALLY SETUP THE OPERATING COOLING TEMPERATURE SETPOINT BY 2<d:deg/>F OR MORE AND SETBACK THE OPERATING HEATING TEMPERATURE BY 2<d:deg/>F OR MORE, OR </d:list><d:list>FOR MULTIPLE ZONE SYSTEMS WITH DDC TO THE ZONE LEVEL, SETUP OPERATING COOLING TEMPERATURE SETPOINT BY  2<d:deg/>F OR MORE AND SETBACK THE OPERATING HEATING TEMPERATURE BY 2<d:deg/>F OR MORE, </d:list></d:l> </d:list><d:list>IN 5 MINUTES OR LESS AFTER ENTERING OCCUPIED-STANDBY MODE, MECHANICAL VENTILATION TO THE ZONE SHALL REMAIN OFF WHENEVER THE SPACE TEMPERATURE IS BETWEEN THE ACTIVE HEATING AND COOLING SETPOINTS.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">WHERE THE SYSTEM PROVIDING SPACE CONDITIONING ALSO PROVIDES THE VENTILATION REQUIRED BY <d:t24refnolink/>120.1 AND INCLUDES OCCUPANT SENSOR VENTILATION CONTROLS AS SPECIFIED IN SECTION 120.1(d)5, THE OCCUPANT SENSING ZONE CONTROLS SHALL ADDITIONALLY COMPLY WITH THE FOLLOWING: <d:l t="*"><d:list> IN 5 MINUTES OR LESS AFTER ENTERING OCCUPIED-STANDBY MODE AS DESCRIBED IN SECTION 120.1(d). <d:l t="*"><d:list>AUTOMATICALLY SETUP THE OPERATING COOLING TEMPERATURE SETPOINT BY 2<d:deg/>F OR MORE AND SETBACK THE OPERATING HEATING TEMPERATURE BY 2<d:deg/>F OR MORE, OR </d:list><d:list>FOR MULTIPLE ZONE SYSTEMS WITH DDC TO THE ZONE LEVEL, SETUP OPERATING COOLING TEMPERATURE SETPOINT BY  0.5<d:deg/>F OR MORE AND SETBACK THE OPERATING HEATING TEMPERATURE SET POINT BY 2<d:deg/>F OR MORE, </d:list></d:l> </d:list><d:list>IN 5 MINUTES OR LESS AFTER ENTERING OCCUPIED-STANDBY MODE, MECHANICAL VENTILATION TO THE ZONE SHALL REMAIN OFF WHENEVER THE SPACE TEMPERATURE IS BETWEEN THE ACTIVE HEATING AND COOLING SETPOINTS.</d:list></d:l></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If J16b_OccupantSensorVent  == ProvidedOccSensors
  result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false nothing is displayed in the report
@@ -1071,7 +1083,7 @@ End if</xsd:documentation>
                         <xsd:documentation source="FieldText">
                           <d:b><d:t24refnolink/>120.2(h) AUTOMATIC DEMAND SHED CONTROLS</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">SHALL MEET REQUIREMENTS IN <d:t24refnolink/>110.12 <d:line1/><d:t24refnolink/>110.12(a) DEMAND RESPONSIVE (DR) CONTROL REQUIREMENTS:  <d:l t="#"><d:list>EITHER CERTIFIED OPENADR 2.0a, OPENADR 2.0b VIRTUAL END NODE (VEN); OR CERTIFIED BY THE MANUFACTURER AS BEING CAPABLE OF RESPONDING TO A DR SIGNAL FROM A CERTIFIED OPENADR 2.0b VIRTUAL END NODE BY AUTOMATICALLY IMPLEMENTING THE CONTROL FUNCTIONS REQUESTED BY THE VIRTUAL END NODE FOR THE EQUIPMENT IT CONTROLS.</d:list><d:list>CAPABLE OF COMMUNICATING USING WI-FI, ZIGBEE, BACNET, ETHERNET, AND/OR HARD-WIRING. </d:list><d:list>MAY INCORPORATE AND USE ADDITIONAL PROTOCOLS BEYOND THOSE SPECIFIED IN <d:t24refnolink/>110.12(a)1 AND 2.</d:list><d:list>SHALL CONTINUE TO PERFORM ALL OTHER CONTROL FUNCTIONS PROVIDED BY THE CONTROL WHEN COMMUNICATIONS ARE DISABLED. </d:list><d:list>THERMOSTATS SHALL COMPLY WITH REFERENCE JOINT APPENDIX 5 (JA5) </d:list></d:l><d:line2/><d:t24refnolink/>110.12(b) NONRESIDENTIAL HVAC SYSTEMS WITH DDC TO THE ZONE LEVEL SHALL BE PROGRAMMED TO ALLOW CENTRALIZED DEMAND SHED FOR NON-CRITICAL ZONES. CONTROLS SHALL BE CAPABLE OF:   <d:l t="#"><d:list>REMOTELY INCREASING THE OPERATING COOLING TEMPERATURE SETPOINTS BY 4 DEGREES OR MORE IN ALL NON-CRITICAL ZONES ON SIGNAL FROM A CENTRALIZED CONTACT OR SOFTWARE POINT WITHIN AN EMCS  </d:list><d:list>REMOTELY DECREASING THE OPERATING HEATING TEMPERATURE SETPOINTS BY 4 DEGREES OR MORE IN ALL NON-CRITICAL ZONES ON SIGNAL FROM A CENTRALIZED CONTACT  OR SOFTWARE POINT WITHIN AN EMCS  </d:list><d:list>REMOTELY RESETTING THE TEMPERATURES IN ALL NON-CRITICAL ZONES TO ORIGINAL OPERATING LEVELS ON SIGNAL FROM A CENTRALIZED CONTACT OR SOFTWARE POINT WITHIN AN EMCS  </d:list><d:list>PROVIDING AN ADJUSTABLE RATE OF CHANGE FOR THE TEMPERATURE INCREASE, DECREASE, AND RESET </d:list><d:list>THE FOLLOWING FEATURES: <d:l t="A"><d:list>DISABLED BY AUTHORIZED FACILITY OPERATORS </d:list><d:list>MANUAL CONTROL BY AUTHORIZED FACILITY OPERATORS </d:list><d:list>UPON RECEIPT OF A DR SIGNAL, SPACE-CONDITIONING SYSTEMS SHALL CONDUCT A CENTRALIZED DEMAND SHED, AS SPECIFIED IN 110.12(b)1 AND 110.12(b)2, FOR NON-CRITICAL ZONES DURING THE DR PERIOD </d:list></d:l>  </d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">SHALL MEET REQUIREMENTS IN <d:t24refnolink/>110.12 <d:line1/><d:t24refnolink/>110.12(a) DEMAND RESPONSIVE (DR) CONTROL REQUIREMENTS:  <d:l t="#"><d:list>EITHER CERTIFIED OPENADR 2.0a, OPENADR 2.0b VIRTUAL END NODE (VEN), BASELINE PROFILE OPENADR 3.0 VIRTUAL END NODE; OR CERTIFIED BY THE MANUFACTURER AS BEING CAPABLE OF RESPONDING TO A DR SIGNAL FROM A CERTIFIED OPENADR 2.0b OR A CERTIFIED BASELINE PROFILE OPENADR 3.0 VIRTUAL END NODE BY AUTOMATICALLY IMPLEMENTING THE CONTROL FUNCTIONS REQUESTED BY THE VIRTUAL END NODE FOR THE EQUIPMENT IT CONTROLS.</d:list><d:list>CAPABLE OF COMMUNICATING USING WI-FI, ZIGBEE, BACNET, ETHERNET, AND/OR HARD-WIRING. </d:list><d:list>MAY INCORPORATE AND USE ADDITIONAL PROTOCOLS BEYOND THOSE SPECIFIED IN <d:t24refnolink/>110.12(a)1 AND 2.</d:list><d:list>SHALL CONTINUE TO PERFORM ALL OTHER CONTROL FUNCTIONS PROVIDED BY THE CONTROL WHEN THE DEMAND RESPONSE SIGNAL IS DISABLED. </d:list><d:list>THERMOSTATS SHALL COMPLY WITH REFERENCE JOINT APPENDIX 5 (JA5) </d:list></d:l><d:line2/><d:t24refnolink/>110.12(b) NONRESIDENTIAL HVAC SYSTEMS WITH DDC TO THE ZONE LEVEL SHALL BE PROGRAMMED TO ALLOW CENTRALIZED DEMAND SHED FOR NON-CRITICAL ZONES. CONTROLS SHALL BE CAPABLE OF:   <d:l t="#"><d:list>REMOTELY INCREASING THE OPERATING COOLING TEMPERATURE SETPOINTS BY 4 DEGREES OR MORE IN ALL NON-CRITICAL ZONES ON SIGNAL FROM A CENTRALIZED CONTACT OR SOFTWARE POINT WITHIN AN EMCS  </d:list><d:list>REMOTELY DECREASING THE OPERATING HEATING TEMPERATURE SETPOINTS BY 4 DEGREES OR MORE IN ALL NON-CRITICAL ZONES ON SIGNAL FROM A CENTRALIZED CONTACT  OR SOFTWARE POINT WITHIN AN EMCS  </d:list><d:list>REMOTELY RESETTING THE TEMPERATURES IN ALL NON-CRITICAL ZONES TO ORIGINAL OPERATING LEVELS ON SIGNAL FROM A CENTRALIZED CONTACT OR SOFTWARE POINT WITHIN AN EMCS  </d:list><d:list>PROVIDING AN ADJUSTABLE RATE OF CHANGE FOR THE TEMPERATURE INCREASE, DECREASE, AND RESET </d:list><d:list>THE FOLLOWING FEATURES: <d:l t="A"><d:list>DISABLED BY AUTHORIZED FACILITY OPERATORS </d:list><d:list>MANUAL CONTROL BY AUTHORIZED FACILITY OPERATORS </d:list><d:list>UPON RECEIPT OF A DR SIGNAL, SPACE-CONDITIONING SYSTEMS SHALL CONDUCT A CENTRALIZED DEMAND SHED, AS SPECIFIED IN 110.12(b)1 AND 110.12(b)2, FOR NON-CRITICAL ZONES DURING THE DR PERIOD </d:list></d:l>  </d:list></d:l></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If I07_ControlSystemDR = EMCS Or ThermostatDR 
  result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false nothing is displayed in the report
@@ -1083,9 +1095,9 @@ End if</xsd:documentation>
                         <xsd:documentation source="FieldText">
                           <d:b><d:t24refnolink/>120.2(i) ECONOMIZER FAULT DETECTION AND DIAGNOSTICS (FDD)</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">ALL NEWLY INSTALLED AIR-COOLED PACKAGED DIRECT-EXPANSION UNITS, WITH AN AIR HANDLER MECHANICAL COOLING CAPACITY GREATER THAN 33,000 BTU/HR AND AN INSTALLED AIR ECONOMIZER SHALL INCLUDE A STAND-ALONE OR INTEGRATED FDD SYSTEM IN ACCORDANCE WITH THE FOLLOWING:  <d:l t="#"><d:list>TEMPERATURE SENSORS SHALL BE PERMANENTLY INSTALLED TO MONITOR SYSTEM OPERATION: OUTSIDE AIR, SUPPLY AIR, AND WHEN REQUIRED FOR DIFFERENTIAL ECONOMIZER OPERATION, A RETURN AIR SENSOR.</d:list><d:list>TEMPERATURE SENSORS SHALL HAVE AN ACCURACY OF +/- 2<d:deg/>F OVER THE RANGE OF 40<d:deg/>F TO 80<d:deg/>F. </d:list><d:list>CONTROLLER SHALL HAVE THE CAPABILITY OF DISPLAYING THE VALUE OF EACH SENSOR AND</d:list><d:list>PROVIDE SYSTEM STATUS BY INDICATING: FREE COOLING AVAILABLE, ECONOMIZER ENABLED, COMPRESSOR ENABLED, HEATING ENABLED (IF AVAILABLE), MIXED AIR LOW LIMIT CYCLE ACTIVE. </d:list><d:list>CONTROLLER SHALL ALLOW MANUAL INITIATION OF EACH OPERATING MODE SO THAT THE OPERATION OF COOLING SYSTEMS, ECONOMIZERS, FANS, AND HEATING SYSTEMS CAN BE INDEPENDENTLY TESTED AND VERIFIED. </d:list><d:list>FAULTS SHALL BE REPORTED IN ONE OF THE FOLLOWING WAYS: <d:l t="*"><d:list> REPORTED TO AN EMCS REGULARLY MONITORED BY FACILITY STAFF.</d:list><d:list>ANNUNCIATED LOCALLY ON ONE OR MORE ZONE THERMOSTATS, OR A DEVICE WITHIN 5 FT OF ZONE THERMOSTAT(S), CLEARLY VISIBLE, AT EYE LEVEL, AND WITH INSTRUCTIONS TO CONTACT APPROPRIATE BUILDING STAFF OR AN HVAC TECHNICIAN.  IN BUILDINGS WITH MULTIPLE TENANTS, ANNUNCIATION SHALL EITHER BE WITHIN PROPERTY MANAGEMENT OFFICES OR IN A COMMON SPACE ACCESSIBLE BY THE PROPERTY OR BUILDING MANAGER  </d:list><d:list>REPORTED TO A FAULT MANAGEMENT APPLICATION WHICH AUTOMATICALLY PROVIDES NOTIFICATION OF THE FAULT TO REMOTE HVAC SERVICE PROVIDER. </d:list></d:l> </d:list><d:list>THE FDD SHALL DETECT: AIR TEMPERATURE SENSOR FAILURE/FAULT, FAILURE TO ECONOMIZE, ECONOMIZING WHEN NOT ADVISED, DAMPER NOT MODULATING, AND EXCESSIVE OUTDOOR AIR.  </d:list><d:list>THE FDD SYSTEM SHALL BE CERTIFIED BY THE ENERGY COMMISSION AS MEETING REQUIREMENTS OF <d:t24refnolink/>120.2(i)1 THROUGH <d:t24refnolink/>120.2(i)7 IN ACCORDANCE WITH <d:t24refnolink/>110.0 AND JOINT APPENDIX JA6.3  </d:list></d:l></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If H00b_FanSystemEconomizerType == FixedTemperature Or FixedEnthalpy Or DifferentialTemperature Or DifferentialEnthalpy
-Or If  H00b_FanSystemEconomizerException == HasWatersideEconomizer 
+                        <xsd:documentation source="AdditionalRequirements">ALL NEWLY INSTALLED AIR-COOLED PACKAGED DIRECT-EXPANSION UNITS, WITH AN AIR HANDLER MECHANICAL COOLING CAPACITY GREATER THAN 36,000 BTU/HR AND AN INSTALLED AIR ECONOMIZER SHALL INCLUDE A STAND-ALONE OR INTEGRATED FDD SYSTEM IN ACCORDANCE WITH THE FOLLOWING:  <d:l t="#"><d:list>TEMPERATURE SENSORS SHALL BE PERMANENTLY INSTALLED TO MONITOR SYSTEM OPERATION: OUTSIDE AIR, SUPPLY AIR, AND WHEN REQUIRED FOR DIFFERENTIAL ECONOMIZER OPERATION, A RETURN AIR SENSOR.</d:list><d:list>TEMPERATURE SENSORS SHALL HAVE AN ACCURACY OF +/- 2<d:deg/>F OVER THE RANGE OF 40<d:deg/>F TO 80<d:deg/>F. </d:list><d:list>CONTROLLER SHALL HAVE THE CAPABILITY OF DISPLAYING THE VALUE OF EACH SENSOR AND</d:list><d:list>PROVIDE SYSTEM STATUS BY INDICATING: FREE COOLING AVAILABLE, ECONOMIZER ENABLED, COMPRESSOR ENABLED, HEATING ENABLED (IF AVAILABLE), MIXED AIR LOW LIMIT CYCLE ACTIVE. </d:list><d:list>CONTROLLER SHALL ALLOW MANUAL INITIATION OF EACH OPERATING MODE SO THAT THE OPERATION OF COOLING SYSTEMS, ECONOMIZERS, FANS, AND HEATING SYSTEMS CAN BE INDEPENDENTLY TESTED AND VERIFIED. </d:list><d:list>FAULTS SHALL BE REPORTED IN ONE OF THE FOLLOWING WAYS: <d:l t="*"><d:list> REPORTED TO AN EMCS REGULARLY MONITORED BY FACILITY STAFF.</d:list><d:list>ANNUNCIATED LOCALLY ON ONE OR MORE ZONE THERMOSTATS, OR A DEVICE WITHIN 5 FT OF ZONE THERMOSTAT(S), CLEARLY VISIBLE, AT EYE LEVEL, AND WITH INSTRUCTIONS TO CONTACT APPROPRIATE BUILDING STAFF OR AN HVAC TECHNICIAN.  IN BUILDINGS WITH MULTIPLE TENANTS, ANNUNCIATION SHALL EITHER BE WITHIN PROPERTY MANAGEMENT OFFICES OR IN A COMMON SPACE ACCESSIBLE BY THE PROPERTY OR BUILDING MANAGER  </d:list><d:list>REPORTED TO A FAULT MANAGEMENT APPLICATION WHICH AUTOMATICALLY PROVIDES NOTIFICATION OF THE FAULT TO REMOTE HVAC SERVICE PROVIDER. </d:list></d:l> </d:list><d:list>THE FDD SHALL DETECT: AIR TEMPERATURE SENSOR FAILURE/FAULT, FAILURE TO ECONOMIZE, ECONOMIZING WHEN NOT ADVISED, DAMPER NOT MODULATING, AND EXCESSIVE OUTDOOR AIR.  </d:list><d:list>THE FDD SYSTEM SHALL BE CERTIFIED BY THE ENERGY COMMISSION AS MEETING REQUIREMENTS OF <d:t24refnolink/>120.2(i)1 THROUGH <d:t24refnolink/>120.2(i)7 IN ACCORDANCE WITH <d:t24refnolink/>110.0 AND JOINT APPENDIX JA6.3  </d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If H00h_FanSystemEconomizerType == FixedTemperature Or FixedEnthalpy Or DifferentialTemperature Or DifferentialEnthalpy
+Or If  H00h_FanSystemEconomizerException == HasWatersideEconomizer 
  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false nothing is displayed in the report
@@ -1150,12 +1162,24 @@ Else If result == false nothing is displayed in the report
 End if</xsd:documentation>
                       </xsd:annotation>
                     </xsd:element>
+                    <xsd:element name="MM120_2l_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>120.2(l) HVAC HOT WATER TEMPERATURE</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ZONES THAT USE HOT WATER FOR SPACE HEATING SHALL BE DESIGNED FOR A HOT WATER SUPPLY TEMPERATURE OF NO GREATER THAN 130<d:deg/>F.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B02f_ProjectHasBoilers == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
                     <xsd:element name="MM120_3_MeasureApplies" type="comp:MeasureApplies">
                       <xsd:annotation>
                         <xsd:documentation source="FieldText">
                           <d:b><d:t24refnolink/>120.3 PIPE INSULATION </d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">PIPE INSULATION IS REQUIRED FOR: <d:l t="*"><d:list>SPACE COOLING SYSTEM: REFRIGERANT SUCTION, CHILLED WATER, AND BRINE FLUID DISTRIBUTION SYSTEMS; AND </d:list><d:list>SPACE HEATING SYSTEM: REFRIGERANT, STEAM, STEAM CONDENSATE, AND HOT WATER FLUID DISTRIBUTION SYSTEMS. </d:list></d:l>THIS PIPE INSULATION MUST SHOW COMPLIANCE WITH EITHER TABLE 120.3-A BASED ON FLUID NORMAL OPERATING TEMPERATURE RANGES AND PIPE DIAMETERS, OR THE INSULATION THICKNESS EQUATION IN <d:t24refnolink/>120.3(c). <d:line2/>PIPE INSULATION SHALL BE PROTECTED FROM DAMAGE, INCLUDING THAT DUE TO SUNLIGHT, MOISTURE, EQUIPMENT MAINTENANCE, AND WIND. PROTECTION SHALL INCLUDE BUT NOT BE LIMITED TO THE FOLLOWING: <d:l t="*"><d:list>INSULATION EXPOSED TO WEATHER SHALL BE PROTECTED BY A COVER SUITABLE FOR OUTDOOR SERVICE. THE COVER SHALL BE WATER RETARDANT AND PROVIDE SHIELDING FROM SOLAR RADIATION THAT CAN CAUSE DEGRADATION OF THE MATERIAL. ADHESIVE TAPE SHALL NOT BE USED TO PROVIDE THIS PROTECTION. </d:list><d:list>INSULATION COVERING CHILLED WATER PIPING AND REFRIGERANT SUCTION PIPING LOCATED OUTSIDE THE CONDITIONED SPACE SHALL INCLUDE, OR BE PROTECTED BY, A CLASS I OR CLASS II VAPOR RETARDER. ALL VAPOR RETARDER PENETRATIONS AND JOINTS SHALL BE SEALED. </d:list><d:list>PIPE INSULATION BURIED BELOW GRADE MUST BE INSTALLED IN A WATER PROOF AND NON-CRUSHABLE CASING OR SLEEVE.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">PIPE INSULATION IS REQUIRED FOR: <d:l t="*"><d:list>SPACE COOLING SYSTEM: REFRIGERANT SUCTION, CHILLED WATER, AND BRINE FLUID DISTRIBUTION SYSTEMS; AND </d:list><d:list>SPACE HEATING SYSTEM: REFRIGERANT, STEAM, STEAM CONDENSATE, AND HOT WATER FLUID DISTRIBUTION SYSTEMS. </d:list><d:list>PROCESS HEATING SYSTEM PIPING: ALL REFRIGERANT, STEAM, STEAM CONDENSATE, AND HOT WATER FLUID DISTRIBUTION SYSTEMS FOR A HEATING PROCESS UNRELATED TO SPACE CONDITIONING OR SERVICE WATER-HEATING. </d:list><d:list>PROCESS COOLING SYSTEM PIPING: ALL REFRIGERANT SUCTION, CHILLED WATER, AND BRINE FLUID DISTRIBUTION SYSTEMS FOR COOLING A PROCESS UNRELATED TO SPACE CONDITIONING. </d:list></d:l>THIS PIPE INSULATION MUST SHOW COMPLIANCE WITH EITHER TABLE 120.3-A1 OR A2 BASED ON FLUID NORMAL OPERATING TEMPERATURE RANGES AND PIPE DIAMETERS, OR THE INSULATION THICKNESS EQUATION IN <d:t24refnolink/>120.3(c). <d:line2/>PIPE INSULATION SHALL BE PROTECTED FROM DAMAGE, INCLUDING THAT DUE TO SUNLIGHT, MOISTURE, EQUIPMENT MAINTENANCE, AND WIND. PROTECTION SHALL INCLUDE BUT NOT BE LIMITED TO THE FOLLOWING: <d:l t="*"><d:list>INSULATION EXPOSED TO WEATHER SHALL BE PROTECTED BY A COVER SUITABLE FOR OUTDOOR SERVICE. THE COVER SHALL BE WATER RETARDANT AND PROVIDE SHIELDING FROM SOLAR RADIATION THAT CAN CAUSE DEGRADATION OF THE MATERIAL. ADHESIVE TAPE SHALL NOT BE USED TO PROVIDE THIS PROTECTION. </d:list><d:list>INSULATION COVERING CHILLED WATER PIPING AND REFRIGERANT SUCTION PIPING LOCATED OUTSIDE THE CONDITIONED SPACE SHALL INCLUDE, OR BE PROTECTED BY, A CLASS I OR CLASS II VAPOR RETARDER. ALL VAPOR RETARDER PENETRATIONS AND JOINTS SHALL BE SEALED. </d:list><d:list>PIPE INSULATION BURIED BELOW GRADE MUST BE INSTALLED IN A WATER PROOF AND NON-CRUSHABLE CASING OR SLEEVE.</d:list></d:l></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If L10_PipeInsulationException == NoException
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false nothing is displayed in the report
@@ -1336,6 +1360,221 @@ Else result = false nothing is displayed in the report
 End if</xsd:documentation>
                       </xsd:annotation>
                     </xsd:element>
+                    <xsd:element name="MM120_4g_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>120.4(g) DUCT SEALING</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">DUCT SYSTEMS SHALL COMPLY WITH SUBSECTION 1 OR 2 BELOW: <d:line1/>1. NEW DUCT SYSTEMS THAT MEET THE CRITERIA IN SUBSECTIONS A, B, C, AND D BELOW SHALL BE SEALED TO A LEAKAGE RATE NOT TO EXCEED 6 PERCENT OF THE NOMINAL AIR HANDLER AIRFLOW RATE AS CONFIRMED THROUGH ACCEPTANCE TESTING, IN ACCORDANCE WITH REFERENCE NONRESIDENTIAL APPENDIX NA7.5.3; <d:l t="A"><d:list>THE DUCT SYSTEM DOES NOT SERVE A HEALTHCARE FACILITY; AND </d:list><d:list>THE DUCT SYSTEM PROVIDES CONDITIONED AIR TO AN OCCUPIABLE SPACE FOR A CONSTANT VOLUME, SINGLE ZONE, SPACE-CONDITIONING SYSTEM; AND </d:list><d:list>THE SPACE CONDITIONING SYSTEM SERVES LESS THAN 5,000 SQUARE FEET OF CONDITIONED FLOOR AREA; AND </d:list><d:list>THE COMBINED SURFACE AREA OF THE DUCTS LOCATED OUTDOORS OR IN UNCONDITIONED SPACE IS MORE THAN 25 PERCENT OF THE TOTAL SURFACE AREA OF THE ENTIRE DUCT SYSTEM.</d:list></d:l><d:line2/>2. NEW DUCT SYSTEMS THAT ARE NOT SUBJECT TO TESTING UNDER SECTION 120.4(G)1 SHALL INSTEAD MEET THE DUCT LEAKAGE TESTING REQUIREMENTS OF CMC SECTION 603.10.1.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B03d_ProjectHasDuctwork == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>120.5 MECHANICAL SYSTEMS ACCEPTANCE</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If MM120_5_01_MeasureApplies Or MM120_5_02_MeasureApplies Or MM120_5_03_MeasureApplies Or MM120_5_04_MeasureApplies Or MM120_5_05_MeasureApplies Or MM120_5_06_MeasureApplies Or MM120_5_07_MeasureApplies Or MM120_5_08_MeasureApplies Or MM120_5_09_MeasureApplies Or MM120_5_10_MeasureApplies Or MM120_5_11_MeasureApplies Or MM120_5_12_MeasureApplies Or MM120_5_13_MeasureApplies Or MM120_5_14_MeasureApplies Or MM120_5_15_MeasureApplies Or MM120_5_16_MeasureApplies Or MM120_5_17_MeasureApplies Or MM120_5_18_MeasureApplies Or MM120_5_19_MeasureApplies == true
+
+this static text is displayed in the report once as a heading  for these measures
+Else
+this static text is not displayed in the report
+End If</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_01_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">1. OUTDOOR AIR VENTILATION SYSTEMS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.1.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca01_RequireNRCAMch02A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_02_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">2. CONSTANT VOLUME, SINGLE ZONE AIR CONDITIONING AND HEAT PUMP UNIT CONTROLS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.2.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca02_RequireNRCAMch03A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_03_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">3. DUCT SYSTEMS THAT ARE SUBJECT TO TESTING UNDER SECTION 120.4(G)1, SECTION 141.0(B)DI, OR SECTION 141.0(B)2DII SHALL BE TESTED IN ACCORDANCE WITH NA7.5.3.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca03_RequireNRCAMch04A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_04_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">4. AIR ECONOMIZERS, DOAS, HRV OR ERV SYSTEMS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.4.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca04_RequireNRCAMch05A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_05_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">5. DEMAND CONTROL VENTILATION SYSTEMS REQUIRED BY SECTION 120.1(C)3 SHALL BE TESTED IN ACCORDANCE WITH NA7.5.5.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca05_RequireNRCAMch06A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_06_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">6. SUPPLY FAN VARIABLE FLOW CONTROLS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.6.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca06_RequireNRCAMch07A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_07_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">7. HYDRONIC SYSTEM VARIABLE FLOW CONTROLS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.7 AND NA7.5.9.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca07_RequireNRCAMch08A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_08_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">8. BOILER OR CHILLERS THAT REQUIRE ISOLATION CONTROLS AS SPECIFIED BY SECTION 140.4(K)2 OR 140.4(K)3 SHALL BE TESTED IN ACCORDANCE WITH NA7.5.7.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca08_RequireNRCAMch09A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_09_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">9. HYDRONIC SYSTEMS WITH SUPPLY WATER TEMPERATURE RESET CONTROLS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.8.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca09_RequireNRCAMch10A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_10_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">10. AUTOMATIC DEMAND SHED CONTROLS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.10.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca10_RequireNRCAMch11A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_11_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">11. FAULT DETECTION AND DIAGNOSTICS (FDD) FOR PACKAGED DIRECT-EXPANSION UNITS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.11.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca11_RequireNRCAMch12A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_12_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">12. AUTOMATIC FAULT DETECTION AND DIAGNOSTICS (FDD) FOR AIR-HANDLING UNITS AND ZONE TERMINAL UNITS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.12.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca12_RequireNRCAMch13A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_13_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">13. DISTRIBUTED ENERGY STORAGE DX AC SYSTEMS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.13.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca13_RequireNRCAMch14A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_14_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">14. THERMAL ENERGY STORAGE (TES) SYSTEMS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.14.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca14_RequireNRCAMch15A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_15_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">15. SUPPLY AIR TEMPERATURE RESET CONTROLS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.15.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca15_RequireNRCAMch16A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_16_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">16. WATER-COOLED CHILLERS SERVED BY COOLING TOWERS WITH CONDENSER WATER RESET CONTROLS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.16.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca16_RequireNRCAMch17A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_17_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">17. WHEN AN ENERGY MANAGEMENT CONTROL SYSTEM IS INSTALLED, IT SHALL FUNCTIONALLY MEET ALL OF THE APPLICABLE REQUIREMENTS OF PART 6.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca17_RequireNRCAMch18A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_18_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">18. OCCUPANT SENSING ZONE CONTROLS SHALL BE TESTED IN ACCORDANCE WITH NA7.5.17.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca18_RequireNRCAMch19A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MM120_5_19_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">19. CONDUCTIVITY CONTROLS AND OVERFLOW ALARMS FOR OPEN AND CLOSED-CIRCUIT COOLING TOWERS SHALL BE TESTED ACCORDING TO NA7.5.18.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca23_RequireNRCAMch24A == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
                     <xsd:element name="MM120_9_MeasureApplies" type="comp:MeasureApplies">
                       <xsd:annotation>
                         <xsd:documentation source="FieldText">
@@ -1365,6 +1604,18 @@ Else If result == false nothing is displayed in the report
 End if</xsd:documentation>
                       </xsd:annotation>
                     </xsd:element>
+                    <xsd:element name="MM120_10_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>120.10 FAN ENERGY INDEX</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">EACH FAN OR FAN ARRAY WITH A COMBINED MOTOR NAMEPLATE HORSEPOWER GREATER THAN 1.00 HP OR WITH A COMBINED FAN NAMEPLATE ELECTRICAL INPUT POWER GREATER THAN 0.89 KW SHALL HAVE A FAN ENERGY INDEX (FEI) OF 1.00 OR HIGHER AT FAN SYSTEM DESIGN CONDITIONS.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Hfei02_FanEnergyIndexException == NoneApplyFEI Or ExceptVavFan
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>
@@ -1377,7 +1628,7 @@ End if</xsd:documentation>
                   </xsd:documentation>
                   <xsd:documentation source="CalculationsAndRules">If LMCC-MCH-E is included in scope And 
 A07_RequestedMMB == true And 
-A03All_WholeBuildingOccupancy ==  HotelMotel
+A03All_WholeBuildingOccupancy == HotelMotel
 this Mandatory Measures Noteblock is required 
  
 Else it is not required and nothing is captured or displayed
@@ -1390,7 +1641,7 @@ End If</xsd:documentation>
                       <xsd:annotation>
                         <xsd:documentation source="FieldText">
                           <d:b>
-                            <d:i>2022 Nonresidential Energy Standards Compliance (Title 24, Part 6, Ch.1)</d:i>
+                            <d:i>2025 Nonresidential Energy Standards Compliance (Title 24, Part 6)</d:i>
                           </d:b>
                         </xsd:documentation>
                       </xsd:annotation>
@@ -1578,7 +1829,7 @@ End if</xsd:documentation>
                           <d:b><d:t24refnolink/>120.2(c)1 HOTEL/MOTEL GUEST ROOM THERMOSTATS</d:b>
                         </xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">HOTEL/MOTEL GUEST ROOM THERMOSTAT REQUIREMENTS: <d:line1/><d:tab1/>A: NUMERIC SETPOINTS IN <d:deg/>F AND  <d:deg/>C  <d:line1/><d:tab1/>B: SETPOINT STOPS, WHICH ARE ACCESSIBLE ONLY TO  AUTHORIZED PERSONNEL, SUCH THAT GUEST ROOM OCCUPANTS CANNOT ADJUST THE SETPOINT MORE THAN +/-5<d:deg/>F (+/-3<d:deg/>C)  <d:line1/><d:tab1/>C: MEET <d:t24refnolink/>110.2(c): ALL HEATING OR COOLING SYSTEMS NOT CONTROLLED BY A CENTRAL ENERGY MANAGEMENT CONTROL SYSTEM (EMCS) SHALL HAVE A SETBACK THERMOSTAT WITH CLOCK MECHANISM THAT ALLOWS BUILDING OCCUPANT TO PROGRAM THE TEMPERATURE SETPOINTS FOR AT LEAST FOUR PERIODS WITHIN 24 HOURS. THERMOSTATS FOR HEAT PUMPS SHALL MEET REQUIREMENTS OF <d:t24refnolink/>110.2(b).</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If  A03All_WholeBuildingOccupancy == HotelMotel  And I04_ThermostatType  == SetbackThermostat Or EnergyManagementSystem Or SetbackPlusDR  
+                        <xsd:documentation source="CalculationsAndRules">If   A03All_WholeBuildingOccupancy == HotelMotel  And I04_ThermostatType  == SetbackThermostat Or EnergyManagementSystem Or SetbackPlusDR  
  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
@@ -1686,6 +1937,809 @@ End if</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A03All_WholeBuildingOccupancy == HotelMotel  And  I05_ControlSystemShutOff ==  CardKeyShutOff Or OccupancySensor Or EMCS
  result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="DUMM120_5" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>120.5 HIGH RISE RESIDENTIAL MECHANICAL SYSTEMS ACCEPTANCE</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If DUMM120_5_01_MeasureApplies Or DUMM120_5_02_MeasureApplies Or DUMM120_5_03_MeasureApplies Or DUMM120_5_04_MeasureApplies Or DUMM120_5_05_MeasureApplies == true
+
+this static text is displayed in the report once as a heading  for these measures
+Else
+this static text is not displayed in the report
+End If</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="DUMM120_5_01_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">1. 120.1(B)2B HIGH-RISE RESIDENTIAL DWELLING UNIT ACCEPTANCE</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca19_RequireNRCAMch20 == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="DUMM120_5_02_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">2. 120.2(C)1 HOTEL/MOTEL GUEST ROOM THERMOSTATS</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A03All_WholeBuildingOccupancy == HotelMotel And I04_ThermostatType == SetbackThermostat Or EnergyManagementSystem Or SetbackPlusDR
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="DUMM120_5_03_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">3. 120.2(E)1 AUTOMATIC SHUT-OFF FOR SPACE-CONDITIONING SYSTEMS</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If I05_ControlSystemShutOff == 4HrTimer Or AutomaticTimerSwitch Or OccupancySensor Or EMCS
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="DUMM120_5_04_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">4. 120.2(E)2 AUTOMATIC RESTART FOR SPACE-CONDITIONING SYSTEMS</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If I05_ControlSystemShutOff == 4HrTimer Or AutomaticTimerSwitch Or OccupancySensor Or EMCS
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="DUMM120_5_05_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">5. 120.2(E)4 VACANCY CONTROLS FOR HOTEL/MOTEL GUEST ROOMS</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A03All_WholeBuildingOccupancy == HotelMotel And I05_ControlSystemShutOff == CardKeyShutOff Or OccupancySensor Or EMCS
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="Section_MultifamilyMandatoryMeasureBlock" minOccurs="0">
+                <xsd:annotation>
+                  <xsd:documentation source="FieldText">
+                    <d:b>
+                      <d:i>Multifamily Space Conditioning Mandatory Measures:</d:i>
+                    </d:b>
+                  </xsd:documentation>
+                  <xsd:documentation source="CalculationsAndRules">If LMCC-MCH-E is included in scope And 
+A07_RequestedMMB == true And 
+A03All_WholeBuildingOccupancy == LowRiseResidential
+this Mandatory Measures Noteblock is required 
+ 
+Else it is not required and nothing is captured or displayed
+End If</xsd:documentation>
+                  <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="MFMM_BeforeNote1" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b>
+                            <d:i>2025 Multifamily Energy Standards Compliance (Title 24, Part 6)</d:i>
+                          </d:b>
+                        </xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM_BeginNote1" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:i>The following mandatory measures have been identified as applicable to the project and must be met in order to demonstrate compliance with Title 24, Part 6</d:i>
+                        </xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.2 CERTIFICATION BY MANUFACTURERS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ANY SPACE CONDITIONING EQUIPMENT LISTED IN <d:t24ref h="110.2"/> SHALL ONLY BE INSTALLED IF CERTIFIED TO THE ENERGY COMMISSION TO MEET ALL APPLICABLE <d:t24ref h="110.2"/> REQUIREMENTS.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Section F is required because 
+B01a_ProjectHasHeatingAirSystem == true Or B01b_ProjectHasCoolingAirSystem == true Or  B02a_ProjectHasWaterEconomizer == true Or B02d_ProjectHasCoolingTowers == true Or B02e_ProjectHasChillers == true Or 
+B02f_ProjectHasBoilers == true Or B03b_ProjectHasElectricHeat == true 
+result = true  and FieldText and AdditionalRequirements static text is displayed in the report
+Else
+result = false and nothing is displayed in the report
+End If</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2a_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.2(a) SPACE CONDITIONING EQUIPMENT EFFICIENCY</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">EQUIPMENT SHALL MEET APPLICABLE EFFICIENCY REQUIREMENTS IN TABLE 110.2-A THROUGH TABLE 110.2-L.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Section F is required because 
+B01a_ProjectHasHeatingAirSystem == true Or B01b_ProjectHasCoolingAirSystem == true Or  B02a_ProjectHasWaterEconomizer == true Or B02d_ProjectHasCoolingTowers == true Or B02e_ProjectHasChillers == true Or 
+B02f_ProjectHasBoilers == true Or B03b_ProjectHasElectricHeat == true 
+ 
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2aExc1_ExceptionApplies" type="comp:ExceptionApplies" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b>EXCEPTION 1</d:b> TO <d:t24refnolink/>110.2(a) <d:b>APPLIES</d:b>:  
+
+MAXIMUM FULL LOAD KW/TON AND NPLV RATINGS SHALL BE ADJUSTED PER EXCEPTION 1 EQUATION FOR WATER-COOLED CENTRIFUGAL WATER-CHILLING PACKAGES THAT ARE NOT DESIGNED FOR OPERATION AT ANSI/AHRI STANDARD 550/590 TEST CONDITIONS.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If MFMM110_2a_MeasureApplies == true, 
+user input
+Else
+result = false
+End If
+ 
+If result == true  FieldText and AdditionalRequirements static text is displayed in the report
+Else If result == false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2aExc2_ExceptionApplies" type="comp:ExceptionApplies" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b>EXCEPTION 2</d:b> TO <d:t24refnolink/>110.2(a) <d:b>APPLIES</d:b>:  
+
+POSITIVE DISPLACEMENT (AIR- AND WATER-COOLED) CHILLERS WITH A LEAVING EVAPORATOR FLUID TEMPERATURE HIGHER THAN 32<d:deg/>F SHALL SHOW COMPLIANCE WITH TABLE 110.2-D WHEN TESTED OR CERTIFIED WITH WATER AT STANDARD RATING CONDITIONS</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If MFMM110_2a_MeasureApplies == true, 
+user input
+Else
+result = false
+End If
+ 
+If result == true  FieldText and AdditionalRequirements static text is displayed in the report
+Else If result == false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2aExc3_ExceptionApplies" type="comp:ExceptionApplies" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b>EXCEPTION 3</d:b> TO <d:t24refnolink/>110.2(a) <d:b>APPLIES</d:b>:  
+
+EQUIPMENT PRIMARILY SERVING REFRIGERATED WAREHOUSES OR COMMERCIAL REFRIGERATION.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If MFMM110_2a_MeasureApplies == true, 
+user input
+Else
+result = false
+End If
+ 
+If result == true  FieldText and AdditionalRequirements static text is displayed in the report
+Else If result == false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2b_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.2(b) HEAT PUMPS WITH SUPPLEMENTARY HEATERS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">THE HEAT-PUMP HEATING CUT-ON TEMPERATURE MUST BE HIGHER THAN THE SUPPLEMENTARY-HEATING CUT-ON TEMPERATURE. <d:line1/>THE HEAT-PUMP HEATING CUT-OFF TEMPERATURE MUST BE HIGHER THAN THE SUPPLEMENTARY-HEATING CUT-OFF TEMPERATURE.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If  F02_HvacSystemType == UnitaryHeatPumps
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2bExc1_ExceptionApplies" type="comp:ExceptionApplies" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b>EXCEPTION 1</d:b> TO <d:t24refnolink/>110.2(b) <d:b>APPLIES</d:b>:  
+
+CONTROLS MAY ALLOW SUPPLEMENTARY HEATER OPERATION DURING DEFROST AND TRANSIENT PERIODS, SUCH AS START-UP, IF CONTROLS ARE DESIGNED TO PREVENT UNNECESSARY OPERATION OF SUPPLEMENTARY HEATING.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If MFMM110_2b_MeasureApplies == true, 
+user input
+Else
+result = false
+End If
+ 
+If result == true  FieldText and AdditionalRequirements static text is displayed in the report
+Else If result == false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2bExc2_ExceptionApplies" type="comp:ExceptionApplies" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b>EXCEPTION 2</d:b> TO <d:t24refnolink/>110.2(b) <d:b>APPLIES</d:b>:  
+
+ROOM AIR-CONDITIONER HEAT PUMPS.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If MFMM110_2b_MeasureApplies == true, 
+user input
+Else
+result = false
+End If
+ 
+If result == true  FieldText and AdditionalRequirements static text is displayed in the report
+Else If result == false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2c_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.2(c) SETBACK THERMOSTATS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ALL HEATING OR COOLING SYSTEMS NOT CONTROLLED BY A CENTRAL ENERGY MANAGEMENT CONTROL SYSTEM (EMCS) SHALL HAVE A SETBACK THERMOSTAT WITH CLOCK MECHANISM THAT ALLOWS THE BUILDING OCCUPANT TO PROGRAM THE TEMPERATURE SETPOINTS FOR AT LEAST FOUR PERIODS WITHIN 24 HOURS.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If  I04_ThermostatType == SetbackThermostat
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2cExc_ExceptionApplies" type="comp:ExceptionApplies" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b>EXCEPTION</d:b> TO <d:t24refnolink/>110.2(c) <d:b>APPLIES</d:b>:  
+
+GRAVITY GAS WALL AND/OR FLOOR HEATERS, GRAVITY ROOM HEATERS, NONCENTRAL ELECTRIC HEATERS, FIREPLACES OR DECORATIVE GAS APPLIANCES, WOOD STOVES, ROOM AIR CONDITIONERS, AND ROOM AIR-CONDITIONER HEAT PUMPS.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If MFMM110_2c_MeasureApplies == true 
+user input
+Else
+result = false
+End If
+ 
+If result == true  FieldText and AdditionalRequirements static text is displayed in the report
+Else If result == false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2d_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.2(d) FURNACE STANDBY LOSS CONTROLS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">GAS- AND OIL-FIRED FORCED AIR FURNACES WITH INPUT <d:gte/>225,000 BTU/HR SHALL HAVE THE FOLLOWING: <d:l t="*"><d:list>AN INTERMITTENT IGNITION OR INTERRUPTED DEVICE (IID)</d:list><d:list>POWER VENTING OR A FLUE DAMPER (A VENT DAMPER MAY BE USED INSTEAD OF A FLUE DAMPER IF COMBUSTION AIR IS DRAWN FROM CONDITIONED SPACE.) </d:list><d:list>ALL FURNACES NOT LOCATED WITHIN THE CONDITIONED SPACE (INCLUDING ELECTRIC FURNACES) SHALL HAVE JACKET LOSSES <d:lte/> 0.75% OF THE INPUT RATING. </d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If  F02_HvacSystemType == FurnaceUnitHeater  And 
+And F06_HeatingRatedCapacity GTE 225,000
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2e_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.2(e) OPEN AND CLOSED CIRCUIT COOLING TOWERS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ALL OPEN AND CLOSED CIRCUIT COOLING TOWER INSTALLATIONS SHALL HAVE <d:l t="*"><d:list>CONDUCTIVITY-BASED CONTROLS THAT MAXIMIZE CYCLES OF CONCENTRATION BASED ON WATER QUALITY CONDITIONS. </d:list><d:list>DOCUMENTATION OF MAXIMUM ACHIEVABLE CYCLES OF CONCENTRATION </d:list><d:list>FLOW METER WITH ANALOG OUTPUT FOR FLOW EITHER HARDWIRED OR AVAILABLE THROUGH A GATEWAY ON THE MAKEUP WATER LINE. </d:list><d:list>OVERFLOW ALARM TO PREVENT OVERFLOW OF THE SUMP IN CASE OF MAKEUP WATER VALVE FAILURE. </d:list><d:list>EFFICIENT DRIFT ELIMINATORS THAT ACHIEVE DRIFT REDUCTION TO 0.002% OF THE CIRCULATED WATER VOLUME FOR COUNTER-FLOW TOWERS AND 0.005% FOR CROSS-FLOW TOWERS. </d:list><d:list>CONDUCTIVITY CONTROLS AND OVERFLOW ALARM SHALL BE VERIFIED ACCORDING TO NA 7.5.18. </d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Fe02_HeatRejectionType == OpenTowerAxialFan Or OpenTowerAxialGTE900gpm Or 
+OpenTowerReplacementAxialGTE900gpm Or ClosedTowerAxialFan Or  OpenTowerCentrifugalFan Or ClosedTowerCentrifugalFan  
+ 
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_2eExc_ExceptionApplies" type="comp:ExceptionApplies" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements"><d:b>EXCEPTION</d:b> TO <d:t24refnolink/>110.2(e) <d:b>APPLIES</d:b>:  
+
+TOWERS WITH RATED CAPACITY <d:lt/> 150 TONS.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If MFMM110_2e_MeasureApplies == true, 
+user input
+Else
+result = false
+End If
+ 
+If result == true  FieldText and AdditionalRequirements static text is displayed in the report
+Else If result == false nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_3c7_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.3(c)7 AIR-SOURCE HEAT PUMP WATER HEATERS (HPWHS)</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">HPWH SHALL MEET BACKUP HEAT REQUIREMENTS FOR SYSTEMS WHEN INLET AIR IS UNCONDITIONED, UNLESS THE COMPRESSOR CUT-OFF TEMPERATURE IS BELOW THE HEATING WINTER MEDIAN OF EXTREMES FOR THE CLOSEST LOCATION LISTED IN TABLE 2-3 FROM REFERENCE JOINT APPENDIX JA2. CONSUMER INTEGRATED HPWHS SHALL MEET ONE OF THE VENTILATION REQUIREMENTS LISTED IN <d:t24refnolink/>110.3(c)7B.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == AirWaterHeatPump
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_5_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.5 PILOT LIGHTS PROHIBITED FOR NATURAL GAS EQUIPMENT </d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">PILOT LIGHTS ARE PROHIBITED ON NATURAL GAS FAN-TYPE CENTRAL FURNACES, POOL HEATERS, SPA HEATERS, AND FIREPLACES.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If project scope requires submitting the LMCC-MCH-E  
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+End If</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_8a_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.8(a) INSULATION CERTIFICATION </d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">INSTALLED INSULATION SHALL BE CERTIFIED BY THE DEPARTMENT OF CONSUMER AFFAIRS PER TITLE 24, PART 12, CHAPTERS 12-13, ARTICLE 3 "STANDARDS FOR INSULATING MATERIAL."</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Section L is required because B02c_ProjectHasSystemPiping == true Or B03d_ProjectHasDuctwork == true
+ 
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_8b_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.8(b) UREA FORMALDEHYDE INSULATION  </d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">UREA FORMALDEHYDE INSULATION SHALL NOT BE INSTALLED UNLESS IN EXTERIOR SIDE WALLS WITH A FOUR-MIL-THICK PLASTIC POLYETHYLENE VAPOR RETARDER OR EQUIVALENT PLASTIC SHEATHING VAPOR RETARDER INSTALLED BETWEEN THE UREA FORMALDEHYDE FOAM INSULATION AND THE INTERIOR SPACE.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Section L is required because B02c_ProjectHasSystemPiping == true Or B03d_ProjectHasDuctwork == true
+ 
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_8c_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.8(c) FLAME SPREAD RATING OF INSULATION </d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ALL INSULATING MATERIALS SHALL BE INSTALLED IN COMPLIANCE WITH THE FLAME SPREAD RATING AND SMOKE DENSITY REQUIREMENTS OF THE CALIFORNIA BUILDING CODE.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Section L is required because B02c_ProjectHasSystemPiping == true Or B03d_ProjectHasDuctwork == true
+ 
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM110_8d_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>110.8(d) DUCTS </d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">IF INSULATION IS INSTALLED ON AN EXISTING SPACE-CONDITIONING DUCT, IT SHALL COMPLY WITH SECTION 605.0 OF THE CMC.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B03d_ProjectHasDuctwork == true
+ 
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2b2_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.2(b)2 COMPARTMENTALIZATION TESTING</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">THE AIR LEAKAGE RATE SHALL NOT EXCEED 0.3 CUBIC FEET PER MINUTE AT 50 PA (0.2 INCH WATER) PER FT2 OF DWELLING UNIT ENVELOPE SURFACE AREA AS CONFIRMED BY ECC RATER FIELD VERIFICATION AND DIAGNOSTIC TESTING IN ACCORDANCE WITH THE PROCEDURES SPECIFIED IN REFERENCE APPENDIX RA3.8 OR NA2.3 AS APPLICABLE.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If J28a_CompartmentalizationTest == CompRequired
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2b7_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.2(b)7 DEFROST REQUIREMENTS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A. IF A HEAT PUMP IS EQUIPPED WITH A DEFROST DELAY TIMER, THE DELAY TIMER MUST BE SET TO GREATER THAN OR EQUAL TO 90 MINUTES. <d:line1/>B. THE INSTALLER SHALL CERTIFY ON THE CERTIFICATE OF INSTALLATION THAT THE CONTROL CONFIGURATION HAS BEEN TESTED IN ACCORDANCE WITH THE TESTING PROCEDURE FOUND IN THE CERTIFICATE OF INSTALLATION.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If I11_HeatPumpDefrost == Provided
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c1_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.2(c)1 AIR FILTRATION - COMMON USE AREAS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A. MECHANICAL SPACE CONDITIONING SYSTEMS THAT SUPPLY AIR TO AN OCCUPIABLE SPACE THROUGH DUCTWORK EXCEEDING 10 FT IN LENGTH, MECHANICAL SUPPLY-ONLY VENTILATION SYSTEMS AND MAKEUP AIR SYSTEMS, AND THE SUPPLY SIDE OF MECHANICAL BALANCED VENTILATION SYSTEMS, INCLUDING HEAT RECOVERY VENTILATION SYSTEMS AND ENERGY RECOVERY VENTILATION SYSTEMS THAT PROVIDE OUTSIDE AIR TO AN OCCUPIABLE SPACE SHALL ALL BE DESIGNED TO ENSURE THAT ALL RECIRCULATED AIR AND ALL OUTDOOR AIR SUPPLIED TO THE OCCUPIABLE SPACE IS FILTERED BEFORE PASSING THROUGH ANY SYSTEM THERMAL CONDITIONING COMPONENTS. <d:line2/>B. AIR FILTER EFFICIENCY. THE FILTERS SHALL HAVE A DESIGNATED EFFICIENCY EQUAL TO OR GREATER THAN MERV 13 WHEN TESTED IN ACCORDANCE WITH ASHRAE STANDARD 52.2, OR A PARTICLE SIZE EFFICIENCY RATING EQUAL TO OR GREATER THAN 50 PERCENT IN THE 0.30-1.0 <d:mu/>M RANGE, AND EQUAL TO OR GREATER THAN 85 PERCENT IN THE 1.0-3.0 <d:mu/>M RANGE WHEN TESTED IN ACCORDANCE WITH AHRI STANDARD 680. <d:line2/>C. SYSTEMS SHALL BE EQUIPPED WITH AIR FILTERS THAT MEET EITHER A NOMINAL TWO INCH MINIMUM DEPTH FILTER(S); OR A NOMINAL ONE INCH MINIMUM DEPTH FILTER(S) SHALL BE ALLOWED IF THE FILTER(S) ARE SIZED ACCORDING TO EQUATION 160.2-A. <d:line2/>D. FILTER RACKS OR GRILLES SHALL BE GASKETED OR SEALED TO ELIMINATE ANY GAPS AROUND THE FILTER TO PREVENT AIR FROM BYPASSING THE FILTER.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If J07_AirFiltrationRequirements Or J27_AirFiltrationRequirements == ProvidedAirFiltration
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c2_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.2(c)2 NATURAL VENTILATION</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A. FLOOR AREA TO BE VENTILATED. SPACES OR PORTIONS OF SPACES TO BE NATURALLY VENTILATED SHALL BE LOCATED WITHIN A DISTANCE BASED ON THE CEILING HEIGHT, AS SPECIFIED IN I, II AND III. THE CEILING HEIGHT (H) SHALL BE THE MINIMUM CEILING HEIGHT IN THE SPACE. <d:l t="i"><d:list>SINGLE SIDE OPENING. FOR SPACES WITH OPERABLE OPENING ON ONE SIDE OF THE ZONE, THE NATURALLY VENTILATED AREA SHALL EXTEND TO A DISTANCE NOT GREATER THAN TWO TIMES THE HEIGHT OF THE CEILING FROM THE OPENINGS. </d:list><d:list>DOUBLE SIDE OPENING. FOR ZONES WITH OPENINGS ON TWO OPPOSITE SIDES OF THE ZONE, THE NATURALLY VENTILATED AREA SHALL EXTEND BETWEEN THE OPENINGS SEPARATED BY A DISTANCE NOT GREATER THAN FIVE TIMES THE HEIGHT OF THE CEILING. </d:list><d:list>CORNER OPENING. FOR ZONES WITH OPERABLE OPENINGS ON TWO ADJACENT SIDES OF A ZONE, THE NATURALLY VENTILATED AREA SHALL EXTEND TO A DISTANCE NOT GREATER THAN FIVE TIMES THE HEIGHT OF THE CEILING ALONG A LINE DRAWN BETWEEN THE OUTSIDE EDGES OF THE TWO OPENINGS THAT ARE THE FARTHEST APART.</d:list></d:l> <d:line2/>B. LOCATION AND SIZE OF OPENINGS. ZONES OR PORTIONS OF ZONES TO BE NATURALLY VENTILATED SHALL HAVE A PERMANENTLY OPEN AIRFLOW PATH TO OPENINGS DIRECTLY CONNECTED TO THE OUTDOORS. THE OPENABLE AREA SHALL BE NOT LESS THAN 4 PERCENT OF THE NET OCCUPIABLE FLOOR AREA. WHERE OPENINGS ARE COVERED WITH LOUVERS OR OTHERWISE OBSTRUCTED, THE OPENABLE AREA SHALL BE BASED ON THE NET FREE UNOBSTRUCTED AREA THROUGH THE OPENING. WHERE INTERIOR ROOMS, OR PORTIONS OF ROOMS, WITHOUT DIRECT OPENINGS TO THE OUTDOORS ARE VENTILATED THROUGH ADJOINING ROOMS, THE OPENING BETWEEN ROOMS SHALL BE PERMANENTLY UNOBSTRUCTED AND HAVE A FREE AREA OF NOT LESS THAN 8 PERCENT OF THE AREA OF THE INTERIOR ROOM OR LESS THAN 25 SQUARE FEET.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If J03_NaturalVentComplies == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c3_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.2(c)3 MECHANICAL VENTILATION</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">OCCUPIABLE SPACES SHALL BE VENTILATED WITH A MECHANICAL VENTILATION SYSTEM CAPABLE OF PROVIDING AN OUTDOOR AIRFLOW RATE (V<d:sub>Z</d:sub>) TO THE ZONE NO LESS THAN EQUATION 160.2-H. <d:line1/>A. THE OUTDOOR AIRFLOW RATE TO THE ZONE (V<d:sub>Z</d:sub>) SHALL BE DETERMINED IN ACCORDANCE WITH EQUATION 160.2-G; OR <d:line1/>B. FOR SPACES DESIGNED FOR AN EXPECTED NUMBER OF OCCUPANTS, THE OUTDOOR AIRFLOW RATE TO THE ZONE (V<d:sub>Z</d:sub>) SHALL BE DETERMINED IN ACCORDANCE WITH EQUATION 160.2-H.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Section J is required because B01c_ProjectHasVentilation == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c4_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.2(c)4 EXHAUST VENTILATION</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">THE DESIGN EXHAUST AIRFLOW SHALL BE DETERMINED IN ACCORDANCE WITH THE REQUIREMENTS IN TABLE 160.2-C. EXHAUST MAKEUP AIR SHALL BE PERMITTED TO BE ANY COMBINATION OF OUTDOOR AIR, RECIRCULATED AIR, OR TRANSFER AIR. THE EXHAUSTED AIRFLOW CFM SHALL MATCH TABLE J IN THE CERTIFICATE OF COMPLETION.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If J14_ExhaustSpaceRequiredMin GT 0
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c5" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.2(c)5 OPERATION AND CONTROL REQUIREMENTS FOR MINIMUM QUANTITIES OF OUTDOOR AIR</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If MFMM160_2c5A_MeasureApplies Or MFMM160_2c5C_MeasureApplies Or MFMM160_2c5D_MeasureApplies Or MFMM160_2c5E_MeasureApplies == true
+
+this static text is displayed in the report once as a heading  for these measures
+Else
+this static text is not displayed in the report
+End If</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c5A_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">A. TIMES OF OCCUPANCY. THE MINIMUM RATE OF OUTDOOR AIR REQUIRED BY <d:t24refnolink/>160.2(c) SHALL BE SUPPLIED TO EACH SPACE AT ALL TIMES WHEN THE SPACE IS USUALLY OCCUPIED. <d:line2/>B. PREOCCUPANCY. THE LESSER OF THE MINIMUM RATE OF OUTDOOR AIR REQUIRED BY <d:t24refnolink/>160.2(c) OR THREE COMPLETE AIR CHANGES SHALL BE SUPPLIED TO THE ENTIRE BUILDING DURING THE 1-HOUR PERIOD IMMEDIATELY BEFORE THE BUILDING IS NORMALLY OCCUPIED.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Section J is required because B01c_ProjectHasVentilation == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c5C_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">C. REQUIRED DEMAND CONTROL VENTILATION. DEMAND VENTILATION CONTROLS COMPLYING WITH <d:t24refnolink/>160.2(c)5D ARE REQUIRED FOR A SPACE WITH A DESIGN OCCUPANT DENSITY, OR A MAXIMUM OCCUPANT LOAD FACTOR FOR EGRESS PURPOSES IN THE CBC, GREATER THAN OR EQUAL TO 25 PEOPLE PER 1000 SQUARE FEET (40 SQUARE FEET OR LESS PER PERSON) IF THE SYSTEM SERVING THE SPACE HAS ONE OR MORE OF THE FOLLOWING: <d:l t="i"><d:list>AN AIR ECONOMIZER; OR </d:list><d:list>MODULATING OUTSIDE AIR CONTROL; OR </d:list><d:list>DESIGN OUTDOOR AIRFLOW RATE <d:gt/> 3,000 CFM.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If J16a_DemandControlVent != NotRequiredDCV
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c5D_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">D. DEMAND CONTROL VENTILATION DEVICES. <d:l t="i"><d:list>FOR EACH SYSTEM WITH DEMAND CONTROL VENTILATION (DCV), CO<d:sub>2</d:sub> SENSORS SHALL BE INSTALLED IN EACH ROOM THAT MEETS THE CRITERIA OF <d:t24refnolink/>160.2(c)5C WITH NO LESS THAN ONE SENSOR PER 10,000 FT2 OF FLOOR SPACE. </d:list><d:list>CO<d:sub>2</d:sub> SENSORS SHALL BE LOCATED IN THE ROOM BETWEEN 3 FT AND 6 FT ABOVE THE FLOOR OR AT THE ANTICIPATED HEIGHT OF THE OCCUPANTS HEADS. </d:list><d:list>DEMAND VENTILATION CONTROLS SHALL MAINTAIN CO<d:sub>2</d:sub> CONCENTRATIONS LESS THAN OR EQUAL TO 600 PPM PLUS THE OUTDOOR AIR CO<d:sub>2</d:sub> CONCENTRATION IN ALL ROOMS WITH CO<d:sub>2</d:sub> SENSORS. </d:list><d:list>OUTDOOR AIR CO<d:sub>2</d:sub> CONCENTRATION SHALL BE DETERMINED BY ONE OF THE FOLLOWING: <d:l t="a"><d:list>CO<d:sub>2</d:sub> CONCENTRATION SHALL BE ASSUMED TO BE 400 PPM WITHOUT ANY DIRECT MEASUREMENT; OR </d:list><d:list>CO<d:sub>2</d:sub> CONCENTRATION SHALL BE DYNAMICALLY MEASURED USING A CO<d:sub>2</d:sub> SENSOR LOCATED WITHIN 4 FT OF THE OUTDOOR AIR INTAKE.</d:list></d:l> </d:list><d:list>WHEN THE SYSTEM IS OPERATING DURING HOURS OF EXPECTED OCCUPANCY, THE CONTROLS SHALL MAINTAIN SYSTEM OUTDOOR AIR VENTILATION RATES NO LESS THAN R<d:sub>A</d:sub> x A<d:sub>Z</d:sub> PER EQUATION 160.2-H. </d:list><d:list>CO<d:sub>2</d:sub> SENSORS SHALL BE CERTIFIED BY THE MANUFACTURER TO BE ACCURATE WITHIN PLUS OR MINUS 75 PPM AT A 600 AND 1000 PPM CONCENTRATION WHEN MEASURED AT SEA LEVEL AND 25<d:deg/>C, FACTORY CALIBRATED, AND CERTIFIED BY THE MANUFACTURER TO REQUIRE CALIBRATION NO MORE FREQUENTLY THAN ONCE EVERY 5 YEARS. </d:list><d:list>THE CO<d:sub>2</d:sub> SENSOR(S) READING FOR EACH ZONE SHALL BE DISPLAYED CONTINUOUSLY, AND SHALL BE RECORDED ON SYSTEMS WITH DIGITAL DIRECT CONTROLS (DDC) TO THE ZONE LEVEL.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If J16a_DemandControlVent == ProvidedDCV
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c5E_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">E. OCCUPIED STANDBY ZONE CONTROLS. OCCUPIED STANDBY CONTROLS COMPLYING WITH TABLE 160.2-B SHALL MEET THE FOLLOWING: <d:l t="a"><d:list>ALL ROOMS SERVED BY THE ZONE ARE PERMITTED TO HAVE THEIR VENTILATION AIR REDUCED TO ZERO WHILE IN OCCUPIED-STANDBY MODE PER TABLE 160.2-B; AND </d:list><d:list>OCCUPANT SENSORS ARE REQUIRED BY <d:t24refnolink/>160.5(b)4Cv AND VI; AND </d:list><d:list>THE ZONE AND VENTILATION SYSTEM THAT SERVES IT IS CONTROLLED BY DDC.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If J16b_OccupantSensorVent == ProvidedOccSensors
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c6_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.2(c)6 DUCTING FOR ZONAL HEATING AND COOLING UNITS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">WHERE A RETURN PLENUM IS USED TO DISTRIBUTE OUTDOOR AIR TO A ZONAL HEATING OR COOLING UNIT THAT THEN SUPPLIES THE AIR TO A SPACE IN ORDER TO MEET THE REQUIREMENTS OF <d:t24refnolink/>160.2(c)3, THE OUTDOOR AIR SHALL BE DUCTED TO DISCHARGE EITHER: <d:l t="A"><d:list>WITHIN 5 FEET OF THE UNIT; OR </d:list><d:list>WITHIN 15 FEET OF THE UNIT, SUBSTANTIALLY TOWARD THE UNIT, AND AT A VELOCITY NOT LESS THAN 500 FEET PER MINUTE.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If J02a_NonResHotelMotelIncluded == true Or J02b_DwellingUnitsIncluded == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c7" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.2(c)7 DESIGN AND CONTROL REQUIREMENTS FOR QUANTITIES OF OUTDOOR AIR</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If MFMM160_2c7A_MeasureApplies Or MFMM160_2c7B_MeasureApplies Or MFMM160_2c7C_MeasureApplies == true
+
+this static text is displayed in the report once as a heading  for these measures
+Else
+this static text is not displayed in the report
+End If</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c7A_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">A. ALL MECHANICAL VENTILATION AND SPACE-CONDITIONING SYSTEMS SHALL BE DESIGNED WITH AND HAVE INSTALLED DUCTWORK, DAMPERS, AND CONTROLS TO ALLOW OUTSIDE AIR RATES TO BE OPERATED AT THE MINIMUM LEVELS SPECIFIED IN <d:t24refnolink/>160.2(c)3 OR THE RATE REQUIRED FOR MAKE-UP OF EXHAUST SYSTEMS THAT ARE REQUIRED FOR AN EXEMPT OR COVERED PROCESS, FOR CONTROL OF ODORS, OR FOR THE REMOVAL OF CONTAMINANTS WITHIN THE SPACE.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B01a_ProjectHasHeatingAirSystem == true Or B01b_ProjectHasCoolingAirSystem == true Or B03c_ProjectHasFanSystems == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c7B_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">B. ALL VARIABLE AIR VOLUME MECHANICAL VENTILATION AND SPACE-CONDITIONING SYSTEMS SHALL INCLUDE DYNAMIC CONTROLS THAT MAINTAIN MEASURED OUTSIDE AIR VENTILATION RATES WITHIN 10 PERCENT OF THE REQUIRED OUTSIDE AIR VENTILATION RATE AT BOTH FULL AND REDUCED SUPPLY AIRFLOW CONDITIONS.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If there is at least one row where H00d_SystemZoning == MultiZoneVAV
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c7C_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">C. MEASURED OUTDOOR AIR RATES OF CONSTANT VOLUME MECHANICAL VENTILATION AND SPACE-CONDITIONING SYSTEMS SHALL BE WITHIN 10 PERCENT OF THE REQUIRED OUTSIDE AIR RATE.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If there is at least one row where H00d_SystemZoning == AllOtherZoneTypes
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_2c8_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.2(c)8 AIR CLASSIFICATION AND RECIRCULATION LIMITATIONS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">AIR CLASSIFICATION AND RECIRCULATION LIMITATIONS OF AIR SHALL BE BASED ON THE AIR CLASSIFICATION AS LISTED IN TABLE 160.2-B OR TABLE 160.2-D, IN ACCORDANCE WITH THE FOLLOWING: <d:l t="A"><d:list>CLASS 1 AIR IS AIR WITH LOW CONTAMINANT CONCENTRATION, LOW SENSORY-IRRITATION INTENSITY, OR OFFENSIVE ODOR. RECIRCULATION OR TRANSFER OF CLASS 1 AIR TO ANY SPACE SHALL BE PERMITTED. </d:list><d:list>RECIRCULATION OR TRANSFER OF CLASS 2 AIR SHALL BE PERMITTED IN ACCORDANCE WITH <d:t24refnolink/>160.2(c)8Bi THROUGH 160.2(c)8Bv. </d:list><d:list>CLASS 3 AIR IS AIR WITH SIGNIFICANT CONTAMINANT CONCENTRATION, SIGNIFICANT SENSORY-IRRITATION INTENSITY, OR OFFENSIVE ODOR. RECIRCULATION OR TRANSFER OF CLASS 3 AIR SHALL BE PERMITTED IN ACCORDANCE WITH 160.2(c)8Ci AND 160.2(c)8Cii. </d:list><d:list>CLASS 4 AIR IS AIR WITH HIGHLY OBJECTIONABLE FUMES OR GASES OR WITH POTENTIALLY DANGEROUS PARTICLES, BIOAEROSOLS, OR GASES AT CONCENTRATIONS HIGH ENOUGH TO BE CONSIDERED AS HARMFUL. CLASS 4 AIR SHALL NOT BE RECIRCULATED OR TRANSFERRED TO ANY SPACE OR RECIRCULATED WITHIN THE SPACE OF ORIGIN. </d:list><d:list>ANCILLARY SPACES. REDESIGNATION OF CLASS 1 AIR TO CLASS 2 AIR SHALL BE PERMITTED FOR CLASS 1 SPACES THAT ARE ANCILLARY TO CLASS 2 SPACES. </d:list><d:list>TRANSFER. A MIXTURE OF AIR THAT HAS BEEN TRANSFERRED THROUGH OR RETURNED FROM SPACES OR LOCATIONS WITH DIFFERENT AIR CLASSES SHALL BE REDESIGNATED WITH THE HIGHEST CLASSIFICATION AMONG THE AIR CLASSES MIXED. </d:list><d:list>CLASSIFICATION. AIR LEAVING EACH SPACE OR LOCATION SHALL BE DESIGNATED AT AN EXPECTED AIR-QUALITY CLASSIFICATION NOT LESS THAN THAT SHOWN IN TABLES 160.2-B, 160.2-C OR 160.2-D.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Section J is required because B01c_ProjectHasVentilation == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2A_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(a)2A THERMOSTATIC CONTROLS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">HEATING AND COOLING SUPPLY TO EACH SPACE-CONDITIONING ZONE OR DWELLING UNIT SHALL BE CONTROLLED BY AN INDIVIDUAL THERMOSTATIC CONTROL THAT RESPONDS TO TEMPERATURE IN THE ZONE AND MEETS <d:t24refnolink/>160.3(a)2B REQUIREMENTS.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Section I is required because B01a_ProjectHasHeatingAirSystem, B01b_ProjectHasCoolingAirSystem Or B01c_ProjectHasControls == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2B" minOccurs="0">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(a)2B ZONAL THERMOSTATIC CONTROLS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">INDIVIDUAL THERMOSTATIC CONTROLS REQUIRED BY <d:t24refnolink/>160.3(a)2 SHALL BE CAPABLE OF:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If MFMM160_3a2B1To3_MeasureApplies Or MFMM160_3a2B4_MeasureApplies == true
+
+this static text is displayed in the report once as a heading  for these measures
+Else
+this static text is not displayed in the report
+End If</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2B1To3_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">BEING SET TO 55<d:deg/>F OR LOWER, WHEN CONTROLLING HEATING. <d:line1/>BEING SET UP TO 85<d:deg/>F OR HIGHER, WHEN CONTROLLING COOLING. <d:line1/>PROVIDING A TEMPERATURE RANGE, OR DEAD BAND OF AT LEAST 5<d:deg/>F WITHIN WHICH HEATING AND COOLING TO THE ZONE IS SHUT OFF OR REDUCED TO A MINIMUM.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If I02_SystemZoning == MultiZone Or MultiZoneDDC
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2B4_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">THERMOSTATIC CONTROLS FOR ALL SINGLE ZONE AIR CONDITIONERS AND HEAT PUMPS SHALL COMPLY WITH THE REQUIREMENTS OF <d:t24refnolink/>110.2(c) AND <d:t24refnolink/>110.12(a) AND, IF EQUIPPED WITH DDC TO THE ZONE LEVEL, WITH THE AUTOMATIC DEMAND SHED CONTROLS OF <d:t24refnolink/>110.12(b).</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If I02_SystemZoning == SingleZone
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2C_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(a)2C HEAT PUMP CONTROLS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ALL HEAT PUMPS WITH SUPPLEMENTARY ELECTRIC RESISTANCE HEATERS SHALL BE INSTALLED WITH CONTROLS THAT MEET <d:t24refnolink/>110.2(b) REQUIREMENTS.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == UnitaryHeatPumps
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2D_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(a)2D AUTOMATIC SHUT-OFF FOR SPACE-CONDITIONING SYSTEMS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">EACH SPACE-CONDITIONING SYSTEM SHALL BE INSTALLED WITH ONE OF THE FOLLOWING CONTROLS CAPABLE OF AUTOMATICALLY SHUTTING OFF THE SYSTEM DURING PERIODS OF NONUSE: <d:l t="*"><d:list>AUTOMATIC TIME SWITCH CONTROL PER <d:t24refnolink/>110.9, WITH ACCESSIBLE MANUAL OVERRIDE ALLOWING SYSTEM OPERATION FOR UP TO 4 HOURS, OR </d:list><d:list>AN OCCUPANCY SENSOR, OR </d:list><d:list>A 4-HOUR TIMER THAT CAN BE MANUALLY OPERATED. </d:list></d:l>EACH SPACE-CONDITIONING SYSTEM SHALL BE INSTALLED WITH CONTROLS THAT SHALL AUTOMATICALLY RESTART AND TEMPORARILY OPERATE THE SYSTEM AS REQUIRED TO MAINTAIN: <d:l t="*"><d:list>A SETBACK HEATING THERMOSTAT SETPOINT IF THE SYSTEM PROVIDES MECHANICAL HEATING, AND </d:list><d:list>A SETUP COOLING THERMOSTAT SETPOINT IF THE SYSTEM PROVIDES MECHANICAL COOLING.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If I05_ControlSystemShutOff == AutomaticTimerSwitch Or OccupancySensor Or 4HrTimer Or EMCS Or CardKeyShutOff Or 24x7OperationNA
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2D_OccSensing_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">OCCUPANT SENSING ZONE CONTROLS: <d:l t="*"><d:list>ZONE SHALL BE PLACED IN OCCUPIED STANDBY MODE WHEN ALL ROOMS SERVED BY THE ZONE ARE UNOCCUPIED FOR MORE THAN 5 MINUTES AND DURING OCCUPIED-STANDBY MODE <d:l t="o"><d:list>AUTOMATICALLY SETUP THE OPERATING COOLING TEMPERATURE SETPOINT BY 2<d:deg/>F OR MORE AND SETBACK THE OPERATING HEATING TEMPERATURE SET POINT BY 2<d:deg/>F OR MORE, OR </d:list><d:list>FOR MULTIPLE ZONE SYSTEMS WITH DDC TO THE ZONE LEVEL, SETUP OPERATING COOLING TEMPERATURE SETPOINT BY 0.5<d:deg/>F OR MORE AND SETBACK THE OPERATING HEATING TEMPERATURE SET POINT BY 0.5<d:deg/>F OR MORE. </d:list></d:l></d:list><d:list>ALL AIRFLOW TO THE ZONE SHALL BE SHUT OFF WHENEVER THE SPACE TEMPERATURE IS BETWEEN THE ACTIVE HEATING AND COOLING SETPOINTS.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If J16b_OccupantSensorVent == ProvidedOccSensors
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2E_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(a)2E DAMPERS FOR AIR SUPPLY AND EXHAUST EQUIPMENT</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">OUTDOOR AIR SUPPLY AND EXHAUST EQUIPMENT SHALL BE INSTALLED WITH DAMPERS THAT AUTOMATICALLY CLOSE UPON FAN SHUTDOWN.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Section I is required because B01a_ProjectHasHeatingAirSystem, B01b_ProjectHasCoolingAirSystem Or B01c_ProjectHasControls == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2F_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(a)2F ISOLATION AREA DEVICES</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">EACH SPACE-CONDITIONING SYSTEM SERVING MULTIPLE ZONES WITH A COMBINED CONDITIONED FLOOR AREA OF MORE THAN 25,000 FT2 SHALL BE DESIGNED, INSTALLED, AND CONTROLLED TO SERVE ISOLATION AREAS. <d:l t="*"><d:list>EACH ZONE, OR COMBINATION OF ZONES <d:lt/> 25,000 FT2, SHALL BE A SEPARATE ISOLATION AREA. </d:list><d:list>EACH ISOLATION AREA SHALL BE PROVIDED WITH ISOLATION DEVICES, SUCH AS VALVES OR DAMPERS THAT ALLOW THE SUPPLY OF HEATING OR COOLING TO BE REDUCED OR SHUT-OFF INDEPENDENTLY OF OTHER ISOLATION AREAS. </d:list><d:list>EACH ISOLATION AREA SHALL BE CONTROLLED BY A DEVICE MEETING THE REQUIREMENTS OF <d:t24refnolink/>160.3(a)2Di.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If I06_ControlSystemZone == AutomaticTimerSwitch Or OccupancySensor Or 4HrTimer Or EMCS
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2G_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(a)2G AUTOMATIC DEMAND SHED CONTROLS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">SHALL MEET REQUIREMENTS IN <d:t24refnolink/>110.12.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If I07_ControlSystemDR == EMCS Or ThermostatDR
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2H_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(a)2H ECONOMIZER FAULT DETECTION AND DIAGNOSTICS (FDD)</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ALL NEWLY INSTALLED AIR-COOLED PACKAGED DIRECT-EXPANSION UNITS, WITH AN AIR HANDLER MECHANICAL COOLING CAPACITY GREATER THAN 33,000 BTU/HR AND AN INSTALLED AIR ECONOMIZER SHALL INCLUDE A STAND-ALONE OR INTEGRATED FDD SYSTEM IN ACCORDANCE WITH THE FOLLOWING: <d:l t="#"><d:list>TEMPERATURE SENSORS SHALL BE PERMANENTLY INSTALLED TO MONITOR SYSTEM OPERATION: OUTSIDE AIR, SUPPLY AIR, AND WHEN REQUIRED FOR DIFFERENTIAL ECONOMIZER OPERATION, A RETURN AIR SENSOR. </d:list><d:list>TEMPERATURE SENSORS SHALL HAVE AN ACCURACY OF +/- 2<d:deg/>F OVER THE RANGE OF 40<d:deg/>F TO 80<d:deg/>F. </d:list><d:list>CONTROLLER SHALL HAVE THE CAPABILITY OF DISPLAYING THE VALUE OF EACH SENSOR AND PROVIDE SYSTEM STATUS BY INDICATING: FREE COOLING AVAILABLE, ECONOMIZER ENABLED, COMPRESSOR ENABLED, HEATING ENABLED (IF AVAILABLE), MIXED AIR LOW LIMIT CYCLE ACTIVE. </d:list><d:list>CONTROLLER SHALL ALLOW MANUAL INITIATION OF EACH OPERATING MODE SO THAT THE OPERATION OF COOLING SYSTEMS, ECONOMIZERS, FANS, AND HEATING SYSTEMS CAN BE INDEPENDENTLY TESTED AND VERIFIED. </d:list><d:list>FAULTS SHALL BE REPORTED IN ONE OF THE FOLLOWING WAYS: <d:l t="*"><d:list>REPORTED TO AN EMCS REGULARLY MONITORED BY FACILITY STAFF. </d:list><d:list>ANNUNCIATED LOCALLY ON ONE OR MORE ZONE THERMOSTATS, OR A DEVICE WITHIN 5 FT OF ZONE THERMOSTAT(S), CLEARLY VISIBLE, AT EYE LEVEL, AND WITH INSTRUCTIONS TO CONTACT APPROPRIATE BUILDING STAFF OR AN HVAC TECHNICIAN. IN BUILDINGS WITH MULTIPLE TENANTS, ANNUNCIATION SHALL EITHER BE WITHIN PROPERTY MANAGEMENT OFFICES OR IN A COMMON SPACE ACCESSIBLE BY THE PROPERTY OR BUILDING MANAGER. </d:list><d:list>REPORTED TO A FAULT MANAGEMENT APPLICATION WHICH AUTOMATICALLY PROVIDES NOTIFICATION OF THE FAULT TO REMOTE HVAC SERVICE PROVIDER. </d:list></d:l></d:list><d:list>THE FDD SHALL DETECT: AIR TEMPERATURE SENSOR FAILURE/FAULT, FAILURE TO ECONOMIZE, ECONOMIZING WHEN NOT ADVISED, DAMPER NOT MODULATING, AND EXCESSIVE OUTDOOR AIR. </d:list><d:list>THE FDD SYSTEM SHALL BE CERTIFIED BY THE ENERGY COMMISSION AS MEETING REQUIREMENTS OF 160.3(a)2H IN ACCORDANCE WITH <d:t24refnolink/>110.0 AND JOINT APPENDIX JA6.3.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If H00h_FanSystemEconomizerType == FixedTemperature Or FixedEnthalpy Or DifferentialTemperature Or DifferentialEnthalpy Or If H00h_FanSystemEconomizerException == HasWatersideEconomizer
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2I_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(a)2I DIRECT DIGITAL CONTROLS (DDC)</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">DDC TO THE ZONE SHALL BE PROVIDED AS SPECIFIED BY TABLE 160.3-C. THE DDC SYSTEM SHALL MEET CONTROL LOGIC REQUIREMENTS OF <d:t24refnolink/>160.3(a)2E AND <d:t24refnolink/>160.3(a)2G AND BE CAPABLE OF ALL OF THE FOLLOWING: <d:l t="#"><d:list>MONITORING ZONE AND SYSTEM DEMAND FOR FAN PRESSURE, PUMP PRESSURE, HEATING AND COOLING </d:list><d:list>TRANSFERRING ZONE AND SYSTEM DEMAND INFORMATION FROM ZONES TO AIR DISTRIBUTION SYSTEM CONTROLLERS AND FROM AIR DISTRIBUTION SYSTEMS TO HEATING AND COOLING PLANT CONTROLLERS </d:list><d:list>AUTOMATICALLY DETECTING THE ZONES AND SYSTEMS THAT MAY BE EXCESSIVELY DRIVING THE RESET LOGIC AND GENERATE AN ALARM OR OTHER INDICATION TO THE SYSTEM OPERATOR </d:list><d:list>READILY ALLOW OPERATOR REMOVAL OF ZONE(S) FROM THE RESET ALGORITHM </d:list><d:list>FOR NEW BUILDINGS, TRENDING AND GRAPHICALLY DISPLAYING INPUT AND OUTPUT POINTS </d:list><d:list>RESETTING HEATING AND COOLING SETPOINTS IN ALL NON-CRITICAL ZONES UPON RECEIPT OF A SIGNAL FROM A CENTRALIZED CONTACT OR SOFTWARE POINT AS DESCRIBED IN <d:t24refnolink/>160.3(a)2G.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Section I is required because B01a_ProjectHasHeatingAirSystem, B01b_ProjectHasCoolingAirSystem Or B01c_ProjectHasControls == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3a2J_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(a)2J OPTIMUM START/STOP CONTROLS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">SPACE CONDITIONING SYSTEMS WITH DDC TO THE ZONE SHALL HAVE OPTIMUM START/STOP CONTROLS. CONTROL ALGORITHM SHALL, AS A MINIMUM, BE A FUNCTION OF THE DIFFERENCE BETWEEN SPACE TEMPERATURE AND OCCUPIED SETPOINT, OUTDOOR AIR TEMP, AND AMOUNT OF TIME PRIOR TO SCHEDULED OCCUPANCY. <d:line2/>MASS RADIANT FLOOR SLAB SYSTEMS SHALL INCORPORATE FLOOR TEMPERATURE ONTO THE OPTIMUM START ALGORITHM.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If I05_ControlSystemShutOff == AutomaticTimerSwitch Or OccupancySensor Or 4HrTimer Or EMCS Or CardKeyShutOff
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3c1A_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(c)1A PIPE INSULATION</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">PIPE INSULATION IS REQUIRED FOR: <d:l t="*"><d:list>SPACE COOLING SYSTEM: REFRIGERANT SUCTION, CHILLED WATER, AND BRINE FLUID DISTRIBUTION SYSTEMS; AND </d:list><d:list>SPACE HEATING SYSTEM: REFRIGERANT SUCTION, STEAM, STEAM CONDENSATE, AND HOT WATER FLUID DISTRIBUTION SYSTEMS.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If L10_PipeInsulationException == NoException
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3c1C_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(c)1C INSULATION PROTECTION</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">PIPE INSULATION SHALL BE PROTECTED FROM DAMAGE, INCLUDING THAT DUE TO SUNLIGHT, MOISTURE, EQUIPMENT MAINTENANCE, AND WIND. PROTECTION SHALL INCLUDE BUT NOT BE LIMITED TO THE FOLLOWING: <d:l t="*"><d:list>INSULATION EXPOSED TO WEATHER SHALL BE PROTECTED BY A COVER SUITABLE FOR OUTDOOR SERVICE. THE COVER SHALL BE WATER RETARDANT AND PROVIDE SHIELDING FROM SOLAR RADIATION THAT CAN CAUSE DEGRADATION OF THE MATERIAL. ADHESIVE TAPE SHALL NOT BE USED TO PROVIDE THIS PROTECTION. </d:list><d:list>INSULATION COVERING CHILLED WATER PIPING AND REFRIGERANT SUCTION PIPING LOCATED OUTSIDE THE CONDITIONED SPACE SHALL INCLUDE, OR BE PROTECTED BY, A CLASS I OR CLASS II VAPOR RETARDER. ALL VAPOR RETARDER PENETRATIONS AND JOINTS SHALL BE SEALED. </d:list><d:list>PIPE INSULATION BURIED BELOW GRADE MUST BE INSTALLED IN A WATER PROOF AND NON-CRUSHABLE CASING OR SLEEVE.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If L10_PipeInsulationException == NoException
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3c2B_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(c)2B AIR DISTRIBUTION SYSTEM DUCTS AND PLENUMS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">PORTIONS OF SUPPLY- AND RETURN-AIR DUCTS CONVEYING HEATED OR COOLED AIR LOCATED IN ONE OR MORE OF THE FOLLOWING SPACES SHALL BE INSULATED TO A MINIMUM INSTALLED LEVEL OF R-8: <d:l t="*"><d:list>OUTDOORS </d:list><d:list>IN A SPACE BETWEEN THE ROOF AND AN INSULATED CEILING </d:list><d:list>IN A SPACE DIRECTLY UNDER A ROOF WITH FIXED VENTS OR OPENINGS TO THE OUTSIDE OR UNCONDITIONED SPACES </d:list><d:list>UNCONDITIONED SPACES, SUCH AS UNCONDITIONED CRAWLSPACE </d:list></d:l>PORTIONS OF SUPPLY-AIR DUCTS THAT ARE NOT IN ONE OF THESE SPACES, INCLUDING DUCTS BURIED IN CONCRETE SLAB, SHALL BE INSULATED TO A MINIMUM INSTALLED LEVEL OF R-4.2 OR BE ENCLOSED IN DIRECTLY CONDITIONED SPACE.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B03d_ProjectHasDuctwork == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3c2C_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(c)2C DUCT AND PLENUM MATERIALS</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">FACTORY-FABRICATED DUCT SYSTEMS MUST: <d:l t="*"><d:list>COMPLY WITH UL 181 FOR DUCTS AND CLOSURE SYSTEMS AND BE LABELED AS COMPLYING WITH UL 181 </d:list><d:list>ALL PRESSURE SENSITIVE TAPES, HEAT ACTIVATED TAPES, AND MASTICS USED IN MANUFACTURE OF RIGID FIBERGLASS DUCTS SHALL COMPLY WITH UL 181 AND UL 181A </d:list><d:list>ALL PRESSURE SENSITIVE TAPES AND MASTICS USED IN MANUFACTURE OF FLEXIBLE DUCTS SHALL COMPLY WITH UL 181 AND UL 181B </d:list><d:list>JOINTS AND SEAMS SHALL NOT BE SEALED WITH CLOTH BACK RUBBER ADHESIVE DUCT TAPES UNLESS COMBINED WITH MASTICS AND DRAWBANDS. </d:list></d:l>FIELD-FABRICATED DUCT SYSTEMS: FACTORY-MADE RIGID FIBERGLASS AND FLEXIBLE DUCTS FOR FIELD-FABRICATED DUCT SYSTEMS SHALL COMPLY WITH UL 181. ALL CLOSURE SYSTEMS, INCLUDING PRESSURE SENSITIVE TAPES, MASTICS, AND AEROSOL SEALANTS, SHALL MEET THE APPLICABLE REQUIREMENTS OF UL 181, UL 181A, AND UL 181B. <d:line2/>MASTIC SEALANTS AND MESH SHALL: <d:l t="*"><d:list>COMPLY WITH APPLICABLE REQUIREMENTS OF UL 181, UL 181A, AND UL 181B AND BE NONTOXIC AND WATER RESISTANT. </d:list><d:list>PASS ASTM C731 AND D2202, IF USED IN BUILDING INTERIOR. </d:list><d:list>PASS ASTM C731, C732, AND D2202, IF USED ON EXTERIOR. </d:list><d:list>SEALANTS AND MESHES SHALL BE RATED FOR EXTERIOR USE. </d:list></d:l>PRESSURE SENSITIVE TAPES SHALL COMPLY WITH APPLICABLE REQUIREMENTS OF UL 181, UL 181A, AND UL 181B. JOINTS AND SEAMS SHALL NOT BE SEALED WITH CLOTH BACK RUBBER ADHESIVE DUCT TAPES UNLESS COMBINED WITH MASTICS AND DRAWBANDS. <d:line2/>DRAWBANDS USED WITH FLEXIBLE DUCTS SHALL: <d:l t="*"><d:list>BE EITHER STAINLESS-STEEL WORM-DRIVE HOSE CLAMPS OR UV-RESISTANT NYLON DUCT TIES </d:list><d:list>HAVE A MINIMUM TENSILE STRENGTH RATING OF 150 LBS. </d:list><d:list>BE TIGHTENED AS RECOMMENDED BY THE MANUFACTURER </d:list></d:l>AEROSOL-SEALANT CLOSURES SHALL: <d:l t="*"><d:list>MEET REQUIREMENTS OF UL 723 AND BE APPLIED ACCORDING TO MANUFACTURER SPECIFICATIONS </d:list><d:list>TAPES OR MASTICS USED IN COMBINATION WITH AEROSOL SEALING SHALL COMPLY WITH APPLICABLE REQUIREMENTS OF UL 181, UL 181A AND UL 181B, ASTM C731, C732, AND D2202.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B03d_ProjectHasDuctwork == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3c2D_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(c)2D</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">ALL DUCT INSULATION PRODUCT R-VALUES SHALL BE BASED ON INSULATION ONLY AND TESTED IN ACCORDANCE WITH ASTM C518 OR ASTM C177 AND CERTIFIED PER <d:t24refnolink/>110.8.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B03d_ProjectHasDuctwork == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3c2E_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(c)2E</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">THE INSTALLED THICKNESS OF DUCT INSULATION USED TO DETERMINE ITS R-VALUE SHALL BE DETERMINED AS FOLLOWS: <d:l t="*"><d:list>DUCT BOARD, LINER, AND FACTORY MADE RIGIDS: USE NOMINAL INSULATION THICKNESS </d:list><d:list>DUCT WRAP: USE 75% (25% COMPRESSION) OF NOMINAL THICKNESS </d:list><d:list>FACTORY-MADE FLEXIBLE AIR DUCTS: DIVIDE THE DIFFERENCE BETWEEN THE ACTUAL OUTSIDE DIAMETER AND NOMINAL INSIDE DIAMETER BY TWO.</d:list></d:l></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B03d_ProjectHasDuctwork == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
+End if</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="MFMM160_3c2F_MeasureApplies" type="comp:MeasureApplies">
+                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">
+                          <d:b><d:t24refnolink/>160.3(c)2F</d:b>
+                        </xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">INSULATED FLEXIBLE DUCT PRODUCTS INSTALLED TO MEET THIS REQUIREMENT MUST INCLUDE LABELS (MAX INTERVALS OF 3 FT) SHOWING THERMAL PERFORMANCE R-VALUE FOR THE DUCT INSULATION ITSELF BASED ON TESTS IN <d:t24refnolink/>160.3(c)2D AND INSTALLED THICKNESS DETERMINED BY <d:t24refnolink/>160.3(c)2Eiii.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B03d_ProjectHasDuctwork == true
+result = true and FieldText and any AdditionalRequirements static text is displayed in the report
+Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
                       </xsd:annotation>
                     </xsd:element>
@@ -11665,7 +12719,12 @@ Else
                         <xsd:element name="I11_HeatPumpDefrost" type="hvac:HeatPumpDefrost">
                           <xsd:annotation>
                             <xsd:documentation source="FieldText">Heat Pump Defrost per <d:t24refnolink/>160.3(b)7</xsd:documentation>
-                            <xsd:documentation source="CalculationsAndRules">User selects from list:</xsd:documentation>
+                            <xsd:documentation source="CalculationsAndRules">User selects from list:
+
+Mandatory Measure Triggers:
+If result == Provided
+MFMM160_2b7_MeasureApplies = true and is displayed
+End If</xsd:documentation>
                           </xsd:annotation>
                         </xsd:element>
                       </xsd:sequence>
@@ -12432,7 +13491,12 @@ End If</xsd:documentation>
 If J20a_Status == New 
    result = CompRequired and D03_ExceptionalConditionMessageCCMCHE += CAandCVOnlyOneRequired
 Else 
-   result = BlankGrayedOut</xsd:documentation>
+   result = BlankGrayedOut
+
+Mandatory Measure Triggers:
+If result == CompRequired
+MFMM160_2b2_MeasureApplies = true and is displayed
+End If</xsd:documentation>
                           </xsd:annotation>
                           <xsd:simpleType>
                             <xsd:union memberTypes="comp:CompartmentalizationTest comp:NotApplicableMessage"/>
