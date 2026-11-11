@@ -14786,7 +14786,7 @@
   <xsd:simpleType name="ProjectHasAirWaterHeatPump">
     <xsd:annotation>
       <xsd:appinfo source="displaytermType">
-        <dtyp:displayterm>Air Economizer</dtyp:displayterm>
+        <dtyp:displayterm>Air-to-Water Heat Pump</dtyp:displayterm>
       </xsd:appinfo>
       <xsd:appinfo source="displayterm">
         <dtyp:displayterm value="true">Yes</dtyp:displayterm>

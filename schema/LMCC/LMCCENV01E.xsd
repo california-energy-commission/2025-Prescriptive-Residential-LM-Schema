@@ -1316,9 +1316,10 @@ End If
 Else If Fmetalb12_ConstructionSpecificationMethod == UFactor 
 If Fmetalb14_UfactorJA4Other IsPresent And Fmetalb14_UfactorJA4Other LTE Fmetalb13_InsulationUFactorLimit
 Or field beginning with Fmetalb14_ UfactorJA4 IsPresent is LTE Fmetalb13_InsulationUFactorLimit 
-And
-Fmetalb10_CavityInsulationNR IsPresent Or Fmetalb10_CavityInsulation GTE 10
-Or Fmetalb12_ContinuousInsulationNR IsPresent And == R13ci, R15ci, R19ci, R22ci, R25ci, R32ci Or R38ci  Or Fmetalb12_ContinuousInsulationOther IsPresent And GTE 10
+And Fmetalb10_CavityInsulationNR IsPresent And != R0
+Or Fmetalb10_CavityInsulationOther IsPresent And GTE 10
+Or Fmetalb11_ContinuousInsulationNR IsPresent And == R13ci, R15ci, R17ci, R19ci, R20ci, R22ci, R23ci, R25ci, R32ci Or R38ci
+Or Fmetalb11_ContinuousInsulationOther IsPresent And GTE 10
 result = true; Else result = false;
 End If
 End If
@@ -5484,7 +5485,8 @@ Else If Fmetalb_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters te
  
 Else If Fmetalb08_UfactorSpecSource == JA4Tables user selects from list as follows:  
  
-If Fmetalb09_MetalBuildingRoofType == ScrewDownRoof,  list  (display terms add dash e.g. R-10)
+If Fmetalb09_MetalBuildingRoofType == ScrewDownRoof,  list  (except for R0, display terms add dash e.g. R-10)
+R0 (display term None), 
 R10, 
 R11, 
 R13, 
@@ -5500,6 +5502,7 @@ R16,
 R19; 
  
 Else  If Fmetalb09_MetalBuildingRoofType == StandingSeam2Layer, list 
+R0 (display term None), 
 R10_R10 display term R-10 + R-10, 
 R10_R11 display term R-10 + R-11, 
 R10_R13 display term R-10 + R-13, 
@@ -5513,10 +5516,12 @@ R16_R19 display term R-16 + R-19,
 R19_R19 display term R-19 + R-19; 
  
 Else  If Fmetalb09_MetalBuildingRoofType == FilledThermalBlocks list 
+R0 (display term None), 
 R10_R19 display term R-10 + R-19.</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="env:CavityInsulationNR">
+                                                         <xsd:enumeration value="R0"/>
                                                          <xsd:enumeration value="R10"/>
                                                          <xsd:enumeration value="R10_R10"/>
                                                          <xsd:enumeration value="R10_R11"/>
@@ -17870,7 +17875,7 @@ End If</xsd:documentation>
                   <xsd:element name="Kvertperf" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Vertical Fenestration And Glazed Doors- U-factor, Solar Heat Gain Coefficient (RSHGC/ SHGC), Visible Transmittance (VT)[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required If K01VerticalAlt_FenestrationTypeApplies  Or K01VerticalNew_FenestrationTypeApplies   Or K01VerticalMF_FenestrationTypeApplies == true  K01GlazedDoors_FenestrationTypeApplies == true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If K01VerticalAlt_FenestrationTypeApplies  Or K01VerticalNew_FenestrationTypeApplies Or K01VerticalAltAdd_FenestrationTypeApplies Or K01VerticalMF_FenestrationTypeApplies == true  K01GlazedDoors_FenestrationTypeApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>

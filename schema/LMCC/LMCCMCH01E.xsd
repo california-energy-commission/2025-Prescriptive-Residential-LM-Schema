@@ -2777,11 +2777,14 @@ MM120_9_MeasureApplies = true and is displayed
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B02f_ProjectHasAirWaterHeatPump" type="comp:ProjectHasAirWaterHeatPump" minOccurs="0">
+                  <xsd:element name="B02g_ProjectHasAirWaterHeatPump" type="comp:ProjectHasAirWaterHeatPump" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="FieldText">Air-to-Water Heat Pump</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">
-If B02e_ProjectHasChillers or B02f_ProjectHasBoilers == true this field is user input. 
+If B02e_ProjectHasChillers or B02f_ProjectHasBoilers == true 
+  User input. If checked result = true, Else If unchecked result = false
+Else
+  result = false
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -3468,7 +3471,7 @@ End If</xsd:documentation>
             <xsd:annotation>
                <xsd:documentation source="FieldText">HVAC SYSTEM SUMMARY (DRY &amp; WET SYSTEMS)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required if any of the following values == true: 
-B01aProjectHasHeatingAirSystem,  B01b_ProjectHasCoolingAirSystem,  B02a_ProjectHasWaterEconomizer, B02d_ProjectHasCoolingTowers, B02e_ProjectHasChillers, B02f_ProjectHasBoilers, B03b_ProjectHasElectricHeat
+B01aProjectHasHeatingAirSystem,  B01b_ProjectHasCoolingAirSystem,  B02a_ProjectHasWaterEconomizer, B02d_ProjectHasCoolingTowers, B02e_ProjectHasChillers, B02f_ProjectHasBoilers, B03b_ProjectHasElectricHeat, B02g_ProjectHasAirWaterHeatPump
  
 Mandatory Measure Triggers:
 If this section is required
@@ -7294,7 +7297,7 @@ End If_</xsd:documentation>
                   <xsd:element name="TableChiller" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Chiller &amp; Air-to-Water Heat Pump Efficiency and Controls [/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required if B02e_ProjectHasChillers or B02f_ProjectHasAirWaterHeatPump == true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required if B02e_ProjectHasChillers or B02g_ProjectHasAirWaterHeatPump == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -8331,25 +8334,44 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">Controls per [d:t24refnolink/]140.4(k), [d:t24refnolink/]170.2(c)I</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Fd09_ChillerIsolationValve" type="hvac:ChillerIsolationValve" >
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Fd09_ChillerIsolationValve" type="hvac:ChillerIsolationValve">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Isolation Valve</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list; HasValve display term Yes, No1Chiller display term NA: only 1 chiller in plant, NoChillersInSeries display term NA: chillers in series.  
- 
-If result == No1Chiller And Fd03_ChillerCount GT 1  D03_ExceptionalConditionMessageCCMCHE += MultipleChillerConflictInF
-End If</xsd:documentation>
+               
+               If result == No1Chiller And Fd03_ChillerCount GT 1  D03_ExceptionalConditionMessageCCMCHE += MultipleChillerConflictInF
+               End If</xsd:documentation>
                                        </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Fd10_TempResetControl" type="hvac:TempResetControl" >
+                                       </xsd:element>
+                                       <xsd:element name="Fd09_NotApplicableMessage" type="comp:NotApplicableMessage">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Temperature Reset</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list; HasTempReset display term Yes, NoLTE500000 display term NA: LTE 500,00 Btu/h, NoVariableFlowControls display term NA: Variable Flow Controls,  NoServesHealthcare display term NA: System serves Healthcare</xsd:documentation>
-                                          <xsd:appinfo source="displayterm">
-                                             <dtyp:displayterm value="NoLTE500000">NA: [d:lte/]500,00 Btu/h (41.67 tons)</dtyp:displayterm>
-                                          </xsd:appinfo>
-
+                                          <xsd:documentation source="FieldText">Isolation Valve</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Fd02_ChillerType == AirWaterHeatPump
+               result = BlankGrayedOut Stored in the NotApplicableMessage
+               End If</xsd:documentation>
                                        </xsd:annotation>
-                                    </xsd:element>
+                                       </xsd:element>
+                                       </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Fd10_TempResetControl" type="hvac:TempResetControl" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Temperature Reset</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from list; HasTempReset display term Yes, NoLTE500000 display term NA: LTE 500,00 Btu/h, NoVariableFlowControls display term NA: Variable Flow Controls,  NoServesHealthcare display term NA: System serves Healthcare</xsd:documentation>
+                                             <xsd:appinfo source="displayterm">
+                                                <dtyp:displayterm value="NoLTE500000">NA: [d:lte/]500,00 Btu/h (41.67 tons)</dtyp:displayterm>
+                                             </xsd:appinfo>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Fd10_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Temperature Reset</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Fd02_ChillerType == AirWaterHeatPump
+               result = BlankGrayedOut Stored in the NotApplicableMessage
+               End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Fd11_CoolingTowerServing" type="hvac:CoolingTowerServing" >
                                           <xsd:annotation>
@@ -8783,7 +8805,7 @@ For any result   D03_ExceptionalConditionMessageCCMCHE += ElectricHeatExceptionI
                   <xsd:element name="TableMechanicalHeatRecovery" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Mechanical Heat Recovery[/d:b] [d:t24refnolink/]140.4(s)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If B01aProjectHasHeatingAirSystem Or B01b_ProjectHasCoolingAirSystem Or B02a_ProjectHasWaterEconomizer Or B02d_ProjectHasCoolingTowers Or B02e_ProjectHasChillers Or B02f_ProjectHasBoilers Or B03b_ProjectHasElectricHeat == true
+                        <xsd:documentation source="CalculationsAndRules">If B01aProjectHasHeatingAirSystem Or B01b_ProjectHasCoolingAirSystem Or B02a_ProjectHasWaterEconomizer Or B02d_ProjectHasCoolingTowers Or B02e_ProjectHasChillers Or B02f_ProjectHasBoilers Or B02g_ProjectHasAirWaterHeatPump Or B03b_ProjectHasElectricHeat == true, 
 TableMechanicalHeatRecovery is required
 </xsd:documentation>
                      </xsd:annotation>

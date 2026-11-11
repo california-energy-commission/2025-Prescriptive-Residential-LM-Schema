@@ -4052,7 +4052,6 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="Exhaust">Exhaust</dtyp:displayterm>
-            <dtyp:displayterm value="OtherFanFunction">Other</dtyp:displayterm>
             <dtyp:displayterm value="Relief">Relief</dtyp:displayterm>
             <dtyp:displayterm value="Return">Return</dtyp:displayterm>
             <dtyp:displayterm value="Supply">Supply</dtyp:displayterm>
@@ -4063,7 +4062,6 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="Exhaust"/>
-         <xsd:enumeration value="Other"/>
          <xsd:enumeration value="Relief"/>
          <xsd:enumeration value="Return"/>
          <xsd:enumeration value="Supply"/>
